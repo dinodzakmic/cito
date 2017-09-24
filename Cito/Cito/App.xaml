@@ -2,9 +2,15 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cito.App">
-  <Application.Resources>
 
-    <!-- Application resource dictionary -->
-
-  </Application.Resources>
+    <Application.Resources>
+      
+      <ResourceDictionary>
+          <Color x:Key="CitoMainPurple">#9679b5</Color>
+          <Color x:Key="CitoBackgroundLight">#fcfbfa</Color>
+          <Color x:Key="CitoAccentAqua">#6dc5ed</Color>
+          <x:String x:Key="LogoImage">CitoLogo.png</x:String>
+      </ResourceDictionary>
+    </Application.Resources>
+  
 </Application>

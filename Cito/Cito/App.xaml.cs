@@ -13,7 +13,7 @@ namespace Cito
         {
             InitializeComponent();
 
-            MainPage = new Cito.MainPage();
+            MainPage = new FirstPage();
         }
 
         protected override void OnStart()

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Button xmlns="http://xamarin.com/schemas/2014/forms"
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        x:Class="Cito.Framework.Controls.CitoButton"
+        BackgroundColor="{StaticResource CitoMainPurple}"
+        TextColor="{StaticResource CitoBackgroundLight}"
+        FontFamily="Lato"
+        FontSize="15"
+        BorderColor="{StaticResource CitoAccentAqua}"
+        BorderWidth="1"
+        BorderRadius="5">
+  <Button.HeightRequest>
+      <OnPlatform x:TypeArguments="x:Double" iOS="40" Android="40" />
+  </Button.HeightRequest>
+</Button>
+
