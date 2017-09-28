@@ -1,11 +1,13 @@
 ﻿using System;
 
 using Android.App;
+using Android.Appwidget;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Xamarin.Forms;
 
 namespace Cito.Droid
 {
@@ -21,6 +23,8 @@ namespace Cito.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
+
+            Window.SetStatusBarColor(Android.Graphics.Color.Transparent);
         }
     }
 }

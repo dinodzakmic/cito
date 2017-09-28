@@ -7,9 +7,14 @@
       
       <ResourceDictionary>
           <Color x:Key="CitoMainPurple">#9679b5</Color>
+          <Color x:Key="CitoMainPurpleLight">#bfa4de</Color>
           <Color x:Key="CitoBackgroundLight">#fcfbfa</Color>
           <Color x:Key="CitoAccentAqua">#6dc5ed</Color>
+          <Color x:Key="CitoAccentAquaLight">#a1edf7</Color>
+        
           <x:String x:Key="LogoImage">CitoLogo.png</x:String>
+          <x:String x:Key="FacebookIcon">FacebookIcon.png</x:String>
+          <x:String x:Key="GoogleIcon">GoogleIcon.png</x:String>
       </ResourceDictionary>
     </Application.Resources>
   

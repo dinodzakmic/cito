@@ -7,10 +7,10 @@
         FontFamily="Lato"
         FontSize="15"
         BorderColor="{StaticResource CitoAccentAqua}"
-        BorderWidth="1"
-        BorderRadius="5">
+        BorderWidth="1.5"
+        BorderRadius="10">
   <Button.HeightRequest>
-      <OnPlatform x:TypeArguments="x:Double" iOS="40" Android="40" />
+      <OnPlatform x:TypeArguments="x:Double" iOS="45" Android="45" />
   </Button.HeightRequest>
 </Button>
 

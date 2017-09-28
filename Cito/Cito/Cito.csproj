@@ -44,9 +44,19 @@
     <Compile Include="Framework\Controls\CitoButton.xaml.cs">
       <DependentUpon>CitoButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Framework\Controls\CitoEntry.xaml.cs">
+      <DependentUpon>CitoEntry.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Framework\Controls\CitoLabel.xaml.cs">
       <DependentUpon>CitoLabel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Framework\Validation\EntryMandatory.cs" />
+    <Compile Include="Framework\Validation\IValidatableBehavior.cs" />
+    <Compile Include="Framework\Validation\IValidatableField.cs" />
+    <Compile Include="Framework\Validation\Validation.cs" />
+    <Compile Include="Framework\Validation\ValidationBase.cs" />
+    <Compile Include="Framework\Validation\ValidationFieldList.cs" />
+    <Compile Include="Framework\Validation\ValidationResult.cs" />
     <Compile Include="Localization\TextResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -55,6 +65,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecondPage.xaml.cs">
       <DependentUpon>SecondPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ThirdPage.xaml.cs">
+      <DependentUpon>ThirdPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +120,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="SecondPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Framework\Controls\CitoEntry.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ThirdPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

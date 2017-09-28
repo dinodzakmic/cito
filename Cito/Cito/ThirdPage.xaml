@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
+             x:Class="Cito.ThirdPage">
+  
+<StackLayout x:Name="Scroll">
+  <ScrollView>
+    <StackLayout Padding="20, 40" Spacing="10">
+
+      <Image Source="{StaticResource LogoImage}" Aspect="AspectFit" />
+      <StackLayout HeightRequest="40" />
+
+        <controls:CitoEntry Placeholder="Full Name" HorizontalOptions="FillAndExpand" Margin="15,0" 
+                            KeyboardHeight="150" ScrollParent="{x:Reference Scroll}"/>
+        <controls:CitoEntry Placeholder="Email" HorizontalOptions="FillAndExpand" Margin="15,0"
+                            KeyboardHeight="200" ScrollParent="{x:Reference Scroll}"/>
+        <controls:CitoEntry Placeholder="Phone" HorizontalOptions="FillAndExpand" Margin="15,0"
+                            ScrollParent="{x:Reference Scroll}" />
+        <controls:CitoEntry Placeholder="Password" HorizontalOptions="FillAndExpand" Margin="15,0"
+                            ScrollParent="{x:Reference Scroll}" />
+
+      <controls:CitoButton Text="SIGN UP" Margin="15,0" />
+      <controls:CitoLabel Text="I already have an account" FontSize="10"
+                          TextColor="{StaticResource CitoAccentAqua}"
+                          HorizontalTextAlignment="Center" />
+
+    </StackLayout>
+  </ScrollView>
+</StackLayout>
+  
+</ContentPage>

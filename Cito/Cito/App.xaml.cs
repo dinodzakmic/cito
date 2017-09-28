@@ -2,19 +2,67 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Cito.Framework.Validation;
 using Xamarin.Forms;
 
 namespace Cito
-{
+{  
     public partial class App : Application
     {
+        public static ValidationFieldList ValidationFieldList;
         public App()
         {
             InitializeComponent();
-
+            ValidationFieldList = new ValidationFieldList();
             MainPage = new FirstPage();
         }
+
+        #region Validation methods
+        public static INavigation navigation;
+        public static bool FormValidationPassed(bool displayValidationFailureList = true)
+        {
+            var invalidFields = GetInvalidFields();
+            if (invalidFields.Count == 0)
+                return true;
+
+            if (!displayValidationFailureList) return false;
+
+            var firstMessage = string.Empty;
+            var sb = new StringBuilder("Validation errors:" + Environment.NewLine);
+            foreach (var validationResult in invalidFields)
+            {
+                if (string.IsNullOrEmpty(firstMessage))
+                {
+                    firstMessage = validationResult.FieldName;
+                }
+                sb.Append(validationResult.FieldName + " " + validationResult.ValidationError + Environment.NewLine);
+            }
+
+            //navigation.PushPopupAsync(new BaseErrorPopup(TextRes.error, firstMessage));
+            //NavPage.CurrentPage.DisplayAlert(TextRes.error, firstMessage, TextRes.ok);
+
+            return false;
+        }
+        public static List<ValidationResult> GetInvalidFields()
+        {
+            return ValidationFieldList.InvalidFields();
+        }
+
+        public static void UnloadPage(Page page)
+        {
+            ValidationFieldList.RemoveFieldsForPage(page.GetType());
+        }
+        public static void UpdateLoading(bool isLoading, string text = "")
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                //if (isLoading)
+                //    UserDialogs.Instance.ShowLoading(text.IsNotNullOrEmpty() ? text : TextRes.Loading___, MaskType.Black);
+                //else
+                //    UserDialogs.Instance.HideLoading();
+            });
+        }
+        #endregion
 
         protected override void OnStart()
         {

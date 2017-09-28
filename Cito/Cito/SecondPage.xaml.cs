@@ -14,5 +14,19 @@ namespace Cito
         {
             InitializeComponent();
         }
+
+
+        //Test
+
+        private void Button_OnClicked1(object sender, EventArgs e)
+        {
+            App.Current.MainPage = new FirstPage();
+        }
+        private void Button_OnClicked2(object sender, EventArgs e)
+        {
+            App.Current.MainPage = new ThirdPage();
+        }
+
+       
     }
 }

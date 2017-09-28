@@ -96,7 +96,9 @@
     <ITunesArtwork Include="iTunesArtwork" />
     <ITunesArtwork Include="iTunesArtwork@2x" />
     <None Include="packages.config" />
+    <BundleResource Include="Resources\FacebookIcon.png" />
     <BundleResource Include="Resources\fontawesome-webfont.ttf" />
+    <BundleResource Include="Resources\GoogleIcon.png" />
     <BundleResource Include="Resources\Lato-Bold.ttf" />
     <BundleResource Include="Resources\Lato-Regular.ttf" />
   </ItemGroup>

@@ -99,6 +99,7 @@
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
     <Compile Include="Renderers\CitoButtonRenderer.cs" />
+    <Compile Include="Renderers\CitoEntryRenderer.cs" />
     <Compile Include="Renderers\CitoLabelRenderer.cs" />
     <Compile Include="Renderers\Typefaces.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -113,6 +114,8 @@
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\FacebookIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\GoogleIcon.png" />
     <AndroidResource Include="Resources\drawable\icon.png" />
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />

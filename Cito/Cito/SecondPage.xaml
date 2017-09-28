@@ -12,13 +12,13 @@
                             TextColor="{StaticResource CitoAccentAqua}"
                             HorizontalTextAlignment="Center" />
 
-        <controls:CitoButton Text="CAR OWNER" Margin="15,0" />
+        <controls:CitoButton Text="CAR OWNER" Margin="15,0" Clicked="Button_OnClicked1" />
 
         <controls:CitoLabel Text="OR" FontAttributes="Bold" FontSize="15"
                             TextColor="{StaticResource CitoMainPurple}"
                             HorizontalTextAlignment="Center" Margin="0,10" />
 
-        <controls:CitoButton Text="CAR WASHER" Margin="15,0" />
+        <controls:CitoButton Text="CAR WASHER" Margin="15,0" Clicked="Button_OnClicked2"/>
     </StackLayout>
   
 </ContentPage>

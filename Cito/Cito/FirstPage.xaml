@@ -8,8 +8,8 @@
       <Image Source="{StaticResource LogoImage}" Aspect="AspectFit" />
       <StackLayout HeightRequest="40" />
 
-      <controls:CitoButton Text="SIGN IN WITH FACEBOOK" Margin="15,0" />
-      <controls:CitoButton Text="SIGN IN WITH GOOGLE" Margin="15,0"/>
+      <controls:CitoButton Text="SIGN IN WITH FACEBOOK" Image="{StaticResource FacebookIcon}" Margin="15,0" />
+      <controls:CitoButton Text="SIGN IN WITH GOOGLE" Image="{StaticResource GoogleIcon}" Margin="15,0"/>
 
       <controls:CitoLabel Text="OR" FontAttributes="Bold" FontSize="15"
                           TextColor="{StaticResource CitoMainPurple}"
