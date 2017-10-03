@@ -15,33 +15,33 @@ namespace Cito.Framework.Validation
 
             //handle this
 
-            //if (App.NavPage == null && App.InstantiatingPageType == null)
+            //if (Application.Current.MainPage == null && App.InstantiatingPageType == null)
             //{
             //    pageType = typeof(CreateProfileStep1);
             //}
             //else
-            //{
-            //    pageType = App.InstantiatingPageType ?? App.CurrentPage.GetType();
-            //}
+            {
+                pageType = App.InstantiatingPageType ?? Application.Current.MainPage.GetType();
+            }
 
-            //_views.Add(new ViewInfo(field, pageType));
+            _views.Add(new ViewInfo(field, pageType));
         }
 
 
         public int Count => _views.Count;
 
-        //public bool AllFieldsValid
-        //{
-        //    get { return _views.Where(v => v.PageType == App.NavPage.CurrentPage.GetType()).All(v => v.View.Behaviors.All(b => !(b is IValidatableBehavior) || ((IValidatableBehavior)b).IsValid)); }
-        //}
+        public bool AllFieldsValid
+        {
+            get { return _views.Where(v => v.PageType == Application.Current.MainPage.GetType()).All(v => v.View.Behaviors.All(b => !(b is IValidatableBehavior) || ((IValidatableBehavior)b).IsValid)); }
+        }
 
         public List<ValidationResult> InvalidFields()
         {
             var validationResults = new List<ValidationResult>();
-            //foreach (var v in _views.Where(v => v.PageType == App.CurrentPage.GetType()))
-            //{
-            //    validationResults.AddRange(v.View.Behaviors.Where(b => b is IValidatableBehavior).Select(b => ((IValidatableBehavior)b).ValidateField()).ToList());
-            //}
+            foreach (var v in _views.Where(v => v.PageType == Application.Current.MainPage.GetType()))
+            {
+                validationResults.AddRange(v.View.Behaviors.Where(b => b is IValidatableBehavior).Select(b => ((IValidatableBehavior)b).ValidateField()).ToList());
+            }
             return validationResults.Where(v => !v.Valid).ToList();
         }
 

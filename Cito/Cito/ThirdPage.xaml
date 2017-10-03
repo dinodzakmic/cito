@@ -12,15 +12,19 @@
       <StackLayout HeightRequest="40" />
 
         <controls:CitoEntry Placeholder="Full Name" HorizontalOptions="FillAndExpand" Margin="15,0" 
-                            KeyboardHeight="150" ScrollParent="{x:Reference Scroll}"/>
-        <controls:CitoEntry Placeholder="Email" HorizontalOptions="FillAndExpand" Margin="15,0"
-                            KeyboardHeight="200" ScrollParent="{x:Reference Scroll}"/>
-        <controls:CitoEntry Placeholder="Phone" HorizontalOptions="FillAndExpand" Margin="15,0"
-                            ScrollParent="{x:Reference Scroll}" />
-        <controls:CitoEntry Placeholder="Password" HorizontalOptions="FillAndExpand" Margin="15,0"
-                            ScrollParent="{x:Reference Scroll}" />
+                            KeyboardHeight="150" ScrollParent="{x:Reference Scroll}" 
+                            NextView="{x:Reference EmailEntry}" Mandatory="True" ErrorText="This is mandatory field" />
+        <controls:CitoEntry x:Name="EmailEntry" Placeholder="Email" HorizontalOptions="FillAndExpand" Margin="15,0"
+                            KeyboardHeight="200" ScrollParent="{x:Reference Scroll}" Keyboard="Email"                           
+                            NextView="{x:Reference NumberEntry}" Mandatory="True" ErrorText="This is mandatory field" />
+        <controls:CitoEntry x:Name="NumberEntry" Placeholder="Phone" HorizontalOptions="FillAndExpand" Margin="15,0"
+                            ScrollParent="{x:Reference Scroll}"
+                            Keyboard="Numeric" NextView="{x:Reference PasswordEntry}" Mandatory="True" ErrorText="This is mandatory field" />
+        <controls:CitoEntry x:Name="PasswordEntry" Placeholder="Password" HorizontalOptions="FillAndExpand" 
+                            Margin="15,0" ScrollParent="{x:Reference Scroll}" 
+                            IsPassword="True" Mandatory="True" ErrorText="This is mandatory field" />
 
-      <controls:CitoButton Text="SIGN UP" Margin="15,0" />
+      <controls:CitoButton Text="SIGN UP" Margin="15,0" Clicked="Button_OnClicked" />
       <controls:CitoLabel Text="I already have an account" FontSize="10"
                           TextColor="{StaticResource CitoAccentAqua}"
                           HorizontalTextAlignment="Center" />

@@ -10,6 +10,7 @@ namespace Cito
     public partial class App : Application
     {
         public static ValidationFieldList ValidationFieldList;
+        public static Type InstantiatingPageType;
         public App()
         {
             InitializeComponent();
@@ -18,7 +19,7 @@ namespace Cito
         }
 
         #region Validation methods
-        public static INavigation navigation;
+        //public static INavigation navigation;
         public static bool FormValidationPassed(bool displayValidationFailureList = true)
         {
             var invalidFields = GetInvalidFields();
@@ -39,7 +40,7 @@ namespace Cito
             }
 
             //navigation.PushPopupAsync(new BaseErrorPopup(TextRes.error, firstMessage));
-            //NavPage.CurrentPage.DisplayAlert(TextRes.error, firstMessage, TextRes.ok);
+            Current.MainPage.DisplayAlert("Error", firstMessage, "OK");
 
             return false;
         }

@@ -14,9 +14,10 @@ namespace Cito.Framework.Validation
             if (!string.IsNullOrEmpty(fieldName))
                 return fieldName;
 
-            if (bindable is CitoEntry)
+            var entry = bindable as CitoEntry;
+            if (entry != null)
             {
-                return ((CitoEntry)bindable).ErrorText;
+                return entry.ErrorText;
             }
 
             return "field";

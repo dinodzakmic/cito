@@ -24,9 +24,11 @@ namespace Cito
         }
         private void Button_OnClicked2(object sender, EventArgs e)
         {
+            App.InstantiatingPageType = typeof(ThirdPage);
             App.Current.MainPage = new ThirdPage();
         }
 
        
     }
 }
+

@@ -1,5 +1,4 @@
 ﻿
-
 namespace Cito.Framework.Validation
 {
     public interface IValidatableBehavior

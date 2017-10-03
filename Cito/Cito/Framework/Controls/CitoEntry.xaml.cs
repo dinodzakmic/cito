@@ -26,7 +26,22 @@ namespace Cito.Framework.Controls
             BindingContextChanged += (s, e) => { UpdateText(); };
 
         }
+      
+        #region NextView
+        public static readonly BindableProperty NextViewProperty =
+            BindableProperty.Create("NextView", typeof(View), typeof(CitoEntry));
 
+        public View NextView
+        {
+            get { return (View) GetValue(NextViewProperty); }
+            set { SetValue(NextViewProperty, value); }
+        }
+
+        public void OnNext()
+        {
+            NextView?.Focus();
+        }
+        #endregion
         #region Focused/Unfocused methods       
         private void CitoEntryUnfocused(object sender, FocusEventArgs e)
         {

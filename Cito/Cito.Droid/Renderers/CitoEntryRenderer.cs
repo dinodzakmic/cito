@@ -57,6 +57,15 @@ namespace Cito.Droid.Renderers
             if (newElement != null && !newElement.IsAutoCorrectEnabled)
                 Control.InputType = InputTypes.ClassText | InputTypes.TextFlagNoSuggestions;
 
+            if (newElement?.NextView != null )
+            {
+                Control.ImeOptions = Android.Views.InputMethods.ImeAction.Next;
+                Control.EditorAction += (sender, args) =>
+                {
+                    newElement.OnNext();
+                };
+            }
+
         }
 
 

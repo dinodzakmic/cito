@@ -15,5 +15,11 @@ namespace Cito
             InitializeComponent();
             
         }
+
+        private void Button_OnClicked(object sender, EventArgs e)
+        {
+            if (App.FormValidationPassed())
+                DisplayAlert("Success", "Success", "OK");
+        }
     }
 }
