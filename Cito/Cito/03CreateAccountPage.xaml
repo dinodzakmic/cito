@@ -2,26 +2,30 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
-             x:Class="Cito.ThirdPage">
+             x:Class="Cito.CreateAccountPage">
   
 <StackLayout x:Name="Scroll">
-  <ScrollView>
-    <StackLayout Padding="20, 40" Spacing="10">
+  <ScrollView VerticalOptions="Start" HorizontalOptions="FillAndExpand" IsClippedToBounds="True" >
+    <StackLayout Padding="20, 40, 20, 20" Spacing="10">
 
       <Image Source="{StaticResource LogoImage}" Aspect="AspectFit" />
       <StackLayout HeightRequest="40" />
 
-        <controls:CitoEntry Placeholder="Full Name" HorizontalOptions="FillAndExpand" Margin="15,0" 
-                            KeyboardHeight="150" ScrollParent="{x:Reference Scroll}" 
+        <controls:CitoEntry x:Name="FullNameEntry" Placeholder="Full Name" HorizontalOptions="FillAndExpand"
+                            Margin="15,0" KeyboardHeight="200" ScrollParent="{x:Reference Scroll}" 
+                            NextView="{x:Reference CarModelEntry}" Mandatory="True" ErrorText="This is mandatory field" />
+        <controls:CitoEntry x:Name="CarModelEntry" Placeholder="Car model" HorizontalOptions="FillAndExpand" Margin="15,0"
+                            KeyboardHeight="200" ScrollParent="{x:Reference Scroll}"
                             NextView="{x:Reference EmailEntry}" Mandatory="True" ErrorText="This is mandatory field" />
         <controls:CitoEntry x:Name="EmailEntry" Placeholder="Email" HorizontalOptions="FillAndExpand" Margin="15,0"
                             KeyboardHeight="200" ScrollParent="{x:Reference Scroll}" Keyboard="Email"                           
                             NextView="{x:Reference NumberEntry}" Mandatory="True" ErrorText="This is mandatory field" />
         <controls:CitoEntry x:Name="NumberEntry" Placeholder="Phone" HorizontalOptions="FillAndExpand" Margin="15,0"
-                            ScrollParent="{x:Reference Scroll}"
-                            Keyboard="Numeric" NextView="{x:Reference PasswordEntry}" Mandatory="True" ErrorText="This is mandatory field" />
+                            ScrollParent="{x:Reference Scroll}" KeyboardHeight="150"
+                            Keyboard="Telephone" NextView="{x:Reference PasswordEntry}" 
+                            Mandatory="True" ErrorText="This is mandatory field" />
         <controls:CitoEntry x:Name="PasswordEntry" Placeholder="Password" HorizontalOptions="FillAndExpand" 
-                            Margin="15,0" ScrollParent="{x:Reference Scroll}" 
+                            Margin="15,0" ScrollParent="{x:Reference Scroll}" KeyboardHeight="100"
                             IsPassword="True" Mandatory="True" ErrorText="This is mandatory field" />
 
       <controls:CitoButton Text="SIGN UP" Margin="15,0" Clicked="Button_OnClicked" />

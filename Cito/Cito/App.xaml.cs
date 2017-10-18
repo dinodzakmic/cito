@@ -15,7 +15,7 @@ namespace Cito
         {
             InitializeComponent();
             ValidationFieldList = new ValidationFieldList();
-            MainPage = new FirstPage();
+            MainPage = new PreloginPage();
         }
 
         #region Validation methods

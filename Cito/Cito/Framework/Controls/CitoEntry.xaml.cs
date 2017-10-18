@@ -52,7 +52,7 @@ namespace Cito.Framework.Controls
         private void CitoEntryFocused(object sender, FocusEventArgs e)
         {
             var scrollParent = ScrollParent as StackLayout;
-            scrollParent?.Children.Add(new StackLayout() {HeightRequest = KeyboardHeight});
+            scrollParent?.Children.Add(new StackLayout() {HeightRequest = KeyboardHeight, BackgroundColor = Color.Transparent});
         }
         #endregion
         #region FirstLetterUpperCase

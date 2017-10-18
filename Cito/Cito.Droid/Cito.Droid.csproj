@@ -109,6 +109,7 @@
     <AndroidAsset Include="Assets\fontawesome-webfont.ttf" />
     <AndroidAsset Include="Assets\Lato-Bold.ttf" />
     <AndroidAsset Include="Assets\Lato-Regular.ttf" />
+    <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
