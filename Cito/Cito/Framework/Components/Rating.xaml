@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Cito.Framework.Components.Rating">
+
+  <ContentView.Resources>
+    <ResourceDictionary>
+        <Style TargetType="Image">
+            <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+            <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            <Setter Property="Aspect" Value="AspectFit" />
+        </Style>
+    </ResourceDictionary>
+  </ContentView.Resources>
+  
+    <StackLayout x:Name="StarsStack" 
+                 Orientation="Horizontal" 
+                 HorizontalOptions="FillAndExpand" 
+                 VerticalOptions="CenterAndExpand">
+      
+        <Image Source="CitoStarEmpty" />
+        <Image Source="CitoStarEmpty" />
+        <Image Source="CitoStarEmpty" />
+        <Image Source="CitoStarEmpty" />
+        <Image Source="CitoStarEmpty" />
+      
+    </StackLayout>
+  
+</ContentView>

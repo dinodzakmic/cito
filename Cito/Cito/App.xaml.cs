@@ -19,7 +19,7 @@ namespace Cito
             InitializeComponent();
             ValidationFieldList = new ValidationFieldList();
 
-            var detail = new NavigationPage(new WasherProfilePage());
+            var detail = new NavigationPage(new AvailabiltyPage());
             MainPage = new Menu() {Detail = detail};
             NavPage = detail;
         }

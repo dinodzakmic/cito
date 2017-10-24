@@ -8,28 +8,45 @@
              x:Class="Cito.Views.AvailabiltyPage"
              BackgroundImage="{StaticResource BackgroundImage}">
 
-  <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
-               Orientation="Horizontal" Spacing="15" Padding="0,60,0,0">
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,80,0,0">
 
-    <controls:CitoLabel Text="ONLINE"
-                        FontSize="16"
-                        FontAttributes="Bold"
-                        TextColor="{StaticResource CitoMain}"
-                        VerticalOptions="CenterAndExpand"
-                        VerticalTextAlignment="Center" />
+      <controls:CitoLabel Text="WASHER NO. 1"
+                          Margin="0,60,0,0"
+                          FontSize="18"
+                          FontAttributes="Bold"
+                          TextColor="{StaticResource CitoMain}"
+                          VerticalOptions="CenterAndExpand"
+                          VerticalTextAlignment="Center"
+                          HorizontalOptions="CenterAndExpand"
+                          HorizontalTextAlignment="Center"/>
+      
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"
+                     Orientation="Horizontal" Spacing="15">
+
+            <controls:CitoLabel Text="ONLINE"
+                                FontSize="14"
+                                FontAttributes="Bold"
+                                TextColor="{StaticResource CitoMain}"
+                                VerticalOptions="CenterAndExpand"
+                                VerticalTextAlignment="Center"
+                                HorizontalOptions="CenterAndExpand"
+                                HorizontalTextAlignment="Center"/>
 
 
-    <components:CitoSwitch IsToggled="False"
-                           VerticalOptions="CenterAndExpand"
-                           HorizontalOptions="CenterAndExpand"/>
+            <components:CitoSwitch IsToggled="False"
+                                   VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="CenterAndExpand" />
 
-    <controls:CitoLabel Text="OFFLINE"
-                        FontSize="16"
-                        FontAttributes="Bold"
-                        TextColor="{StaticResource CitoMain}"
-                        VerticalOptions="CenterAndExpand"
-                        VerticalTextAlignment="Center" />
+            <controls:CitoLabel Text="OFFLINE"
+                                FontSize="14"
+                                FontAttributes="Bold"
+                                TextColor="{StaticResource CitoMain}"
+                                VerticalOptions="CenterAndExpand"
+                                VerticalTextAlignment="Center"
+                                HorizontalOptions="CenterAndExpand"
+                                HorizontalTextAlignment="Center"/>
 
-  </StackLayout>
+        </StackLayout>
+    </StackLayout>
 
 </ContentPage>
