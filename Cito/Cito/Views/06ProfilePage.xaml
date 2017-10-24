@@ -13,7 +13,7 @@
             Source="https://speakerdata2.s3.amazonaws.com/photo/image/814920/Andres_2BIniesta2.jpg"
             Aspect="AspectFit"
             HeightRequest="100"
-            FillColor="{StaticResource CitoMainPurpleLight}"
+            FillColor="{StaticResource CitoMainLight}"
             BorderThickness="0"
             BorderColor="Transparent"
             Margin="20,20,20,5" />
@@ -21,7 +21,7 @@
         <controls:CitoLabel HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"
                             Text="Andres Iniesta"
                             FontSize="20"
-                            TextColor="{StaticResource CitoMainPurple}" />
+                            TextColor="{StaticResource CitoMain}" />
 
 
         <components:DropdownItem Margin="0,50,0,0" BottomSeparatorVisible="False" Title="My Cars"
@@ -33,7 +33,7 @@
                                     VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"
                                     Text="My cars"
                                     FontSize="20"
-                                    TextColor="{StaticResource CitoMainPurple}" />
+                                    TextColor="{StaticResource CitoMain}" />
             </StackLayout>
         </components:DropdownContent>
 
@@ -47,7 +47,7 @@
                                     VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"
                                     Text="My cars"
                                     FontSize="20"
-                                    TextColor="{StaticResource CitoMainPurple}" />
+                                    TextColor="{StaticResource CitoMain}" />
             </StackLayout>
         </components:DropdownContent>
 

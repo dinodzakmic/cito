@@ -30,7 +30,7 @@
 
       <controls:CitoButton Text="SIGN UP" Margin="15,0" Clicked="Button_OnClicked" />
       <controls:CitoLabel Text="I already have an account" FontSize="10"
-                          TextColor="{StaticResource CitoAccentAqua}"
+                          TextColor="{StaticResource CitoAccent}"
                           HorizontalTextAlignment="Center" />
 
     </StackLayout>

@@ -6,11 +6,11 @@
     <Application.Resources>
       
       <ResourceDictionary>
-          <Color x:Key="CitoMainPurple">#9679b5</Color>
-          <Color x:Key="CitoMainPurpleLight">#bfa4de</Color>
-          <Color x:Key="CitoBackgroundLight">#fcfbfa</Color>
-          <Color x:Key="CitoAccentAqua">#6dc5ed</Color>
-          <Color x:Key="CitoAccentAquaLight">#a1edf7</Color>
+          <Color x:Key="CitoMain">#9679b5</Color>
+          <Color x:Key="CitoMainLight">#bfa4de</Color>
+          <Color x:Key="CitoBackground">#fcfbfa</Color>
+          <Color x:Key="CitoAccent">#6dc5ed</Color>
+          <Color x:Key="CitoAccentLight">#a1edf7</Color>
 
           <x:String x:Key="LogoImage">CitoLogo.png</x:String>
           <x:String x:Key="BackgroundImage">BackgroundImage.jpg</x:String>

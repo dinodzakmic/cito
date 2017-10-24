@@ -13,7 +13,7 @@
                  HeightRequest="1"
                  HorizontalOptions="FillAndExpand"
                  VerticalOptions="Center"
-                 BackgroundColor="{StaticResource CitoAccentAqua}" />
+                 BackgroundColor="{StaticResource CitoAccent}" />
       
         <StackLayout HeightRequest="50" Orientation="Horizontal" Padding="10,0" Spacing="20">
             <Image Source="BackIcon.png" x:Name="Icon" HeightRequest="30" WidthRequest="30" Aspect="AspectFit"
@@ -24,7 +24,7 @@
                                 HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"
                                 VerticalOptions="Center" VerticalTextAlignment="Center"
                                 FontSize="20"
-                                TextColor="{StaticResource CitoMainPurple}" />
+                                TextColor="{StaticResource CitoMain}" />
 
             <StackLayout.GestureRecognizers>
                 <TapGestureRecognizer Tapped="ItemTapped" />
@@ -47,7 +47,7 @@
                  HeightRequest="1"
                  HorizontalOptions="FillAndExpand"
                  VerticalOptions="Center"
-                 BackgroundColor="{StaticResource CitoAccentAqua}" />
+                 BackgroundColor="{StaticResource CitoAccent}" />
 
     </StackLayout> 
 </ContentView>

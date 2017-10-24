@@ -14,7 +14,7 @@
     <controls:CitoLabel Text="ONLINE"
                         FontSize="16"
                         FontAttributes="Bold"
-                        TextColor="{StaticResource CitoMainPurple}"
+                        TextColor="{StaticResource CitoMain}"
                         VerticalOptions="CenterAndExpand"
                         VerticalTextAlignment="Center" />
 
@@ -26,7 +26,7 @@
     <controls:CitoLabel Text="OFFLINE"
                         FontSize="16"
                         FontAttributes="Bold"
-                        TextColor="{StaticResource CitoMainPurple}"
+                        TextColor="{StaticResource CitoMain}"
                         VerticalOptions="CenterAndExpand"
                         VerticalTextAlignment="Center" />
 

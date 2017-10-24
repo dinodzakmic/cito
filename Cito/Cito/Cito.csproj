@@ -94,8 +94,8 @@
     <Compile Include="Views\03CreateAccountPage.xaml.cs">
       <DependentUpon>03CreateAccountPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Framework\Navigation\StartPage.xaml.cs">
-      <DependentUpon>StartPage.xaml</DependentUpon>
+    <Compile Include="Framework\Navigation\FirstPage.xaml.cs">
+      <DependentUpon>FirstPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Framework\Navigation\ThirdPage.xaml.cs">
       <DependentUpon>ThirdPage.xaml</DependentUpon>
@@ -204,7 +204,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Framework\Navigation\StartPage.xaml">
+    <EmbeddedResource Include="Framework\Navigation\FirstPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

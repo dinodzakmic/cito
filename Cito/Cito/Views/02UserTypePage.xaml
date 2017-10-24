@@ -9,13 +9,13 @@
         <StackLayout HeightRequest="40" />
 
         <controls:CitoLabel Text="Sign in as" FontSize="10"
-                            TextColor="{StaticResource CitoAccentAqua}"
+                            TextColor="{StaticResource CitoAccent}"
                             HorizontalTextAlignment="Center" />
 
         <controls:CitoButton Text="CAR OWNER" Margin="15,0" />
 
         <controls:CitoLabel Text="OR" FontAttributes="Bold" FontSize="15"
-                            TextColor="{StaticResource CitoMainPurple}"
+                            TextColor="{StaticResource CitoMain}"
                             HorizontalTextAlignment="Center" Margin="0,10" />
 
         <controls:CitoButton Text="CAR WASHER" Margin="15,0" />

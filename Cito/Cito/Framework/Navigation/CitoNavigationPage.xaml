@@ -55,7 +55,7 @@
             <Label Grid.Column="1"
                    x:Name="TitleLabel"
                    Text="Title here"
-                   TextColor="{StaticResource CitoMainPurple}"
+                   TextColor="{StaticResource CitoMain}"
                    FontSize="22"
                    FontAttributes="Bold"
                    VerticalOptions="CenterAndExpand"

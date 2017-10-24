@@ -2,14 +2,14 @@
 <Entry xmlns="http://xamarin.com/schemas/2014/forms"
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        x:Class="Cito.Framework.Controls.CitoEntry"
-       TextColor="{StaticResource CitoMainPurple}"
-       PlaceholderColor="{StaticResource CitoMainPurpleLight}"
+       TextColor="{StaticResource CitoMain}"
+       PlaceholderColor="{StaticResource CitoMainLight}"
        HeightRequest="45"
        FontSize="14"
        TextChanged="NEntry_OnTextChanged"
        Focused="CitoEntryFocused"
        Unfocused="CitoEntryUnfocused">
     <Entry.BackgroundColor>
-        <OnPlatform x:TypeArguments="Color" Android="Transparent" iOS="{StaticResource CitoBackgroundLight}" />
+        <OnPlatform x:TypeArguments="Color" Android="Transparent" iOS="{StaticResource CitoBackground}" />
     </Entry.BackgroundColor>
 </Entry>

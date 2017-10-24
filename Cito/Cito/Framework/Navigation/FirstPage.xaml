@@ -4,7 +4,7 @@
                          xmlns:cito="clr-namespace:Cito;assembly=Cito"
                          xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
                          xmlns:navigation="clr-namespace:Cito.Framework.Navigation;assembly=Cito"
-                         x:Class="Cito.Framework.Navigation.StartPage"
+                         x:Class="Cito.Framework.Navigation.FirstPage"
                          Title="Start page">
 
       <StackLayout>

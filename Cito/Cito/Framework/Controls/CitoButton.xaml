@@ -2,11 +2,11 @@
 <Button xmlns="http://xamarin.com/schemas/2014/forms"
         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
         x:Class="Cito.Framework.Controls.CitoButton"
-        BackgroundColor="{StaticResource CitoMainPurple}"
-        TextColor="{StaticResource CitoBackgroundLight}"
+        BackgroundColor="{StaticResource CitoMain}"
+        TextColor="{StaticResource CitoBackground}"
         FontFamily="Lato"
         FontSize="15"
-        BorderColor="{StaticResource CitoAccentAqua}"
+        BorderColor="{StaticResource CitoAccent}"
         BorderWidth="1.5"
         BorderRadius="10">
   <Button.HeightRequest>

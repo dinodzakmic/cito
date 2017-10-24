@@ -2,9 +2,9 @@
 
 namespace Cito.Framework.Navigation
 {
-    public partial class StartPage : Framework.Navigation.CitoNavigationPage
+    public partial class FirstPage : Framework.Navigation.CitoNavigationPage
     {
-        public StartPage()
+        public FirstPage()
         {
             InitializeComponent();
         }
