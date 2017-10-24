@@ -7,7 +7,10 @@
   
     <Grid x:Name="RootGrid" RowSpacing="0" ColumnSpacing="0" InputTransparent="False">
       <Grid.TranslationY>
-          <OnPlatform x:TypeArguments="x:Double" Android="0" iOS="20" />
+        <OnPlatform x:TypeArguments="x:Double" >
+            <On Platform="Android" Value="0"/>
+            <On Platform="iOS" Value="20"/>
+        </OnPlatform>
       </Grid.TranslationY>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />

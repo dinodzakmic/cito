@@ -22,10 +22,15 @@
 
                 <components:RoundedBoxView x:Name="Box"
                                      HeightRequest="40" WidthRequest="40"
-                                     CornerRadius="8"
                                      BackgroundColor="{StaticResource CitoAccent}"
                                      HorizontalOptions="StartAndExpand"
                                      VerticalOptions="CenterAndExpand">
+                  <components:RoundedBoxView.CornerRadius>
+                    <OnPlatform x:TypeArguments="x:Double" >
+                        <On Platform="Android" Value="8"/>
+                        <On Platform="iOS" Value="20"/>
+                    </OnPlatform>
+                  </components:RoundedBoxView.CornerRadius>
                     <components:RoundedBoxView.GestureRecognizers>
                         <PanGestureRecognizer PanUpdated="PanGestureRecognizer_OnPanUpdated" />
                     </components:RoundedBoxView.GestureRecognizers>

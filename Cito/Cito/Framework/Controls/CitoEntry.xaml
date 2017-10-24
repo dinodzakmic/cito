@@ -10,6 +10,9 @@
        Focused="CitoEntryFocused"
        Unfocused="CitoEntryUnfocused">
     <Entry.BackgroundColor>
-        <OnPlatform x:TypeArguments="Color" Android="Transparent" iOS="{StaticResource CitoBackground}" />
+        <OnPlatform x:TypeArguments="Color" >
+            <On Platform="Android" Value="Transparent"/>
+            <On Platform="iOS" Value="{StaticResource CitoBackground}"/>
+        </OnPlatform>
     </Entry.BackgroundColor>
 </Entry>

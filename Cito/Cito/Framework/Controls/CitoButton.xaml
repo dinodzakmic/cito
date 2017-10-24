@@ -10,7 +10,10 @@
         BorderWidth="1.5"
         BorderRadius="10">
   <Button.HeightRequest>
-      <OnPlatform x:TypeArguments="x:Double" iOS="45" Android="45" />
+      <OnPlatform x:TypeArguments="x:Double" >
+              <On Platform="Android" Value="45"/>
+              <On Platform="iOS" Value="45"/>
+        </OnPlatform>
   </Button.HeightRequest>
 </Button>
 
