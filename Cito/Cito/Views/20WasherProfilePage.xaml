@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
+             xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
+             x:Class="Cito.Views.WasherProfilePage"
+             BackgroundImage="{StaticResource BackgroundImage}">
+
+  <ScrollView Padding="0,250,0,0">
+    <StackLayout Spacing="0" >
+
+      <components:DropdownItem BottomSeparatorVisible="False"
+                               Title="Washing Requests"
+                               ExpandableView="{x:Reference FirstLayout}" />
+      <components:DropdownContent x:Name="FirstLayout" Padding="60,10"
+                                  HorizontalOptions="StartAndExpand" VerticalOptions="Start">
+        <StackLayout>
+          <controls:CitoLabel HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"
+                              VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"
+                              Text="My cars"
+                              FontSize="20"
+                              TextColor="{StaticResource CitoMain}" />
+        </StackLayout>
+      </components:DropdownContent>
+
+
+
+      <components:DropdownItem BottomSeparatorVisible="False"
+                               Title="Cleaning Requests"
+                               ExpandableView="{x:Reference SecondLayout}" />
+      <components:DropdownContent x:Name="SecondLayout" Padding="60,10"
+                                  HorizontalOptions="StartAndExpand" VerticalOptions="Start">
+        <StackLayout>
+          <controls:CitoLabel HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"
+                              VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"
+                              Text="My cars"
+                              FontSize="20"
+                              TextColor="{StaticResource CitoMain}" />
+        </StackLayout>
+      </components:DropdownContent>
+
+
+      <components:DropdownItem Title="Polishing Requests" />
+
+    </StackLayout>
+  </ScrollView>
+
+
+</ContentPage>

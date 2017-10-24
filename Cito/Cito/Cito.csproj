@@ -35,8 +35,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Views\06ProfilePage.xaml.cs">
-      <DependentUpon>06ProfilePage.xaml</DependentUpon>
+    <Compile Include="Views\06OwnerProfilePage.xaml.cs">
+      <DependentUpon>06OwnerProfilePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -100,6 +100,9 @@
     <Compile Include="Framework\Navigation\ThirdPage.xaml.cs">
       <DependentUpon>ThirdPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\20WasherProfilePage.xaml.cs">
+      <DependentUpon>20WasherProfilePage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Localization\TextResources.resx">
@@ -154,7 +157,12 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Views\20WasherProfilePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Framework\Controls\CitoLabel.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
@@ -216,7 +224,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\06ProfilePage.xaml">
+    <EmbeddedResource Include="Views\06OwnerProfilePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

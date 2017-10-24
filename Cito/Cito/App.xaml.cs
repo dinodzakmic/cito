@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Cito.Framework.Validation;
+using Cito.Views;
 using Xamarin.Forms;
 
 namespace Cito
@@ -18,7 +19,7 @@ namespace Cito
             InitializeComponent();
             ValidationFieldList = new ValidationFieldList();
 
-            var detail = new NavigationPage(new Views.AvailabiltyPage());
+            var detail = new NavigationPage(new WasherProfilePage());
             MainPage = new Menu() {Detail = detail};
             NavPage = detail;
         }

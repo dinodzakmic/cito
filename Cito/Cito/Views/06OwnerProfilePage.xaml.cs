@@ -2,9 +2,9 @@
 
 namespace Cito.Views
 {
-    public partial class ProfilePage : ContentPage
+    public partial class OwnerProfilePage : ContentPage
     {
-        public ProfilePage()
+        public OwnerProfilePage()
         {
             InitializeComponent();
         }
