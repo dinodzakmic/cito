@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
+             x:Class="Cito.Framework.Components.DropdownItem" >
+
+    <StackLayout x:Name="RootLayout" 
+                 HorizontalOptions="FillAndExpand" 
+                 VerticalOptions="StartAndExpand" 
+                 Spacing="0" >
+
+        <BoxView x:Name="TopSeparator" 
+                 HeightRequest="1"
+                 HorizontalOptions="FillAndExpand"
+                 VerticalOptions="Center"
+                 BackgroundColor="{StaticResource CitoAccentAqua}" />
+      
+        <StackLayout HeightRequest="50" Orientation="Horizontal" Padding="10,0" Spacing="20">
+            <Image Source="BackIcon.png" x:Name="Icon" HeightRequest="30" WidthRequest="30" Aspect="AspectFit"
+                   HorizontalOptions="Start" VerticalOptions="CenterAndExpand"
+                   Rotation="-90" />
+
+            <controls:CitoLabel x:Name="DropdownTitle" 
+                                HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"
+                                VerticalOptions="Center" VerticalTextAlignment="Center"
+                                FontSize="20"
+                                TextColor="{StaticResource CitoMainPurple}" />
+
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="ItemTapped" />
+            </StackLayout.GestureRecognizers>
+        </StackLayout>
+
+
+        <ContentView x:Name="ViewToDisplay"
+                     IsVisible="False"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand"
+                     Opacity="0"
+                     MinimumHeightRequest="50">
+            <ContentView x:Name="ViewToExpand">
+
+            </ContentView>
+        </ContentView>
+
+        <BoxView x:Name="BottomSeparator"
+                 HeightRequest="1"
+                 HorizontalOptions="FillAndExpand"
+                 VerticalOptions="Center"
+                 BackgroundColor="{StaticResource CitoAccentAqua}" />
+
+    </StackLayout> 
+</ContentView>
+

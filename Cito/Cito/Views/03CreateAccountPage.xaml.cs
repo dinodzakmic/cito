@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using Newtonsoft.Json;
 using Xamarin.Forms;
 
-namespace Cito
+namespace Cito.Views
 {
     public partial class CreateAccountPage : ContentPage
     {
@@ -38,7 +28,7 @@ namespace Cito
 
         private void Button_OnClicked(object sender, EventArgs e)
         {
-            App.Current.MainPage = new UserTypePage();            
+            App.Current.MainPage = new Views.UserTypePage();            
         }
     }
 }

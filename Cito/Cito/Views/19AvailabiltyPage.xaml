@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cito="clr-namespace:Cito;assembly=Cito"
+             xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
+             xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
+             xmlns:navigation="clr-namespace:Cito.Framework.Navigation;assembly=Cito"
+             x:Class="Cito.Views.AvailabiltyPage"
+             BackgroundImage="{StaticResource BackgroundImage}">
+
+  <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+               Orientation="Horizontal" Spacing="15" Padding="0,60,0,0">
+
+    <controls:CitoLabel Text="ONLINE"
+                        FontSize="16"
+                        FontAttributes="Bold"
+                        TextColor="{StaticResource CitoMainPurple}"
+                        VerticalOptions="CenterAndExpand"
+                        VerticalTextAlignment="Center" />
+
+
+    <components:CitoSwitch IsToggled="False"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="CenterAndExpand"/>
+
+    <controls:CitoLabel Text="OFFLINE"
+                        FontSize="16"
+                        FontAttributes="Bold"
+                        TextColor="{StaticResource CitoMainPurple}"
+                        VerticalOptions="CenterAndExpand"
+                        VerticalTextAlignment="Center" />
+
+  </StackLayout>
+
+</ContentPage>

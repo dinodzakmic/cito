@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<navigation:CitoNavigationPage xmlns="http://xamarin.com/schemas/2014/forms"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                         xmlns:cito="clr-namespace:Cito;assembly=Cito"
+                         xmlns:navigation="clr-namespace:Cito.Framework.Navigation;assembly=Cito"
+                         x:Class="Cito.Framework.Navigation.ThirdPage"
+                         NavigationBarVisible="False"
+                         Title="Third page">
+
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Label Text="Testni content 1"
+               FontSize="26"
+               VerticalOptions="FillAndExpand"
+               HorizontalOptions="FillAndExpand"
+               VerticalTextAlignment="Center"
+               HorizontalTextAlignment="Center"/>
+    </StackLayout>
+  
+</navigation:CitoNavigationPage>

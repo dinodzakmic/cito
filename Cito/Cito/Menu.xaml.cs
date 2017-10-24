@@ -8,12 +8,13 @@ using Xamarin.Forms;
 
 namespace Cito
 {
-    public partial class UserTypePage : ContentPage
+    public partial class Menu : MasterDetailPage
     {
-        public UserTypePage()
+        public Menu()
         {
             InitializeComponent();
-        }      
+            
+        }
+        
     }
 }
-

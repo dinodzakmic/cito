@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Cito.Framework.Validation;
 using Xamarin.Forms;
 
@@ -11,11 +12,15 @@ namespace Cito
     {
         public static ValidationFieldList ValidationFieldList;
         public static Type InstantiatingPageType;
+        public static NavigationPage NavPage;
         public App()
         {
             InitializeComponent();
             ValidationFieldList = new ValidationFieldList();
-            MainPage = new PreloginPage();
+
+            var detail = new NavigationPage(new Views.AvailabiltyPage());
+            MainPage = new Menu() {Detail = detail};
+            NavPage = detail;
         }
 
         #region Validation methods
@@ -68,6 +73,7 @@ namespace Cito
         protected override void OnStart()
         {
             // Handle when your app starts
+            
         }
 
         protected override void OnSleep()
@@ -76,8 +82,8 @@ namespace Cito
         }
 
         protected override void OnResume()
-        {
-            // Handle when your app resumes
+        {            
+            // Handle when your app resumes           
         }
     }
 }

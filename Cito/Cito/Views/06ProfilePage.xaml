@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                               xmlns:cito="clr-namespace:Cito;assembly=Cito"
+                               xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+                               xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
+                               xmlns:navigation="clr-namespace:Cito.Framework.Navigation;assembly=Cito"
+                               xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
+                               x:Class="Cito.Views.ProfilePage">
+
+    <StackLayout Spacing="0">
+        <abstractions:CircleImage
+            Source="https://speakerdata2.s3.amazonaws.com/photo/image/814920/Andres_2BIniesta2.jpg"
+            Aspect="AspectFit"
+            HeightRequest="100"
+            FillColor="{StaticResource CitoMainPurpleLight}"
+            BorderThickness="0"
+            BorderColor="Transparent"
+            Margin="20,20,20,5" />
+
+        <controls:CitoLabel HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"
+                            Text="Andres Iniesta"
+                            FontSize="20"
+                            TextColor="{StaticResource CitoMainPurple}" />
+
+
+        <components:DropdownItem Margin="0,50,0,0" BottomSeparatorVisible="False" Title="My Cars"
+                                 ExpandableView="{x:Reference FirstLayout}" />
+        <components:DropdownContent x:Name="FirstLayout" Padding="60,10"
+                                    HorizontalOptions="StartAndExpand" VerticalOptions="Start">
+            <StackLayout>
+                <controls:CitoLabel HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"
+                                    VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"
+                                    Text="My cars"
+                                    FontSize="20"
+                                    TextColor="{StaticResource CitoMainPurple}" />
+            </StackLayout>
+        </components:DropdownContent>
+
+
+        <components:DropdownItem BottomSeparatorVisible="False" Title="Recently Services"
+                                 ExpandableView="{x:Reference SecondLayout}" />
+        <components:DropdownContent x:Name="SecondLayout" Padding="60,10"
+                                    HorizontalOptions="StartAndExpand" VerticalOptions="Start">
+            <StackLayout>
+                <controls:CitoLabel HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"
+                                    VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"
+                                    Text="My cars"
+                                    FontSize="20"
+                                    TextColor="{StaticResource CitoMainPurple}" />
+            </StackLayout>
+        </components:DropdownContent>
+
+        <components:DropdownItem Title="Recently Washers" />
+    </StackLayout>
+</ContentPage>

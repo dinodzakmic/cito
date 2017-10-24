@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
-             x:Class="Cito.CreateAccountPage">
+             x:Class="Cito.Views.CreateAccountPage">
   
 <StackLayout x:Name="Scroll">
   <ScrollView VerticalOptions="Start" HorizontalOptions="FillAndExpand" IsClippedToBounds="True" >

@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cito.Framework.Navigation.CitoNavigationPage"
+             NavigationPage.HasNavigationBar="False"
+             InputTransparent="False">
+  
+    <Grid x:Name="RootGrid" RowSpacing="0" ColumnSpacing="0" InputTransparent="False">
+      <Grid.TranslationY>
+          <OnPlatform x:TypeArguments="x:Double" Android="0" iOS="20" />
+      </Grid.TranslationY>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+      
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="40" />
+      </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" x:Name="NavigationContent" BackgroundColor="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" Grid.ColumnSpan="3"
+                   Source="NavigationBarBackground.png"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="FillAndExpand"
+                   Aspect="AspectFill"
+                   Opacity="0.5" />
+
+            <Image Grid.Column="0" Grid.ColumnSpan="3"
+                   HeightRequest="1"
+                   Source="NavigationGradiend.jpg"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="EndAndExpand"
+                   Aspect="AspectFill" />
+
+            <StackLayout Grid.Column="0">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BackTapped" />
+                </StackLayout.GestureRecognizers>
+                <Image Source="BackIcon.png"
+                       HeightRequest="30"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand"
+                       Aspect="AspectFit" />
+            </StackLayout>
+
+
+            <Label Grid.Column="1"
+                   x:Name="TitleLabel"
+                   Text="Title here"
+                   TextColor="{StaticResource CitoMainPurple}"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Start" />
+
+
+            <StackLayout Grid.Column="2">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="MenuTapped" />
+                </StackLayout.GestureRecognizers>
+                <Image
+                    Source="MenuIcon.png"
+                    HeightRequest="30"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    Aspect="AspectFit" />
+            </StackLayout>
+        </Grid>
+                        
+
+
+      <Image x:Name="CitoBackground" Source="BackgroundImage"
+             IsVisible="True"
+             Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+             HorizontalOptions="FillAndExpand"
+             VerticalOptions="FillAndExpand"
+             Aspect="AspectFill" />
+
+
+      <ScrollView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="Scroll" BackgroundColor="Transparent"
+                  Opacity="1" IsVisible="True" IsClippedToBounds="True"
+                  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+      
+    
+      <StackLayout Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2" x:Name="MasterStack" 
+                   BackgroundColor="White"
+                   HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand"
+                   IsVisible="False"
+                   TranslationY="50"
+                   TranslationX="600" >
+          <!--<StackLayout.GestureRecognizers>
+              <PanGestureRecognizer PanUpdated="MenuSwipe" />
+          </StackLayout.GestureRecognizers>-->
+        </StackLayout>
+      
+      <StackLayout Grid.Row="1" Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <!--<StackLayout.GestureRecognizers>
+          <PanGestureRecognizer PanUpdated="MenuSwipe" />
+        </StackLayout.GestureRecognizers>-->
+      </StackLayout>
+
+    </Grid>
+
+</ContentPage>

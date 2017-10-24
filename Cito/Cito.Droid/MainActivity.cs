@@ -7,6 +7,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using ImageCircle.Forms.Plugin.Droid;
 using Xamarin.Forms;
 
 namespace Cito.Droid
@@ -22,6 +23,7 @@ namespace Cito.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            ImageCircleRenderer.Init();
             LoadApplication(new App());
 
             Window.SetStatusBarColor(Android.Graphics.Color.Transparent);

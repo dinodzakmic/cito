@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
+             xmlns:cito="clr-namespace:Cito;assembly=Cito"
+             xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
+             x:Class="Cito.Framework.Components.CitoSwitch">
+
+    <Frame BackgroundColor="{StaticResource CitoAccentAqua}"
+           CornerRadius="10" HeightRequest="40" WidthRequest="100" Padding="2"
+           IsClippedToBounds="True"
+           HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Frame BackgroundColor="{StaticResource CitoMainPurple}"
+               Padding="0" CornerRadius="8"
+               HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
+                </StackLayout.GestureRecognizers>
+
+                <components:RoundedBoxView x:Name="Box"
+                                     HeightRequest="40" WidthRequest="40"
+                                     CornerRadius="8"
+                                     BackgroundColor="{StaticResource CitoAccentAqua}"
+                                     HorizontalOptions="StartAndExpand"
+                                     VerticalOptions="CenterAndExpand">
+                    <components:RoundedBoxView.GestureRecognizers>
+                        <PanGestureRecognizer PanUpdated="PanGestureRecognizer_OnPanUpdated" />
+                    </components:RoundedBoxView.GestureRecognizers>
+                </components:RoundedBoxView>
+            </StackLayout>
+        </Frame>
+    </Frame>
+ 
+</ContentView>
