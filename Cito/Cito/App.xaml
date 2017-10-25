@@ -1,26 +1,28 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Cito.App">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Cito.App" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" d1p1:Ignorable="d" xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:utilities="clr-namespace:Cito.Framework.Utilities;assembly=Cito"
+             xmlns:viewModels="clr-namespace:Cito.ViewModels;assembly=Cito">
+  <Application.Resources>
+    <ResourceDictionary>
 
-    <Application.Resources>
+      <viewModels:ViewModelLocator x:Key="Locator" />
+      <utilities:NegateBooleanConverter x:Key="NegateBoolean" />
       
-      <ResourceDictionary>
-          <Color x:Key="CitoMain">#9679b5</Color>
-          <Color x:Key="CitoMainLight">#bfa4de</Color>
-          <Color x:Key="CitoBackground">#fcfbfa</Color>
-          <Color x:Key="CitoAccent">#6dc5ed</Color>
-          <Color x:Key="CitoAccentLight">#a1edf7</Color>
-
-          <x:String x:Key="LogoImage">CitoLogo.png</x:String>
-          <x:String x:Key="BackgroundImage">BackgroundImage.jpg</x:String>
-          <x:String x:Key="OwnerProfileImage">OwnerProfileImage.jpg</x:String>
-          <x:String x:Key="WasherProfileImage">WasherProfileImage.jpg</x:String>
-          <x:String x:Key="MenuIcon">MenuIcon.png</x:String>
-          <x:String x:Key="BackIcon">BackIcon.png</x:String>
-          <x:String x:Key="FacebookIcon">FacebookIcon.png</x:String>
-          <x:String x:Key="GoogleIcon">GoogleIcon.png</x:String>
-      </ResourceDictionary>
-    </Application.Resources>
-  
+      <Color x:Key="CitoMain">#9679b5</Color>
+      <Color x:Key="CitoMainLight">#bfa4de</Color>
+      <Color x:Key="CitoBackground">#fcfbfa</Color>
+      <Color x:Key="CitoAccent">#6dc5ed</Color>
+      <Color x:Key="CitoAccentLight">#a1edf7</Color>
+      
+      <x:String x:Key="LogoImage">CitoLogo.png</x:String>
+      <x:String x:Key="BackgroundImage">BackgroundImage.jpg</x:String>
+      <x:String x:Key="OwnerProfileImage">OwnerProfileImage.jpg</x:String>
+      <x:String x:Key="WasherProfileImage">WasherProfileImage.jpg</x:String>
+      <x:String x:Key="MenuIcon">MenuIcon.png</x:String>
+      <x:String x:Key="BackIcon">BackIcon.png</x:String>
+      <x:String x:Key="FacebookIcon">FacebookIcon.png</x:String>
+      <x:String x:Key="GoogleIcon">GoogleIcon.png</x:String>
+      
+    </ResourceDictionary>
+  </Application.Resources>
 </Application>

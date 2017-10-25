@@ -7,14 +7,20 @@ namespace Cito.Framework.Navigation
 {
     public partial class CitoNavigationPage : ContentPage
     {
+        #region Private properties
+        internal List<double> XPoints { get; set; } = new List<double>();
+        #endregion
+        #region Public properties
         public bool BackgroundImageVisible { get; set; } = true;
+        public bool NavigationBarVisible { get; set; } = true;
+        public static bool IsMasterDisplayed { get; set; } = false;
 
         public Image CitoBackgroundImage
         {
             get { return CitoBackground; }
             set { CitoBackground = CitoBackgroundImage; }
         }
-        public bool NavigationBarVisible { get; set; } = true;
+
 
         public Grid NavigationBar
         {
@@ -34,13 +40,17 @@ namespace Cito.Framework.Navigation
             get { return Scroll; }
             set { Scroll = value; }
         }
-      
+
+
+
+        #endregion
 
         public CitoNavigationPage()
         {
             InitializeComponent();
         }
 
+        #region Methods
         protected override void OnPropertyChanged(string propertyName = null)
         {
             if (propertyName != null && propertyName.Equals("Content") && !CitoNavigation.PageInitialized && ScrollContent != null)
@@ -54,13 +64,11 @@ namespace Cito.Framework.Navigation
                 CitoNavigation.PageInitialized = true;
             }
         }
-
         protected virtual async void BackTapped(object sender, EventArgs e)
         {
-           await CitoNavigation.PopPage();
+            await CitoNavigation.PopPage();
         }
 
-        public static bool IsMasterDisplayed { get; set; } = false;
         protected virtual async void MenuTapped(object sender, EventArgs e)
         {
             if (!IsMasterDisplayed)
@@ -90,13 +98,8 @@ namespace Cito.Framework.Navigation
             //}
         }
 
-        protected override bool OnBackButtonPressed()
-        {
-            Task.Run(async () => await CitoNavigation.PopPage()).Wait();
-            return true;
-        }
 
-        internal List<double> XPoints { get; set; } = new List<double>();
+
         public virtual async void MenuSwipe(object sender, PanUpdatedEventArgs e)
         {
             double totalLeftX = 0;
@@ -149,9 +152,23 @@ namespace Cito.Framework.Navigation
                     IsMasterDisplayed = false;
                 }
             }
-
-
-
         }
+
+        protected override bool OnBackButtonPressed()
+        {
+            Task.Run(async () => await CitoNavigation.PopPage()).Wait();
+            return true;
+        }
+
+        #endregion
+
+
+
+
+
+
+
+        
+       
     }
 }

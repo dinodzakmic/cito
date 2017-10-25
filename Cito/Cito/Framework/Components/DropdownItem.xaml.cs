@@ -3,16 +3,12 @@ using Xamarin.Forms;
 
 namespace Cito.Framework.Components
 {
-    public class DropdownContent : ContentView
-    {
-        public DropdownContent()
-        {
-            IsVisible = false;
-        }
-    }
-
     public partial class DropdownItem : ContentView
     {
+        #region Private properties
+
+        #endregion
+        #region Public properties
         public bool TopSeparatorVisible
         {
             get { return TopSeparator.IsVisible; }
@@ -35,26 +31,29 @@ namespace Cito.Framework.Components
             get { return ViewToExpand.Content; }
             set { ViewToExpand.Content = value; }
         }
-     
+        #endregion
+
         public DropdownItem()
         {
             InitializeComponent();
         }
+
+        #region Methods
 
         private async void ItemTapped(object sender, EventArgs e)
         {
             if (!ViewToDisplay.IsVisible)
             {
                 await Icon.RotateTo(90);
-                ViewToDisplay.IsVisible = true;
                 if (ExpandableView != null) ExpandableView.IsVisible = true;
+                ViewToDisplay.IsVisible = true;
                 await ViewToDisplay.FadeTo(1, easing: Easing.SpringIn);
             }
             else
             {
                 await Icon.RotateTo(-90);
-                ViewToDisplay.IsVisible = false;
                 if (ExpandableView != null) ExpandableView.IsVisible = false;
+                ViewToDisplay.IsVisible = false;
                 await ViewToDisplay.FadeTo(0, easing: Easing.SpringOut);
             }
 
@@ -77,5 +76,25 @@ namespace Cito.Framework.Components
         //        DropdownCreated = true;
         //    }
         //}
+
+        #endregion
+    }
+
+    public class DropdownContent : ContentView
+    {
+        #region Private properties
+
+        #endregion
+        #region Public properties
+
+        #endregion
+        public DropdownContent()
+        {
+            IsVisible = false;
+        }
+
+        #region Methods
+
+        #endregion
     }
 }

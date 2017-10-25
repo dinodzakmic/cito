@@ -10,51 +10,53 @@ namespace Cito.Framework.Components
 {
     public partial class CitoSwitch : ContentView
     {
+        #region Private properties
         internal List<double> XPoints = new List<double>();
         internal bool IsInitialized { get; set; } = false;
-
+        #endregion
+        #region Public properties
         public static readonly BindableProperty IsToggledProperty = BindableProperty
-                    .Create(
-            propertyName: nameof(IsToggled),
-            returnType: typeof(bool),
-            declaringType: typeof(CitoSwitch),
-            defaultValue: false,
-            defaultBindingMode: BindingMode.TwoWay,
-            propertyChanged: async (b, o, n) => 
-            {
-                var isToggled = ((CitoSwitch)b).IsToggled;
-                var box = ((CitoSwitch) b).Box;
-                var isInitialized = ((CitoSwitch) b).IsInitialized;
-
-                if (!isInitialized)
+            .Create(
+                propertyName: nameof(IsToggled),
+                returnType: typeof(bool),
+                declaringType: typeof(CitoSwitch),
+                defaultValue: false,
+                defaultBindingMode: BindingMode.TwoWay,
+                propertyChanged: async (b, o, n) =>
                 {
-                    if (isToggled)
+                    var isToggled = ((CitoSwitch)b).IsToggled;
+                    var box = ((CitoSwitch)b).Box;
+                    var isInitialized = ((CitoSwitch)b).IsInitialized;
+
+                    if (!isInitialized)
                     {
-                        box.TranslationX = 60;
+                        if (isToggled)
+                        {
+                            box.TranslationX = 60;
+                        }
+                        else
+                        {
+                            box.TranslationX = 0;
+                        }
+
+                        ((CitoSwitch)b).IsInitialized = true;
                     }
                     else
                     {
-                        box.TranslationX = 0;
-                    }
+                        var xCoordinate = box.TranslationX;
 
-                    ((CitoSwitch) b).IsInitialized = true;
-                }
-                else
-                {
-                    var xCoordinate = box.TranslationX;
+                        if (isToggled)
+                        {
+                            await box.LayoutTo(new Rectangle(60 - xCoordinate, box.Y, box.Width, box.Height), 150U, Easing.SinOut);
+                        }
+                        else
+                        {
+                            await box.LayoutTo(new Rectangle(0 - xCoordinate, box.Y, box.Width, box.Height), 150U, Easing.SinIn);
+                        }
 
-                    if (isToggled)
-                    {
-                        await box.LayoutTo(new Rectangle(60 - xCoordinate, box.Y, box.Width, box.Height), 150U, Easing.SinOut);
-                    }
-                    else
-                    {
-                        await box.LayoutTo(new Rectangle(0 - xCoordinate, box.Y, box.Width, box.Height), 150U, Easing.SinIn);
-                    }
 
-                    
-                }          
-            });
+                    }
+                });
         public bool IsToggled
         {
             get
@@ -67,13 +69,14 @@ namespace Cito.Framework.Components
             }
         }
 
-      
+        #endregion
 
         public CitoSwitch()
         {
             InitializeComponent();           
         }
 
+        #region Methods
         private void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
         {
             IsInitialized = true;
@@ -97,11 +100,10 @@ namespace Cito.Framework.Components
             else if (IsToggled && XPoints.Min() < -10)
             {
                 XPoints.Clear();
-                IsToggled = !IsToggled;             
+                IsToggled = !IsToggled;
             }
-
-
         }
+        #endregion
 
     }
 }

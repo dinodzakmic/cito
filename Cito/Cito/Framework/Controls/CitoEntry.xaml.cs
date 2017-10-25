@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Cito.Framework.Utilities;
 using Cito.Framework.Validation;
 using Cito.Localization;
 using Xamarin.Forms;
@@ -12,28 +13,20 @@ namespace Cito.Framework.Controls
 {
     public partial class CitoEntry : Entry
     {
+        #region Private properties
+
+        #endregion
+        #region Public properties
         public View ScrollParent { get; set; }
         public double KeyboardHeight { get; set; } = 200;
-        public CitoEntry()
-        {
-            InitializeComponent();
-            FontFamily = Device.OnPlatform(
-                "Lato",
-                null,
-                @"/Assets/Fonts/Lato-Regular.ttf#Lato"
-            );
 
-            BindingContextChanged += (s, e) => { UpdateText(); };
-
-        }
-      
         #region NextView
         public static readonly BindableProperty NextViewProperty =
             BindableProperty.Create("NextView", typeof(View), typeof(CitoEntry));
 
         public View NextView
         {
-            get { return (View) GetValue(NextViewProperty); }
+            get { return (View)GetValue(NextViewProperty); }
             set { SetValue(NextViewProperty, value); }
         }
 
@@ -42,27 +35,14 @@ namespace Cito.Framework.Controls
             NextView?.Focus();
         }
         #endregion
-        #region Focused/Unfocused methods       
-        private void CitoEntryUnfocused(object sender, FocusEventArgs e)
-        {
-            var scrollParent = ScrollParent as StackLayout;
-            scrollParent?.Children.RemoveAt(scrollParent.Children.Count - 1);
-        }
-
-        private void CitoEntryFocused(object sender, FocusEventArgs e)
-        {
-            var scrollParent = ScrollParent as StackLayout;
-            scrollParent?.Children.Add(new StackLayout() {HeightRequest = KeyboardHeight, BackgroundColor = Color.Transparent});
-        }
-        #endregion
         #region FirstLetterUpperCase
         public static BindableProperty FirstLetterUpperCaseProperty = BindableProperty.Create(
-           "IsFirstLetterUpperCase",
-           typeof(bool),
-           typeof(CitoEntry),
-           false,
-           BindingMode.TwoWay
-           );
+            "IsFirstLetterUpperCase",
+            typeof(bool),
+            typeof(CitoEntry),
+            false,
+            BindingMode.TwoWay
+        );
 
 
         private bool _isFirstLetterUpperCase;
@@ -79,12 +59,12 @@ namespace Cito.Framework.Controls
         #endregion
         #region AutoCorrect
         public static BindableProperty AutoCorrectEnabledProperty = BindableProperty.Create(
-           "IsFirstLetterUpperCase",
-           typeof(bool),
-           typeof(CitoEntry),
-           true,
-           BindingMode.TwoWay
-           );
+            "IsFirstLetterUpperCase",
+            typeof(bool),
+            typeof(CitoEntry),
+            true,
+            BindingMode.TwoWay
+        );
 
         private bool _isAutoCorrectEnabled = true;
 
@@ -99,19 +79,19 @@ namespace Cito.Framework.Controls
         }
         #endregion
         #region ErrorText
-                private string _errorText;
+        private string _errorText;
 
-                public string ErrorText
-                {
-                    get { return _errorText; }
-                    set
-                    {
-                        _errorText = value;
-                        OnPropertyChanged("ErrorText");
-                    }
-                }
+        public string ErrorText
+        {
+            get { return _errorText; }
+            set
+            {
+                _errorText = value;
+                OnPropertyChanged("ErrorText");
+            }
+        }
         #endregion
-        #region Validation properties and methods
+        #region Validation
         private bool _mandatory;
         public bool Mandatory
         {
@@ -122,40 +102,61 @@ namespace Cito.Framework.Controls
                 ToggleValidationBehavior();
             }
         }
+        #endregion
+        #region TPlaceholder
+        public static BindableProperty TPlaceholderProperty = BindableProperty.Create(
+            "TPlaceholder",
+            typeof(string),
+            typeof(CitoLabel),
+            "",
+            BindingMode.Default);
 
-        protected virtual void ToggleValidationBehavior()
+        public string TPlaceholder
         {
-            if (Mandatory && Behaviors.Where(b => b is EntryMandatory).ToArray().Length == 0)
-            {
-                Behaviors.Add(new EntryMandatory());
-            }
-            else
-            {
-                var behavior = Behaviors.FirstOrDefault(b => b is EntryMandatory);
-                if (behavior != null)
-                {
-                    Behaviors.Remove(behavior);
-                }
-            }
+            get { return (string)GetValue(TPlaceholderProperty); }
+            set { SetValue(TPlaceholderProperty, value); }
         }
         #endregion
-        #region OnPropertyChanged
+        #region MaximumLength
 
-        protected override void OnPropertyChanged(string propertyName = null)
-        {
-            base.OnPropertyChanged(propertyName);
-            switch (propertyName)
-            {
-                case "TextColor":
-                case "PlaceholderColor":
-                case "TPlaceholder":
-                    UpdateText();
-                    break;
-            }
-        }
+        public int MaximumLength { get; set; }
 
         #endregion
-        #region UpdateText
+
+        #endregion
+
+        public CitoEntry()
+        {
+            InitializeComponent();
+            FontFamily = CitoFont.SetFont();
+            BindingContextChanged += (s, e) => { UpdateText(); };
+        }
+
+        #region Methods
+
+        private void CitoEntryUnfocused(object sender, FocusEventArgs e)
+        {
+            var scrollParent = ScrollParent as StackLayout;
+            scrollParent?.Children.RemoveAt(scrollParent.Children.Count - 1);
+        }
+
+        private void CitoEntryFocused(object sender, FocusEventArgs e)
+        {
+            var scrollParent = ScrollParent as StackLayout;
+            scrollParent?.Children.Add(new StackLayout() { HeightRequest = KeyboardHeight, BackgroundColor = Color.Transparent });
+        }
+
+        private void NEntry_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            var entry = (Entry)sender;
+
+            if (MaximumLength <= 0) return;
+            if (entry.Text.Length <= 0) return;
+            if (entry.Text.Length > MaximumLength)
+                if (e.OldTextValue != null)
+                    entry.Text = e.OldTextValue;
+                else entry.Text = "";
+        }
 
         protected virtual void UpdateText()
         {
@@ -184,49 +185,40 @@ namespace Cito.Framework.Controls
             label.Placeholder = textToParse;
         }
 
-        #endregion
-        #region TPlaceholder
-        public static BindableProperty TPlaceholderProperty = BindableProperty.Create(
-           "TPlaceholder",
-           typeof(string),
-           typeof(CitoLabel),
-           "",
-           BindingMode.Default);
-
-        public string TPlaceholder
+        protected override void OnPropertyChanged(string propertyName = null)
         {
-            get { return (string)GetValue(TPlaceholderProperty); }
-            set { SetValue(TPlaceholderProperty, value); }
-        }
-        #endregion
-        #region MaximumLength
-        private int _maximumLength;
-        public int MaximumLength
-        {
-            get
+            base.OnPropertyChanged(propertyName);
+            switch (propertyName)
             {
-                return _maximumLength;
-            }
-            set
-            {
-                _maximumLength = value;
+                case "TextColor":
+                case "PlaceholderColor":
+                case "TPlaceholder":
+                    UpdateText();
+                    break;
             }
         }
-        #endregion
-        #region TextChanged
 
-        private void NEntry_OnTextChanged(object sender, TextChangedEventArgs e)
+
+        protected virtual void ToggleValidationBehavior()
         {
-            var entry = (Entry)sender;
-
-            if (MaximumLength <= 0) return;
-            if (entry.Text.Length <= 0) return;
-            if (entry.Text.Length > MaximumLength)
-                if (e.OldTextValue != null)
-                    entry.Text = e.OldTextValue;
-                else entry.Text = "";
+            if (Mandatory && Behaviors.Where(b => b is EntryMandatory).ToArray().Length == 0)
+            {
+                Behaviors.Add(new EntryMandatory());
+            }
+            else
+            {
+                var behavior = Behaviors.FirstOrDefault(b => b is EntryMandatory);
+                if (behavior != null)
+                {
+                    Behaviors.Remove(behavior);
+                }
+            }
         }
 
+
+
+
         #endregion
+   
     }
 }

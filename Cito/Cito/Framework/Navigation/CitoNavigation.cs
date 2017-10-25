@@ -7,15 +7,18 @@ namespace Cito.Framework.Navigation
 {
     static class CitoNavigation
     {
+        #region Private properties
         private static Stack<ViewTitle> ViewStack { get; set; } = new Stack<ViewTitle>();
+        #endregion
+        #region Public properties
         public static bool PageInitialized = false;
 
         public static CitoNavigationPage MainPage =>
-            (CitoNavigationPage)((NavigationPage) (Application.Current.MainPage as MasterDetailPage)?.Detail)?.CurrentPage;
+            (CitoNavigationPage)((NavigationPage)(Application.Current.MainPage as MasterDetailPage)?.Detail)?.CurrentPage;
 
+        #endregion
 
-
-
+        #region Methods
         public static async Task PushPage(CitoNavigationPage page)
         {
             if (MainPage != null)
@@ -37,7 +40,7 @@ namespace Cito.Framework.Navigation
             }
             else
             {
-                
+
             }
         }
 
@@ -45,7 +48,7 @@ namespace Cito.Framework.Navigation
         {
             if (MainPage != null)
             {
-                await MainPage.ScrollContent.Content.FadeTo(opacity: 0, length: 100U ,easing: Easing.SinOut);
+                await MainPage.ScrollContent.Content.FadeTo(opacity: 0, length: 100U, easing: Easing.SinOut);
                 MainPage.ScrollContent.Content = viewTitle.View;
                 MainPage.ScrollContent.Content.Opacity = 0;
                 MainPage.CitoTitle = viewTitle.Title;
@@ -55,15 +58,25 @@ namespace Cito.Framework.Navigation
                 await MainPage.ScrollContent.Content.FadeTo(opacity: 1, length: 100U, easing: Easing.SinIn);
             }
         }
+
+
+        #endregion
+
     }
 
 
     class ViewTitle
     {
+        #region Private properties
+
+        #endregion
+        #region Public properties
         public View View { get; set; }
         public string Title { get; set; }
         public bool NavigationBarVisible { get; set; }
         public bool BackgroundImageVisible { get; set; }
+        #endregion
+
 
         public ViewTitle(View view, string title, bool navigationBarVisible = true, bool backgroundImageVisible = true)
         {
@@ -72,5 +85,6 @@ namespace Cito.Framework.Navigation
             NavigationBarVisible = navigationBarVisible;
             BackgroundImageVisible = backgroundImageVisible;
         }
+
     }
 }
