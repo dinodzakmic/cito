@@ -18,6 +18,8 @@ namespace Cito.Framework.Components
             propertyChanged: (b, o, n) =>
             {
                 var starsRating = (int)n;
+                var oldStarsRating = (int)o;
+
                 if (starsRating > 5) starsRating = 5;
                 if (starsRating < 0) starsRating = 0; 
 
@@ -37,10 +39,21 @@ namespace Cito.Framework.Components
             set { SetValue(RatingStarsProperty, value); }
         }
 
+        public bool IsTapEnabled { get; set; } = false;
+
         public Rating()
         {
             InitializeComponent();
         }
+
+        private void StarTapped(object sender, EventArgs e)
+        {
+            if (!IsTapEnabled) return;
+
+            var starRating = Int32.Parse(((Image) sender).ClassId);
+            RatingStars = starRating;
+        }
+
 
     }
 }

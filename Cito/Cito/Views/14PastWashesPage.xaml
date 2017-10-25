@@ -108,6 +108,13 @@
             </components:DropdownContent>
 
             <components:DropdownItem Title="April" />
+
+
+          <!--<components:Rating RatingStars="1"
+                             IsTapEnabled="True"
+                             HeightRequest="40"
+                             HorizontalOptions="StartAndExpand"
+                             VerticalOptions="CenterAndExpand" />-->
           
         </StackLayout>
     </ScrollView>
