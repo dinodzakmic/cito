@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
+             xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
+             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             x:Class="Cito.Views.PastWashesPage"
+             BackgroundImage="{StaticResource BackgroundImage}">
+
+    <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"
+                Opacity="0.97" BackgroundColor="{StaticResource CitoBackground}">
+        <StackLayout HorizontalOptions="FillAndExpand"
+                     VerticalOptions="StartAndExpand" >
+            <components:DropdownItem BottomSeparatorVisible="False" Title="June"
+                                     ExpandableView="{x:Reference FirstLayout}" />
+            <components:DropdownContent x:Name="FirstLayout" Padding="10"
+                                        HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="60">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <abstractions:CircleImage Grid.Column="0"
+                                                  Source="{StaticResource WasherProfileImage}"
+                                                  BorderColor="{StaticResource CitoMain}"
+                                                  BorderThickness="3"
+                                                  HorizontalOptions="FillAndExpand"
+                                                  VerticalOptions="FillAndExpand" />
+
+                        <StackLayout Grid.Column="1"
+                                     HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="CenterAndExpand">
+                            <controls:CitoLabel Text="WASHER NO.1"
+                                                FontSize="15"
+                                                VerticalOptions="CenterAndExpand"
+                                                VerticalTextAlignment="Center"
+                                                HorizontalOptions="StartAndExpand"
+                                                HorizontalTextAlignment="Start" />
+                            <components:Rating RatingStars="3"
+                                               HeightRequest="20"
+                                               HorizontalOptions="StartAndExpand"
+                                               VerticalOptions="CenterAndExpand" />
+                        </StackLayout>
+
+                        <controls:CitoButton Grid.Column="2"
+                                             Text="$12.99"
+                                             HeightRequest="40"
+                                             VerticalOptions="CenterAndExpand"
+                                             HorizontalOptions="FillAndExpand" />
+
+                    </Grid>
+
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="60">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <abstractions:CircleImage Grid.Column="0"
+                                                  Source="{StaticResource WasherProfileImage}"
+                                                  BorderColor="{StaticResource CitoMain}"
+                                                  BorderThickness="3"
+                                                  HorizontalOptions="FillAndExpand"
+                                                  VerticalOptions="FillAndExpand" />
+
+                        <StackLayout Grid.Column="1"
+                                     HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="CenterAndExpand">
+                            <controls:CitoLabel Text="WASHER NO.1"
+                                                FontSize="15"
+                                                VerticalOptions="CenterAndExpand"
+                                                VerticalTextAlignment="Center"
+                                                HorizontalOptions="StartAndExpand"
+                                                HorizontalTextAlignment="Start" />
+                            <components:Rating RatingStars="3"
+                                               HeightRequest="20"
+                                               HorizontalOptions="StartAndExpand"
+                                               VerticalOptions="CenterAndExpand" />
+                        </StackLayout>
+
+                        <controls:CitoButton Grid.Column="2"
+                                             Text="$12.99"
+                                             HeightRequest="40"
+                                             VerticalOptions="CenterAndExpand"
+                                             HorizontalOptions="FillAndExpand" />
+
+                    </Grid>
+                </StackLayout>
+            </components:DropdownContent>
+
+
+            <components:DropdownItem BottomSeparatorVisible="False" Title="May"
+                                     ExpandableView="{x:Reference SecondLayout}" />
+            <components:DropdownContent x:Name="SecondLayout" Padding="60,10"
+                                        HorizontalOptions="StartAndExpand" VerticalOptions="Start">
+                <StackLayout>
+                    <controls:CitoLabel HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"
+                                        VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"
+                                        Text="My cars"
+                                        FontSize="20"
+                                        TextColor="{StaticResource CitoMain}" />
+                </StackLayout>
+            </components:DropdownContent>
+
+            <components:DropdownItem Title="April" />
+          
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

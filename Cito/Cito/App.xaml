@@ -14,6 +14,8 @@
 
           <x:String x:Key="LogoImage">CitoLogo.png</x:String>
           <x:String x:Key="BackgroundImage">BackgroundImage.jpg</x:String>
+          <x:String x:Key="OwnerProfileImage">OwnerProfileImage.jpg</x:String>
+          <x:String x:Key="WasherProfileImage">WasherProfileImage.jpg</x:String>
           <x:String x:Key="MenuIcon">MenuIcon.png</x:String>
           <x:String x:Key="BackIcon">BackIcon.png</x:String>
           <x:String x:Key="FacebookIcon">FacebookIcon.png</x:String>

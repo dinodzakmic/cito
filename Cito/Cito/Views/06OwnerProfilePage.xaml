@@ -7,11 +7,11 @@
              xmlns:navigation="clr-namespace:Cito.Framework.Navigation;assembly=Cito"
              xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
              x:Class="Cito.Views.OwnerProfilePage"
-             BackgroundImage="{StaticResource BackgroundImage}">
+             BackgroundColor="{StaticResource CitoBackground}" >
 
-    <StackLayout Spacing="0">
+    <StackLayout Spacing="0" >
         <abstractions:CircleImage
-            Source="https://speakerdata2.s3.amazonaws.com/photo/image/814920/Andres_2BIniesta2.jpg"
+            Source="{StaticResource OwnerProfileImage}"
             Aspect="AspectFit"
             HeightRequest="100"
             FillColor="{StaticResource CitoMainLight}"
@@ -53,5 +53,6 @@
         </components:DropdownContent>
 
         <components:DropdownItem Title="Recent Washers" />
+      
     </StackLayout>
 </ContentPage>

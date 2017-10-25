@@ -48,14 +48,14 @@ namespace Cito.Framework.Components
                 await Icon.RotateTo(90);
                 ViewToDisplay.IsVisible = true;
                 if (ExpandableView != null) ExpandableView.IsVisible = true;
-                await ViewToDisplay.FadeTo(1);
+                await ViewToDisplay.FadeTo(1, easing: Easing.SpringIn);
             }
             else
             {
                 await Icon.RotateTo(-90);
                 ViewToDisplay.IsVisible = false;
                 if (ExpandableView != null) ExpandableView.IsVisible = false;
-                await ViewToDisplay.FadeTo(0);
+                await ViewToDisplay.FadeTo(0, easing: Easing.SpringOut);
             }
 
         }
