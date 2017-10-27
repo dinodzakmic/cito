@@ -14,5 +14,10 @@ namespace Cito.Views
         {
             InitializeComponent();
         }
+
+        private async void Button_OnClicked(object sender, EventArgs e)
+        {
+            await App.NavPage.PushAsync(new OwnerProfilePage());
+        }
     }
 }

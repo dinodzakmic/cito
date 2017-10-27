@@ -1,19 +1,10 @@
-/*
-  In App.xaml:
-  <Application.Resources>
-      <vm:ViewModelLocator xmlns:vm="clr-namespace:Cito"
-                           x:Key="Locator" />
-  </Application.Resources>
-  
-  In the View:
-  DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}"
-
-  You can also use Blend to do all this with the tool's support.
-  See http://www.galasoft.ch/mvvm
-*/
-
+using System;
+using System.Collections.Generic;
+using System.Xml;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using Xamarin.Forms;
 
 namespace Cito.ViewModels
 {
@@ -22,20 +13,29 @@ namespace Cito.ViewModels
         public ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
-
-            SimpleIoc.Default.Register<MainViewModel>();
+            
         }
 
-        public MainViewModel Main
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<MainViewModel>();
-            }
-        }
-        
+        public MainViewModel Main => ViewModel<MainViewModel>.Get();
+        public OwnerProfileViewModel Owner => ViewModel<OwnerProfileViewModel>.Get();
+
+
         public static void Cleanup()
         {
         }
     }
+
+    public class ViewModel<T> where T : ViewModelBase
+    {
+        public static T Get()
+        {
+            if (!SimpleIoc.Default.IsRegistered<T>())
+            {
+                SimpleIoc.Default.Register<T>();
+            }
+            return ServiceLocator.Current.GetInstance<T>();
+        }
+    }
+    
+    
 }

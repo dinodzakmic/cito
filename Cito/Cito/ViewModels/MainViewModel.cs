@@ -6,7 +6,7 @@ namespace Cito.ViewModels
     {
         public MainViewModel()
         {
-
+            
         }
     }
 }

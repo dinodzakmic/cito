@@ -5,7 +5,8 @@
              xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
              xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
              x:Class="Cito.Views.PastWashesPage"
-             BackgroundImage="{StaticResource BackgroundImage}">
+             BackgroundImage="{StaticResource BackgroundImage}"
+             BindingContext="{Binding Source={StaticResource Locator},Path=Main}">
 
     <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"
                 Opacity="0.97" BackgroundColor="{StaticResource CitoBackground}">
@@ -110,11 +111,9 @@
             <components:DropdownItem Title="April" />
 
 
-          <!--<components:Rating RatingStars="1"
-                             IsTapEnabled="True"
-                             HeightRequest="40"
-                             HorizontalOptions="StartAndExpand"
-                             VerticalOptions="CenterAndExpand" />-->
+            <controls:CitoButton Text="Go to second page" FontSize="14"  MinimumWidthRequest="200"
+                                 HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                 Clicked="Button_OnClicked"/>
           
         </StackLayout>
     </ScrollView>

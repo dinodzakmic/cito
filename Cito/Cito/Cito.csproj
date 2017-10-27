@@ -41,6 +41,7 @@
     <Compile Include="Framework\Utilities\CitoFont.cs" />
     <Compile Include="Framework\Utilities\NegateBooleanConverter.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\OwnerProfileViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\06OwnerProfilePage.xaml.cs">
       <DependentUpon>06OwnerProfilePage.xaml</DependentUpon>
