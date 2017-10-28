@@ -21,7 +21,7 @@
             Margin="20,20,20,5" />
 
         <controls:CitoLabel HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"
-                            Text="{Binding  FullName}"
+                            Text="{Binding FullName}"
                             FontSize="20"
                             TextColor="{StaticResource CitoMain}" />
 

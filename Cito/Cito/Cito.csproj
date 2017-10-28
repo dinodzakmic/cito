@@ -43,7 +43,9 @@
     </Compile>
     <Compile Include="Framework\Utilities\CitoFont.cs" />
     <Compile Include="Framework\Utilities\NegateBooleanConverter.cs" />
+    <Compile Include="ViewModels\CitoViewModelBase.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\MenuViewModel.cs" />
     <Compile Include="ViewModels\OwnerProfileViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\06OwnerProfilePage.xaml.cs">
@@ -117,8 +119,8 @@
     <Compile Include="Views\14PastWashesPage.xaml.cs">
       <DependentUpon>14PastWashesPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MapPage.xaml.cs">
-      <DependentUpon>MapPage.xaml</DependentUpon>
+    <Compile Include="Views\08MapPage.xaml.cs">
+      <DependentUpon>08MapPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -308,7 +310,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\MapPage.xaml">
+    <EmbeddedResource Include="Views\08MapPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

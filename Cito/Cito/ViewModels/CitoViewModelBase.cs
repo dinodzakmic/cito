@@ -7,12 +7,8 @@ using GalaSoft.MvvmLight;
 
 namespace Cito.ViewModels
 {
-    public class OwnerProfileViewModel : CitoViewModelBase
+    public class CitoViewModelBase : ViewModelBase
     {
-        public string FullName => "John Doe";
-        public OwnerProfileViewModel()
-        {
-           
-        }
+        
     }
 }

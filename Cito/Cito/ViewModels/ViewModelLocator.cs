@@ -18,6 +18,7 @@ namespace Cito.ViewModels
 
         public MainViewModel Main => ViewModel<MainViewModel>.Get();
         public OwnerProfileViewModel Owner => ViewModel<OwnerProfileViewModel>.Get();
+        public MenuViewModel Menu => ViewModel<MenuViewModel>.Get();
 
 
         public static void Cleanup()
@@ -25,7 +26,7 @@ namespace Cito.ViewModels
         }
     }
 
-    public class ViewModel<T> where T : ViewModelBase
+    public class ViewModel<T> where T : CitoViewModelBase
     {
         public static T Get()
         {

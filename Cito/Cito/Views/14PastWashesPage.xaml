@@ -41,7 +41,7 @@
                                                 VerticalTextAlignment="Center"
                                                 HorizontalOptions="StartAndExpand"
                                                 HorizontalTextAlignment="Start" />
-                            <components:Rating RatingStars="3"
+                            <components:Rating RatingStars="{Binding MyRating}"
                                                HeightRequest="20"
                                                HorizontalOptions="StartAndExpand"
                                                VerticalOptions="CenterAndExpand" />

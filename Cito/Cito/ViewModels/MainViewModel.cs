@@ -4,7 +4,7 @@ using Xamarin.Forms.Maps;
 
 namespace Cito.ViewModels
 {    
-    public class MainViewModel : ViewModelBase
+    public class MainViewModel : CitoViewModelBase
     {
         public List<Pin> CitoPins => new List<Pin>()
         {
@@ -14,6 +14,8 @@ namespace Cito.ViewModels
                 Label = "Test Pin"
             }
         };
+
+        public int MyRating => 1;
         public MainViewModel()
         {
             
