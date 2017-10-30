@@ -9,7 +9,7 @@ using Xamarin.Forms.Maps;
 
 namespace Cito.Framework.Components
 {
-    public partial class CitoMap : ContentView
+    public partial class CitoMap : Map
     {
         #region Private properties
 
@@ -30,7 +30,7 @@ namespace Cito.Framework.Components
                 {
                     var map = ((CitoMap)b);
 
-                    map.CustomCitoMap.Pins.Clear();
+                    map.Pins.Clear();
 
                     var pins = ((List<Pin>)n);
 
@@ -38,7 +38,7 @@ namespace Cito.Framework.Components
 
                     foreach (var pin in pins)
                     {
-                        map.CustomCitoMap.Pins.Add(pin);
+                        map.Pins.Add(pin);
                     }
                 });
         public List<Pin> BindablePins
@@ -52,6 +52,10 @@ namespace Cito.Framework.Components
                 SetValue(BindablePinsProperty, value);
             }
         }
+        #endregion
+        #region MapPin
+
+        public string MapPin { get; set; }
         #endregion
         #endregion
         public CitoMap()

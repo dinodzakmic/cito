@@ -11,7 +11,8 @@ namespace Cito.ViewModels
             new Pin()
             {
                 Position = new Position(44,18),
-                Label = "Test Pin"
+                Label = "Test Pin",
+                Address = "Neka adresa"
             }
         };
 

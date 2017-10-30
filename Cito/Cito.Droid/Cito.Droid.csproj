@@ -166,6 +166,7 @@
     <Compile Include="Renderers\CitoButtonRenderer.cs" />
     <Compile Include="Renderers\CitoEntryRenderer.cs" />
     <Compile Include="Renderers\CitoLabelRenderer.cs" />
+    <Compile Include="Renderers\CitoMapRenderer.cs" />
     <Compile Include="Renderers\RoundedBoxViewRenderer.cs" />
     <Compile Include="Renderers\Typefaces.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -185,6 +186,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\arrow_down_scaling.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\circle_stroke.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

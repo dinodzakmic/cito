@@ -28,23 +28,19 @@
                 android:text="infoWindowSubtitle"
                 android:textColor="@android:color/white" />
         </LinearLayout>
-        <TextView
-            android:id="@+id/infoWindowIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/infoWindowImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="fitCenter"
             android:layout_gravity="center"
-            android:text="infoWindowSubtitle"
             android:padding="5dp"
-            android:textSize="40dp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:textColor="@android:color/white" />
+            android:src="@drawable/OwnerProfileImage" />
     </LinearLayout>
     <Button
         android:id="@+id/arrow_down"
-        android:layout_width="24dp"
+        android:layout_width="20dp"
         android:layout_gravity="center"
-        android:layout_height="24dp"
-        android:layout_centerHorizontal="true"
+        android:layout_height="20dp"
         android:background="@drawable/arrow_down_scaling" />
 </LinearLayout>

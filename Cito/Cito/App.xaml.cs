@@ -27,7 +27,7 @@ namespace Cito
             InitializeComponent();
             ValidationFieldList = new ValidationFieldList();
 
-            var detail = new NavigationPage(new PastWashesPage());
+            var detail = new NavigationPage(new MapPage());
             MainPage = new Menu() {Detail = detail};
             NavPage = detail;
         }

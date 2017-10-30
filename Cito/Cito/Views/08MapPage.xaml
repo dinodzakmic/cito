@@ -6,7 +6,7 @@
              BindingContext="{Binding Source={StaticResource Locator},Path=Main}">
 
   <StackLayout>
-      <components:CitoMap BindablePins="{Binding CitoPins}" 
+      <components:CitoMap BindablePins="{Binding CitoPins}" MapPin="icon"
                           HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
   </StackLayout>
   
