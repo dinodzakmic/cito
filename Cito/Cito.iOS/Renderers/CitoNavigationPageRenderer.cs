@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Cito;
-using Cito.iOS;
+﻿using Cito.iOS.Renderers;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 using CitoNavigationPage = Cito.Framework.Navigation.CitoNavigationPage;
 
 [assembly: ExportRenderer(typeof(CitoNavigationPage), typeof(CitoNavigationPageRenderer))]
-namespace Cito.iOS
+namespace Cito.iOS.Renderers
 {
     internal class CitoNavigationPageRenderer : PageRenderer
     {

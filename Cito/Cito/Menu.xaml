@@ -1,19 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Cito.Menu"
-             Title="Menu" >
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
+                  x:Class="Cito.Menu"
+                  MasterBehavior="Split"
+                  Title="Menu">
   
   <MasterDetailPage.Master>
-    <ContentPage TranslationY="25" Title="Menu" >
-        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <Label Text="Testni content 1"
-                   FontSize="26"
-                   VerticalOptions="FillAndExpand"
-                   HorizontalOptions="FillAndExpand"
-                   VerticalTextAlignment="Center"
-                   HorizontalTextAlignment="Center"/>
+    <ContentPage Title="Menu" Icon="menu.png" BindingContext="{Binding Source={StaticResource Locator}, Path=Menu}">
+      <Grid BackgroundColor="{StaticResource CitoMain}" Padding="10,10,0,10">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="3*" />
+          <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+          <StackLayout Spacing="0" Margin="0,50,0,0">
+              <components:MenuItem MenuItemImage="HomeIcon.png"
+                                   MenuItemText="Home"
+                                   Command="{Binding MenuItemTest}" />
+              <components:MenuItem MenuItemImage="ProfileIcon.png"
+                                   MenuItemText="Profile"
+                                   Command="{Binding MenuItemTest}" />
+              <components:MenuItem MenuItemImage="LockIcon.png"
+                                   MenuItemText="Promo Code"
+                                   Command="{Binding MenuItemTest}" />
+              <components:MenuItem MenuItemImage="FaqIcon.png"
+                                   MenuItemText="FAQ"
+                                   Command="{Binding MenuItemTest}" />
+          </StackLayout>
+        <StackLayout Grid.Row="1" Margin="0,0,0,50" HeightRequest="100" WidthRequest="100" VerticalOptions="End" HorizontalOptions="Center">
+          <Image Source="CitoLogo.png" VerticalOptions="CenterAndExpand" Aspect="AspectFit"/>          
         </StackLayout>
+
+      </Grid>
     </ContentPage>
   </MasterDetailPage.Master>
 

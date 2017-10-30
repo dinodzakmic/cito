@@ -20,6 +20,7 @@ namespace Cito
         public static ValidationFieldList ValidationFieldList;
         public static Type InstantiatingPageType;
         public static NavigationPage NavPage;
+        public static MasterDetailPage MenuPage;
         #endregion
 
         public App()
@@ -27,9 +28,9 @@ namespace Cito
             InitializeComponent();
             ValidationFieldList = new ValidationFieldList();
 
-            var detail = new NavigationPage(new MapPage());
-            MainPage = new Menu() {Detail = detail};
-            NavPage = detail;
+            NavPage = new NavigationPage(new PreloginPage());
+            MenuPage = new Menu() { Detail = NavPage };
+            MainPage = MenuPage;
         }
 
         #region Validation methods
