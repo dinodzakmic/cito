@@ -7,9 +7,11 @@ using Cito.Framework.Validation;
 using Cito.ViewModels;
 using Cito.Views;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace Cito
-{  
+{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class App : Application
     {
         #region Private properties
@@ -19,18 +21,21 @@ namespace Cito
         public static ViewModelLocator Locator => _locator ?? (_locator = new ViewModelLocator());
         public static ValidationFieldList ValidationFieldList;
         public static Type InstantiatingPageType;
+        public static Page RootPage;
         public static NavigationPage NavPage;
         public static MasterDetailPage MenuPage;
         #endregion
-
+       
         public App()
         {
             InitializeComponent();
             ValidationFieldList = new ValidationFieldList();
 
             NavPage = new NavigationPage(new PreloginPage());
-            MenuPage = new Menu() { Detail = NavPage };
-            MainPage = MenuPage;
+
+            //MenuPage = new Menu() { Detail = NavPage };
+
+            MainPage = NavPage;
         }
 
         #region Validation methods

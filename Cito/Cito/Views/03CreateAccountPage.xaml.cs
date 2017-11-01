@@ -1,5 +1,4 @@
-﻿using System;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace Cito.Views
 {
@@ -24,11 +23,6 @@ namespace Cito.Views
                 FullNameEntry.NextView = EmailEntry;
             }
                       
-        }
-
-        private void Button_OnClicked(object sender, EventArgs e)
-        {
-            App.Current.MainPage = new Views.UserTypePage();            
         }
     }
 }

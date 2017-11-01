@@ -9,7 +9,7 @@
              BindingContext="{Binding Source={StaticResource Locator},Path=Main}">
 
     <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"
-                Opacity="0.97" BackgroundColor="{StaticResource CitoBackground}">
+                Opacity="0.97" BackgroundColor="{StaticResource CitoLight}">
         <StackLayout HorizontalOptions="FillAndExpand"
                      VerticalOptions="StartAndExpand" >
             <components:DropdownItem BottomSeparatorVisible="False" Title="June"

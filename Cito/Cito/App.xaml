@@ -13,7 +13,8 @@
       <Color x:Key="CitoMain">#26a4ad</Color>
       <Color x:Key="CitoMainDark">#0e1a24</Color>
       <Color x:Key="CitoMainLight">#bfa4de</Color>
-      <Color x:Key="CitoBackground">#fcfbfa</Color>
+      <Color x:Key="CitoLight">#fcfbfa</Color>
+      <Color x:Key="CitoLightContrast">#ebebeb</Color>
       <Color x:Key="CitoAccent">#6dc5ed</Color>
       <Color x:Key="CitoAccentLight">#a1edf7</Color>
       
@@ -28,7 +29,7 @@
       <x:String x:Key="GoogleIcon">GoogleIcon.png</x:String>
       <x:String x:Key="StandBy">StandBy.png</x:String>
       
-      <x:Double x:Key="ControlsHeight">40</x:Double>
+      <x:Double x:Key="ControlsHeight">45</x:Double>
       
     </ResourceDictionary>
   </Application.Resources>

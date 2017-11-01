@@ -15,6 +15,11 @@ namespace Cito.ViewModels
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);           
         }
 
+        public PreloginViewModel Prelogin => ViewModel<PreloginViewModel>.Get();
+        public UserTypeViewModel UserType => ViewModel<UserTypeViewModel>.Get();
+        public CreateAccountViewModel CreateAccount => ViewModel<CreateAccountViewModel>.Get();
+
+
         public MainViewModel Main => ViewModel<MainViewModel>.Get();
         public OwnerProfileViewModel Owner => ViewModel<OwnerProfileViewModel>.Get();
         public MenuViewModel Menu => ViewModel<MenuViewModel>.Get();

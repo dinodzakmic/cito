@@ -49,10 +49,14 @@
     </Compile>
     <Compile Include="Framework\Utilities\CitoFont.cs" />
     <Compile Include="Framework\Utilities\NegateBooleanConverter.cs" />
+    <Compile Include="Framework\Utilities\StringHelpers.cs" />
     <Compile Include="ViewModels\CitoViewModelBase.cs" />
+    <Compile Include="ViewModels\03CreateAccountViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MenuViewModel.cs" />
     <Compile Include="ViewModels\OwnerProfileViewModel.cs" />
+    <Compile Include="ViewModels\01PreloginViewModel.cs" />
+    <Compile Include="ViewModels\02UserTypeViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\06OwnerProfilePage.xaml.cs">
       <DependentUpon>06OwnerProfilePage.xaml</DependentUpon>

@@ -126,7 +126,7 @@ namespace Cito.Framework.Components
         //    {
         //        ((MenuItem)bindable).MainStack.BackgroundColor =
         //            (Color)Application.Current.Resources["CitoMainLight"];
-        //        ((MenuItem)bindable).ItemText.TextColor = (Color)Application.Current.Resources["CitoBackground"];
+        //        ((MenuItem)bindable).ItemText.TextColor = (Color)Application.Current.Resources["CitoLight"];
         //        if (((MenuItem)bindable).ItemImage != null)
         //        {
         //            var currentImage = ((FileImageSource)(((MenuItem)bindable).ItemImage.Source)).File;
@@ -144,7 +144,7 @@ namespace Cito.Framework.Components
         //    {
         //        ((MenuItem)bindable).MainStack.BackgroundColor =
         //          (Color)Application.Current.Resources["CitoMain"];
-        //        ((MenuItem)bindable).ItemText.TextColor = (Color)Application.Current.Resources["CitoBackground"];
+        //        ((MenuItem)bindable).ItemText.TextColor = (Color)Application.Current.Resources["CitoLight"];
         //        if (((MenuItem)bindable).ItemImage != null)
         //        {
         //            var currentImage = ((FileImageSource)(((MenuItem)bindable).ItemImage.Source)).File;

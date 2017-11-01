@@ -2,14 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
-             x:Class="Cito.Views.CreateAccountPage">
+             x:Class="Cito.Views.CreateAccountPage"
+             BindingContext="{Binding Source={StaticResource Locator}, Path=CreateAccount}"
+             BackgroundImage="{StaticResource BackgroundGradient}"
+             NavigationPage.HasNavigationBar="False">
   
 <StackLayout x:Name="Scroll">
   <ScrollView VerticalOptions="Start" HorizontalOptions="FillAndExpand" IsClippedToBounds="True" >
     <StackLayout Padding="20, 40, 20, 20" Spacing="10">
 
-      <Image Source="{StaticResource LogoImage}" Aspect="AspectFit" />
-      <StackLayout HeightRequest="40" />
+        <Image Source="{StaticResource LogoImage}" Aspect="AspectFit" HeightRequest="100" />
+        <StackLayout HeightRequest="30" />
 
         <controls:CitoEntry x:Name="FullNameEntry" Placeholder="Full Name" HorizontalOptions="FillAndExpand"
                             Margin="15,0" KeyboardHeight="200" ScrollParent="{x:Reference Scroll}" 
@@ -28,7 +31,8 @@
                             Margin="15,0" ScrollParent="{x:Reference Scroll}" KeyboardHeight="100"
                             IsPassword="True" Mandatory="True" ErrorText="This is mandatory field" />
 
-      <controls:CitoButton Text="SIGN UP" Margin="15,0" Clicked="Button_OnClicked" />
+      <controls:CitoButton Text="SIGN UP" Margin="15,0" 
+                           Command="{Binding HandleNewUserCommand}" />
       <controls:CitoLabel Text="I already have an account" FontSize="10"
                           TextColor="{StaticResource CitoAccent}"
                           HorizontalTextAlignment="Center" />

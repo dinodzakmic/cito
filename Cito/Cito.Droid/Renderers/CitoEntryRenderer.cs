@@ -18,6 +18,7 @@ using Cito.Droid.Renderers;
 using Cito.Framework.Controls;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
+using Color = Android.Graphics.Color;
 
 [assembly: ExportRenderer(typeof(CitoEntry), typeof(CitoEntryRenderer))]
 
@@ -45,8 +46,19 @@ namespace Cito.Droid.Renderers
             var padding = (height - (int) textsize - roundedsize) / 2;
             Control.SetPadding(Control.PaddingLeft + 20, padding, Control.PaddingRight, padding);
             Control.Background = new FixedDrawable(height, width);
-            Control.Gravity = GravityFlags.CenterVertical;
+            Control.Gravity = GravityFlags.CenterVertical | GravityFlags.CenterHorizontal;
 
+            var entry = e.NewElement as Entry;
+            if (entry != null)
+            {
+                entry.TextChanged += (sender, args) =>
+                {
+                    if(entry.Text == String.Empty)
+                        Control.Gravity = GravityFlags.CenterVertical | GravityFlags.CenterHorizontal;
+                    else
+                        Control.Gravity = GravityFlags.CenterVertical | GravityFlags.Start;
+                };
+            }
 
             var newElement = (CitoEntry) e.NewElement;
 
@@ -76,9 +88,9 @@ namespace Cito.Droid.Renderers
             {
                 SetShape(ShapeType.Rectangle);
                 IntrinsicHeight = height;
-                SetColors(new int[] {Android.Graphics.Color.White, Android.Graphics.Color.White});
+                SetColors(new int[] {Android.Graphics.Color.Transparent, Android.Graphics.Color.Transparent});
                 SetStroke(2, new Android.Graphics.Color() {A = 255, R = 109, G = 197, B = 237});
-                SetCornerRadius(10);
+                SetCornerRadius(0);
                 SetBounds(0, 0, width, height);
 
             }

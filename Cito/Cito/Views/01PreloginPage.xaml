@@ -1,40 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
-             xmlns:cito="clr-namespace:Cito;assembly=Cito"
-             xmlns:navigation="clr-namespace:Cito.Framework.Navigation;assembly=Cito"
+             xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"     
              xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
              x:Class="Cito.Views.PreloginPage"
+             BindingContext="{Binding Source={StaticResource Locator}, Path=Prelogin}"
              BackgroundImage="{StaticResource BackgroundGradient}"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"> 
+  
 
   <StackLayout Padding="20, 80" Spacing="10">
-      <Image Source="{StaticResource LogoImage}" Aspect="AspectFit" HeightRequest="100" />
-      <StackLayout HeightRequest="30" />
+    <Image Source="{StaticResource LogoImage}" Aspect="AspectFit" HeightRequest="100" />
+    <StackLayout HeightRequest="30" />
 
-      <!--<controls:CitoButton Text="SIGN IN WITH FACEBOOK" Margin="15,0" Clicked="ExternalLoginClicked" 
+    <!--<controls:CitoButton Text="SIGN IN WITH FACEBOOK" Margin="15,0" Clicked="ExternalLoginClicked" 
                            Image="FacebookIcon" />-->
-      <!--<controls:CitoButton Text="SIGN IN WITH GOOGLE" Margin="15,0" Clicked="ExternalLoginClicked"
+    <!--<controls:CitoButton Text="SIGN IN WITH GOOGLE" Margin="15,0" Clicked="ExternalLoginClicked"
                            Image="GoogleIcon" />-->
-      <components:ImageButton Margin="20,0" 
-                              ButtonImage="FacebookIcon"
-                              ButtonText="SIGN IN WITH FACEBOOK"
-                              ExternalLogin="Facebook"
-                              Clicked="ExternalLoginClicked" />
-      <components:ImageButton Margin="20,0" 
-                              ButtonImage="GoogleIcon"
-                              ButtonText="SIGN IN WITH GOOGLE"
-                              ExternalLogin="Google"
-                              Clicked="ExternalLoginClicked" />
-      
+    <components:ImageButton Margin="20,0"
+                            HeightRequest="{StaticResource ControlsHeight}"
+                            ButtonImage="FacebookIcon"
+                            ButtonText="SIGN IN WITH FACEBOOK"
+                            ExternalLogin="Facebook"
+                            Command="{Binding ExternalLoginCommand}"/>
+    <components:ImageButton Margin="20,0"
+                            HeightRequest="{StaticResource ControlsHeight}"
+                            ButtonImage="GoogleIcon"
+                            ButtonText="SIGN IN WITH GOOGLE"
+                            ExternalLogin="Google"
+                            Command="{Binding ExternalLoginCommand}"/>
 
-      <controls:CitoLabel Text="OR" FontAttributes="Bold" FontSize="15"
-                          TextColor="{StaticResource CitoBackground}"
-                          HorizontalTextAlignment="Center" Margin="0,10" />
 
-      <controls:CitoButton Text="CREATE ACCOUNT" Margin="20,0" Clicked="CreateAccountClicked" />
-      <controls:CitoButton Text="SIGN IN" Margin="20,0" Clicked="SignInClicked" />
+    <controls:CitoLabel Text="OR" FontAttributes="Bold" FontSize="15"
+                        TextColor="{StaticResource CitoLight}"
+                        HorizontalTextAlignment="Center"
+                        Margin="0,10" />
+
+    <controls:CitoButton Text="CREATE ACCOUNT" Margin="20,0"
+                         Command="{Binding CreateAccountCommand}" />
+    <controls:CitoButton Text="SIGN IN" Margin="20,0"
+                         Command="{Binding SignInCommand}" />
   </StackLayout>
-  
+
 </ContentPage>

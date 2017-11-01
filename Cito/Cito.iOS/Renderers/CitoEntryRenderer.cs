@@ -21,8 +21,9 @@ namespace Cito.iOS.Renderers
             Control.LeftViewMode = UITextFieldViewMode.Always;
 
             Control.BorderStyle = UITextBorderStyle.None;
-            Control.Layer.CornerRadius = 5;
+            Control.Layer.CornerRadius = 0;
             Control.ClipsToBounds = true;
+            Control.BackgroundColor = UIColor.Clear;
 
             if (e.NewElement != null && ((CitoEntry)e.NewElement).IsFirstLetterUpperCase)
             {

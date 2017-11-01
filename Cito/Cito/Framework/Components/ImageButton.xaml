@@ -27,7 +27,7 @@
        
     <controls:CitoLabel Grid.Column="1"
                         x:Name="LabelText"
-                        TextColor="{StaticResource CitoBackground}"
+                        TextColor="{StaticResource CitoLight}"
                         FontSize="14"
                         HorizontalTextAlignment="Start"
                         VerticalOptions="CenterAndExpand"
