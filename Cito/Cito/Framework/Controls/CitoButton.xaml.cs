@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using Cito.Framework.Utilities;
+using Xamarin.Forms;
 
 namespace Cito.Framework.Controls
 {
@@ -14,6 +15,7 @@ namespace Cito.Framework.Controls
         public CitoButton()
         {
             InitializeComponent();
+            FontFamily = CitoFont.SetFont();
         }
 
         #region Methods

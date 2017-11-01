@@ -4,7 +4,7 @@
        x:Class="Cito.Framework.Controls.CitoEntry"
        TextColor="{StaticResource CitoMain}"
        PlaceholderColor="{StaticResource CitoMainLight}"
-       HeightRequest="45"
+       HeightRequest="{StaticResource ControlsHeight}"
        FontSize="14"
        TextChanged="NEntry_OnTextChanged"
        Focused="CitoEntryFocused"

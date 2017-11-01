@@ -11,7 +11,7 @@
     
       <StackLayout x:Name="MainStack" Orientation="Horizontal" Spacing="20"
                    HorizontalOptions="FillAndExpand"
-                   HeightRequest="60" BackgroundColor="{StaticResource CitoMain}">
+                   HeightRequest="60" BackgroundColor="Transparent">
 
           <Image x:Name="ItemImage" Margin="20,0,0,0" HeightRequest="40" WidthRequest="40"
                  VerticalOptions="Center" />

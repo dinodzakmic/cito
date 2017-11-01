@@ -4,15 +4,14 @@
         x:Class="Cito.Framework.Controls.CitoButton"
         BackgroundColor="{StaticResource CitoMain}"
         TextColor="{StaticResource CitoBackground}"
-        FontFamily="Lato"
-        FontSize="15"
-        BorderColor="{StaticResource CitoAccent}"
-        BorderWidth="1.5"
-        BorderRadius="10">
+        FontSize="14"
+        BorderColor="Transparent"
+        BorderWidth="1"
+        BorderRadius="0">
   <Button.HeightRequest>
       <OnPlatform x:TypeArguments="x:Double" >
-              <On Platform="Android" Value="45"/>
-              <On Platform="iOS" Value="45"/>
+              <On Platform="Android" Value="{StaticResource ControlsHeight}"/>
+              <On Platform="iOS" Value="{StaticResource ControlsHeight}"/>
         </OnPlatform>
   </Button.HeightRequest>
 </Button>

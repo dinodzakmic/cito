@@ -38,6 +38,9 @@
     <Compile Include="Framework\Components\CitoMap.xaml.cs">
       <DependentUpon>CitoMap.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Framework\Components\ImageButton.xaml.cs">
+      <DependentUpon>ImageButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Framework\Components\MenuItem.xaml.cs">
       <DependentUpon>MenuItem.xaml</DependentUpon>
     </Compile>
@@ -320,6 +323,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Framework\Components\MenuItem.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Framework\Components\ImageButton.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

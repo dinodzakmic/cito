@@ -12,7 +12,7 @@ namespace Cito.Views
 
         private void ExternalLoginClicked(object sender, EventArgs e)
         {
-            App.Current.MainPage = new CreateAccountPage(externalLoginFirstTime: true);
+            //App.Current.MainPage = new CreateAccountPage(externalLoginFirstTime: true);
         }
 
         private void CreateAccountClicked(object sender, EventArgs e)

@@ -12,8 +12,7 @@ namespace Cito.ViewModels
     {
         public ViewModelLocator()
         {
-            ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
-            
+            ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);           
         }
 
         public MainViewModel Main => ViewModel<MainViewModel>.Get();

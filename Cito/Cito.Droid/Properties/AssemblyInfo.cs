@@ -30,5 +30,8 @@ using Android.App;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
 // Add some common permissions, these can be removed if not needed
-[assembly: UsesPermission(Android.Manifest.Permission.Internet)]
-[assembly: UsesPermission(Android.Manifest.Permission.WriteExternalStorage)]
+[assembly: MetaData("com.facebook.sdk.ApplicationId", Value = "@string/app_id")]
+[assembly: MetaData("com.facebook.sdk.ApplicationName", Value = "@string/app_name")]
+
+[assembly: Permission(Name = Android.Manifest.Permission.Internet)]
+[assembly: Permission(Name = Android.Manifest.Permission.WriteExternalStorage)]
