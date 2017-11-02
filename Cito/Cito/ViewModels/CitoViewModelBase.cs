@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 using Xamarin.Forms;
@@ -14,11 +12,17 @@ namespace Cito.ViewModels
         {
             try
             {
+                App.InstantiatingPageType = page.GetType();
+                App.UpdateLoading(true);
                 await App.NavPage.Navigation.PushAsync(page);
             }
             catch (Exception e)
             {
                 // ignored
+            }
+            finally
+            {
+                App.UpdateLoading(false);
             }
         }
 
@@ -26,11 +30,17 @@ namespace Cito.ViewModels
         {
             try
             {
+                App.InstantiatingPageType = App.NavPage.Navigation.NavigationStack.Last().GetType();
                 await App.NavPage.Navigation.PopAsync();
+                App.UpdateLoading(true);
             }
             catch (Exception e)
             {
                 // ignored
+            }
+            finally
+            {
+                App.UpdateLoading(false);
             }
         }
 
@@ -38,12 +48,18 @@ namespace Cito.ViewModels
         {
             try
             {
+                App.UpdateLoading(true);
                 await App.NavPage.Navigation.PopToRootAsync();
             }
             catch (Exception e)
             {
                 // ignored
             }
+            finally
+            {
+                App.UpdateLoading(false);
+            }
         }
     }
 }
+

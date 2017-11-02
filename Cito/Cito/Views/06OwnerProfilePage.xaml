@@ -7,8 +7,7 @@
              xmlns:navigation="clr-namespace:Cito.Framework.Navigation;assembly=Cito"
              xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
              x:Class="Cito.Views.OwnerProfilePage"
-             BackgroundColor="{StaticResource CitoLight}"
-             BindingContext="{Binding Source={StaticResource Locator}, Path=Owner}">
+             BackgroundColor="{StaticResource CitoLight}">
 
     <StackLayout Spacing="0" >
         <abstractions:CircleImage

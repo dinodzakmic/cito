@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Acr.UserDialogs;
 using Cito.Framework.Validation;
 using Cito.ViewModels;
 using Cito.Views;
@@ -24,8 +25,9 @@ namespace Cito
         public static Page RootPage;
         public static NavigationPage NavPage;
         public static MasterDetailPage MenuPage;
+        public static bool LoadingInProgress;
         #endregion
-       
+
         public App()
         {
             InitializeComponent();
@@ -38,6 +40,36 @@ namespace Cito
             MainPage = NavPage;
         }
 
+        #region Methods
+
+        public static void UpdateLoading(bool isLoading, string text = null)
+        {
+            try
+            {
+                LoadingInProgress = isLoading;
+
+                if (LoadingInProgress)
+                {
+                    UserDialogs.Instance.ShowLoading(text, MaskType.Gradient);
+                    //DependencyService.Get<IStayAwake>().Set(true);
+                }
+                else
+                {
+                    UserDialogs.Instance.HideLoading();
+                    //DependencyService.Get<IStayAwake>().Set(false);
+                }
+            }
+            catch (Exception e)
+            {
+                // ignored
+            }
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                
+            });
+        }
+
+        #endregion
         #region Validation methods
         //public static INavigation navigation;
         public static bool FormValidationPassed(bool displayValidationFailureList = true)
@@ -73,16 +105,7 @@ namespace Cito
         {
             ValidationFieldList.RemoveFieldsForPage(page.GetType());
         }
-        public static void UpdateLoading(bool isLoading, string text = "")
-        {
-            Device.BeginInvokeOnMainThread(() =>
-            {
-                //if (isLoading)
-                //    UserDialogs.Instance.ShowLoading(text.IsNotNullOrEmpty() ? text : TextRes.Loading___, MaskType.Black);
-                //else
-                //    UserDialogs.Instance.HideLoading();
-            });
-        }
+        
         #endregion
         #region App overrides
 

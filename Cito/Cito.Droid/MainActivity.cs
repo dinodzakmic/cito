@@ -1,4 +1,5 @@
 ﻿using System;
+using Acr.UserDialogs;
 using Android.App;
 using Android.Appwidget;
 using Android.Content;
@@ -23,6 +24,7 @@ namespace Cito.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
             Xamarin.FormsMaps.Init(this, bundle);
             ImageCircleRenderer.Init();
+            UserDialogs.Init(this);
 
             if (FacebookSdk.IsInitialized)
                 FacebookLogin.Handle();

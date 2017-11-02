@@ -14,7 +14,7 @@
       <Color x:Key="CitoMainDark">#0e1a24</Color>
       <Color x:Key="CitoMainLight">#bfa4de</Color>
       <Color x:Key="CitoLight">#fcfbfa</Color>
-      <Color x:Key="CitoLightContrast">#ebebeb</Color>
+      <Color x:Key="CitoLightContrast">#cecece</Color>
       <Color x:Key="CitoAccent">#6dc5ed</Color>
       <Color x:Key="CitoAccentLight">#a1edf7</Color>
       
