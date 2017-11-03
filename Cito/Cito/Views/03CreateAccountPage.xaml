@@ -9,26 +9,31 @@
   
 <StackLayout x:Name="Scroll">
   <ScrollView VerticalOptions="Start" HorizontalOptions="FillAndExpand" IsClippedToBounds="True" >
-    <StackLayout Padding="20, 80, 20, 20" Spacing="10">
+    <StackLayout Padding="20, 60, 20, 20" Spacing="10">
 
         <Image Source="{StaticResource LogoImage}" Aspect="AspectFit" HeightRequest="100" />
         <StackLayout HeightRequest="30" />
 
-        <controls:CitoEntry x:Name="FullNameEntry" Placeholder="Full Name" HorizontalOptions="FillAndExpand"
-                            Margin="15,0" KeyboardHeight="200" ScrollParent="{x:Reference Scroll}" 
+        <controls:CitoEntry x:Name="FullNameEntry" Text="{Binding FullName}"
+                            Placeholder="Full Name" HorizontalOptions="FillAndExpand" Margin="15,0" 
+                            ScrollParent="{x:Reference Scroll}" Keyboard="Default"
                             NextView="{x:Reference CarModelEntry}" Mandatory="True" ErrorText="This is mandatory field" />
-        <controls:CitoEntry x:Name="CarModelEntry" Placeholder="Car model" HorizontalOptions="FillAndExpand" Margin="15,0"
-                            KeyboardHeight="200" ScrollParent="{x:Reference Scroll}"
+        <controls:CitoEntry x:Name="CarModelEntry" Text="{Binding CarModel}"
+                            Placeholder="Car model" HorizontalOptions="FillAndExpand" Margin="15,0"
+                            ScrollParent="{x:Reference Scroll}"
                             NextView="{x:Reference EmailEntry}" Mandatory="True" ErrorText="This is mandatory field" />
-        <controls:CitoEntry x:Name="EmailEntry" Placeholder="Email" HorizontalOptions="FillAndExpand" Margin="15,0"
-                            KeyboardHeight="200" ScrollParent="{x:Reference Scroll}" Keyboard="Email"                           
+        <controls:CitoEntry x:Name="EmailEntry" Text="{Binding Email}"
+                            Placeholder="Email" HorizontalOptions="FillAndExpand" Margin="15,0"
+                            ScrollParent="{x:Reference Scroll}" Keyboard="Email"                           
                             NextView="{x:Reference NumberEntry}" Mandatory="True" ErrorText="This is mandatory field" />
-        <controls:CitoEntry x:Name="NumberEntry" Placeholder="Phone" HorizontalOptions="FillAndExpand" Margin="15,0"
-                            ScrollParent="{x:Reference Scroll}" KeyboardHeight="150"
+        <controls:CitoEntry x:Name="NumberEntry" Text="{Binding Number}"
+                            Placeholder="Phone" HorizontalOptions="FillAndExpand" Margin="15,0"
+                            ScrollParent="{x:Reference Scroll}" 
                             Keyboard="Telephone" NextView="{x:Reference PasswordEntry}" 
                             Mandatory="True" ErrorText="This is mandatory field" />
-        <controls:CitoEntry x:Name="PasswordEntry" Placeholder="Password" HorizontalOptions="FillAndExpand" 
-                            Margin="15,0" ScrollParent="{x:Reference Scroll}" KeyboardHeight="100"
+        <controls:CitoEntry x:Name="PasswordEntry" Text="{Binding Password}"
+                            Placeholder="Password" HorizontalOptions="FillAndExpand" 
+                            Margin="15,0" ScrollParent="{x:Reference Scroll}" 
                             IsPassword="True" Mandatory="True" ErrorText="This is mandatory field" />
 
       <controls:CitoButton Text="SIGN UP" Margin="15,0" 

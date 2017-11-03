@@ -4,7 +4,8 @@
              xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
              xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
              x:Class="Cito.Views.AvailabiltyPage"
-             BackgroundImage="{StaticResource BackgroundImage}">
+             BackgroundImage="{StaticResource BackgroundGradient}"
+             NavigationPage.HasNavigationBar="True">
 
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,80,0,0">
 

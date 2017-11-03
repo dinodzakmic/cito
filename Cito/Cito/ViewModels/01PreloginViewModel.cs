@@ -4,25 +4,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Acr.UserDialogs;
 using Cito.Views;
 using Xamarin.Forms;
+using Color = System.Drawing.Color;
 
 namespace Cito.ViewModels
 {
     public class PreloginViewModel : CitoViewModelBase
     {
+        #region Bindable properties
+
+        #endregion
+        #region Commands
         public ICommand CreateAccountCommand { get; private set; }
         public ICommand SignInCommand { get; private set; }
 
         public ICommand ExternalLoginCommand { get; private set; }
 
-        public PreloginViewModel()
+        private void SetCommands()
         {
             CreateAccountCommand = new Command(async () => await CreateAccount());
             SignInCommand = new Command(async () => await SignIn());
             ExternalLoginCommand = new Command(async () => await ExternalLogin());
         }
 
+        #endregion
+
+        public PreloginViewModel()
+        {
+            SetCommands();
+        }
+
+        #region Methods
         private async Task CreateAccount()
         {
             await GoToPage(new CreateAccountPage());
@@ -35,7 +49,9 @@ namespace Cito.ViewModels
 
         private async Task ExternalLogin()
         {
-            
+            UserDialogs.Instance.Toast("Test", TimeSpan.FromSeconds(3));
         }
+        #endregion
+
     }
 }

@@ -54,7 +54,7 @@ namespace Cito.Droid.Renderers
             }
             else if (externalLogin == ImageButton.Social.Google)
             {
-
+                return;
             }
             else
             {

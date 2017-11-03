@@ -13,6 +13,7 @@ using Cito.Droid.Renderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using Xamarin.Forms.Platform.Android.AppCompat;
+using View = Android.Views.View;
 
 [assembly: ExportRenderer(typeof(NavigationPage), typeof(CustomNavigationRenderer))]
 namespace Cito.Droid.Renderers
@@ -25,12 +26,13 @@ namespace Cito.Droid.Renderers
                 transaction.SetCustomAnimations(Resource.Animation.abc_fade_in,
                     Resource.Animation.abc_fade_in,
                     Resource.Animation.abc_fade_in,
-                    Resource.Animation.abc_slide_in_bottom);            
+                    Resource.Animation.abc_slide_in_bottom);
             else
                 transaction.SetCustomAnimations(Resource.Animation.abc_fade_in,
                     Resource.Animation.abc_fade_in,
                     Resource.Animation.abc_fade_in,
                     Resource.Animation.abc_fade_in);
+     
         }
 
         //protected override void OnLayout(bool changed, int l, int t, int r, int b)

@@ -9,7 +9,7 @@
              NavigationPage.HasNavigationBar="False"> 
   
 
-  <StackLayout Padding="20, 80, 20, 20" Spacing="10">
+  <StackLayout Padding="20, 60, 20, 20" Spacing="10">
     <Image Source="{StaticResource LogoImage}" Aspect="AspectFit" HeightRequest="100" />
     <StackLayout HeightRequest="30" />
 

@@ -7,13 +7,14 @@
   <StackLayout Spacing="0" Padding="0">
       <BoxView HeightRequest="0.5" Opacity="0.3" Margin="20,0,0,0"
                Color="{StaticResource CitoLight}"
-               x:Name="BorderTop" HorizontalOptions="FillAndExpand" />
+               x:Name="BorderTop" IsVisible="True"
+               HorizontalOptions="FillAndExpand" />
     
       <StackLayout x:Name="MainStack" Orientation="Horizontal" Spacing="20"
                    HorizontalOptions="FillAndExpand"
-                   HeightRequest="60" BackgroundColor="Transparent">
+                   HeightRequest="50" BackgroundColor="Transparent">
 
-          <Image x:Name="ItemImage" Margin="20,0,0,0" HeightRequest="40" WidthRequest="40"
+          <Image x:Name="ItemImage" Margin="20,0,0,0" HeightRequest="30" WidthRequest="30"
                  VerticalOptions="Center" />
           <controls:CitoLabel x:Name="ItemText" FontAttributes="Bold" TextColor="{StaticResource CitoLight}"
                            FontSize="16"
@@ -25,7 +26,8 @@
     
       <BoxView HeightRequest="0.5" Opacity="0.3" Margin="20,0,0,0"
                Color="{StaticResource CitoLight}"
-               x:Name="BorderBottom" HorizontalOptions="FillAndExpand"  />
+               x:Name="BorderBottom" IsVisible="True"
+               HorizontalOptions="FillAndExpand"  />
   </StackLayout>
   
 </ContentView>

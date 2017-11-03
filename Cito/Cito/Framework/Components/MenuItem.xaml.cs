@@ -13,7 +13,6 @@ namespace Cito.Framework.Components
         #region Private properties
 
         #endregion
-
         #region Public properties
         #region Command
         public ICommand Command
@@ -173,6 +172,22 @@ namespace Cito.Framework.Components
         //}
 
         //#endregion
+        #region BorderTopVisibility
+
+        public bool BorderTopVisibility
+        {
+            get { return BorderTop.IsVisible; }
+            set { BorderTop.IsVisible = value; }
+        }
+        #endregion
+        #region BorderBottomVisibility
+
+        public bool BorderBottomVisibility
+        {
+            get { return BorderBottom.IsVisible; }
+            set { BorderBottom.IsVisible = value; }
+        }
+        #endregion
 
         #endregion
         public MenuItem()

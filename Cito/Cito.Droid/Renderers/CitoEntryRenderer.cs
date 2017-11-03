@@ -48,18 +48,6 @@ namespace Cito.Droid.Renderers
             Control.Background = new FixedDrawable(height, width);
             Control.Gravity = GravityFlags.CenterVertical | GravityFlags.CenterHorizontal;
 
-            var entry = e.NewElement as Entry;
-            if (entry != null)
-            {
-                entry.TextChanged += (sender, args) =>
-                {
-                    if(entry.Text == String.Empty)
-                        Control.Gravity = GravityFlags.CenterVertical | GravityFlags.CenterHorizontal;
-                    else
-                        Control.Gravity = GravityFlags.CenterVertical | GravityFlags.Start;
-                };
-            }
-
             var newElement = (CitoEntry) e.NewElement;
 
             if (newElement != null && newElement.IsFirstLetterUpperCase)

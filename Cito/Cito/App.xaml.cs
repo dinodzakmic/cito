@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
+using Cito.Framework.Controls;
 using Cito.Framework.Validation;
 using Cito.ViewModels;
 using Cito.Views;
@@ -17,6 +18,8 @@ namespace Cito
     {
         #region Private properties
         private static ViewModelLocator _locator;
+        internal static StackLayout ScrollParent;
+        internal static CitoEntry FocusedEntry;
         #endregion
         #region Public properties
         public static ViewModelLocator Locator => _locator ?? (_locator = new ViewModelLocator());
@@ -34,9 +37,6 @@ namespace Cito
             ValidationFieldList = new ValidationFieldList();
 
             NavPage = new NavigationPage(new PreloginPage());
-
-            //MenuPage = new Menu() { Detail = NavPage };
-
             MainPage = NavPage;
         }
 
@@ -121,8 +121,8 @@ namespace Cito
         }
 
         protected override void OnResume()
-        {            
-            // Handle when your app resumes           
+        {
+            FocusedEntry?.Unfocus();
         }
 
         #endregion

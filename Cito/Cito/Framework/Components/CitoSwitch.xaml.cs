@@ -32,7 +32,7 @@ namespace Cito.Framework.Components
                     {
                         if (isToggled)
                         {
-                            box.TranslationX = 60;
+                            box.TranslationX = 55;
                         }
                         else
                         {
@@ -47,7 +47,7 @@ namespace Cito.Framework.Components
 
                         if (isToggled)
                         {
-                            await box.LayoutTo(new Rectangle(60 - xCoordinate, box.Y, box.Width, box.Height), 150U, Easing.SinOut);
+                            await box.LayoutTo(new Rectangle(55 - xCoordinate, box.Y, box.Width, box.Height), 150U, Easing.SinOut);
                         }
                         else
                         {

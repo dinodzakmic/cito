@@ -4,8 +4,7 @@
              xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
              xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
              xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
-             x:Class="Cito.Views.PastWashesPage"
-             BackgroundImage="{StaticResource BackgroundImage}" >
+             x:Class="Cito.Views.PastWashesPage" >
 
     <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"
                 Opacity="0.97" BackgroundColor="{StaticResource CitoLight}">

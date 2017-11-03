@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -135,15 +136,17 @@ namespace Cito.Framework.Controls
         #region Methods
 
         private void CitoEntryUnfocused(object sender, FocusEventArgs e)
-        {
-            var scrollParent = ScrollParent as StackLayout;
-            scrollParent?.Children.RemoveAt(scrollParent.Children.Count - 1);
+        {          
+            App.ScrollParent?.Children.RemoveAt(App.ScrollParent.Children.Count - 1);
+            App.ScrollParent = null;
+            App.FocusedEntry = null;
         }
 
         private void CitoEntryFocused(object sender, FocusEventArgs e)
         {
-            var scrollParent = ScrollParent as StackLayout;
-            scrollParent?.Children.Add(new StackLayout() { HeightRequest = KeyboardHeight, BackgroundColor = Color.Transparent });
+            App.ScrollParent = ScrollParent as StackLayout;
+            App.FocusedEntry = this;
+            App.ScrollParent?.Children.Add(new StackLayout() { HeightRequest = KeyboardHeight, BackgroundColor = Color.Transparent });
         }
 
         private void NEntry_OnTextChanged(object sender, TextChangedEventArgs e)

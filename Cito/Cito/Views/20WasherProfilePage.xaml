@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
              xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
-             x:Class="Cito.Views.WasherProfilePage"
-             BackgroundImage="{StaticResource BackgroundImage}">
+             x:Class="Cito.Views.WasherProfilePage">
 
   <ScrollView Padding="0,250,0,0">
     <StackLayout Spacing="0" >
