@@ -11,8 +11,8 @@
       <utilities:NegateBooleanConverter x:Key="NegateBoolean" />
 
         <Color x:Key="CitoMain">#26a4ad</Color>
-        <Color x:Key="CitoMainDark">#0e1a24</Color>
-        <Color x:Key="CitoMainLight">#bfa4de</Color>
+        <Color x:Key="CitoMainLight">#66c8cf</Color>
+        <Color x:Key="CitoMainDark">#0e1a24</Color>      
         <Color x:Key="CitoLight">#fcfbfa</Color>
         <Color x:Key="CitoLightContrast">#aaaaaa</Color>
         <Color x:Key="CitoAccent">#6dc5ed</Color>

@@ -12,16 +12,17 @@
     
       <StackLayout x:Name="MainStack" Orientation="Horizontal" Spacing="20"
                    HorizontalOptions="FillAndExpand"
-                   HeightRequest="50" BackgroundColor="Transparent">
+                   HeightRequest="60" BackgroundColor="Transparent">
 
           <Image x:Name="ItemImage" Margin="20,0,0,0" HeightRequest="30" WidthRequest="30"
                  VerticalOptions="Center" />
-          <controls:CitoLabel x:Name="ItemText" FontAttributes="Bold" TextColor="{StaticResource CitoLight}"
-                           FontSize="16"
-                           HorizontalOptions="FillAndExpand"
-                           VerticalOptions="Center"
-                           HorizontalTextAlignment="Start"
-                           VerticalTextAlignment="Center" />
+          <controls:CitoLabel x:Name="ItemText"
+                              FontAttributes="Bold" TextColor="{StaticResource CitoMainLight}"
+                              FontSize="18"
+                              HorizontalOptions="FillAndExpand"
+                              VerticalOptions="Center"
+                              HorizontalTextAlignment="Start"
+                              VerticalTextAlignment="Center" />
       </StackLayout>
     
       <BoxView HeightRequest="0.5" Opacity="0.3" Margin="20,0,0,0"

@@ -9,7 +9,6 @@
   
   <MasterDetailPage.Master>
     <ContentPage Title="OwnerMenu" 
-                 Icon="menu.png" 
                  BindingContext="{Binding Source={StaticResource Locator}, Path=OwnerMenu}" >
       <Grid BackgroundColor="Transparent">
         <Grid.RowDefinitions>
@@ -19,7 +18,7 @@
         <Image Grid.Row="0" Grid.RowSpan="2" 
                Source="{StaticResource MenuBackground}"
                Aspect="AspectFill"/>
-          <StackLayout Grid.Row="0" Spacing="0" Margin="15,80" BackgroundColor="Transparent">
+          <StackLayout Grid.Row="0" Spacing="0" Margin="15,20" BackgroundColor="Transparent">
               <components:MenuItem MenuItemImage="{StaticResource LocationIcon}"
                                    MenuItemText="Home"
                                    Command="{Binding MenuItemTest}"
