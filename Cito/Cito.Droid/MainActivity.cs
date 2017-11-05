@@ -26,7 +26,7 @@ namespace Cito.Droid
             ImageCircleRenderer.Init();
             LoadApplication(new App());
 
-            Window.SetStatusBarColor(Android.Graphics.Color.Transparent);
+            //Window.SetStatusBarColor(Android.Graphics.Color.Transparent);
         }
     }
 }

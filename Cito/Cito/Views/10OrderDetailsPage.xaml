@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
+             xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
+             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             x:Class="Cito.Views.OrderDetailsPage">
+    <StackLayout Style="{StaticResource RootStackLayoutStyle}">
+        
+        <abstractions:CircleImage HorizontalOptions="CenterAndExpand" 
+                                  Aspect="AspectFill" BorderColor="{StaticResource CitoMain}" />
+        
+        <Label Text="John Johnson" Style="{StaticResource CentralLabelStyle}"/>
+        <Label Text="212 Main Street" Style="{StaticResource CentralLabelStyle}"/>
+        
+        <BoxView Style="{StaticResource SeparatorBoxStyle}"/>
+
+        <Label Text="Payment Method"  Style="{StaticResource CentralLabelStyle}"/>
+        <StackLayout Orientation="Horizontal">
+            <Image Source="visa.png" BackgroundColor="HotPink" HeightRequest="30" WidthRequest="50"/>
+            <Label TextColor="{StaticResource PrimaryTextColor}" Text="**** **** **** 1234"
+                   HorizontalOptions="EndAndExpand" />
+        </StackLayout>
+
+        <BoxView Style="{StaticResource SeparatorBoxStyle}"/>
+
+        <Label Style="{StaticResource CentralLabelStyle}" Text="Car details"/>
+        
+        <StackLayout Orientation="Horizontal">
+            <Image HeightRequest="50" WidthRequest="50" BackgroundColor="HotPink" HorizontalOptions="Start"/>
+            <StackLayout >
+                <Label Style="{StaticResource LeftLabelStyle}" Text="Ford Edge"/>
+                <Label Style="{StaticResource LeftLabelStyle}" Text="Plate NO. TR6 1971"/>
+            </StackLayout>
+        </StackLayout>
+
+        <BoxView Style="{StaticResource SeparatorBoxStyle}"/>
+
+        <Label Style="{StaticResource CentralLabelStyle}" Text="Standard Pack"/>
+        <controls:CitoButton HorizontalOptions="CenterAndExpand" Text="$12.99"/>
+        
+        <StackLayout Orientation="Horizontal">
+            <controls:CitoButton HorizontalOptions="CenterAndExpand" Text="Cancel" WidthRequest="80" />
+            <controls:CitoButton HorizontalOptions="CenterAndExpand" Text="Accept" WidthRequest="80" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

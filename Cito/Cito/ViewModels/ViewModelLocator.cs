@@ -17,8 +17,10 @@ namespace Cito.ViewModels
         }
 
         public MainViewModel Main => ViewModel<MainViewModel>.Get();
+
         public OwnerProfileViewModel Owner => ViewModel<OwnerProfileViewModel>.Get();
 
+        public RateWasherViewModel RateWasherVM => ViewModel<RateWasherViewModel>.Get();
 
         public static void Cleanup()
         {

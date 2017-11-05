@@ -16,10 +16,11 @@ namespace Cito.Framework.Components
         #region Public properties
         public bool IsTapEnabled { get; set; } = false;
 
-        public BindableProperty RatingStarsProperty = BindableProperty.Create(
+        public static BindableProperty RatingStarsProperty = BindableProperty.Create(
             propertyName: nameof(RatingStars),
             returnType: typeof(int),
             declaringType: typeof(Rating),
+            defaultBindingMode: BindingMode.TwoWay,
             defaultValue: 0,
             propertyChanged: (b, o, n) =>
             {

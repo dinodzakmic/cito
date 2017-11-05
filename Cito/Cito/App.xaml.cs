@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Cito.Framework.Validation;
 using Cito.ViewModels;
 using Cito.Views;
@@ -28,7 +26,7 @@ namespace Cito
             ValidationFieldList = new ValidationFieldList();
 
             var detail = new NavigationPage(new PastWashesPage());
-            MainPage = new Menu() {Detail = detail};
+            MainPage = new RateWasherPage();//new Menu() {Detail = detail};
             NavPage = detail;
         }
 
