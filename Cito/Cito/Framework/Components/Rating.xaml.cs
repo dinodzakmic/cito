@@ -22,6 +22,7 @@ namespace Cito.Framework.Components
             declaringType: typeof(Rating),
             defaultBindingMode: BindingMode.TwoWay,
             defaultValue: 0,
+            defaultBindingMode: BindingMode.TwoWay,
             propertyChanged: (b, o, n) =>
             {
                 var starsRating = (int)n;

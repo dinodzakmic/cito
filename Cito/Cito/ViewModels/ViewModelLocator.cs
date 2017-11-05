@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Xml;
-using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
-using Xamarin.Forms;
 
 namespace Cito.ViewModels
 {
@@ -13,8 +8,12 @@ namespace Cito.ViewModels
         public ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
-            
         }
+        
+        public PreloginViewModel Prelogin => ViewModel<PreloginViewModel>.Get();
+        public UserTypeViewModel UserType => ViewModel<UserTypeViewModel>.Get();
+        public CreateAccountViewModel CreateAccount => ViewModel<CreateAccountViewModel>.Get();
+        public OwnerMenuViewModel OwnerMenu => ViewModel<OwnerMenuViewModel>.Get();
 
         public MainViewModel Main => ViewModel<MainViewModel>.Get();
 
@@ -25,9 +24,10 @@ namespace Cito.ViewModels
         public static void Cleanup()
         {
         }
+
     }
 
-    public class ViewModel<T> where T : ViewModelBase
+    public class ViewModel<T> where T : CitoViewModelBase
     {
         public static T Get()
         {
@@ -38,6 +38,6 @@ namespace Cito.ViewModels
             return ServiceLocator.Current.GetInstance<T>();
         }
     }
-    
-    
+
+
 }

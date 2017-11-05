@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Cito.App" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" d1p1:Ignorable="d" xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
+<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Cito.App"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:utilities="clr-namespace:Cito.Framework.Utilities;assembly=Cito"
              xmlns:viewModels="clr-namespace:Cito.ViewModels;assembly=Cito">
   <Application.Resources>
@@ -51,5 +53,36 @@
                 <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}"/>
             </Style>
         </ResourceDictionary>
+
+      <viewModels:ViewModelLocator x:Key="Locator" />
+      <utilities:NegateBooleanConverter x:Key="NegateBoolean" />
+
+        <Color x:Key="CitoMain">#26a4ad</Color>
+        <Color x:Key="CitoMainLight">#66c8cf</Color>
+        <Color x:Key="CitoMainDark">#0e1a24</Color>      
+        <Color x:Key="CitoLight">#fcfbfa</Color>
+        <Color x:Key="CitoLightContrast">#aaaaaa</Color>
+        <Color x:Key="CitoAccent">#6dc5ed</Color>
+        <Color x:Key="CitoAccentLight">#a1edf7</Color>
+
+        <x:String x:Key="LogoImage">CitoLogo.png</x:String>
+        <x:String x:Key="BackgroundGradient">BackgroundGradient.jpg</x:String>
+        <x:String x:Key="MenuBackground">MenuBackground.jpg</x:String>
+        <x:String x:Key="OwnerProfileImage">OwnerProfileImage.jpg</x:String>
+        <x:String x:Key="WasherProfileImage">WasherProfileImage.jpg</x:String>
+        <x:String x:Key="BackIcon">BackIcon.png</x:String>
+        <x:String x:Key="FacebookIcon">FacebookIcon.png</x:String>
+        <x:String x:Key="GoogleIcon">GoogleIcon.png</x:String>
+        <x:String x:Key="StandBy">StandBy.png</x:String>
+        <x:String x:Key="KeyIcon">key.png</x:String>
+        <x:String x:Key="LocationIcon">location.png</x:String>
+        <x:String x:Key="PasswordIcon">password.png</x:String>
+        <x:String x:Key="QuestionIcon">question.png</x:String>
+        <x:String x:Key="UserIcon">user11.png</x:String>
+        <x:String x:Key="ContactIcon">support_speech_bubble.png</x:String>
+
+        <x:Double x:Key="ControlsHeight">45</x:Double>
+      
+    </ResourceDictionary>
   </Application.Resources>
 </Application>

@@ -1,23 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
+using Acr.UserDialogs;
+using Cito.Framework.Controls;
 using Cito.Framework.Validation;
 using Cito.ViewModels;
 using Cito.Views;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace Cito
-{  
+{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class App : Application
     {
         #region Private properties
         private static ViewModelLocator _locator;
+        internal static StackLayout ScrollParent;
+        internal static CitoEntry FocusedEntry;
         #endregion
         #region Public properties
         public static ViewModelLocator Locator => _locator ?? (_locator = new ViewModelLocator());
         public static ValidationFieldList ValidationFieldList;
         public static Type InstantiatingPageType;
+        public static Page RootPage;
         public static NavigationPage NavPage;
+        public static MasterDetailPage MenuPage;
+        public static bool LoadingInProgress;
         #endregion
 
         public App()
@@ -25,11 +35,40 @@ namespace Cito
             InitializeComponent();
             ValidationFieldList = new ValidationFieldList();
 
-            var detail = new NavigationPage(new PastWashesPage());
-            MainPage = new RateWasherPage();//new Menu() {Detail = detail};
-            NavPage = detail;
+            NavPage = new NavigationPage(new PreloginPage());
+            MainPage = NavPage;
         }
 
+        #region Methods
+
+        public static void UpdateLoading(bool isLoading, string text = null)
+        {
+            try
+            {
+                LoadingInProgress = isLoading;
+
+                if (LoadingInProgress)
+                {
+                    UserDialogs.Instance.ShowLoading(text, MaskType.Gradient);
+                    //DependencyService.Get<IStayAwake>().Set(true);
+                }
+                else
+                {
+                    UserDialogs.Instance.HideLoading();
+                    //DependencyService.Get<IStayAwake>().Set(false);
+                }
+            }
+            catch (Exception e)
+            {
+                // ignored
+            }
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                
+            });
+        }
+
+        #endregion
         #region Validation methods
         //public static INavigation navigation;
         public static bool FormValidationPassed(bool displayValidationFailureList = true)
@@ -65,16 +104,7 @@ namespace Cito
         {
             ValidationFieldList.RemoveFieldsForPage(page.GetType());
         }
-        public static void UpdateLoading(bool isLoading, string text = "")
-        {
-            Device.BeginInvokeOnMainThread(() =>
-            {
-                //if (isLoading)
-                //    UserDialogs.Instance.ShowLoading(text.IsNotNullOrEmpty() ? text : TextRes.Loading___, MaskType.Black);
-                //else
-                //    UserDialogs.Instance.HideLoading();
-            });
-        }
+        
         #endregion
         #region App overrides
 
@@ -90,8 +120,8 @@ namespace Cito
         }
 
         protected override void OnResume()
-        {            
-            // Handle when your app resumes           
+        {
+            FocusedEntry?.Unfocus();
         }
 
         #endregion

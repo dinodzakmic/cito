@@ -2,23 +2,30 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
-             x:Class="Cito.Views.UserTypePage">
+             x:Class="Cito.Views.UserTypePage"
+             BindingContext="{Binding Source={StaticResource Locator}, Path=UserType}"
+             BackgroundImage="{StaticResource BackgroundGradient}"
+             NavigationPage.HasNavigationBar="False">
 
-    <StackLayout Padding="20, 40" Spacing="10">
-        <Image Source="{StaticResource LogoImage}" Aspect="AspectFit" />
-        <StackLayout HeightRequest="40" />
+    <StackLayout Padding="20, 60, 20, 20" Spacing="10">
+      <Image Source="{StaticResource LogoImage}" Aspect="AspectFit" HeightRequest="100" />
+        <StackLayout HeightRequest="100" />
 
-        <controls:CitoLabel Text="Sign in as" FontSize="10"
+        <controls:CitoLabel Text="Sign in as" FontSize="12"
                             TextColor="{StaticResource CitoAccent}"
                             HorizontalTextAlignment="Center" />
 
-        <controls:CitoButton Text="CAR OWNER" Margin="15,0" />
+        <controls:CitoButton Text="CAR OWNER" 
+                             Margin="20,0"
+                             Command="{Binding OwnerTypeCommand}" />
 
         <controls:CitoLabel Text="OR" FontAttributes="Bold" FontSize="15"
-                            TextColor="{StaticResource CitoMain}"
+                            TextColor="{StaticResource CitoLight}"
                             HorizontalTextAlignment="Center" Margin="0,10" />
 
-        <controls:CitoButton Text="CAR WASHER" Margin="15,0" />
+        <controls:CitoButton Text="CAR WASHER" 
+                             Margin="20,0"
+                             Command="{Binding WasherTypeCommand}" />
     </StackLayout>
   
 </ContentPage>

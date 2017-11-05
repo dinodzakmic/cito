@@ -1,17 +1,15 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
-             xmlns:cito="clr-namespace:Cito;assembly=Cito"
              xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
              x:Class="Cito.Framework.Components.CitoSwitch">
 
     <Frame BackgroundColor="{StaticResource CitoAccent}"
-           CornerRadius="10" HeightRequest="40" WidthRequest="100" Padding="2"
+           CornerRadius="10" HeightRequest="{StaticResource ControlsHeight}" WidthRequest="100" Padding="2"
            IsClippedToBounds="True"
            HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Frame BackgroundColor="{StaticResource CitoMain}"
-               Padding="0" CornerRadius="8"
+        <Frame BackgroundColor="{StaticResource CitoLightContrast}"
+               Padding="5" CornerRadius="8"
                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
 
@@ -21,7 +19,7 @@
                 </StackLayout.GestureRecognizers>
 
                 <components:RoundedBoxView x:Name="Box"
-                                     HeightRequest="40" WidthRequest="40"
+                                     HeightRequest="35" WidthRequest="35"
                                      BackgroundColor="{StaticResource CitoAccent}"
                                      HorizontalOptions="StartAndExpand"
                                      VerticalOptions="CenterAndExpand">

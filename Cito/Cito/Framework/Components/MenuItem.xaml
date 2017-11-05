@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
+             x:Class="Cito.Framework.Components.MenuItem">
+
+  <StackLayout Spacing="0" Padding="0">
+      <BoxView HeightRequest="0.5" Opacity="0.3" Margin="20,0,0,0"
+               Color="{StaticResource CitoLight}"
+               x:Name="BorderTop" IsVisible="True"
+               HorizontalOptions="FillAndExpand" />
+    
+      <StackLayout x:Name="MainStack" Orientation="Horizontal" Spacing="20"
+                   HorizontalOptions="FillAndExpand"
+                   HeightRequest="60" BackgroundColor="Transparent">
+
+          <Image x:Name="ItemImage" Margin="20,0,0,0" HeightRequest="30" WidthRequest="30"
+                 VerticalOptions="Center" />
+          <controls:CitoLabel x:Name="ItemText"
+                              FontAttributes="Bold" TextColor="{StaticResource CitoMainLight}"
+                              FontSize="18"
+                              HorizontalOptions="FillAndExpand"
+                              VerticalOptions="Center"
+                              HorizontalTextAlignment="Start"
+                              VerticalTextAlignment="Center" />
+      </StackLayout>
+    
+      <BoxView HeightRequest="0.5" Opacity="0.3" Margin="20,0,0,0"
+               Color="{StaticResource CitoLight}"
+               x:Name="BorderBottom" IsVisible="True"
+               HorizontalOptions="FillAndExpand"  />
+  </StackLayout>
+  
+</ContentView>

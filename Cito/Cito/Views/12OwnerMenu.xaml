@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
+                  xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
+                  x:Class="Cito.Views.OwnerMenu"
+                  MasterBehavior="Popover"
+                  Title="OwnerMenu" >
+  
+  <MasterDetailPage.Master>
+    <ContentPage Title="OwnerMenu" 
+                 BindingContext="{Binding Source={StaticResource Locator}, Path=OwnerMenu}" >
+      <Grid BackgroundColor="Transparent">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="3*" />
+          <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0" Grid.RowSpan="2" 
+               Source="{StaticResource MenuBackground}"
+               Aspect="AspectFill"/>
+          <StackLayout Grid.Row="0" Spacing="0" Margin="15,20" BackgroundColor="Transparent">
+              <components:MenuItem MenuItemImage="{StaticResource LocationIcon}"
+                                   MenuItemText="Home"
+                                   Command="{Binding MenuItemTest}"
+                                   BorderTopVisibility="False"/>
+              <components:MenuItem MenuItemImage="{StaticResource UserIcon}"
+                                   MenuItemText="Profile"
+                                   Command="{Binding MenuItemTest}" />
+              <components:MenuItem MenuItemImage="{StaticResource KeyIcon}"
+                                   MenuItemText="Past Washers"
+                                   Command="{Binding MenuItemTest}" />
+              <components:MenuItem MenuItemImage="{StaticResource KeyIcon}"
+                                   MenuItemText="Future Washers"
+                                   Command="{Binding MenuItemTest}" />           
+              <components:MenuItem MenuItemImage="{StaticResource PasswordIcon}"
+                                   MenuItemText="Promo Code"
+                                   Command="{Binding MenuItemTest}" />
+              <components:MenuItem MenuItemImage="{StaticResource QuestionIcon}"
+                                   MenuItemText="FAQ"
+                                   Command="{Binding MenuItemTest}" />
+              <components:MenuItem MenuItemImage="{StaticResource ContactIcon}"
+                                   MenuItemText="Support"
+                                   Command="{Binding MenuItemTest}" />
+          </StackLayout>
+        <!--<StackLayout Grid.Row="1" Orientation="Horizontal"
+                     BackgroundColor="Transparent"
+                     VerticalOptions="EndAndExpand" HorizontalOptions="StartAndExpand"
+                     Margin="50,25">
+          <Image Source="{StaticResource StandBy}" 
+                 HeightRequest="30" 
+                 VerticalOptions="CenterAndExpand"
+                 HorizontalOptions="StartAndExpand"/>
+          
+          <controls:CitoLabel Text="Sign Out"
+                              TextColor="Red" FontSize="15"
+                              VerticalOptions="CenterAndExpand"
+                              HorizontalOptions="StartAndExpand"/>
+        </StackLayout>-->
+
+      </Grid>
+    </ContentPage>
+  </MasterDetailPage.Master>
+
+
+</MasterDetailPage>
+
+
+

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
+             x:Class="Cito.Framework.Components.ImageButton"
+             HeightRequest="{StaticResource ControlsHeight}">
+  
+  <Grid x:Name="GridLayout"
+        HeightRequest="{StaticResource ControlsHeight}" 
+        HorizontalOptions="FillAndExpand" 
+        VerticalOptions="FillAndExpand">
+    
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="3*" />
+    </Grid.ColumnDefinitions>
+    <controls:CitoButton x:Name="Button" Grid.Column="0" Grid.ColumnSpan="2"
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand"/>
+
+    <Image Grid.Column="0" 
+           x:Name="Image"
+           Aspect="AspectFit"
+           HeightRequest="20"
+           VerticalOptions="CenterAndExpand"
+           HorizontalOptions="CenterAndExpand"/>
+       
+    <controls:CitoLabel Grid.Column="1"
+                        x:Name="LabelText"
+                        TextColor="{StaticResource CitoLight}"
+                        FontSize="14"
+                        HorizontalTextAlignment="Start"
+                        VerticalOptions="CenterAndExpand"
+                        VerticalTextAlignment="Center"/>
+    
+  </Grid>
+  
+</ContentView>

@@ -1,12 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:cito="clr-namespace:Cito;assembly=Cito"
              xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
              xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
-             xmlns:navigation="clr-namespace:Cito.Framework.Navigation;assembly=Cito"
              x:Class="Cito.Views.AvailabiltyPage"
-             BackgroundImage="{StaticResource BackgroundImage}">
+             BackgroundImage="{StaticResource BackgroundGradient}"
+             NavigationPage.HasNavigationBar="True">
 
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,80,0,0">
 
