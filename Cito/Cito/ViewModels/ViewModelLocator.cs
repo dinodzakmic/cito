@@ -13,13 +13,18 @@ namespace Cito.ViewModels
         public PreloginViewModel Prelogin => ViewModel<PreloginViewModel>.Get();
         public UserTypeViewModel UserType => ViewModel<UserTypeViewModel>.Get();
         public CreateAccountViewModel CreateAccount => ViewModel<CreateAccountViewModel>.Get();
+        public OwnerProfileViewModel OwnerProfile => ViewModel<OwnerProfileViewModel>.Get();
+        public MapViewModel Map => ViewModel<MapViewModel>.Get();
         public OwnerMenuViewModel OwnerMenu => ViewModel<OwnerMenuViewModel>.Get();
+        public PastWashersViewModel PastWashers => ViewModel<PastWashersViewModel>.Get();
+        public SupportViewModel Support => ViewModel<SupportViewModel>.Get();
+        public PromoCodeViewModel PromoCode => ViewModel<PromoCodeViewModel>.Get();
+        public AvailabilityViewModel Availability => ViewModel<AvailabilityViewModel>.Get();
+        public WasherProfileViewModel WasherProfile => ViewModel<WasherProfileViewModel>.Get();
+        public WasherMenuViewModel WasherMenu => ViewModel<WasherMenuViewModel>.Get();
         
-        public RateWasherViewModel RateWasherVM => ViewModel<RateWasherViewModel>.Get();
 
-        public OrderDetailsViewModel OrderDetailsVM => ViewModel<OrderDetailsViewModel>.Get();
 
-        public FaqViewModel FaqVM => ViewModel<FaqViewModel>.Get();
 
         public static void Cleanup()
         {

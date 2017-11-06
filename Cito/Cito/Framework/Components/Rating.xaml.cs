@@ -1,8 +1,13 @@
-﻿namespace Cito.Framework.Components
-{
-    using System;
-    using Xamarin.Forms;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
+using Xamarin.Forms;
+
+namespace Cito.Framework.Components
+{
     public partial class Rating : ContentView
     {
         #region Private properties
@@ -15,8 +20,8 @@
             propertyName: nameof(RatingStars),
             returnType: typeof(int),
             declaringType: typeof(Rating),
-            defaultBindingMode: BindingMode.TwoWay,
             defaultValue: 0,
+            defaultBindingMode: BindingMode.TwoWay,
             propertyChanged: (b, o, n) =>
             {
                 var starsRating = (int)n;

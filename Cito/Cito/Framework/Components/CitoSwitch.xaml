@@ -8,7 +8,7 @@
            CornerRadius="10" HeightRequest="{StaticResource ControlsHeight}" WidthRequest="100" Padding="2"
            IsClippedToBounds="True"
            HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Frame BackgroundColor="{StaticResource CitoLightContrast}"
+        <Frame BackgroundColor="{StaticResource CitoMainDark}"
                Padding="5" CornerRadius="8"
                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 

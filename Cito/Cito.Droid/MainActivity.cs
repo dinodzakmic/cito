@@ -7,6 +7,8 @@ using Android.Content.PM;
 using Android.OS;
 using ImageCircle.Forms.Plugin.Droid;
 using Xamarin.Facebook;
+using Xamarin.Forms;
+using Context = System.Runtime.Remoting.Contexts.Context;
 
 
 namespace Cito.Droid

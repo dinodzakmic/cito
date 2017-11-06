@@ -7,7 +7,9 @@
              xmlns:navigation="clr-namespace:Cito.Framework.Navigation;assembly=Cito"
              xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
              x:Class="Cito.Views.OwnerProfilePage"
-             BackgroundColor="{StaticResource CitoLight}">
+             BindingContext="{Binding Source={StaticResource Locator}, Path=OwnerProfile}"
+             BackgroundImage="{StaticResource BackgroundGradient}"
+             Title="Profile">
 
     <StackLayout Spacing="0" >
         <abstractions:CircleImage
@@ -20,7 +22,7 @@
             Margin="20,20,20,5" />
 
         <controls:CitoLabel HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"
-                            Text="{Binding FullName}"
+                            Text="John Doe"
                             FontSize="20"
                             TextColor="{StaticResource CitoMain}" />
 

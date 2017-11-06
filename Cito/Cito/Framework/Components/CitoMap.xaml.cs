@@ -53,6 +53,32 @@ namespace Cito.Framework.Components
             }
         }
         #endregion
+        #region CurrentPosition
+        public static readonly BindableProperty CurrentPositionProperty = BindableProperty
+            .Create(
+                propertyName: nameof(CurrentPosition),
+                returnType: typeof(Position),
+                declaringType: typeof(CitoMap),
+                defaultValue: new Position(0, 0),
+                defaultBindingMode: BindingMode.TwoWay,
+                propertyChanged: (b, o, n) =>
+                {
+                    var map = (CitoMap)b;
+                    var position = (Position)n;
+                    var distance = map.CurrentDistance;
+
+                    map.MoveToRegion(MapSpan.FromCenterAndRadius(position, distance));
+                });
+
+        public Position CurrentPosition
+        {
+            get { return (Position) GetValue(CurrentPositionProperty); }
+            set { SetValue(CurrentPositionProperty, value); }
+        }
+
+
+        public Distance CurrentDistance { get; set; } = Distance.FromKilometers(1);
+        #endregion
         #region MapPin
 
         public string MapPin { get; set; }

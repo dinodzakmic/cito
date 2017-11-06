@@ -54,6 +54,10 @@ namespace Cito.Droid.Renderers
             }
             else if (externalLogin == ImageButton.Social.Google)
             {
+                citoButton.Clicked += async (sender, args) =>
+                {
+                    await App.NavPage.DisplayAlert("TODO", "TODO", "OK");
+                };
                 return;
             }
             else

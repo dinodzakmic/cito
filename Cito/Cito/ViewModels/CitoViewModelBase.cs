@@ -24,6 +24,7 @@ namespace Cito.ViewModels
                 App.UpdateLoading(true);
                 await Task.Delay(500);
                 await App.NavPage.Navigation.PushAsync(page);
+                App.MenuPage.IsPresented = false;
             }
             catch (Exception e)
             {
@@ -46,7 +47,8 @@ namespace Cito.ViewModels
                 App.InstantiatingPageType = App.NavPage.Navigation.NavigationStack.Last().GetType();                
                 App.UpdateLoading(true);
                 await Task.Delay(500);
-                await App.NavPage.Navigation.PopAsync();            
+                await App.NavPage.Navigation.PopAsync();
+                App.MenuPage.IsPresented = false;
             }
             catch (Exception e)
             {
@@ -69,6 +71,7 @@ namespace Cito.ViewModels
                 App.UpdateLoading(true);
                 await Task.Delay(500);
                 await App.NavPage.Navigation.PopToRootAsync();
+                App.MenuPage.IsPresented = false;
             }
             catch (Exception e)
             {
@@ -96,8 +99,8 @@ namespace Cito.ViewModels
                 await Task.Delay(500);
                 App.NavPage = new NavigationPage(page);
                 App.MenuPage = userType == UserTypeViewModel.UserTypeOf.Owner 
-                    ? new OwnerMenu() { Detail = App.NavPage} 
-                    : new OwnerMenu() {Detail = App.NavPage}; // TODO: add WasherMenu 
+                    ? (MasterDetailPage)new OwnerMenu() { Detail = App.NavPage} 
+                    : (MasterDetailPage)new WasherMenu() {Detail = App.NavPage}; // TODO: add WasherMenu 
                 App.Current.MainPage = App.MenuPage;
             }
             catch (Exception e)

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
+             x:Class="Cito.Views.PromoCodePage"
+             BindingContext="{Binding Source={StaticResource Locator}, Path=PromoCode}"
+             BackgroundImage="{StaticResource BackgroundGradient}"
+             Title="Promo Code">
+  
+  <StackLayout HorizontalOptions="FillAndExpand" 
+               VerticalOptions="CenterAndExpand"
+               Padding="20"
+               Spacing="30">
+    <controls:CitoEntry Text="{Binding PromoCode}" 
+                        Placeholder="Enter Code"
+                        Margin="15,0" />
+    <controls:CitoButton Text="USE IT"
+                         Command="{Binding UsePromoCodeCommand}"
+                         Margin="15,0" />
+  </StackLayout>
+  
+</ContentPage>

@@ -5,16 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace Cito.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class RateWasherPage : ContentPage
+    public partial class PastWashersPage : ContentPage
     {
-        public RateWasherPage()
+        public PastWashersPage()
         {
             InitializeComponent();
         }
+
+       
     }
 }

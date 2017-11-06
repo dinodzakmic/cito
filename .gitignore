@@ -183,5 +183,3 @@ FakesAssemblies/
 .DS_Store
 /.vs/slnx.sqlite
 /.vs/VSWorkspaceState.json
-/.vs
-/Cito/Cito.Droid/Cito.Droid.csproj.bak

@@ -2,11 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
-             x:Class="Cito.Views.MapPage" >
+             x:Class="Cito.Views.MapPage"
+             BindingContext="{Binding Source={StaticResource Locator}, Path=Map}"
+             BackgroundImage="{StaticResource BackgroundGradient}"
+             Title="Map">
 
   <StackLayout>
-      <components:CitoMap  MapPin="CitoPin"
+      <components:CitoMap BindablePins="{Binding PinList}"
+                          CurrentPosition="{Binding CurrentUserPosition}"
+                          MapPin="CitoPin.png" 
                           HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+    <StackLayout HeightRequest="60" BackgroundColor="Transparent" />
   </StackLayout>
   
 </ContentPage>

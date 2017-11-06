@@ -4,7 +4,10 @@
              xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
              xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
              xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
-             x:Class="Cito.Views.PastWashesPage" >
+             x:Class="Cito.Views.PastWashersPage"
+             BindingContext="{Binding Source={StaticResource Locator}, Path=PastWashers}"
+             BackgroundImage="{StaticResource BackgroundGradient}"
+             Title="Past Washers">
 
     <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"
                 Opacity="0.97" BackgroundColor="{StaticResource CitoLight}">
@@ -109,9 +112,7 @@
             <components:DropdownItem Title="April" />
 
 
-            <controls:CitoButton Text="Go to second page" FontSize="14"  MinimumWidthRequest="200"
-                                 HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
-                                 Clicked="Button_OnClicked"/>
+           
           
         </StackLayout>
     </ScrollView>
