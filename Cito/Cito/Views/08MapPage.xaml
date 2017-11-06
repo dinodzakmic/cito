@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
+             xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
              x:Class="Cito.Views.MapPage"
              BindingContext="{Binding Source={StaticResource Locator}, Path=Map}"
              BackgroundImage="{StaticResource BackgroundGradient}"
@@ -12,7 +13,35 @@
                           CurrentPosition="{Binding CurrentUserPosition}"
                           MapPin="CitoPin.png" 
                           HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
-    <StackLayout HeightRequest="60" BackgroundColor="Transparent" />
+    <Grid HeightRequest="40" BackgroundColor="Transparent"
+          HorizontalOptions="FillAndExpand"
+          Padding="10">
+      <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+
+        <controls:CitoLabel Grid.Column="0"
+                            Text="Standard"
+                            TextColor="{StaticResource CitoMainLight}"
+                            HorizontalTextAlignment="Start"
+                            VerticalTextAlignment="Center"
+                            FontSize="18" />
+        <controls:CitoLabel Grid.Column="1"
+                            Text="Professional"
+                            TextColor="{StaticResource CitoMainLight}"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            FontSize="18" />
+        <controls:CitoLabel Grid.Column="2"
+                            Text="Elite"
+                            TextColor="{StaticResource CitoMainLight}"
+                            HorizontalTextAlignment="End"
+                            VerticalTextAlignment="Center"
+                            FontSize="18" />
+    </Grid>
+    
   </StackLayout>
   
 </ContentPage>

@@ -15,9 +15,12 @@ namespace Cito.ViewModels
         public CreateAccountViewModel CreateAccount => ViewModel<CreateAccountViewModel>.Get();
         public OwnerProfileViewModel OwnerProfile => ViewModel<OwnerProfileViewModel>.Get();
         public MapViewModel Map => ViewModel<MapViewModel>.Get();
+        public OrderDetailsViewModel OrderDetails => ViewModel<OrderDetailsViewModel>.Get();
+        public RateWasherViewModel RateWasher => ViewModel<RateWasherViewModel>.Get();
         public OwnerMenuViewModel OwnerMenu => ViewModel<OwnerMenuViewModel>.Get();
         public PastWashersViewModel PastWashers => ViewModel<PastWashersViewModel>.Get();
         public SupportViewModel Support => ViewModel<SupportViewModel>.Get();
+        public FaqViewModel Faq => ViewModel<FaqViewModel>.Get();
         public PromoCodeViewModel PromoCode => ViewModel<PromoCodeViewModel>.Get();
         public AvailabilityViewModel Availability => ViewModel<AvailabilityViewModel>.Get();
         public WasherProfileViewModel WasherProfile => ViewModel<WasherProfileViewModel>.Get();

@@ -5,7 +5,7 @@
              xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
              xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
              x:Class="Cito.Views.OrderDetailsPage"
-             BindingContext="{Binding Source={StaticResource Locator}, Path=OrderDetailsVM}">
+             BindingContext="{Binding Source={StaticResource Locator}, Path=OrderDetails}">
     <StackLayout Style="{StaticResource RootStackLayoutStyle}">
         
         <abstractions:CircleImage HorizontalOptions="CenterAndExpand" 

@@ -20,10 +20,24 @@ namespace Cito.Framework.Components
             set { BottomSeparator.IsVisible = value; }
         }
 
+        public Color TextColor
+        {
+            set { this.DropdownTitle.TextColor = value; }
+        }
+
+        public static BindableProperty TitleProperty = BindableProperty.Create(
+            propertyName: nameof(Title),
+            returnType: typeof(string),
+            declaringType: typeof(DropdownItem),
+            defaultBindingMode: BindingMode.TwoWay,
+            defaultValue: string.Empty,
+            propertyChanged: (b, o, n) => { ((DropdownItem) b).DropdownTitle.Text = (string) n; });
+
+
         public string Title
         {
-            get { return DropdownTitle.Text; }
-            set { DropdownTitle.Text = value; }
+            get { return (string)GetValue(TitleProperty); }
+            set { SetValue(TitleProperty, value); }
         }
 
         public View ExpandableView
@@ -44,14 +58,14 @@ namespace Cito.Framework.Components
         {
             if (!ViewToDisplay.IsVisible)
             {
-                await Icon.RotateTo(90);
+                await Icon.RotateTo(180);
                 if (ExpandableView != null) ExpandableView.IsVisible = true;
                 ViewToDisplay.IsVisible = true;
                 await ViewToDisplay.FadeTo(1, easing: Easing.SpringIn);
             }
             else
             {
-                await Icon.RotateTo(-90);
+                await Icon.RotateTo(-180);
                 if (ExpandableView != null) ExpandableView.IsVisible = false;
                 ViewToDisplay.IsVisible = false;
                 await ViewToDisplay.FadeTo(0, easing: Easing.SpringOut);

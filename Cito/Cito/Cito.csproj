@@ -64,9 +64,9 @@
     <Compile Include="ViewModels\18PromoCodeViewModel.cs" />
     <Compile Include="ViewModels\16SupportViewModel.cs" />
     <Compile Include="ViewModels\06OwnerProfileViewModel.cs" />
-    <Compile Include="ViewModels\FaqViewModel.cs" />
-    <Compile Include="ViewModels\OrderDetailsViewModel.cs" />
-    <Compile Include="ViewModels\RateWasherViewModel.cs" />
+    <Compile Include="ViewModels\17FaqViewModel.cs" />
+    <Compile Include="ViewModels\10OrderDetailsViewModel.cs" />
+    <Compile Include="ViewModels\11RateWasherViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="ViewModels\20WasherProfileViewModel.cs" />
     <Compile Include="ViewModels\22WasherMenuViewModel.cs" />
@@ -78,6 +78,9 @@
     </Compile>
     <Compile Include="Views\01PreloginPage.xaml.cs">
       <DependentUpon>01PreloginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\11RateWasherPage.xaml.cs">
+      <DependentUpon>11RateWasherPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\19AvailabiltyPage.xaml.cs">
       <DependentUpon>19AvailabiltyPage.xaml</DependentUpon>
@@ -152,6 +155,12 @@
     </Compile>
     <Compile Include="Views\22WasherMenu.xaml.cs">
       <DependentUpon>22WasherMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\10OrderDetailsPage.xaml.cs">
+      <DependentUpon>10OrderDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\17FaqPage.xaml.cs">
+      <DependentUpon>17FaqPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -395,18 +404,18 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\10OrderDetailsPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <EmbeddedResource Include="Views\10OrderDetailsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\11RateWasherPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\11RateWasherPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\FaqPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\17FaqPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
-    </Page>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />

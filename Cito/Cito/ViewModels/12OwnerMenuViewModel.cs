@@ -63,7 +63,7 @@ namespace Cito.ViewModels
         }
         private async Task GoToFaq()
         {
-            await GoToPage(new PromoCodePage());
+            await GoToPage(new FaqPage());
         }
         private async Task GoToSupport()
         {

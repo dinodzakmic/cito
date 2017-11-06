@@ -22,12 +22,15 @@
             Margin="20,20,20,5" />
 
         <controls:CitoLabel HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"
+                            Margin="0,20,0,0"
                             Text="John Doe"
                             FontSize="20"
-                            TextColor="{StaticResource CitoMain}" />
+                            TextColor="{StaticResource CitoLight}" />
 
 
-        <components:DropdownItem Margin="0,50,0,0" BottomSeparatorVisible="False" Title="My Cars"
+        <components:DropdownItem Margin="0,50,0,0" BottomSeparatorVisible="False"
+                                 Title="My Cars"
+                                 TextColor="{StaticResource CitoLight}"
                                  ExpandableView="{x:Reference FirstLayout}" />
         <components:DropdownContent x:Name="FirstLayout" Padding="60,10"
                                     HorizontalOptions="StartAndExpand" VerticalOptions="Start">
@@ -36,25 +39,17 @@
                                     VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"
                                     Text="My cars"
                                     FontSize="20"
-                                    TextColor="{StaticResource CitoMain}" />
+                                    TextColor="{StaticResource CitoLight}" />
             </StackLayout>
         </components:DropdownContent>
 
 
-        <components:DropdownItem BottomSeparatorVisible="False" Title="Recent Services"
-                                 ExpandableView="{x:Reference SecondLayout}" />
-        <components:DropdownContent x:Name="SecondLayout" Padding="60,10"
-                                    HorizontalOptions="StartAndExpand" VerticalOptions="Start">
-            <StackLayout>
-                <controls:CitoLabel HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"
-                                    VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"
-                                    Text="My cars"
-                                    FontSize="20"
-                                    TextColor="{StaticResource CitoMain}" />
-            </StackLayout>
-        </components:DropdownContent>
+        <components:DropdownItem BottomSeparatorVisible="False"
+                                 Title="Recent Services"
+                                 TextColor="{StaticResource CitoLight}"/>
 
-        <components:DropdownItem Title="Recent Washers" />
+        <components:DropdownItem Title="Recent Washers" 
+                                 TextColor="{StaticResource CitoLight}"/>
       
     </StackLayout>
 </ContentPage>

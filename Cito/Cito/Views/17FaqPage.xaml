@@ -6,7 +6,7 @@
              x:Class="Cito.Views.FaqPage"
              BackgroundImage="{StaticResource BackgroundGradient}"
              Title="FAQ"
-             BindingContext="{Binding Source={StaticResource Locator}, Path=FaqVM}">
+             BindingContext="{Binding Source={StaticResource Locator}, Path=Faq}">
     
         <StackLayout>
             <ListView x:Name="FaqList" ItemsSource="{Binding FaqList}" ItemSelected="ListView_OnItemSelected"

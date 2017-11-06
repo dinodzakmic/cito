@@ -9,12 +9,12 @@
              BackgroundImage="{StaticResource BackgroundGradient}"
              Title="Past Washers">
 
-    <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"
-                Opacity="0.97" BackgroundColor="{StaticResource CitoLight}">
+    <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" >
         <StackLayout HorizontalOptions="FillAndExpand"
                      VerticalOptions="StartAndExpand" >
             <components:DropdownItem BottomSeparatorVisible="False" Title="June"
-                                     ExpandableView="{x:Reference FirstLayout}" />
+                                     ExpandableView="{x:Reference FirstLayout}"
+                                     TextColor="{StaticResource CitoLight}"/>
             <components:DropdownContent x:Name="FirstLayout" Padding="10"
                                         HorizontalOptions="FillAndExpand" VerticalOptions="Start">
                 <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
@@ -29,7 +29,7 @@
                         <abstractions:CircleImage Grid.Column="0"
                                                   Source="{StaticResource WasherProfileImage}"
                                                   BorderColor="{StaticResource CitoMain}"
-                                                  BorderThickness="3"
+                                                  BorderThickness="1"
                                                   HorizontalOptions="FillAndExpand"
                                                   VerticalOptions="FillAndExpand" />
 
@@ -38,6 +38,7 @@
                                      VerticalOptions="CenterAndExpand">
                             <controls:CitoLabel Text="WASHER NO.1"
                                                 FontSize="15"
+                                                TextColor="{StaticResource CitoLight}"
                                                 VerticalOptions="CenterAndExpand"
                                                 VerticalTextAlignment="Center"
                                                 HorizontalOptions="StartAndExpand"
@@ -75,6 +76,7 @@
                                      VerticalOptions="CenterAndExpand">
                             <controls:CitoLabel Text="WASHER NO.1"
                                                 FontSize="15"
+                                                TextColor="{StaticResource CitoLight}"
                                                 VerticalOptions="CenterAndExpand"
                                                 VerticalTextAlignment="Center"
                                                 HorizontalOptions="StartAndExpand"
@@ -97,19 +99,9 @@
 
 
             <components:DropdownItem BottomSeparatorVisible="False" Title="May"
-                                     ExpandableView="{x:Reference SecondLayout}" />
-            <components:DropdownContent x:Name="SecondLayout" Padding="60,10"
-                                        HorizontalOptions="StartAndExpand" VerticalOptions="Start">
-                <StackLayout>
-                    <controls:CitoLabel HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"
-                                        VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"
-                                        Text="My cars"
-                                        FontSize="20"
-                                        TextColor="{StaticResource CitoMain}" />
-                </StackLayout>
-            </components:DropdownContent>
+                                     TextColor="{StaticResource CitoLight}"/>
 
-            <components:DropdownItem Title="April" />
+            <components:DropdownItem Title="April" TextColor="{StaticResource CitoLight}" />
 
 
            

@@ -9,8 +9,8 @@
 
         public int Rating
         {
-            get => this.rating;
-            set => this.Set(ref rating, value);
+            get { return this.rating; }
+            set { this.Set(ref rating, value); }
         }
 
         public string CarPicture => "Car.jpg";

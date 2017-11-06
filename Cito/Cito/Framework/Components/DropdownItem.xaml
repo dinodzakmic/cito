@@ -15,10 +15,9 @@
                  VerticalOptions="Start"
                  BackgroundColor="{StaticResource CitoAccent}" />
       
-        <StackLayout HeightRequest="60" Orientation="Horizontal" Padding="10,0" Spacing="20">
-            <Image Source="BackIcon.png" x:Name="Icon" HeightRequest="40" WidthRequest="30" Aspect="AspectFit"
-                   HorizontalOptions="Start" VerticalOptions="CenterAndExpand"
-                   Rotation="-90" />
+        <StackLayout HeightRequest="60" Orientation="Horizontal" Padding="15,0" Spacing="20">
+            <Image Source="{StaticResource DownArrow}" x:Name="Icon" HeightRequest="30" WidthRequest="30" Aspect="AspectFit"
+                   HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
 
             <controls:CitoLabel x:Name="DropdownTitle" 
                                 HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"

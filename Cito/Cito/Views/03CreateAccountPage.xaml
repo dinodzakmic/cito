@@ -17,24 +17,28 @@
         <controls:CitoEntry x:Name="FullNameEntry" Text="{Binding FullName}"
                             Placeholder="Full Name" HorizontalOptions="FillAndExpand" Margin="15,0" 
                             ScrollParent="{x:Reference Scroll}" Keyboard="Default"
-                            NextView="{x:Reference CarModelEntry}" Mandatory="True" ErrorText="This is mandatory field" />
+                            NextView="{x:Reference CarModelEntry}"
+                            Mandatory="True" ErrorText="This is mandatory field" />
         <controls:CitoEntry x:Name="CarModelEntry" Text="{Binding CarModel}"
                             Placeholder="Car model" HorizontalOptions="FillAndExpand" Margin="15,0"
                             ScrollParent="{x:Reference Scroll}"
-                            NextView="{x:Reference EmailEntry}" Mandatory="True" ErrorText="This is mandatory field" />
+                            NextView="{x:Reference EmailEntry}"
+                            Mandatory="True" ErrorText="This is a required field" />
         <controls:CitoEntry x:Name="EmailEntry" Text="{Binding Email}"
                             Placeholder="Email" HorizontalOptions="FillAndExpand" Margin="15,0"
                             ScrollParent="{x:Reference Scroll}" Keyboard="Email"                           
-                            NextView="{x:Reference NumberEntry}" Mandatory="True" ErrorText="This is mandatory field" />
+                            NextView="{x:Reference NumberEntry}"
+                            Mandatory="True" ErrorText="This is a required field" />
         <controls:CitoEntry x:Name="NumberEntry" Text="{Binding Number}"
                             Placeholder="Phone" HorizontalOptions="FillAndExpand" Margin="15,0"
                             ScrollParent="{x:Reference Scroll}" 
                             Keyboard="Telephone" NextView="{x:Reference PasswordEntry}" 
-                            Mandatory="True" ErrorText="This is mandatory field" />
+                            Mandatory="True" ErrorText="This is a required field" />
         <controls:CitoEntry x:Name="PasswordEntry" Text="{Binding Password}"
                             Placeholder="Password" HorizontalOptions="FillAndExpand" 
                             Margin="15,0" ScrollParent="{x:Reference Scroll}" 
-                            IsPassword="True" Mandatory="True" ErrorText="This is mandatory field" />
+                            IsPassword="True" 
+                            Mandatory="True" ErrorText="This is a required field" />
 
       <controls:CitoButton Text="SIGN UP" Margin="15,0" 
                            Command="{Binding HandleNewUserCommand}" />
