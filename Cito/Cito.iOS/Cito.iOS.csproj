@@ -258,6 +258,15 @@
   <ItemGroup>
     <BundleResource Include="Resources\NavigationBarGradient.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Car.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\visa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\washer.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -9,8 +9,8 @@
         <Label Text="Your car is shining again" Style="{StaticResource CentralLabelStyle}"
                Margin="20,0"/>
         
-        <Image VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
-               BackgroundColor="HotPink" />
+        <Image Source="{Binding CarPicture}"
+               VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
         
         <components:Rating HorizontalOptions="CenterAndExpand" Margin="0,20"
                            IsTapEnabled="True"

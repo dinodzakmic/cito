@@ -14,12 +14,12 @@ namespace Cito.ViewModels
         public UserTypeViewModel UserType => ViewModel<UserTypeViewModel>.Get();
         public CreateAccountViewModel CreateAccount => ViewModel<CreateAccountViewModel>.Get();
         public OwnerMenuViewModel OwnerMenu => ViewModel<OwnerMenuViewModel>.Get();
-
-        public MainViewModel Main => ViewModel<MainViewModel>.Get();
-
-        public OwnerProfileViewModel Owner => ViewModel<OwnerProfileViewModel>.Get();
-
+        
         public RateWasherViewModel RateWasherVM => ViewModel<RateWasherViewModel>.Get();
+
+        public OrderDetailsViewModel OrderDetailsVM => ViewModel<OrderDetailsViewModel>.Get();
+
+        public FaqViewModel FaqVM => ViewModel<FaqViewModel>.Get();
 
         public static void Cleanup()
         {

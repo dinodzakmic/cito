@@ -9,14 +9,19 @@
         <viewModels:ViewModelLocator x:Key="Locator" />
         <utilities:NegateBooleanConverter x:Key="NegateBoolean" />
         
-        <Color x:Key="CitoMain">#9679b5</Color>
-        <Color x:Key="CitoMainLight">#bfa4de</Color>
+  
         <Color x:Key="CitoBackground">#fcfbfa</Color>
+        <Color x:Key="CitoMain">#26a4ad</Color>
+        <Color x:Key="CitoMainLight">#66c8cf</Color>
         <Color x:Key="CitoAccent">#6dc5ed</Color>
         <Color x:Key="SeparatorColor">#6dc5ed</Color>
         <Color x:Key="CitoAccentLight">#a1edf7</Color>
-        <Color x:Key="PrimaryTextColor">#9679b5</Color>
-
+        <Color x:Key="PrimaryTextColor">#26a4ad</Color>
+        <Color x:Key="CitoMainDark">#0e1a24</Color>
+        <Color x:Key="CitoLight">#fcfbfa</Color>
+        <Color x:Key="CitoLightContrast">#aaaaaa</Color>
+        
+        
         <x:String x:Key="LogoImage">CitoLogo.png</x:String>
         <x:String x:Key="BackgroundImage">BackgroundImage.jpg</x:String>
         <x:String x:Key="OwnerProfileImage">OwnerProfileImage.jpg</x:String>
@@ -25,15 +30,25 @@
         <x:String x:Key="BackIcon">BackIcon.png</x:String>
         <x:String x:Key="FacebookIcon">FacebookIcon.png</x:String>
         <x:String x:Key="GoogleIcon">GoogleIcon.png</x:String>
+        <x:String x:Key="BackgroundGradient">BackgroundGradient.jpg</x:String>
+        <x:String x:Key="MenuBackground">MenuBackground.jpg</x:String>
+        <x:String x:Key="StandBy">StandBy.png</x:String>
+        <x:String x:Key="KeyIcon">key.png</x:String>
+        <x:String x:Key="LocationIcon">location.png</x:String>
+        <x:String x:Key="PasswordIcon">password.png</x:String>
+        <x:String x:Key="QuestionIcon">question.png</x:String>
+        <x:String x:Key="UserIcon">user11.png</x:String>
+        <x:String x:Key="ContactIcon">support_speech_bubble.png</x:String>
 
 
+        <x:Double x:Key="ControlsHeight">45</x:Double>
+
+            
         <Style x:Key="SeparatorBoxStyle" TargetType="BoxView">
             <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
             <Setter Property="Color" Value="{StaticResource SeparatorColor}"/>
             <Setter Property="HeightRequest" Value="1"/>
         </Style>
-
-
 
         <Style x:Key="RootStackLayoutStyle" TargetType="StackLayout">
             <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
@@ -48,41 +63,25 @@
             <Setter Property="FontSize" Value="Large"/>
         </Style>
 
-            <Style x:Key="LeftLabelStyle" TargetType="Label">
-                <Setter Property="HorizontalOptions" Value="Start"/>
-                <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}"/>
-            </Style>
+
+        <Style x:Key="LeftLabelStyle" TargetType="Label">
+            <Setter Property="HorizontalOptions" Value="Start"/>
+            <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}"/>
+        </Style>
+
+
+
+        <Style x:Key="FaqLabelStyle" TargetType="Label">
+        
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            <Setter Property="TextColor" Value="{StaticResource CitoAccentLight}"/>
+            <Setter Property="HorizontalTextAlignment" Value="Start"/>
+            <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="20"/>
+            
+        </Style>
+
         </ResourceDictionary>
-
-      <viewModels:ViewModelLocator x:Key="Locator" />
-      <utilities:NegateBooleanConverter x:Key="NegateBoolean" />
-
-        <Color x:Key="CitoMain">#26a4ad</Color>
-        <Color x:Key="CitoMainLight">#66c8cf</Color>
-        <Color x:Key="CitoMainDark">#0e1a24</Color>      
-        <Color x:Key="CitoLight">#fcfbfa</Color>
-        <Color x:Key="CitoLightContrast">#aaaaaa</Color>
-        <Color x:Key="CitoAccent">#6dc5ed</Color>
-        <Color x:Key="CitoAccentLight">#a1edf7</Color>
-
-        <x:String x:Key="LogoImage">CitoLogo.png</x:String>
-        <x:String x:Key="BackgroundGradient">BackgroundGradient.jpg</x:String>
-        <x:String x:Key="MenuBackground">MenuBackground.jpg</x:String>
-        <x:String x:Key="OwnerProfileImage">OwnerProfileImage.jpg</x:String>
-        <x:String x:Key="WasherProfileImage">WasherProfileImage.jpg</x:String>
-        <x:String x:Key="BackIcon">BackIcon.png</x:String>
-        <x:String x:Key="FacebookIcon">FacebookIcon.png</x:String>
-        <x:String x:Key="GoogleIcon">GoogleIcon.png</x:String>
-        <x:String x:Key="StandBy">StandBy.png</x:String>
-        <x:String x:Key="KeyIcon">key.png</x:String>
-        <x:String x:Key="LocationIcon">location.png</x:String>
-        <x:String x:Key="PasswordIcon">password.png</x:String>
-        <x:String x:Key="QuestionIcon">question.png</x:String>
-        <x:String x:Key="UserIcon">user11.png</x:String>
-        <x:String x:Key="ContactIcon">support_speech_bubble.png</x:String>
-
-        <x:Double x:Key="ControlsHeight">45</x:Double>
-      
-    </ResourceDictionary>
   </Application.Resources>
 </Application>

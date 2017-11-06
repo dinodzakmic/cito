@@ -49,8 +49,8 @@
     </Compile>
     <Compile Include="Framework\Utilities\CitoFont.cs" />
     <Compile Include="Framework\Utilities\NegateBooleanConverter.cs" />
-    <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\OwnerProfileViewModel.cs" />
+    <Compile Include="ViewModels\FaqViewModel.cs" />
+    <Compile Include="ViewModels\OrderDetailsViewModel.cs" />
     <Compile Include="ViewModels\RateWasherViewModel.cs" />
     <Compile Include="Framework\Utilities\StringHelpers.cs" />
     <Compile Include="ViewModels\CitoViewModelBase.cs" />
@@ -133,11 +133,14 @@
     <Compile Include="Views\14PastWashesPage.xaml.cs">
       <DependentUpon>14PastWashesPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\RateWasherPage.xaml.cs">
-      <DependentUpon>RateWasherPage.xaml</DependentUpon>
+    <Compile Include="Views\11RateWasherPage.xaml.cs">
+      <DependentUpon>11RateWasherPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\08MapPage.xaml.cs">
       <DependentUpon>08MapPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FaqPage.xaml.cs">
+      <DependentUpon>FaqPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -336,7 +339,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\RateWasherPage.xaml">
+    <EmbeddedResource Include="Views\11RateWasherPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -361,6 +364,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Framework\Components\ImageButton.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\FaqPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

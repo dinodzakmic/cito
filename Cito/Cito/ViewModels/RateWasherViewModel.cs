@@ -2,7 +2,7 @@
 {
     using GalaSoft.MvvmLight;
 
-    public class RateWasherViewModel : ViewModelBase
+    public class RateWasherViewModel : CitoViewModelBase
     {
 
         private int rating;
@@ -12,5 +12,7 @@
             get => this.rating;
             set => this.Set(ref rating, value);
         }
+
+        public string CarPicture => "Car.jpg";
     }
 }
