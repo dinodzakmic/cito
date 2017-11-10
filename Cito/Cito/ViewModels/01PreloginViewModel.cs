@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Acr.UserDialogs;
 using Cito.Views;
+using Plugin.Connectivity;
 using Xamarin.Forms;
 using Color = System.Drawing.Color;
 
@@ -33,6 +34,12 @@ namespace Cito.ViewModels
 
         public PreloginViewModel()
         {
+            //move this to Base
+            CrossConnectivity.Current.ConnectivityChanged += (sender, args) =>
+            {
+                var tmp = args.IsConnected;
+            };
+
             SetCommands();
         }
 

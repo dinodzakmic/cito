@@ -22,6 +22,7 @@
 
         <x:String x:Key="LogoImage">CitoLogo.png</x:String>
         <x:String x:Key="BackgroundGradient">BackgroundGradient.jpg</x:String>
+        <x:String x:Key="NavigationBarGradient">NavigationBarGradient.jpg</x:String>
         <x:String x:Key="MenuBackground">MenuBackground.jpg</x:String>
         <x:String x:Key="OwnerProfileImage">OwnerProfileImage.png</x:String>
         <x:String x:Key="WasherProfileImage">WasherProfileImage.jpg</x:String>

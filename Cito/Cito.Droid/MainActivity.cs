@@ -20,8 +20,8 @@ namespace Cito.Droid
         protected override void OnCreate(Bundle bundle)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
-            ToolbarResource = Resource.Layout.Toolbar;            
-            
+            ToolbarResource = Resource.Layout.Toolbar;
+            System.Net.ServicePointManager.DnsRefreshTimeout = 0;
 
             base.OnCreate(bundle);
 

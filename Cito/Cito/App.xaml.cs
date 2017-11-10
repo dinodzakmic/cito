@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
 using Cito.Framework.Controls;
+using Cito.Framework.Navigation;
 using Cito.Framework.Validation;
 using Cito.ViewModels;
 using Cito.Views;
@@ -36,6 +37,7 @@ namespace Cito
             InitializeComponent();
             ValidationFieldList = new ValidationFieldList();
 
+            InstantiatingPageType = typeof(PreloginPage);
             NavPage = new NavigationPage(new PreloginPage());
             MainPage = NavPage;
         }
