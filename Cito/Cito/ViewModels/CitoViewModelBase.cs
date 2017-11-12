@@ -1,14 +1,22 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Cito.Framework.Utilities;
 using Cito.Views;
 using GalaSoft.MvvmLight;
+using Plugin.Connectivity;
 using Xamarin.Forms;
 
 namespace Cito.ViewModels
 {
     public class CitoViewModelBase : ViewModelBase
     {
+        #region Properties
+
+        public bool IsConnected => Connectivity.IsConnectionAvailable;
+        
+        #endregion
+        #region Navigation methods
         /// <summary>
         /// Navigates to a new page.
         /// </summary>
@@ -44,7 +52,7 @@ namespace Cito.ViewModels
         {
             try
             {
-                App.InstantiatingPageType = App.NavPage.Navigation.NavigationStack.Last().GetType();                
+                App.InstantiatingPageType = App.NavPage.Navigation.NavigationStack.Last().GetType();
                 App.UpdateLoading(true);
                 await Task.Delay(500);
                 await App.NavPage.Navigation.PopAsync();
@@ -98,9 +106,9 @@ namespace Cito.ViewModels
                 App.UpdateLoading(true);
                 await Task.Delay(500);
                 App.NavPage = new NavigationPage(page);
-                App.MenuPage = userType == UserTypeViewModel.UserTypeOf.Owner 
-                    ? (MasterDetailPage)new OwnerMenu() { Detail = App.NavPage} 
-                    : (MasterDetailPage)new WasherMenu() {Detail = App.NavPage}; // TODO: add WasherMenu 
+                App.MenuPage = userType == UserTypeViewModel.UserTypeOf.Owner
+                    ? (MasterDetailPage)new OwnerMenu() { Detail = App.NavPage }
+                    : (MasterDetailPage)new WasherMenu() { Detail = App.NavPage }; // TODO: add WasherMenu 
                 App.Current.MainPage = App.MenuPage;
             }
             catch (Exception e)
@@ -113,7 +121,7 @@ namespace Cito.ViewModels
             }
 
         }
-     
+        #endregion
     }
 }
 

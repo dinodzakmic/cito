@@ -18,29 +18,16 @@ namespace Cito.ViewModels
 
         #endregion
         #region Commands
-        public ICommand CreateAccountCommand { get; private set; }
-        public ICommand SignInCommand { get; private set; }
+        public ICommand CreateAccountCommand => new Command(async () => await CreateAccount());
+        public ICommand SignInCommand => new Command(async () => await SignIn());
 
-        public ICommand ExternalLoginCommand { get; private set; }
-
-        private void SetCommands()
-        {
-            CreateAccountCommand = new Command(async () => await CreateAccount());
-            SignInCommand = new Command(async () => await SignIn());
-            ExternalLoginCommand = new Command(async () => await ExternalLogin());
-        }
+        public ICommand ExternalLoginCommand => new Command(async () => await ExternalLogin());
 
         #endregion
 
         public PreloginViewModel()
-        {
-            //move this to Base
-            CrossConnectivity.Current.ConnectivityChanged += (sender, args) =>
-            {
-                var tmp = args.IsConnected;
-            };
-
-            SetCommands();
+        {          
+            
         }
 
         #region Methods
@@ -56,7 +43,7 @@ namespace Cito.ViewModels
 
         private async Task ExternalLogin()
         {
-            UserDialogs.Instance.Toast("Test", TimeSpan.FromSeconds(3));
+            UserDialogs.Instance.Toast("Please check your network connection", TimeSpan.FromSeconds(3));
         }
         #endregion
 
