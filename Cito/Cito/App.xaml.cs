@@ -37,9 +37,29 @@ namespace Cito
             InitializeComponent();
             ValidationFieldList = new ValidationFieldList();
 
-            InstantiatingPageType = typeof(PreloginPage);
-            NavPage = new NavigationPage(new PreloginPage());
-            MainPage = NavPage;
+            if (App.Locator.Prelogin.Settings.IsUserLoggedIn)
+            {
+                if (App.Locator.Prelogin.Settings.UserType.Equals(UserTypeViewModel.UserTypeOf.Owner.ToString()))
+                {
+                    var rootPage = new MapPage();
+                    App.NavPage = new NavigationPage(rootPage);
+                    App.MenuPage = (MasterDetailPage) new OwnerMenu() {Detail = App.NavPage};
+                    App.Current.MainPage = App.MenuPage;
+                }
+                else
+                {
+                    var rootPage = new AvailabiltyPage();
+                    App.NavPage = new NavigationPage(rootPage);
+                    App.MenuPage = (MasterDetailPage)new WasherMenu() { Detail = App.NavPage };
+                    App.Current.MainPage = App.MenuPage;
+                }
+            }
+            else
+            {
+                InstantiatingPageType = typeof(PreloginPage);
+                NavPage = new NavigationPage(new PreloginPage());
+                MainPage = NavPage;
+            }
         }
 
         #region Methods

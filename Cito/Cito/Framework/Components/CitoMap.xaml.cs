@@ -28,18 +28,10 @@ namespace Cito.Framework.Components
                 defaultBindingMode: BindingMode.TwoWay,
                 propertyChanged: (b, o, n) =>
                 {
+                    
                     var map = ((CitoMap)b);
+                    map.PinsChanged?.Invoke();
 
-                    map.Pins.Clear();
-
-                    var pins = ((List<Pin>)n);
-
-                    map.InitializeComponent();
-
-                    foreach (var pin in pins)
-                    {
-                        map.Pins.Add(pin);
-                    }
                 });
         public List<Pin> BindablePins
         {
@@ -52,6 +44,8 @@ namespace Cito.Framework.Components
                 SetValue(BindablePinsProperty, value);
             }
         }
+
+        public Action PinsChanged = () => { };
         #endregion
         #region CurrentPosition
         public static readonly BindableProperty CurrentPositionProperty = BindableProperty

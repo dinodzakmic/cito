@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
@@ -8,40 +8,128 @@
              BackgroundImage="{StaticResource BackgroundGradient}"
              Title="Map">
 
-  <StackLayout>
-      <components:CitoMap BindablePins="{Binding PinList}"
-                          CurrentPosition="{Binding CurrentUserPosition}"
-                          MapPin="CitoPin.png" 
-                          HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
-    <Grid HeightRequest="40" BackgroundColor="Transparent"
-          HorizontalOptions="FillAndExpand"
-          Padding="10">
-      <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="*" />
-          <ColumnDefinition Width="*" />
-          <ColumnDefinition Width="*" />
-      </Grid.ColumnDefinitions>
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="1.5*" />
+        </Grid.RowDefinitions>
 
-        <controls:CitoLabel Grid.Column="0"
-                            Text="Standard"
-                            TextColor="{StaticResource CitoMainLight}"
-                            HorizontalTextAlignment="Start"
-                            VerticalTextAlignment="Center"
-                            FontSize="18" />
-        <controls:CitoLabel Grid.Column="1"
-                            Text="Professional"
-                            TextColor="{StaticResource CitoMainLight}"
-                            HorizontalTextAlignment="Center"
-                            VerticalTextAlignment="Center"
-                            FontSize="18" />
-        <controls:CitoLabel Grid.Column="2"
-                            Text="Elite"
-                            TextColor="{StaticResource CitoMainLight}"
-                            HorizontalTextAlignment="End"
-                            VerticalTextAlignment="Center"
-                            FontSize="18" />
+        <components:CitoMap Grid.Row="0" Grid.RowSpan="3"
+                            BindablePins="{Binding PinList}"
+                            CurrentPosition="{Binding CurrentUserPosition}"
+                            MapPin="CitoPin.png"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand" />
+
+
+        <Grid Grid.Row="1"
+              HeightRequest="80"
+              HorizontalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand">
+            <StackLayout BackgroundColor="{StaticResource CitoMainDark}"
+                         Opacity="0.5"
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand" />
+            <controls:CitoLabel
+                Text="Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+                TextColor="{StaticResource CitoLight}"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="Start"
+                LineBreakMode="WordWrap"
+                Margin="15,5"/>
+        </Grid>
+
+
+        <Grid Grid.Row="2"
+              HeightRequest="100"
+              BackgroundColor="{StaticResource CitoMainDark}"
+              HorizontalOptions="FillAndExpand"
+              ColumnSpacing="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="1" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="1" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Column="0"
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand"
+                         Padding="5,10"
+                         x:Name="Standard"
+                         BackgroundColor="{StaticResource CitoMain}" >
+                <Image HeightRequest="40"
+                       Source="{StaticResource StandardMedal}"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand" />
+                <controls:CitoLabel Text="Standard"
+                                    TextColor="{StaticResource CitoLight}"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalTextAlignment="Center"
+                                    FontSize="15" />
+            
+            <StackLayout.GestureRecognizers>
+              <TapGestureRecognizer Tapped="StandardTapped" />
+            </StackLayout.GestureRecognizers>
+            
+            </StackLayout>
+
+            <BoxView Grid.Column="1"
+                     BackgroundColor="{StaticResource CitoLightContrast}"
+                     WidthRequest="1"
+                     VerticalOptions="FillAndExpand"
+                     HorizontalOptions="CenterAndExpand" />
+
+            <StackLayout Grid.Column="2"
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand"
+                         x:Name="Professional"
+                         Padding="5,10">
+                <Image HeightRequest="40"
+                       Source="{StaticResource ProfessionalMedal}"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand" />
+                <controls:CitoLabel Text="Professional"
+                                    TextColor="{StaticResource CitoLight}"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalTextAlignment="Center"
+                                    FontSize="15" />
+            
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ProfessionalTapped" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+          
+            <BoxView Grid.Column="3"
+                     BackgroundColor="{StaticResource CitoLightContrast}"
+                     WidthRequest="1"
+                     VerticalOptions="FillAndExpand"
+                     HorizontalOptions="CenterAndExpand" />
+
+            <StackLayout Grid.Column="4"
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand"
+                         x:Name="Elite"
+                         Padding="5,10">
+                <Image HeightRequest="40"
+                       Source="{StaticResource EliteMedal}"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand" />
+                <controls:CitoLabel Text="Elite"
+                                    TextColor="{StaticResource CitoLight}"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalTextAlignment="Center"
+                                    FontSize="15" />
+            
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="EliteTapped" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+          
+
+        </Grid>
     </Grid>
-    
-  </StackLayout>
-  
+
 </ContentPage>

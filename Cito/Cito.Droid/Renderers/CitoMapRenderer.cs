@@ -34,7 +34,6 @@ namespace Cito.Droid.Renderers
         internal CitoMap FormsMap;
         internal bool IsDrawnDone;
         internal IList<Pin> Pins;
-        internal Bitmap PinBitmap;
         internal Distance MapDistance;
 
         protected override void OnElementChanged(ElementChangedEventArgs<Map> e)
@@ -50,7 +49,8 @@ namespace Cito.Droid.Renderers
                 try
                 {
                     FormsMap = (CitoMap)e.NewElement;
-                    Pins = FormsMap.Pins;
+                    Pins = FormsMap.BindablePins;
+                    FormsMap.PinsChanged += DrawPins;
                     Control.GetMapAsync(this);
                 }
                 catch (Exception exception)
@@ -84,7 +84,7 @@ namespace Cito.Droid.Renderers
 
         private void DrawPins()
         {
-            if (!IsDrawnDone && GoogleMap != null)
+            if (GoogleMap != null)
             {
                 GoogleMap.Clear();
                 GoogleMap.MarkerClick += (sender, args) =>
@@ -104,7 +104,6 @@ namespace Cito.Droid.Renderers
                     GoogleMap.AddMarker(marker);
                 }
 
-                IsDrawnDone = true;
             }
         }
 

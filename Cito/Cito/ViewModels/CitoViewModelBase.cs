@@ -2,9 +2,12 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Cito.Framework.Utilities;
+using Cito.Helpers;
 using Cito.Views;
 using GalaSoft.MvvmLight;
 using Plugin.Connectivity;
+using Plugin.Settings;
+using Plugin.Settings.Abstractions;
 using Xamarin.Forms;
 
 namespace Cito.ViewModels
@@ -14,7 +17,8 @@ namespace Cito.ViewModels
         #region Properties
 
         public bool IsConnected => Connectivity.IsConnectionAvailable;
-        
+        public CitoSettings Settings => CitoSettings.Current;
+
         #endregion
         #region Navigation methods
         /// <summary>

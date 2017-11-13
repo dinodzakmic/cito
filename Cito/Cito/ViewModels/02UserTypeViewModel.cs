@@ -41,11 +41,15 @@ namespace Cito.ViewModels
         {
             UserType = UserTypeOf.Owner;
             await GoToMasterRootPage(new MapPage(), UserType);
+            App.Locator.Prelogin.Settings.IsUserLoggedIn = true;
+            App.Locator.Prelogin.Settings.UserType = UserType.ToString();
         }
         private async Task WasherType()
         {
             UserType = UserTypeOf.Washer;
             await GoToMasterRootPage(new AvailabiltyPage(), UserType);
+            App.Locator.Prelogin.Settings.IsUserLoggedIn = true;
+            App.Locator.Prelogin.Settings.UserType = UserType.ToString();
         }
 
         #endregion
