@@ -28,14 +28,12 @@ namespace Cito.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
             Xamarin.FormsMaps.Init(this, bundle);
             ImageCircleRenderer.Init();
-            UserDialogs.Init(this);
+            UserDialogs.Init(this);                               
+
+            LoadApplication(new App());
 
             if (FacebookSdk.IsInitialized)
                 FacebookLogin.Handle();
-            
-            
-
-            LoadApplication(new App());
 
         }
 

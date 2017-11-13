@@ -49,7 +49,6 @@ namespace Cito.Droid.Renderers
                     {
                         facebookLoginButton.PerformClick();
                     }
-
                 };
             }
             else if (externalLogin == ImageButton.Social.Google)

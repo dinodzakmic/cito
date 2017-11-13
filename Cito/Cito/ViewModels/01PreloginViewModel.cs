@@ -43,7 +43,7 @@ namespace Cito.ViewModels
 
         private async Task ExternalLogin()
         {
-            UserDialogs.Instance.Toast("Please check your network connection", TimeSpan.FromSeconds(3));
+            await GoToPage(new CreateAccountPage(externalLoginFirstTime: true));
         }
         #endregion
 

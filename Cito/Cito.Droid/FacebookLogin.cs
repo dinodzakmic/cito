@@ -9,6 +9,8 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Cito;
+using Cito.Droid;
 using Xamarin.Facebook;
 using Xamarin.Facebook.Login;
 using Xamarin.Forms;
@@ -39,14 +41,11 @@ namespace Cito.Droid
                 {
                     FacebookSdk.ClientToken = AccessToken.CurrentAccessToken.Token;
                     FacebookProfileTracker.StartTracking();
-                    if (FacebookProfile == null) return;
-
-                    //App.PostSuccessFacebookAction.Invoke(FacebookSdk.ClientToken, FacebookProfile?.Name);
+                    App.Locator.Prelogin.ExternalLoginCommand.Execute(null);
                 },
 
                 HandleCancel = () =>
                 {
-                    //App.PostSuccessFacebookAction.Invoke(null, null);
                 },
 
                 HandleError = loginError =>
@@ -56,10 +55,8 @@ namespace Cito.Droid
 
                 HandleLogout = () =>
                 {
-                    //App.PostSuccessFacebookAction.Invoke(null, null);
                 }
             };
-
 
             LoginManager.Instance.RegisterCallback(CallbackManager, LoginCallback);
         }
@@ -80,8 +77,9 @@ namespace Cito.Droid
                 LoginCallback.HandleCancel.Invoke();
             }
         }
-
     }
+
+
     internal class FacebookCallback<TResult> : Java.Lang.Object, IFacebookCallback where TResult : Java.Lang.Object
     {
         public Action HandleCancel { get; set; }
@@ -91,22 +89,70 @@ namespace Cito.Droid
 
         public void OnCancel()
         {
-            HandleCancel?.Invoke();
+            try
+            {
+                App.UpdateLoading(true);
+                HandleCancel?.Invoke();
+            }
+            catch (Exception e)
+            {
+                // ignored
+            }
+            finally
+            {
+                App.UpdateLoading(false);
+            }
         }
 
         public void OnError(FacebookException error)
         {
-            HandleError?.Invoke(error);
+            try
+            {
+                App.UpdateLoading(true);
+                HandleError?.Invoke(error);
+            }
+            catch (Exception e)
+            {
+                // ignored
+            }
+            finally
+            {
+                App.UpdateLoading(false);
+            }
         }
 
         public void OnSuccess(Java.Lang.Object result)
         {
-            HandleSuccess?.Invoke(result.JavaCast<TResult>());
+            try
+            {
+                App.UpdateLoading(true);
+                HandleSuccess?.Invoke(result.JavaCast<TResult>());
+            }
+            catch (Exception e)
+            {
+                // ignored
+            }
+            finally
+            {
+                App.UpdateLoading(false);
+            }
         }
 
         public void OnLogout()
         {
-            HandleLogout?.Invoke();
+            try
+            {
+                App.UpdateLoading(true);
+                HandleLogout?.Invoke();
+            }
+            catch (Exception e)
+            {
+                // ignored
+            }
+            finally
+            {
+                App.UpdateLoading(false);
+            }
         }
     }
 

@@ -15,14 +15,19 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout >
-                                <components:DropdownItem TextColor="{StaticResource CitoAccentLight}"
-                                                         BottomSeparatorVisible="False" Title="{Binding Question}"
+                                <components:DropdownItem TextColor="{StaticResource CitoLight}"
+                                                         BottomSeparatorVisible="True" 
+                                                         ArrowPosition="Right"
+                                                         ColorBackground="Transparent"
+                                                         ItemHeightRequest="60"
+                                                         Title="{Binding Question}"
                                                          ExpandableView="{x:Reference FirstLayout}" />
                                 
-                                <components:DropdownContent x:Name="FirstLayout" Padding="60,10"
+                                <components:DropdownContent x:Name="FirstLayout" Padding="20,10"
                                                             HorizontalOptions="StartAndExpand" VerticalOptions="Start">
                                     <StackLayout>
-                                        <controls:CitoLabel Style="{StaticResource FaqLabelStyle}" Text="{Binding Answer}" />
+                                        <controls:CitoLabel Style="{StaticResource FaqLabelStyle}"
+                                                            Text="{Binding Answer}" />
                                     </StackLayout>
                                 </components:DropdownContent>
                         </StackLayout>
