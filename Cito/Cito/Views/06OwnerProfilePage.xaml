@@ -1,55 +1,74 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:cito="clr-namespace:Cito;assembly=Cito"
-             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
              xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
-             xmlns:navigation="clr-namespace:Cito.Framework.Navigation;assembly=Cito"
              xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
              x:Class="Cito.Views.OwnerProfilePage"
              BindingContext="{Binding Source={StaticResource Locator}, Path=OwnerProfile}"
              BackgroundImage="{StaticResource BackgroundGradient}"
              Title="Profile">
+  
+    <ScrollView>
+        <StackLayout Spacing="0">
+            <Image Source="{StaticResource OwnerProfileImage}"
+                   Aspect="AspectFit"
+                   HeightRequest="100"
+                   Margin="20,40,20,5" />
 
-    <StackLayout Spacing="0" >
-        <abstractions:CircleImage
-            Source="{StaticResource OwnerProfileImage}"
-            Aspect="AspectFit"
-            HeightRequest="100"
-            FillColor="{StaticResource CitoMainLight}"
-            BorderThickness="0"
-            BorderColor="Transparent"
-            Margin="20,20,20,5" />
-
-        <controls:CitoLabel HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"
-                            Margin="0,20,0,0"
-                            Text="John Doe"
-                            FontSize="20"
-                            TextColor="{StaticResource CitoLight}" />
+            <controls:CitoLabel HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"
+                                Margin="0,20,0,0"
+                                Text="{Binding FullName}"
+                                FontSize="20"
+                                TextColor="{StaticResource CitoLight}" />
 
 
-        <components:DropdownItem Margin="0,50,0,0" BottomSeparatorVisible="False"
-                                 Title="My Cars"
-                                 TextColor="{StaticResource CitoLight}"
-                                 ExpandableView="{x:Reference FirstLayout}" />
-        <components:DropdownContent x:Name="FirstLayout" Padding="60,10"
-                                    HorizontalOptions="StartAndExpand" VerticalOptions="Start">
-            <StackLayout>
-                <controls:CitoLabel HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"
-                                    VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"
-                                    Text="My cars"
-                                    FontSize="20"
-                                    TextColor="{StaticResource CitoLight}" />
-            </StackLayout>
-        </components:DropdownContent>
+            <components:DropdownItem Margin="20,50,20,20" 
+                                     Title="My Cars"
+                                     TextColor="{StaticResource CitoLight}"
+                                     HeightRequest="45"
+                                     TitleHorizontalTextAlignment="Center"
+                                     ExpandableView="{x:Reference FirstLayout}" />
+            <components:DropdownContent x:Name="FirstLayout"
+                                        HorizontalOptions="StartAndExpand" 
+                                        VerticalOptions="Start">
+
+                <ListView ItemsSource="{Binding CarsList}" 
+                          VerticalOptions="Start"
+                          HorizontalOptions="FillAndExpand"
+                          SeparatorVisibility="Default" 
+                          RowHeight="65" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>                            
+                                <StackLayout Margin="20,0,20,20"
+                                             HorizontalOptions="FillAndExpand">
+                                  <components:ImageButton HorizontalOptions="FillAndExpand"
+                                                          VerticalOptions="CenterAndExpand"
+                                                          ButtonImage="{StaticResource CarSmallIcon}"
+                                                          ButtonText="{Binding .}"
+                                                          ButtonTextSize="20"
+                                                          ButtonTextHorizontalTextAlignment="Center"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </components:DropdownContent>
 
 
-        <components:DropdownItem BottomSeparatorVisible="False"
-                                 Title="Recent Services"
-                                 TextColor="{StaticResource CitoLight}"/>
+            <components:DropdownItem Margin="20,0,20,20"
+                                     Title="Recent Services"
+                                     TextColor="{StaticResource CitoLight}"
+                                     TitleHorizontalTextAlignment="Center"
+                                     ItemHeightRequest="45" />
 
-        <components:DropdownItem Title="Recent Washers" 
-                                 TextColor="{StaticResource CitoLight}"/>
-      
-    </StackLayout>
+            <components:DropdownItem Margin="20,0,20,20"
+                                     Title="Recent Washers"
+                                     TextColor="{StaticResource CitoLight}"
+                                     ItemHeightRequest="45"
+                                     TitleHorizontalTextAlignment="Center" />
+
+        </StackLayout>
+    </ScrollView>
+
 </ContentPage>

@@ -42,6 +42,7 @@
         <x:String x:Key="CitoStarFill">CitoStarFill.png</x:String>
         <x:String x:Key="CitoStarEmpty">CitoStarEmpty.png</x:String>
         <x:String x:Key="DownArrow">DownArrow.png</x:String>
+        <x:String x:Key="CarSmallIcon">CarSmallIcon.png</x:String>
 
         <x:Double x:Key="ControlsHeight">45</x:Double>
 

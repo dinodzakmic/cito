@@ -21,14 +21,16 @@
     <Image Grid.Column="0" 
            x:Name="Image"
            Aspect="AspectFit"
-           HeightRequest="20"
+           HeightRequest="25"
            VerticalOptions="CenterAndExpand"
-           HorizontalOptions="CenterAndExpand"/>
+           HorizontalOptions="StartAndExpand"
+           Margin="15,0,0,0"/>
        
     <controls:CitoLabel Grid.Column="1"
                         x:Name="LabelText"
                         TextColor="{StaticResource CitoLight}"
                         FontSize="14"
+                        HorizontalOptions="FillAndExpand"
                         HorizontalTextAlignment="Start"
                         VerticalOptions="CenterAndExpand"
                         VerticalTextAlignment="Center"/>

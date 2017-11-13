@@ -4,27 +4,47 @@
              xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
              x:Class="Cito.Framework.Components.DropdownItem" >
 
-    <StackLayout x:Name="RootLayout" 
+    <StackLayout x:Name="RootLayout"                 
                  HorizontalOptions="FillAndExpand" 
                  VerticalOptions="StartAndExpand" 
-                 Spacing="0" >
+                 Spacing="0"
+                 BackgroundColor="{StaticResource CitoMain}">
 
         <BoxView x:Name="TopSeparator" 
+                 IsVisible="False"
                  HeightRequest="1"
                  HorizontalOptions="FillAndExpand"
                  VerticalOptions="Start"
                  BackgroundColor="{StaticResource CitoAccent}" />
       
-        <StackLayout HeightRequest="60" Orientation="Horizontal" Padding="15,0" Spacing="20">
-            <Image Source="{StaticResource DownArrow}" x:Name="Icon" HeightRequest="30" WidthRequest="30" Aspect="AspectFit"
-                   HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
+        <StackLayout x:Name="ItemLayout"
+                     Orientation="Horizontal" 
+                     HeightRequest="45" 
+                     Padding="15,0" 
+                     Spacing="20">
+            <Image x:Name="LeftIcon"
+                   Source="{StaticResource DownArrow}"
+                   HeightRequest="25" WidthRequest="25" 
+                   Aspect="AspectFit"
+                   HorizontalOptions="Start"
+                   VerticalOptions="CenterAndExpand" />
 
             <controls:CitoLabel x:Name="DropdownTitle" 
-                                HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"
-                                VerticalOptions="Center" VerticalTextAlignment="Center"
+                                HorizontalOptions="FillAndExpand" 
+                                HorizontalTextAlignment="Start"
+                                VerticalOptions="Center"
+                                VerticalTextAlignment="Center"
                                 FontSize="20"
                                 TextColor="{StaticResource CitoMain}" />
 
+            <Image x:Name="RightIcon"
+                   Source="{StaticResource DownArrow}"
+                   HeightRequest="30" WidthRequest="30"
+                   Aspect="AspectFit"
+                   HorizontalOptions="Start" 
+                   VerticalOptions="CenterAndExpand" 
+                   IsVisible="False" />
+          
             <StackLayout.GestureRecognizers>
                 <TapGestureRecognizer Tapped="ItemTapped" />
             </StackLayout.GestureRecognizers>
@@ -43,6 +63,7 @@
         </ContentView>
 
         <BoxView x:Name="BottomSeparator"
+                 IsVisible="False"
                  HeightRequest="1"
                  HorizontalOptions="FillAndExpand"
                  VerticalOptions="Start"
