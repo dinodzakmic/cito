@@ -22,6 +22,12 @@ namespace Cito.Helpers
 
         const string UserTypeKey = "8bbl8d31316d18odhyhseb338db3a";
         static readonly string UserTypeDefault = "Owner";
+
+        const string LastLatitudeKey = "3bbl3d31311d18odhyhmen338db3a";
+        static readonly double LastLatitudeDefault = 0;
+
+        const string LastLongitudeKey = "1bbl1d31311d18odhyhmen338db1b";
+        static readonly double LastLongitudeDefault = 0;
         #endregion
 
 
@@ -48,6 +54,32 @@ namespace Cito.Helpers
             {
                 if (AppSettings.AddOrUpdateValue(UserTypeKey, value))
                     RaisePropertyChanged(() => UserType);
+            }
+        }
+
+        public double LastLatitude
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(LastLatitudeKey, LastLatitudeDefault);
+            }
+            set
+            {
+                if (AppSettings.AddOrUpdateValue(LastLatitudeKey, value))
+                    RaisePropertyChanged(() => LastLatitude);
+            }
+        }
+
+        public double LastLongitude
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(LastLongitudeKey, LastLongitudeDefault);
+            }
+            set
+            {
+                if (AppSettings.AddOrUpdateValue(LastLongitudeKey, value))
+                    RaisePropertyChanged(() => LastLongitude);
             }
         }
     }

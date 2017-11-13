@@ -62,6 +62,16 @@ namespace Cito.Framework.Components
                     var distance = map.CurrentDistance;
 
                     map.MoveToRegion(MapSpan.FromCenterAndRadius(position, distance));
+
+                    map.BindablePins.RemoveAll(p => p.Type == PinType.Generic);
+                    map.BindablePins.Add(new Pin()
+                    {
+                        Address = "Owner",
+                        Label = "Owner",
+                        Position = position,
+                        Type = PinType.Generic
+                    });
+                    map.PinsChanged?.Invoke();
                 });
 
         public Position CurrentPosition
@@ -87,5 +97,6 @@ namespace Cito.Framework.Components
 
 
         #endregion
+
     }
 }

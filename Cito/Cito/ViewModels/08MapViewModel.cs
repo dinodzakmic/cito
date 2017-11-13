@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Cito.Helpers;
 using Xamarin.Forms.Maps;
 
 namespace Cito.ViewModels
@@ -15,10 +16,18 @@ namespace Cito.ViewModels
             {
                 Address = "Washer",
                 Label = "Washer",
-                Position = new Position(25.790942, -80.215823)
+                Position = new Position(25.790942, -80.215823),
+                Type = PinType.Place
             }
         };
 
-        public Position CurrentUserPosition => new Position(25.790942, -80.215823);
+        private Position _currentUserPosition =
+            new Position(CitoSettings.Current.LastLatitude, CitoSettings.Current.LastLongitude);
+
+        public Position CurrentUserPosition
+        {
+            get { return _currentUserPosition; }
+            set { Set(ref _currentUserPosition, value); }
+        } 
     }
 }

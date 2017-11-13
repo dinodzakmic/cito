@@ -88,9 +88,11 @@ namespace Cito.Droid.Renderers
             {
                 GoogleMap.Clear();
                 GoogleMap.MarkerClick += (sender, args) =>
-                {
+                {                   
                     var position = new Position(args.Marker.Position.Latitude, args.Marker.Position.Longitude);
                     FormsMap.MoveToRegion(MapSpan.FromCenterAndRadius(position, MapDistance));
+
+                    if (args.Marker.Title.Equals("Owner")) return;
                     args.Marker.ShowInfoWindow();
                 };
 
@@ -100,17 +102,25 @@ namespace Cito.Droid.Renderers
                     marker.SetPosition(new LatLng(pin.Position.Latitude, pin.Position.Longitude));
                     marker.SetTitle(pin.Label);
                     marker.SetSnippet(pin.Address);
-                    marker.SetIcon(GetPinIcon());
+                    marker.SetIcon(GetPinIcon(pin.Type));
                     GoogleMap.AddMarker(marker);
                 }
 
             }
         }
 
-        private BitmapDescriptor GetPinIcon()
+        private BitmapDescriptor GetPinIcon(PinType type)
         {
-            var drawableResource = Context.Resources.GetDrawable(FormsMap.MapPin);
-            return BitmapDescriptorFactory.FromBitmap(((BitmapDrawable)drawableResource).Bitmap);
+            if (type == PinType.Generic)
+            {
+                var drawableResource = Context.Resources.GetDrawable("UserLocation.png");
+                return BitmapDescriptorFactory.FromBitmap(((BitmapDrawable)drawableResource).Bitmap);
+            }
+            else
+            {
+                var drawableResource = Context.Resources.GetDrawable(FormsMap.MapPin);
+                return BitmapDescriptorFactory.FromBitmap(((BitmapDrawable)drawableResource).Bitmap);
+            }          
         }
 
         public View GetInfoWindow(Marker marker)

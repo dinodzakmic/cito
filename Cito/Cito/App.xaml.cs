@@ -7,9 +7,12 @@ using Acr.UserDialogs;
 using Cito.Framework.Controls;
 using Cito.Framework.Navigation;
 using Cito.Framework.Validation;
+using Cito.Helpers;
 using Cito.ViewModels;
 using Cito.Views;
+using Plugin.Geolocator;
 using Xamarin.Forms;
+using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
 
 namespace Cito
@@ -35,6 +38,7 @@ namespace Cito
         public App()
         {
             InitializeComponent();
+            GetUserLocation();
             ValidationFieldList = new ValidationFieldList();
 
             if (App.Locator.Prelogin.Settings.IsUserLoggedIn)
@@ -62,7 +66,24 @@ namespace Cito
             }
         }
 
+
+
         #region Methods
+        private async void GetUserLocation()
+        {
+            await CrossGeolocator.Current.GetPositionAsync().ContinueWith(t =>
+            {
+                if (t.IsCompleted)
+                {
+                    Location.CurrentPosition = t.Result;
+                    App.Locator.Map.CurrentUserPosition = new Position(Location.CurrentPosition.Latitude, Location.CurrentPosition.Longitude);
+
+                    CitoSettings.Current.LastLatitude = Location.CurrentPosition.Latitude;
+                    CitoSettings.Current.LastLongitude = Location.CurrentPosition.Longitude;
+                }    
+            });
+
+        }
 
         public static void UpdateLoading(bool isLoading, string text = null)
         {
@@ -72,23 +93,25 @@ namespace Cito
 
                 if (LoadingInProgress)
                 {
-                    UserDialogs.Instance.ShowLoading(text, MaskType.Gradient);
-                    //DependencyService.Get<IStayAwake>().Set(true);
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        UserDialogs.Instance.ShowLoading(text, MaskType.Gradient);
+                        //DependencyService.Get<IStayAwake>().Set(true);
+                    });                 
                 }
                 else
                 {
-                    UserDialogs.Instance.HideLoading();
-                    //DependencyService.Get<IStayAwake>().Set(false);
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        UserDialogs.Instance.HideLoading();
+                        //DependencyService.Get<IStayAwake>().Set(false);
+                    });
                 }
             }
             catch (Exception e)
             {
                 // ignored
-            }
-            Device.BeginInvokeOnMainThread(() =>
-            {
-                
-            });
+            }           
         }
 
         #endregion
@@ -145,6 +168,7 @@ namespace Cito
         protected override void OnResume()
         {
             FocusedEntry?.Unfocus();
+            GetUserLocation();
         }
 
         #endregion
