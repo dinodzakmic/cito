@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
+                  x:Class="Cito.Views.WasherMenu"
+                  MasterBehavior="Popover"
+                  Title="WasherMenu">
+
+  <MasterDetailPage.Master>
+    <ContentPage Title="OwnerMenu"
+                 BindingContext="{Binding Source={StaticResource Locator}, Path=WasherMenu}" >
+      <Grid BackgroundColor="Transparent">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="3*" />
+          <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0" Grid.RowSpan="2"
+               Source="{StaticResource MenuBackground}"
+               Aspect="AspectFill"/>
+        
+
+      </Grid>
+    </ContentPage>
+  </MasterDetailPage.Master>
+  
+</MasterDetailPage>

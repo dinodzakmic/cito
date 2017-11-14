@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
+             x:Class="Cito.Views.SupportPage"
+             BackgroundImage="{StaticResource BackgroundGradient}"
+             BindingContext="{Binding Source={StaticResource Locator}, Path=Support}"
+             Title="Contact Us">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="{StaticResource AttachIcon}"
+                     Command="{Binding AttachFileCommand}"
+                     Order="Primary" />
+        <ToolbarItem Icon="{StaticResource SendIcon}"
+                     Command="{Binding SendMessageCommand}"
+                     Order="Primary" />
+    </ContentPage.ToolbarItems>
+  
+  <StackLayout HorizontalOptions="FillAndExpand"
+               VerticalOptions="StartAndExpand"
+               Spacing="20"
+               Padding="20,80">
+    <controls:CitoLabel Text="Describe the issue you are having:"
+                        TextColor="{StaticResource CitoAccentLight}" 
+                        HorizontalOptions="CenterAndExpand"/>
+    <controls:CitoEditor 
+                         Margin="15,0"/>
+  </StackLayout>
+  
+</ContentPage>

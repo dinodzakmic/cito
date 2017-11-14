@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
+             xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
+             x:Class="Cito.Views.FaqPage"
+             BackgroundImage="{StaticResource BackgroundGradient}"
+             Title="FAQ"
+             BindingContext="{Binding Source={StaticResource Locator}, Path=Faq}">
+    
+        <StackLayout>
+            <ListView x:Name="FaqList" ItemsSource="{Binding FaqList}" ItemSelected="ListView_OnItemSelected"
+                      HasUnevenRows="True" RowHeight="250">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout >
+                                <components:DropdownItem TextColor="{StaticResource CitoLight}"
+                                                         BottomSeparatorVisible="True" 
+                                                         ArrowPosition="Right"
+                                                         ColorBackground="Transparent"
+                                                         ItemHeightRequest="60"
+                                                         Title="{Binding Question}"
+                                                         ExpandableView="{x:Reference FirstLayout}" />
+                                
+                                <components:DropdownContent x:Name="FirstLayout" Padding="20,10"
+                                                            HorizontalOptions="StartAndExpand" VerticalOptions="Start">
+                                    <StackLayout>
+                                        <controls:CitoLabel Style="{StaticResource FaqLabelStyle}"
+                                                            Text="{Binding Answer}" />
+                                    </StackLayout>
+                                </components:DropdownContent>
+                        </StackLayout>
+                    </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+
+        </StackLayout>
+</ContentPage>
