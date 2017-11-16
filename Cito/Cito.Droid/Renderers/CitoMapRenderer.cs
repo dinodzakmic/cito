@@ -32,7 +32,6 @@ namespace Cito.Droid.Renderers
     {
         internal GoogleMap GoogleMap;
         internal CitoMap FormsMap;
-        internal bool IsDrawnDone;
         internal IList<Pin> Pins;
         internal Distance MapDistance;
 
@@ -69,7 +68,7 @@ namespace Cito.Droid.Renderers
                 GoogleMap.CameraChange += (sender, args) =>
                 {
                     MapDistance = Distance.FromKilometers((GoogleMap.MaxZoomLevel - GoogleMap.CameraPosition.Zoom) / 10);
-                };
+                };              
                 DrawPins();
                 GoogleMap.InfoWindowClick += OnInfoWindowClick;
                 GoogleMap.SetInfoWindowAdapter(this);
