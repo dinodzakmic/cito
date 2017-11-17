@@ -24,7 +24,8 @@ namespace Cito.Droid
         internal static GoogleApiClient MyGoogleApiClient;
         internal static GoogleApiClient.Builder Builder;
         internal static bool IsGoogleLogin;
-        internal static bool IsGoogleConnected;
+        internal static bool IsIntentStarted;
+        internal static bool IntentHandled;
 
         public static void Handle()
         {
@@ -70,6 +71,9 @@ namespace Cito.Droid
 
         public void OnConnected(Bundle connectionHint)
         {
+            GoogleLogin.IntentHandled = false;
+            GoogleLogin.IsIntentStarted = false;
+            GoogleLogin.IsGoogleLogin = false;
             App.Locator.Prelogin.ExternalLoginCommand.Execute(null);
         }
 
@@ -92,11 +96,12 @@ namespace Cito.Droid
                 {
                     try
                     {
-                        if (!GoogleLogin.MyGoogleApiClient.IsConnecting)
+                        if (!GoogleLogin.MyGoogleApiClient.IsConnecting && (!GoogleLogin.IsIntentStarted || GoogleLogin.IntentHandled))
                         {
-                            
+                            GoogleLogin.IsIntentStarted = true;
                             var activity = (MainActivity)Forms.Context;
                             activity.StartIntentSenderForResult(MyConnectionResult.Resolution.IntentSender, 0, null, 0, 0, 0);
+                            GoogleLogin.IntentHandled = false;
                         }
                     }
                     catch (IntentSender.SendIntentException e)

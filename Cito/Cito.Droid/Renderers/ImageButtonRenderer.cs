@@ -47,7 +47,13 @@ namespace Cito.Droid.Renderers
                 facebookLoginButton.SetReadPermissions(new string[] { "public_profile", "email" });
 
                 citoButton.Clicked += (sender, args) =>
-                {
+                {                    
+                    if (FacebookLogin.FacebookLoggedIn)
+                    {
+                        App.Locator.Prelogin.ExternalLoginCommand.Execute(null);
+                        return;
+                    }
+
                     facebookLoginButton.PerformClick();
                     FacebookLogin.IsFacebookLogin = true;                   
                 };
@@ -58,11 +64,11 @@ namespace Cito.Droid.Renderers
                 citoButton.Clicked += (sender, args) =>
                 {
                     googleLoginButton.PerformClick();
-                    if (!GoogleLogin.MyGoogleApiClient.IsConnecting)
-                    {
-                        GoogleLogin.MyGoogleApiClient.Connect();
-                        GoogleLogin.IsGoogleLogin = true;
-                    }
+                    if (GoogleLogin.MyGoogleApiClient.IsConnecting) return;
+
+                    GoogleLogin.MyGoogleApiClient.Reconnect();
+                    GoogleLogin.IsGoogleLogin = true;
+                    GoogleLogin.IntentHandled = true;
                 };
             }
             else

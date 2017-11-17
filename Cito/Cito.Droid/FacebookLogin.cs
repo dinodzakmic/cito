@@ -24,12 +24,21 @@ namespace Cito.Droid
         internal static FacebookCallback<LoginResult> LoginCallback;
         internal static Xamarin.Facebook.ProfileTracker FacebookProfileTracker = new ProfileTracker();
         internal static bool IsFacebookLogin;
+        internal static bool FacebookLoggedIn;
 
         public static void Handle()
         {
             CallbackManager = CallbackManagerFactory.Create();
             RegisterFacebookCallbacks();
             HandleToken();
+        }
+
+        public static void Connect(int requestCode, Result resultCode, Intent data)
+        {
+            CallbackManager.OnActivityResult(requestCode, (int)resultCode, data);
+
+            if(FacebookLoggedIn)
+                App.Locator.Prelogin.ExternalLoginCommand.Execute(null);
         }
 
         public static void RegisterFacebookCallbacks()
@@ -42,7 +51,7 @@ namespace Cito.Droid
                 {
                     FacebookSdk.ClientToken = AccessToken.CurrentAccessToken.Token;
                     FacebookProfileTracker.StartTracking();
-                    App.Locator.Prelogin.ExternalLoginCommand.Execute(null);
+                    FacebookLoggedIn = true;
                 },
 
                 HandleCancel = () =>

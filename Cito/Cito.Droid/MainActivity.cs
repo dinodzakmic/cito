@@ -63,11 +63,14 @@ namespace Cito.Droid
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
-            if (GoogleLogin.IsGoogleLogin && !GoogleLogin.MyGoogleApiClient.IsConnecting)
+            if (GoogleLogin.IsGoogleLogin && !GoogleLogin.MyGoogleApiClient.IsConnecting && GoogleLogin.IsIntentStarted)
+            {
                 GoogleLogin.MyGoogleApiClient.Connect();
-            else if(FacebookLogin.IsFacebookLogin)
-                FacebookLogin.CallbackManager.OnActivityResult(requestCode, (int) resultCode, data);
-
+            }
+            else if (FacebookLogin.IsFacebookLogin)
+            {
+                FacebookLogin.Connect(requestCode, resultCode, data);
+            }
         }      
 
     }
