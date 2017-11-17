@@ -5,8 +5,15 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Gms.Auth.Api.SignIn;
+using Android.Gms.Common;
+using Android.Gms.Common.Apis;
+using Android.Gms.Common.Internal;
+using Android.Gms.Plus;
 using Android.OS;
+using Android.Preferences;
 using Android.Runtime;
+using Android.Support.V4.App;
 using Android.Views;
 using Android.Widget;
 using Cito.Droid.Renderers;
@@ -18,6 +25,7 @@ using Xamarin.Forms.Platform.Android;
 using Button = Xamarin.Forms.Button;
 using View = Xamarin.Forms.View;
 using ImageButton = Cito.Framework.Components.ImageButton;
+using Object = Java.Lang.Object;
 
 [assembly: ExportRenderer(typeof(ImageButton), typeof(ImageButtonRenderer))]
 namespace Cito.Droid.Renderers
@@ -40,29 +48,28 @@ namespace Cito.Droid.Renderers
 
                 citoButton.Clicked += (sender, args) =>
                 {
-                    if (AccessToken.CurrentAccessToken != null)
-                    {
-                        LoginManager.Instance.LogOut();
-                        FacebookLogin.LoginCallback.OnLogout();
-                    }
-                    else
-                    {
-                        facebookLoginButton.PerformClick();
-                    }
+                    facebookLoginButton.PerformClick();
+                    FacebookLogin.IsFacebookLogin = true;                   
                 };
             }
             else if (externalLogin == ImageButton.Social.Google)
-            {
-                citoButton.Clicked += async (sender, args) =>
+            {               
+                var googleLoginButton = new SignInButton(Forms.Context);                
+                citoButton.Clicked += (sender, args) =>
                 {
-                    await App.NavPage.DisplayAlert("TODO", "TODO", "OK");
+                    googleLoginButton.PerformClick();
+                    if (!GoogleLogin.MyGoogleApiClient.IsConnecting)
+                    {
+                        GoogleLogin.MyGoogleApiClient.Connect();
+                        GoogleLogin.IsGoogleLogin = true;
+                    }
                 };
-                return;
             }
             else
             {
                 return;
             }
-        }
+        }       
     }
+
 }

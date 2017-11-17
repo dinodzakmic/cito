@@ -35,9 +35,12 @@ namespace Cito.Droid
 
             LoadApplication(new App());
             SetColors();
-
+            
             if (FacebookSdk.IsInitialized)
                 FacebookLogin.Handle();
+
+            GoogleLogin.Handle();
+           
 
         }
 
@@ -55,10 +58,16 @@ namespace Cito.Droid
             
         }
 
+        
+
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
-            FacebookLogin.CallbackManager.OnActivityResult(requestCode, (int)resultCode, data);
+            if (GoogleLogin.IsGoogleLogin && !GoogleLogin.MyGoogleApiClient.IsConnecting)
+                GoogleLogin.MyGoogleApiClient.Connect();
+            else if(FacebookLogin.IsFacebookLogin)
+                FacebookLogin.CallbackManager.OnActivityResult(requestCode, (int) resultCode, data);
+
         }      
 
     }

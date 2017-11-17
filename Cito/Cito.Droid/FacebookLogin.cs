@@ -23,6 +23,7 @@ namespace Cito.Droid
         internal static Profile FacebookProfile = Profile.CurrentProfile;
         internal static FacebookCallback<LoginResult> LoginCallback;
         internal static Xamarin.Facebook.ProfileTracker FacebookProfileTracker = new ProfileTracker();
+        internal static bool IsFacebookLogin;
 
         public static void Handle()
         {
