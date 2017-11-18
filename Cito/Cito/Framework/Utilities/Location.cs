@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Acr.UserDialogs;
+using Cito.Helpers;
 using Plugin.Geolocator;
 using Plugin.Geolocator.Abstractions;
 using Xamarin.Forms;
 
-namespace Cito.Helpers
+namespace Cito.Framework.Utilities
 {
     public static class Location
     {
@@ -17,6 +15,12 @@ namespace Cito.Helpers
         {
             Device.BeginInvokeOnMainThread(async () =>
             {
+                if (!CrossGeolocator.Current.IsGeolocationEnabled)
+                {
+                    UserDialogs.Instance.Toast("Please enable your GPS for better experience", TimeSpan.FromSeconds(2));
+                    return;
+                }
+
                 await CrossGeolocator.Current.GetPositionAsync().ContinueWith(t =>
                 {
                     if (t.IsCompleted)

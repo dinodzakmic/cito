@@ -4,16 +4,17 @@
              xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
              xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
              xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
-             x:Class="Cito.Views.PastWashersPage"
-             BindingContext="{Binding Source={StaticResource Locator}, Path=PastWashers}"
+             x:Class="Cito.Views.PastWashesPage"
+             BindingContext="{Binding Source={StaticResource Locator}, Path=PastWashes}"
              BackgroundImage="{StaticResource BackgroundGradient}"
-             Title="Past Washers">
+             Title="Past Washes">
 
     <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" >
         <StackLayout HorizontalOptions="FillAndExpand"
                      VerticalOptions="StartAndExpand" >
             <components:DropdownItem Title="June"
                                      ItemHeightRequest="60"
+                                     BottomSeparatorVisible="True"
                                      ArrowPosition="Right"
                                      ColorBackground="Transparent"
                                      ExpandableView="{x:Reference FirstLayout}"
@@ -101,7 +102,7 @@
             </components:DropdownContent>
 
 
-            <components:DropdownItem TopSeparatorVisible="True"
+            <components:DropdownItem BottomSeparatorVisible="True"
                                      Title="May"
                                      ItemHeightRequest="60"
                                      ColorBackground="Transparent"
@@ -109,7 +110,6 @@
                                      TextColor="{StaticResource CitoLight}"/>
 
             <components:DropdownItem Title="April"
-                                     TopSeparatorVisible="True"
                                      BottomSeparatorVisible="True"
                                      TextColor="{StaticResource CitoLight}" 
                                      ItemHeightRequest="60"

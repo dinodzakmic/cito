@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Acr.UserDialogs;
 using Cito.Framework.Controls;
-using Cito.Framework.Navigation;
+using Cito.Framework.Utilities;
 using Cito.Framework.Validation;
 using Cito.Helpers;
 using Cito.ViewModels;
 using Cito.Views;
-using Plugin.Geolocator;
 using Xamarin.Forms;
-using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
 
 namespace Cito
@@ -40,6 +36,7 @@ namespace Cito
             InitializeComponent();
             ValidationFieldList = new ValidationFieldList();
             Location.GetUserLocation();
+            Connectivity.CheckConnectionAndDisplayToast();
 
             if (App.Locator.Prelogin.Settings.IsUserLoggedIn)
             {

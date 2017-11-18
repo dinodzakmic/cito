@@ -8,13 +8,11 @@ using Xamarin.Forms;
 
 namespace Cito.Views
 {
-    public partial class PastWashersPage : ContentPage
+    public partial class FutureWashesPage : ContentPage
     {
-        public PastWashersPage()
+        public FutureWashesPage()
         {
             InitializeComponent();
         }
-
-       
     }
 }

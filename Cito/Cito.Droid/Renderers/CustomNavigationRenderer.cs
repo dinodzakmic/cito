@@ -1,25 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
 using Android.Graphics;
-using Android.OS;
-using Android.Runtime;
-using Android.Support.V4.Content;
 using Android.Support.V7.Graphics.Drawable;
 using Android.Util;
-using Android.Views;
 using Android.Widget;
 using Cito.Droid.Renderers;
 using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
 using Xamarin.Forms.Platform.Android.AppCompat;
 using Color = Android.Graphics.Color;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
-using View = Android.Views.View;
 
 [assembly: ExportRenderer(typeof(NavigationPage), typeof(CustomNavigationRenderer))]
 namespace Cito.Droid.Renderers

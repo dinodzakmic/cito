@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cito.Views.FutureWashesPage"
+             xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
+             xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
+             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             BindingContext="{Binding Source={StaticResource Locator}, Path=FutureWashes}"
+             BackgroundImage="{StaticResource BackgroundGradient}"
+             Title="Future Washes">
+
+    <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+        <StackLayout HorizontalOptions="FillAndExpand"
+                     VerticalOptions="StartAndExpand">
+
+            <components:DropdownItem Title="September"
+                                     ItemHeightRequest="60"
+                                     ArrowPosition="Right"
+                                     BottomSeparatorVisible="True"
+                                     ColorBackground="Transparent"
+                                     TextColor="{StaticResource CitoLight}"/>
+            <components:DropdownItem Title="October"
+                                     ItemHeightRequest="60"
+                                     ArrowPosition="Right"
+                                     BottomSeparatorVisible="True"
+                                     ColorBackground="Transparent"
+                                     TextColor="{StaticResource CitoLight}"/>
+            <components:DropdownItem Title="November"
+                                     ItemHeightRequest="60"
+                                     ArrowPosition="Right"
+                                     BottomSeparatorVisible="True"
+                                     ColorBackground="Transparent"
+                                     TextColor="{StaticResource CitoLight}"/>
+            <components:DropdownItem Title="December"
+                                     ItemHeightRequest="60"
+                                     ArrowPosition="Right"
+                                     BottomSeparatorVisible="True"
+                                     ColorBackground="Transparent"
+                                     TextColor="{StaticResource CitoLight}"/>
+          
+        </StackLayout>
+    </ScrollView>
+  
+  
+</ContentPage>

@@ -15,30 +15,15 @@ namespace Cito.ViewModels
 
         #endregion
         #region Commands
-        public ICommand GoToHomeCommand { get; private set; }
-        public ICommand GoToOwnerProfileCommand { get; private set; }
-        public ICommand GoToPastWashersCommand { get; private set; }
-        public ICommand GoToFutureWashersCommand { get; private set; }
-        public ICommand GoToPromoCodeCommand { get; private set; }
-        public ICommand GoToFaqCommand { get; private set; }
-        public ICommand GoToSupportCommand { get; private set; }
-        private void SetCommands()
-        {
-            GoToHomeCommand = new Command(async () => await GoToHome());
-            GoToOwnerProfileCommand = new Command(async () => await GoToOwnerProfile());
-            GoToPastWashersCommand = new Command(async () => await GoToPastWashers());
-            GoToFutureWashersCommand = new Command(async () => await GoToFutureWashers());
-            GoToPromoCodeCommand = new Command(async () => await GoToPromoCode());
-            GoToFaqCommand = new Command(async () => await GoToFaq());
-            GoToSupportCommand = new Command(async () => await GoToSupport());
-        }
+        public ICommand GoToHomeCommand => new Command(async () => await GoToHome());
+        public ICommand GoToOwnerProfileCommand => new Command(async () => await GoToOwnerProfile());
+        public ICommand GoToPastWashesCommand => new Command(async () => await GoToPastWashes());
+        public ICommand GoToFutureWashesCommand => new Command(async () => await GoToFutureWashes());
+        public ICommand GoToPromoCodeCommand => new Command(async () => await GoToPromoCode());
+        public ICommand GoToFaqCommand => new Command(async () => await GoToFaq());
+        public ICommand GoToSupportCommand => new Command(async () => await GoToSupport());
 
         #endregion
-
-        public OwnerMenuViewModel()
-        {
-            SetCommands();
-        }
 
         #region Methods
         private async Task GoToHome()
@@ -49,13 +34,13 @@ namespace Cito.ViewModels
         {
             await GoToPage(new OwnerProfilePage());
         }
-        private async Task GoToPastWashers()
+        private async Task GoToPastWashes()
         {
-            await GoToPage(new PastWashersPage());
+            await GoToPage(new PastWashesPage());
         }
-        private async Task GoToFutureWashers()
+        private async Task GoToFutureWashes()
         {
-            await GoToPage(new PastWashersPage());
+            await GoToPage(new FutureWashesPage());
         }
         private async Task GoToPromoCode()
         {

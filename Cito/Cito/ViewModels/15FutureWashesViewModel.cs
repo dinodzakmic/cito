@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Cito.ViewModels
 {
-    public class PastWashersViewModel : CitoViewModelBase
+    public class FutureWashesViewModel : CitoViewModelBase
     {
+
     }
 }
