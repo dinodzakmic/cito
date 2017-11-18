@@ -11,6 +11,8 @@ namespace Cito.Views
 
             if (externalLoginFirstTime)
             {
+                App.Locator.CreateAccount.IsExternalLogin = true;
+
                 EmailEntry.IsVisible = false;
                 CarModelEntry.NextView = NumberEntry;
 
@@ -19,6 +21,8 @@ namespace Cito.Views
             }
             if (signIn)
             {
+                App.Locator.CreateAccount.IsSignIn = true;
+
                 CarModelEntry.IsVisible = false;
                 FullNameEntry.NextView = EmailEntry;
             }

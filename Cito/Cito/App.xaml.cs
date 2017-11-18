@@ -38,13 +38,13 @@ namespace Cito
         public App()
         {
             InitializeComponent();
-            GetUserLocation();
             ValidationFieldList = new ValidationFieldList();
+            Location.GetUserLocation();
 
             if (App.Locator.Prelogin.Settings.IsUserLoggedIn)
             {
                 if (App.Locator.Prelogin.Settings.UserType.Equals(UserTypeViewModel.UserTypeOf.Owner.ToString()))
-                {
+                {                   
                     var rootPage = new MapPage();
                     App.NavPage = new NavigationPage(rootPage);
                     App.MenuPage = (MasterDetailPage) new OwnerMenu() {Detail = App.NavPage};
@@ -69,21 +69,6 @@ namespace Cito
 
 
         #region Methods
-        private async void GetUserLocation()
-        {
-            await CrossGeolocator.Current.GetPositionAsync().ContinueWith(t =>
-            {
-                if (t.IsCompleted)
-                {
-                    Location.CurrentPosition = t.Result;
-                    App.Locator.Map.CurrentUserPosition = new Position(Location.CurrentPosition.Latitude, Location.CurrentPosition.Longitude);
-
-                    CitoSettings.Current.LastLatitude = Location.CurrentPosition.Latitude;
-                    CitoSettings.Current.LastLongitude = Location.CurrentPosition.Longitude;
-                }    
-            });
-
-        }
 
         public static void UpdateLoading(bool isLoading, string text = null)
         {
@@ -168,7 +153,8 @@ namespace Cito
         protected override void OnResume()
         {
             FocusedEntry?.Unfocus();
-            GetUserLocation();
+            if (App.Locator.Prelogin.Settings.IsUserLoggedIn)
+                Location.GetUserLocation();
         }
 
         #endregion

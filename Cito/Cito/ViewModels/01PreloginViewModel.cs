@@ -25,11 +25,6 @@ namespace Cito.ViewModels
 
         #endregion
 
-        public PreloginViewModel()
-        {          
-            
-        }
-
         #region Methods
         private async Task CreateAccount()
         {
