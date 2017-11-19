@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Cito.Framework.Controls;
+﻿using Cito.Framework.Controls;
 using Cito.iOS.Renderers;
 using CoreGraphics;
 using UIKit;

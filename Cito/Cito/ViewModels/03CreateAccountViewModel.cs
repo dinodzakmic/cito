@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows.Input;
 using Cito.Framework.Utilities;
 using Cito.Views;
@@ -98,7 +94,7 @@ namespace Cito.ViewModels
                 return;
             }
 
-
+            App.Locator.Prelogin.Settings.IsUserLoggedIn = true;
             await GoToPage(new UserTypePage());
         }
         #endregion

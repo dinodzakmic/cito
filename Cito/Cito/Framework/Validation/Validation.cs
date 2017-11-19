@@ -1,5 +1,4 @@
 ﻿using Cito.Framework.Controls;
-using Cito.Localization;
 using Xamarin.Forms;
 
 namespace Cito.Framework.Validation

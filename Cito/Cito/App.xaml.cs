@@ -5,7 +5,6 @@ using Acr.UserDialogs;
 using Cito.Framework.Controls;
 using Cito.Framework.Utilities;
 using Cito.Framework.Validation;
-using Cito.Helpers;
 using Cito.ViewModels;
 using Cito.Views;
 using Xamarin.Forms;

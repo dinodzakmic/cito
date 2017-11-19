@@ -15,9 +15,9 @@ namespace Cito.Framework.Utilities
         {
             Device.BeginInvokeOnMainThread(async () =>
             {
-                if (!CrossGeolocator.Current.IsGeolocationEnabled)
+                if (!CrossGeolocator.Current.IsGeolocationEnabled && CitoSettings.Current.IsUserLoggedIn)
                 {
-                    UserDialogs.Instance.Toast("Please enable your GPS for better experience", TimeSpan.FromSeconds(2));
+                    UserDialogs.Instance.Toast("Please enable your GPS for better experience", TimeSpan.FromSeconds(4));
                     return;
                 }
 

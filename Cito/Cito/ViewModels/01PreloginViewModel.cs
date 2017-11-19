@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows.Input;
-using Acr.UserDialogs;
 using Cito.Views;
-using Plugin.Connectivity;
 using Xamarin.Forms;
-using Color = System.Drawing.Color;
 
 namespace Cito.ViewModels
 {

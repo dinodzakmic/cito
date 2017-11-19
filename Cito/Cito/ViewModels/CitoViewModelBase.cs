@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Acr.UserDialogs;
 using Cito.Framework.Utilities;
 using Cito.Helpers;
 using Cito.Views;
 using GalaSoft.MvvmLight;
-using Plugin.Connectivity;
-using Plugin.Settings;
-using Plugin.Settings.Abstractions;
 using Xamarin.Forms;
 
 namespace Cito.ViewModels

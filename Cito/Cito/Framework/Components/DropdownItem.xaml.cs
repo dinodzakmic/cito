@@ -1,4 +1,5 @@
 ﻿using System;
+using Cito.Framework.Controls;
 using Xamarin.Forms;
 
 namespace Cito.Framework.Components
@@ -40,8 +41,12 @@ namespace Cito.Framework.Components
         #region Title
         public Color TextColor
         {
+            get { return DropdownTitle.TextColor; }
             set { this.DropdownTitle.TextColor = value; }
         }
+
+        public Color DefaultTextColor { get; set; }  = (Color)Application.Current.Resources["CitoLight"];
+        public Color SelectedTextColor { get; set; } = (Color)Application.Current.Resources["CitoMainLight"];
 
         public static BindableProperty TitleProperty = BindableProperty.Create(
             propertyName: nameof(Title),
@@ -144,12 +149,15 @@ namespace Cito.Framework.Components
             if (ExpandableView == null) return;
             if (Icon == null) Icon = LeftIcon;
 
+
             if (!ViewToDisplay.IsVisible)
             {
                 await Icon.RotateTo(180);
                 ExpandableView.IsVisible = true;
                 HandleImageButton();
                 ViewToDisplay.IsVisible = true;
+                Icon.Source = "DownArrowCito.png";
+                DropdownTitle.TextColor = SelectedTextColor;
                 await ViewToDisplay.FadeTo(1, easing: Easing.SpringIn);
             }
             else
@@ -157,6 +165,8 @@ namespace Cito.Framework.Components
                 await Icon.RotateTo(0);
                 ExpandableView.IsVisible = false;
                 ViewToDisplay.IsVisible = false;
+                DropdownTitle.TextColor = DefaultTextColor;
+                Icon.Source = "DownArrow.png";
                 await ViewToDisplay.FadeTo(0, easing: Easing.SpringOut);
             }
 

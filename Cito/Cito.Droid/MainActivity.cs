@@ -2,15 +2,12 @@
 using System.Linq;
 using Acr.UserDialogs;
 using Android.App;
-using Android.Appwidget;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Android.Views;
 using ImageCircle.Forms.Plugin.Droid;
 using Xamarin.Facebook;
-using Xamarin.Forms;
-using Context = System.Runtime.Remoting.Contexts.Context;
 
 
 namespace Cito.Droid
