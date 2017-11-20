@@ -22,6 +22,14 @@
     </array>
     <key>MinimumOSVersion</key>
     <string>6.0</string>
+    <key>NSCameraUsageDescription</key>
+
+    <string>This app needs access to the camera to take photos.</string>
+
+    <key>NSPhotoLibraryUsageDescription</key>
+
+    <string>This app needs access to photos.</string>
+
     <key>CFBundleDisplayName</key>
     <string>Cito</string>
     <key>CFBundleIdentifier</key>

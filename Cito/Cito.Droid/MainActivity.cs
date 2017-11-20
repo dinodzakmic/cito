@@ -15,6 +15,8 @@ using Context = System.Runtime.Remoting.Contexts.Context;
 
 namespace Cito.Droid
 {
+    using Plugin.Permissions;
+
     [Activity(Label = "Cito", Name = "cito.MainActivity", Theme = "@style/SplashScreen", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize,
         ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
@@ -42,6 +44,12 @@ namespace Cito.Droid
             GoogleLogin.Handle();
            
 
+        }
+
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+        {
+            PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 
         private void SetColors()

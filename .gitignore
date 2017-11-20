@@ -183,3 +183,14 @@ FakesAssemblies/
 .DS_Store
 /.vs/slnx.sqlite
 /.vs/VSWorkspaceState.json
+/.vs/CITO/v15/sqlite3/storage.ide-wal
+/.vs/CITO/v15/sqlite3/storage.ide-shm
+/.vs/CITO/v15/sqlite3/storage.ide
+/.vs/CITO/v15/sqlite3/db.lock
+/.vs/CITO/v15/sqlite3
+/.vs/CITO/v15/Server/sqlite3/storage.ide-wal
+/.vs/CITO/v15/Server/sqlite3/storage.ide-shm
+/.vs/CITO/v15/Server/sqlite3/storage.ide
+/.vs/CITO/v15/Server/sqlite3/db.lock
+/.vs/ProjectSettings.json
+/Cito/Cito.Droid/Cito.Droid.csproj.bak
