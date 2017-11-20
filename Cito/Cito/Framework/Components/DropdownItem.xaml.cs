@@ -47,7 +47,7 @@ namespace Cito.Framework.Components
 
         public Color DefaultTextColor { get; set; }  = (Color)Application.Current.Resources["CitoLight"];
         public Color SelectedTextColor { get; set; } = (Color)Application.Current.Resources["CitoMainLight"];
-        public bool TitleColorAnimationEnabled { get; set; } = true;
+        public bool ColorAnimationEnabled { get; set; } = true;
 
         public static BindableProperty TitleProperty = BindableProperty.Create(
             propertyName: nameof(Title),
@@ -157,8 +157,11 @@ namespace Cito.Framework.Components
                 ExpandableView.IsVisible = true;
                 HandleImageButton();
                 ViewToDisplay.IsVisible = true;
-                Icon.Source = "DownArrowCito.png";
-                if(TitleColorAnimationEnabled) DropdownTitle.TextColor = SelectedTextColor;
+                if (ColorAnimationEnabled)
+                {
+                    DropdownTitle.TextColor = SelectedTextColor;
+                    Icon.Source = "DownArrowCito.png";
+                }
                 await ViewToDisplay.FadeTo(1, easing: Easing.SpringIn);
             }
             else
@@ -166,8 +169,11 @@ namespace Cito.Framework.Components
                 await Icon.RotateTo(0);
                 ExpandableView.IsVisible = false;
                 ViewToDisplay.IsVisible = false;
-                if (TitleColorAnimationEnabled) DropdownTitle.TextColor = DefaultTextColor;
-                Icon.Source = "DownArrow.png";
+                if (ColorAnimationEnabled)
+                {
+                    DropdownTitle.TextColor = DefaultTextColor;
+                    Icon.Source = "DownArrow.png";
+                }               
                 await ViewToDisplay.FadeTo(0, easing: Easing.SpringOut);
             }
 

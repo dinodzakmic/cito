@@ -19,14 +19,17 @@
                                      ColorBackground="Transparent"
                                      ExpandableView="{x:Reference FirstLayout}"
                                      TextColor="{StaticResource CitoLight}"/>
-            <components:DropdownContent x:Name="FirstLayout" Padding="10"
-                                        HorizontalOptions="FillAndExpand" VerticalOptions="Start">
-                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
-
-                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="60">
+            <components:DropdownContent x:Name="FirstLayout"
+                                        HorizontalOptions="FillAndExpand" 
+                                        VerticalOptions="Start">
+                <StackLayout HorizontalOptions="FillAndExpand" 
+                             VerticalOptions="StartAndExpand"
+                             Padding="10">
+                  
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="80">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="2.5*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
@@ -55,23 +58,23 @@
 
                         <controls:CitoButton Grid.Column="2"
                                              Text="$12.99"
-                                             HeightRequest="40"
+                                             HeightRequest="35"
                                              VerticalOptions="CenterAndExpand"
                                              HorizontalOptions="FillAndExpand" />
 
                     </Grid>
 
-                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="60">
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="80">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="2.5*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
                         <abstractions:CircleImage Grid.Column="0"
                                                   Source="{StaticResource WasherProfileImage}"
                                                   BorderColor="{StaticResource CitoMain}"
-                                                  BorderThickness="3"
+                                                  BorderThickness="1"
                                                   HorizontalOptions="FillAndExpand"
                                                   VerticalOptions="FillAndExpand" />
 
@@ -93,7 +96,7 @@
 
                         <controls:CitoButton Grid.Column="2"
                                              Text="$12.99"
-                                             HeightRequest="40"
+                                             HeightRequest="35"
                                              VerticalOptions="CenterAndExpand"
                                              HorizontalOptions="FillAndExpand" />
 
