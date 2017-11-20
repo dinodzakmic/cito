@@ -4,13 +4,13 @@
              xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
              xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
              x:Class="Cito.Views.RateWasherPage"
-             BindingContext="{Binding Source={StaticResource Locator}, Path=RateWasherVM}">
+             BindingContext="{Binding Source={StaticResource Locator}, Path=RateWasher}">
     <StackLayout Style="{StaticResource RootStackLayoutStyle}">
         <Label Text="Your car is shining again" Style="{StaticResource CentralLabelStyle}"
                Margin="20,0"/>
         
-        <Image VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
-               BackgroundColor="HotPink" />
+        <Image Source="{Binding CarPicture}"
+               VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
         
         <components:Rating HorizontalOptions="CenterAndExpand" Margin="0,20"
                            IsTapEnabled="True"

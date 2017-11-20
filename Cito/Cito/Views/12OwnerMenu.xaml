@@ -2,7 +2,6 @@
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                   xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
-                  xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
                   x:Class="Cito.Views.OwnerMenu"
                   MasterBehavior="Popover"
                   Title="OwnerMenu" >
@@ -21,26 +20,26 @@
           <StackLayout Grid.Row="0" Spacing="0" Margin="15,20" BackgroundColor="Transparent">
               <components:MenuItem MenuItemImage="{StaticResource LocationIcon}"
                                    MenuItemText="Home"
-                                   Command="{Binding MenuItemTest}"
+                                   Command="{Binding GoToHomeCommand}"
                                    BorderTopVisibility="False"/>
               <components:MenuItem MenuItemImage="{StaticResource UserIcon}"
                                    MenuItemText="Profile"
-                                   Command="{Binding MenuItemTest}" />
+                                   Command="{Binding GoToOwnerProfileCommand}" />
               <components:MenuItem MenuItemImage="{StaticResource KeyIcon}"
                                    MenuItemText="Past Washers"
-                                   Command="{Binding MenuItemTest}" />
+                                   Command="{Binding GoToPastWashersCommand}" />
               <components:MenuItem MenuItemImage="{StaticResource KeyIcon}"
                                    MenuItemText="Future Washers"
-                                   Command="{Binding MenuItemTest}" />           
+                                   Command="{Binding GoToFutureWashersCommand}" />           
               <components:MenuItem MenuItemImage="{StaticResource PasswordIcon}"
                                    MenuItemText="Promo Code"
-                                   Command="{Binding MenuItemTest}" />
+                                   Command="{Binding GoToPromoCodeCommand}" />
               <components:MenuItem MenuItemImage="{StaticResource QuestionIcon}"
                                    MenuItemText="FAQ"
-                                   Command="{Binding MenuItemTest}" />
+                                   Command="{Binding GoToFaqCommand}" />
               <components:MenuItem MenuItemImage="{StaticResource ContactIcon}"
                                    MenuItemText="Support"
-                                   Command="{Binding MenuItemTest}" />
+                                   Command="{Binding GoToSupportCommand}" />
           </StackLayout>
         <!--<StackLayout Grid.Row="1" Orientation="Horizontal"
                      BackgroundColor="Transparent"

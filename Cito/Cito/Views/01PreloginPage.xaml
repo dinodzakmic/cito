@@ -21,12 +21,14 @@
                             HeightRequest="{StaticResource ControlsHeight}"
                             ButtonImage="FacebookIcon"
                             ButtonText="SIGN IN WITH FACEBOOK"
+                            ButtonTextHorizontalTextAlignment="Start"
                             ExternalLogin="Facebook"
                             Command="{Binding ExternalLoginCommand}"/>
     <components:ImageButton Margin="20,0"
                             HeightRequest="{StaticResource ControlsHeight}"
                             ButtonImage="GoogleIcon"
                             ButtonText="SIGN IN WITH GOOGLE"
+                            ButtonTextHorizontalTextAlignment="Start"
                             ExternalLogin="Google"
                             Command="{Binding ExternalLoginCommand}"/>
 

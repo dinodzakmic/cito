@@ -4,21 +4,24 @@
              xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
              xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
              xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
-             x:Class="Cito.Views.OrderDetailsPage">
+             x:Class="Cito.Views.OrderDetailsPage"
+             BindingContext="{Binding Source={StaticResource Locator}, Path=OrderDetails}">
     <StackLayout Style="{StaticResource RootStackLayoutStyle}">
         
         <abstractions:CircleImage HorizontalOptions="CenterAndExpand" 
+                                  HeightRequest="60" WidthRequest="60"
+                                  Source="{Binding WasherPicture}"
                                   Aspect="AspectFill" BorderColor="{StaticResource CitoMain}" />
         
-        <Label Text="John Johnson" Style="{StaticResource CentralLabelStyle}"/>
-        <Label Text="212 Main Street" Style="{StaticResource CentralLabelStyle}"/>
+        <Label Text="{Binding Name}" Style="{StaticResource CentralLabelStyle}"/>
+        <Label Text="{Binding Address}" Style="{StaticResource CentralLabelStyle}"/>
         
         <BoxView Style="{StaticResource SeparatorBoxStyle}"/>
 
         <Label Text="Payment Method"  Style="{StaticResource CentralLabelStyle}"/>
         <StackLayout Orientation="Horizontal">
-            <Image Source="visa.png" BackgroundColor="HotPink" HeightRequest="30" WidthRequest="50"/>
-            <Label TextColor="{StaticResource PrimaryTextColor}" Text="**** **** **** 1234"
+            <Image Source="{Binding CardImage}" HeightRequest="30" WidthRequest="50"/>
+            <Label TextColor="{StaticResource PrimaryTextColor}" Text="{Binding CodedCardNumber}"
                    HorizontalOptions="EndAndExpand" />
         </StackLayout>
 
@@ -27,17 +30,17 @@
         <Label Style="{StaticResource CentralLabelStyle}" Text="Car details"/>
         
         <StackLayout Orientation="Horizontal">
-            <Image HeightRequest="50" WidthRequest="50" BackgroundColor="HotPink" HorizontalOptions="Start"/>
+            <abstractions:CircleImage HeightRequest="50" WidthRequest="50" Source="{Binding CarPicture}" HorizontalOptions="Start"/>
             <StackLayout >
-                <Label Style="{StaticResource LeftLabelStyle}" Text="Ford Edge"/>
-                <Label Style="{StaticResource LeftLabelStyle}" Text="Plate NO. TR6 1971"/>
+                <Label Style="{StaticResource LeftLabelStyle}" Text="{Binding CarModel}"/>
+                <Label Style="{StaticResource LeftLabelStyle}" Text="{Binding CarPlate, StringFormat='Plate NO. {0}'}"/>
             </StackLayout>
         </StackLayout>
 
         <BoxView Style="{StaticResource SeparatorBoxStyle}"/>
 
-        <Label Style="{StaticResource CentralLabelStyle}" Text="Standard Pack"/>
-        <controls:CitoButton HorizontalOptions="CenterAndExpand" Text="$12.99"/>
+        <Label Style="{StaticResource CentralLabelStyle}" Text="{Binding SelectedPack}"/>
+        <controls:CitoButton HorizontalOptions="CenterAndExpand" Text="{Binding SelectedPackCost, StringFormat='$ {0}'}"/>
         
         <StackLayout Orientation="Horizontal">
             <controls:CitoButton HorizontalOptions="CenterAndExpand" Text="Cancel" WidthRequest="80" />

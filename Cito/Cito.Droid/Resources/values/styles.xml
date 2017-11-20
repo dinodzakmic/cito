@@ -23,8 +23,18 @@
 
     <item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>
   </style>
-
+  
+  <style name="SplashScreen" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="colorPrimaryDark">#26a4ad</item>
+    <item name="android:windowBackground">@drawable/SplashScreen</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowIsTranslucent">false</item>
+    <item name="android:windowIsFloating">false</item>
+    <item name="android:backgroundDimEnabled">true</item>
+  </style>
+  
   <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
     <item name="colorAccent">#6DC5ED</item>
   </style>
+  
 </resources>

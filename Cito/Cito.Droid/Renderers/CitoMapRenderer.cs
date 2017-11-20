@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
+using Android.Gms.Common;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -31,39 +32,68 @@ namespace Cito.Droid.Renderers
     {
         internal GoogleMap GoogleMap;
         internal CitoMap FormsMap;
-        internal bool IsDrawnDone;
         internal IList<Pin> Pins;
-
-        public void OnMapReady(GoogleMap googleMap)
-        {
-            GoogleMap = googleMap;
-            //MapGoogle.InfoWindowClick += OnInfoWindowClick;
-            GoogleMap.SetInfoWindowAdapter(this);
-        }
+        internal Distance MapDistance;
 
         protected override void OnElementChanged(ElementChangedEventArgs<Map> e)
         {
             base.OnElementChanged(e);
             if (e.OldElement != null)
             {
-                //MapGoogle.InfoWindowClick -= OnInfoWindowClick;
+                GoogleMap.InfoWindowClick -= OnInfoWindowClick;
             }
 
             if (e.NewElement != null)
             {
-                FormsMap = (CitoMap)e.NewElement;
-                Pins = FormsMap.Pins;
-                ((MapView)Control).GetMapAsync(this);
+                try
+                {
+                    FormsMap = (CitoMap)e.NewElement;
+                    Pins = FormsMap.BindablePins;
+                    FormsMap.PinsChanged += DrawPins;
+                    Control.GetMapAsync(this);
+                }
+                catch (Exception exception)
+                {
+                    // ignored
+                }
             }
         }
 
-        protected override void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        void IOnMapReadyCallback.OnMapReady(GoogleMap googleMap)
         {
-            base.OnElementPropertyChanged(sender, e);
+            try
+            {
+                base.NativeMap = googleMap;
+                GoogleMap = googleMap;
+                GoogleMap.CameraChange += (sender, args) =>
+                {
+                    MapDistance = Distance.FromKilometers((GoogleMap.MaxZoomLevel - GoogleMap.CameraPosition.Zoom) / 10);
+                };              
+                DrawPins();
+                GoogleMap.InfoWindowClick += OnInfoWindowClick;
+                GoogleMap.SetInfoWindowAdapter(this);
+                FormsMap.MoveToRegion(MapSpan.FromCenterAndRadius(FormsMap.CurrentPosition, FormsMap.CurrentDistance));
+            }
+            catch (Exception e)
+            {
+                // ignored
+            }
+        }
 
-            if (!IsDrawnDone && GoogleMap != null)
+
+        private void DrawPins()
+        {
+            if (GoogleMap != null)
             {
                 GoogleMap.Clear();
+                GoogleMap.MarkerClick += (sender, args) =>
+                {                   
+                    var position = new Position(args.Marker.Position.Latitude, args.Marker.Position.Longitude);
+                    FormsMap.MoveToRegion(MapSpan.FromCenterAndRadius(position, MapDistance));
+
+                    if (args.Marker.Title.Equals("Owner")) return;
+                    args.Marker.ShowInfoWindow();
+                };
 
                 foreach (var pin in Pins)
                 {
@@ -71,18 +101,25 @@ namespace Cito.Droid.Renderers
                     marker.SetPosition(new LatLng(pin.Position.Latitude, pin.Position.Longitude));
                     marker.SetTitle(pin.Label);
                     marker.SetSnippet(pin.Address);
-                    marker.SetIcon(GetPinIcon());
+                    marker.SetIcon(GetPinIcon(pin.Type));
                     GoogleMap.AddMarker(marker);
                 }
 
-                IsDrawnDone = true;
             }
         }
 
-        private BitmapDescriptor GetPinIcon()
+        private BitmapDescriptor GetPinIcon(PinType type)
         {
-            var drawableResource = Context.Resources.GetDrawable(FormsMap.MapPin);
-            return BitmapDescriptorFactory.FromBitmap(((BitmapDrawable)drawableResource).Bitmap);
+            if (type == PinType.Generic)
+            {
+                var drawableResource = Context.Resources.GetDrawable("UserLocation.png");
+                return BitmapDescriptorFactory.FromBitmap(((BitmapDrawable)drawableResource).Bitmap);
+            }
+            else
+            {
+                var drawableResource = Context.Resources.GetDrawable(FormsMap.MapPin);
+                return BitmapDescriptorFactory.FromBitmap(((BitmapDrawable)drawableResource).Bitmap);
+            }          
         }
 
         public View GetInfoWindow(Marker marker)
@@ -98,7 +135,7 @@ namespace Cito.Droid.Renderers
                 var icon = view.FindViewById(Resource.Id.infoWindowImage) as ImageView;
                 if (icon != null)
                 {
-                    //icon.Text = (Pins.First(x => x.Position == new Position(marker.Position.Latitude, marker.Position.Longitude)).Type == PinType.Place) ? "4" : "J";
+                    icon.SetImageResource(Resource.Drawable.OwnerProfileImage);
                     //icon.SetTypeface(Typefaces.FontIcon, TypefaceStyle.Normal);
                 }
 
@@ -118,6 +155,10 @@ namespace Cito.Droid.Renderers
             return null;
         }
 
+        private void OnInfoWindowClick(object sender, GoogleMap.InfoWindowClickEventArgs e)
+        {
+
+        }
         public View GetInfoContents(Marker marker)
         {
             return null;

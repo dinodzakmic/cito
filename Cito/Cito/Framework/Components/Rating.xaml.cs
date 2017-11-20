@@ -20,7 +20,6 @@ namespace Cito.Framework.Components
             propertyName: nameof(RatingStars),
             returnType: typeof(int),
             declaringType: typeof(Rating),
-            defaultBindingMode: BindingMode.TwoWay,
             defaultValue: 0,
             defaultBindingMode: BindingMode.TwoWay,
             propertyChanged: (b, o, n) =>

@@ -9,28 +9,127 @@ namespace Cito.Framework.Components
 
         #endregion
         #region Public properties
+
+        #region TopSeparator
         public bool TopSeparatorVisible
         {
             get { return TopSeparator.IsVisible; }
             set { TopSeparator.IsVisible = value; }
         }
+
+        public Color TopSeparatorColor
+        {
+            get { return TopSeparator.BackgroundColor; }
+            set { TopSeparator.BackgroundColor = value; }
+        }
+
+        #endregion
+        #region BottomSeparator
         public bool BottomSeparatorVisible
         {
             get { return BottomSeparator.IsVisible; }
             set { BottomSeparator.IsVisible = value; }
         }
 
-        public string Title
+        public Color BottomSeparatorColor
         {
-            get { return DropdownTitle.Text; }
-            set { DropdownTitle.Text = value; }
+            get { return BottomSeparator.BackgroundColor; }
+            set { BottomSeparator.BackgroundColor = value; }
+        }
+        #endregion
+        #region Title
+        public Color TextColor
+        {
+            set { this.DropdownTitle.TextColor = value; }
         }
 
+        public static BindableProperty TitleProperty = BindableProperty.Create(
+            propertyName: nameof(Title),
+            returnType: typeof(string),
+            declaringType: typeof(DropdownItem),
+            defaultBindingMode: BindingMode.TwoWay,
+            defaultValue: string.Empty,
+            propertyChanged: (b, o, n) => { ((DropdownItem)b).DropdownTitle.Text = (string)n; });
+
+
+        public string Title
+        {
+            get { return (string)GetValue(TitleProperty); }
+            set { SetValue(TitleProperty, value); }
+        }
+
+        public TextAlignment TitleHorizontalTextAlignment
+        {
+            get { return DropdownTitle.HorizontalTextAlignment; }
+            set
+            {
+                DropdownTitle.HorizontalTextAlignment = value;
+                if (value == TextAlignment.Center)
+                {
+                    DropdownTitle.TranslationX = -10;
+                }
+            }
+        }
+        public TextAlignment TitleVerticalTextAlignment
+        {
+            get { return DropdownTitle.VerticalTextAlignment; }
+            set { DropdownTitle.VerticalTextAlignment = value; }
+        }
+        #endregion
+        #region Appearance
+        public Color ColorBackground
+        {
+            get { return RootLayout.BackgroundColor; }
+            set { RootLayout.BackgroundColor = value; }
+        }
+        public double ItemHeightRequest
+        {
+            get { return ItemLayout.HeightRequest; }
+            set { ItemLayout.HeightRequest = value; }
+        }
+
+        internal Image Icon { get; set; }
+
+        public enum Position
+        {
+            Left,
+            Right
+        }
+
+        public Position ArrowPosition
+        {
+            set
+            {
+                if (value == Position.Left)
+                {
+                    Icon = LeftIcon;
+                    LeftIcon.IsVisible = true;
+                    RightIcon.IsVisible = false;
+                }
+                else if(value == Position.Right)
+                {
+                    Icon = RightIcon;
+                    LeftIcon.IsVisible = false;
+                    RightIcon.IsVisible = true;
+                }
+                else
+                {
+                    Icon = LeftIcon;
+                    LeftIcon.IsVisible = true;
+                    RightIcon.IsVisible = false;
+                }
+            }
+        }
+
+        #endregion
+        #region ExpandableView
         public View ExpandableView
         {
             get { return ViewToExpand.Content; }
             set { ViewToExpand.Content = value; }
         }
+        #endregion
+
         #endregion
 
         public DropdownItem()
@@ -42,40 +141,32 @@ namespace Cito.Framework.Components
 
         private async void ItemTapped(object sender, EventArgs e)
         {
+            if (ExpandableView == null) return;
+            if (Icon == null) Icon = LeftIcon;
+
             if (!ViewToDisplay.IsVisible)
             {
-                await Icon.RotateTo(90);
-                if (ExpandableView != null) ExpandableView.IsVisible = true;
+                await Icon.RotateTo(180);
+                ExpandableView.IsVisible = true;
+                HandleImageButton();
                 ViewToDisplay.IsVisible = true;
                 await ViewToDisplay.FadeTo(1, easing: Easing.SpringIn);
             }
             else
             {
-                await Icon.RotateTo(-90);
-                if (ExpandableView != null) ExpandableView.IsVisible = false;
+                await Icon.RotateTo(0);
+                ExpandableView.IsVisible = false;
                 ViewToDisplay.IsVisible = false;
                 await ViewToDisplay.FadeTo(0, easing: Easing.SpringOut);
             }
 
         }
 
-        //protected bool DropdownCreated { get; set; } = false;
-        //internal static int DropdownCounter { get; set; } = 0;
-        //protected override void OnPropertyChanged(string propertyName = null)
-        //{
-        //    if (propertyName != null && propertyName.Equals("Content") && ViewToDisplay == null)
-        //    {
-        //        DropdownCounter++;
-
-        //    }
-
-        //    if (propertyName != null && propertyName.Equals("Content") && ViewToDisplay != null && !DropdownCreated)
-        //    {
-        //        ViewToDisplay.Content = Content;
-        //        Content = RootLayout;
-        //        DropdownCreated = true;
-        //    }
-        //}
+        private void HandleImageButton()
+        {
+            var listView = ((DropdownContent)ExpandableView).Content as ListView;
+            listView?.ItemTemplate.CreateContent();
+        }
 
         #endregion
     }

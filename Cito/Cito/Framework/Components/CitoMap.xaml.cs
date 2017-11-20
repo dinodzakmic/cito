@@ -28,18 +28,10 @@ namespace Cito.Framework.Components
                 defaultBindingMode: BindingMode.TwoWay,
                 propertyChanged: (b, o, n) =>
                 {
+                    
                     var map = ((CitoMap)b);
+                    map.PinsChanged?.Invoke();
 
-                    map.Pins.Clear();
-
-                    var pins = ((List<Pin>)n);
-
-                    map.InitializeComponent();
-
-                    foreach (var pin in pins)
-                    {
-                        map.Pins.Add(pin);
-                    }
                 });
         public List<Pin> BindablePins
         {
@@ -52,6 +44,44 @@ namespace Cito.Framework.Components
                 SetValue(BindablePinsProperty, value);
             }
         }
+
+        public Action PinsChanged = () => { };
+        #endregion
+        #region CurrentPosition
+        public static readonly BindableProperty CurrentPositionProperty = BindableProperty
+            .Create(
+                propertyName: nameof(CurrentPosition),
+                returnType: typeof(Position),
+                declaringType: typeof(CitoMap),
+                defaultValue: new Position(0, 0),
+                defaultBindingMode: BindingMode.TwoWay,
+                propertyChanged: (b, o, n) =>
+                {
+                    var map = (CitoMap)b;
+                    var position = (Position)n;
+                    var distance = map.CurrentDistance;
+
+                    map.MoveToRegion(MapSpan.FromCenterAndRadius(position, distance));
+
+                    map.BindablePins.RemoveAll(p => p.Type == PinType.Generic);
+                    map.BindablePins.Add(new Pin()
+                    {
+                        Address = "Owner",
+                        Label = "Owner",
+                        Position = position,
+                        Type = PinType.Generic
+                    });
+                    map.PinsChanged?.Invoke();
+                });
+
+        public Position CurrentPosition
+        {
+            get { return (Position) GetValue(CurrentPositionProperty); }
+            set { SetValue(CurrentPositionProperty, value); }
+        }
+
+
+        public Distance CurrentDistance { get; set; } = Distance.FromKilometers(1);
         #endregion
         #region MapPin
 
@@ -67,5 +97,6 @@ namespace Cito.Framework.Components
 
 
         #endregion
+
     }
 }

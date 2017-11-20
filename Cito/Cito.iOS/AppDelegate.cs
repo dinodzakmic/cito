@@ -23,6 +23,7 @@ namespace Cito.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            System.Net.ServicePointManager.DnsRefreshTimeout = 0;
             Xamarin.FormsMaps.Init();
             LoadApplication(new App());
             

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Acr.UserDialogs;
 using Cito.Views;
+using Plugin.Connectivity;
 using Xamarin.Forms;
 using Color = System.Drawing.Color;
 
@@ -17,23 +18,16 @@ namespace Cito.ViewModels
 
         #endregion
         #region Commands
-        public ICommand CreateAccountCommand { get; private set; }
-        public ICommand SignInCommand { get; private set; }
+        public ICommand CreateAccountCommand => new Command(async () => await CreateAccount());
+        public ICommand SignInCommand => new Command(async () => await SignIn());
 
-        public ICommand ExternalLoginCommand { get; private set; }
-
-        private void SetCommands()
-        {
-            CreateAccountCommand = new Command(async () => await CreateAccount());
-            SignInCommand = new Command(async () => await SignIn());
-            ExternalLoginCommand = new Command(async () => await ExternalLogin());
-        }
+        public ICommand ExternalLoginCommand => new Command(async () => await ExternalLogin());
 
         #endregion
 
         public PreloginViewModel()
-        {
-            SetCommands();
+        {          
+            
         }
 
         #region Methods
@@ -49,7 +43,7 @@ namespace Cito.ViewModels
 
         private async Task ExternalLogin()
         {
-            UserDialogs.Instance.Toast("Test", TimeSpan.FromSeconds(3));
+            await GoToPage(new CreateAccountPage(externalLoginFirstTime: true));
         }
         #endregion
 

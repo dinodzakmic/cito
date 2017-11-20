@@ -1,14 +1,26 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Cito.Framework.Utilities;
+using Cito.Helpers;
 using Cito.Views;
 using GalaSoft.MvvmLight;
+using Plugin.Connectivity;
+using Plugin.Settings;
+using Plugin.Settings.Abstractions;
 using Xamarin.Forms;
 
 namespace Cito.ViewModels
 {
     public class CitoViewModelBase : ViewModelBase
     {
+        #region Properties
+
+        public bool IsConnected => Connectivity.IsConnectionAvailable;
+        public CitoSettings Settings => CitoSettings.Current;
+
+        #endregion
+        #region Navigation methods
         /// <summary>
         /// Navigates to a new page.
         /// </summary>
@@ -24,6 +36,7 @@ namespace Cito.ViewModels
                 App.UpdateLoading(true);
                 await Task.Delay(500);
                 await App.NavPage.Navigation.PushAsync(page);
+                App.MenuPage.IsPresented = false;
             }
             catch (Exception e)
             {
@@ -43,10 +56,11 @@ namespace Cito.ViewModels
         {
             try
             {
-                App.InstantiatingPageType = App.NavPage.Navigation.NavigationStack.Last().GetType();                
+                App.InstantiatingPageType = App.NavPage.Navigation.NavigationStack.Last().GetType();
                 App.UpdateLoading(true);
                 await Task.Delay(500);
-                await App.NavPage.Navigation.PopAsync();            
+                await App.NavPage.Navigation.PopAsync();
+                App.MenuPage.IsPresented = false;
             }
             catch (Exception e)
             {
@@ -69,6 +83,7 @@ namespace Cito.ViewModels
                 App.UpdateLoading(true);
                 await Task.Delay(500);
                 await App.NavPage.Navigation.PopToRootAsync();
+                App.MenuPage.IsPresented = false;
             }
             catch (Exception e)
             {
@@ -95,9 +110,9 @@ namespace Cito.ViewModels
                 App.UpdateLoading(true);
                 await Task.Delay(500);
                 App.NavPage = new NavigationPage(page);
-                App.MenuPage = userType == UserTypeViewModel.UserTypeOf.Owner 
-                    ? new OwnerMenu() { Detail = App.NavPage} 
-                    : new OwnerMenu() {Detail = App.NavPage}; // TODO: add WasherMenu 
+                App.MenuPage = userType == UserTypeViewModel.UserTypeOf.Owner
+                    ? (MasterDetailPage)new OwnerMenu() { Detail = App.NavPage }
+                    : (MasterDetailPage)new WasherMenu() { Detail = App.NavPage }; // TODO: add WasherMenu 
                 App.Current.MainPage = App.MenuPage;
             }
             catch (Exception e)
@@ -110,7 +125,7 @@ namespace Cito.ViewModels
             }
 
         }
-     
+        #endregion
     }
 }
 

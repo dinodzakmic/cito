@@ -9,12 +9,11 @@ using Xamarin.Forms.Xaml;
 
 namespace Cito.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class OrderDetailsPage : ContentPage
-	{
-		public OrderDetailsPage()
     {
-        InitializeComponent();
+        public OrderDetailsPage()
+        {
+            InitializeComponent();
+        }
     }
-}
 }

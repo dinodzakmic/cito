@@ -5,10 +5,12 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.V4.Content;
 using Android.Support.V7.Graphics.Drawable;
+using Android.Util;
 using Android.Views;
 using Android.Widget;
 using Cito.Droid.Renderers;
@@ -46,18 +48,32 @@ namespace Cito.Droid.Renderers
 
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             if (toolbar == null) return;
-
+            
             toolbar.SetBackgroundResource(Resource.Drawable.NavigationBarGradient);
+            
+            //toolbar.SetNavigationIcon(Resource.Drawable.MenuIcon);
+
             for (var i = 0; i < toolbar.ChildCount; i++)
             {
-                var imageButton = toolbar.GetChildAt(i) as ImageButton;
+                var currentChild = toolbar.GetChildAt(i);
 
+                var titleText = currentChild as TextView;
+                titleText?.SetTypeface(Typefaces.FontRegular, TypefaceStyle.Normal);
+                titleText?.SetElegantTextHeight(true);
+                titleText?.SetTextSize(ComplexUnitType.Dip, 15);
+                titleText?.SetX(150);
+
+                var imageButton = currentChild as ImageButton;
                 var drawerArrow = imageButton?.Drawable as DrawerArrowDrawable;
-                if (drawerArrow == null)
-                    continue;
-               
-                imageButton.SetImageResource(Resource.Drawable.MenuIcon);
-                //imageButton.Drawable.Alpha = 80;
+
+                if (drawerArrow != null)
+                {
+                    imageButton.SetColorFilter(Color.Rgb(103, 200, 207));
+                }
+                else
+                {
+                    imageButton?.SetImageResource(Resource.Drawable.MenuIcon);
+                }               
             }
         }
     }

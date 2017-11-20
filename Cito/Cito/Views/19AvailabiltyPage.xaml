@@ -4,13 +4,14 @@
              xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
              xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
              x:Class="Cito.Views.AvailabiltyPage"
+             BindingContext="{Binding Source={StaticResource Locator}, Path=Availability}"
              BackgroundImage="{StaticResource BackgroundGradient}"
-             NavigationPage.HasNavigationBar="True">
+             Title="Availability">
 
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,80,0,0">
 
       <controls:CitoLabel Text="WASHER NO. 1"
-                          Margin="0,60,0,0"
+                          Margin="0,30,0,0"
                           FontSize="18"
                           FontAttributes="Bold"
                           TextColor="{StaticResource CitoMain}"

@@ -53,20 +53,12 @@ namespace Cito.ViewModels
         }
         #endregion
         #region Commands
-        public ICommand HandleNewUserCommand { get; private set; }
-
-        private void SetCommands()
-        {
-            HandleNewUserCommand = new Command(async () => await HandleNewUser());
-        }
-
-
+        public ICommand HandleNewUserCommand  => new Command(async () => await HandleNewUser());
         #endregion
 
 
         public CreateAccountViewModel()
         {
-            SetCommands();
         }
 
         #region Methods
