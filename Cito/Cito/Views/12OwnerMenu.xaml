@@ -41,21 +41,6 @@
                                    MenuItemText="Support"
                                    Command="{Binding GoToSupportCommand}" />
           </StackLayout>
-        <!--<StackLayout Grid.Row="1" Orientation="Horizontal"
-                     BackgroundColor="Transparent"
-                     VerticalOptions="EndAndExpand" HorizontalOptions="StartAndExpand"
-                     Margin="50,25">
-          <Image Source="{StaticResource StandBy}" 
-                 HeightRequest="30" 
-                 VerticalOptions="CenterAndExpand"
-                 HorizontalOptions="StartAndExpand"/>
-          
-          <controls:CitoLabel Text="Sign Out"
-                              TextColor="Red" FontSize="15"
-                              VerticalOptions="CenterAndExpand"
-                              HorizontalOptions="StartAndExpand"/>
-        </StackLayout>-->
-
       </Grid>
     </ContentPage>
   </MasterDetailPage.Master>
