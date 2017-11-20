@@ -1,7 +1,5 @@
 ﻿namespace Cito.ViewModels
 {
-    using GalaSoft.MvvmLight;
-
     public class RateWasherViewModel : CitoViewModelBase
     {
 

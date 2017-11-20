@@ -55,8 +55,10 @@
     <Compile Include="Framework\Utilities\NegateBooleanConverter.cs" />
     <Compile Include="Framework\Utilities\StringHelpers.cs" />
     <Compile Include="Helpers\CitoSettings.cs" />
-    <Compile Include="Helpers\Location.cs" />
+    <Compile Include="Framework\Utilities\Location.cs" />
     <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="Models\PastWashes.cs" />
+    <Compile Include="Models\PastWasherDetails.cs" />
     <Compile Include="ViewModels\19AvailabilityViewModel.cs" />
     <Compile Include="ViewModels\CitoViewModelBase.cs" />
     <Compile Include="ViewModels\03CreateAccountViewModel.cs" />
@@ -64,13 +66,14 @@
     <Compile Include="ViewModels\02UserTypeViewModel.cs" />
     <Compile Include="ViewModels\12OwnerMenuViewModel.cs" />
     <Compile Include="ViewModels\08MapViewModel.cs" />
-    <Compile Include="ViewModels\14PastWashersViewModel.cs" />
+    <Compile Include="ViewModels\14PastWashesViewModel.cs" />
     <Compile Include="ViewModels\18PromoCodeViewModel.cs" />
     <Compile Include="ViewModels\16SupportViewModel.cs" />
     <Compile Include="ViewModels\06OwnerProfileViewModel.cs" />
     <Compile Include="ViewModels\17FaqViewModel.cs" />
     <Compile Include="ViewModels\10OrderDetailsViewModel.cs" />
     <Compile Include="ViewModels\11RateWasherViewModel.cs" />
+    <Compile Include="ViewModels\15FutureWashesViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="ViewModels\20WasherProfileViewModel.cs" />
     <Compile Include="ViewModels\22WasherMenuViewModel.cs" />
@@ -145,8 +148,8 @@
     <Compile Include="Views\20WasherProfilePage.xaml.cs">
       <DependentUpon>20WasherProfilePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\14PastWashersPage.xaml.cs">
-      <DependentUpon>14PastWashersPage.xaml</DependentUpon>
+    <Compile Include="Views\14PastWashesPage.xaml.cs">
+      <DependentUpon>14PastWashesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\08MapPage.xaml.cs">
       <DependentUpon>08MapPage.xaml</DependentUpon>
@@ -165,6 +168,9 @@
     </Compile>
     <Compile Include="Views\17FaqPage.xaml.cs">
       <DependentUpon>17FaqPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\15FutureWashesPage.xaml.cs">
+      <DependentUpon>15FutureWashesPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -381,14 +387,12 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\14PastWashersPage.xaml">
+    <EmbeddedResource Include="Views\14PastWashesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Framework\Components\CitoMap.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -447,6 +451,12 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\17FaqPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\15FutureWashesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

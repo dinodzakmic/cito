@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 
@@ -81,11 +77,7 @@ namespace Cito.Framework.Components
         }
 
 
-        public Distance CurrentDistance { get; set; } = Distance.FromKilometers(1);
-        #endregion
-        #region MapPin
-
-        public string MapPin { get; set; }
+        public Distance CurrentDistance { get; set; } = Distance.FromKilometers(2);
         #endregion
         #endregion
         public CitoMap()

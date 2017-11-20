@@ -18,7 +18,8 @@ namespace Cito.ViewModels
         public OrderDetailsViewModel OrderDetails => ViewModel<OrderDetailsViewModel>.Get();
         public RateWasherViewModel RateWasher => ViewModel<RateWasherViewModel>.Get();
         public OwnerMenuViewModel OwnerMenu => ViewModel<OwnerMenuViewModel>.Get();
-        public PastWashersViewModel PastWashers => ViewModel<PastWashersViewModel>.Get();
+        public PastWashesViewModel PastWashes => ViewModel<PastWashesViewModel>.Get();
+        public FutureWashesViewModel FutureWashes => ViewModel<FutureWashesViewModel>.Get();
         public SupportViewModel Support => ViewModel<SupportViewModel>.Get();
         public FaqViewModel Faq => ViewModel<FaqViewModel>.Get();
         public PromoCodeViewModel PromoCode => ViewModel<PromoCodeViewModel>.Get();

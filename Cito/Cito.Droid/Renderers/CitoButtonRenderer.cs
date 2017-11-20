@@ -1,6 +1,5 @@
 using Cito.Droid.Renderers;
 using Cito.Framework.Controls;
-using Java.Util;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 

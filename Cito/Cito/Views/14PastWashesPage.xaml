@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
+             xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
+             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             x:Class="Cito.Views.PastWashesPage"
+             BindingContext="{Binding Source={StaticResource Locator}, Path=PastWashes}"
+             BackgroundImage="{StaticResource BackgroundGradient}"
+             Title="Past Washes">
+
+        <StackLayout HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand"
+                     BackgroundColor="Transparent">
+
+            <ListView x:Name="PastWashesList"
+                      ItemSelected="PastWashesList_OnItemSelected"
+                      BackgroundColor="Transparent"
+                      ItemsSource="{Binding PastWashesList}"
+                      HasUnevenRows="True" 
+                      HorizontalOptions="FillAndExpand"
+                      VerticalOptions="FillAndExpand"
+                      RowHeight="250">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <components:DropdownItem TextColor="{StaticResource CitoLight}"
+                                                         BottomSeparatorVisible="True"
+                                                         ArrowPosition="Right"
+                                                         ColorBackground="Transparent"
+                                                         ItemHeightRequest="60"
+                                                         Title="{Binding Month}"
+                                                         ExpandableView="{x:Reference ContentLayout}" />
+
+                                <components:DropdownContent x:Name="ContentLayout"
+                                                            Padding="20,10"
+                                                            HorizontalOptions="FillAndExpand"
+                                                            VerticalOptions="Start">
+                                  <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+                                    <ListView x:Name="WashersDetails"
+                                              ItemSelected="WashersDetails_OnItemSelected"
+                                              ItemsSource="{Binding Washers}" 
+                                              RowHeight="80" 
+                                              SeparatorVisibility="Default"
+                                              SeparatorColor="{StaticResource CitoLightContrast}"
+                                              VerticalOptions="Start">
+                                      <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                          <ViewCell>
+                                            <Grid HorizontalOptions="FillAndExpand"
+                                                  VerticalOptions="CenterAndExpand">
+                                              <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="2.5*" />
+                                                <ColumnDefinition Width="*" />
+                                              </Grid.ColumnDefinitions>
+
+                                              <abstractions:CircleImage Grid.Column="0"
+                                                                        Source="{Binding WasherImage}"
+                                                                        BorderColor="{StaticResource CitoMain}"
+                                                                        BorderThickness="1"
+                                                                        HorizontalOptions="FillAndExpand"
+                                                                        VerticalOptions="FillAndExpand" />
+
+                                              <StackLayout Grid.Column="1"
+                                                           HorizontalOptions="FillAndExpand"
+                                                           VerticalOptions="CenterAndExpand">
+                                                <controls:CitoLabel Text="{Binding WasherName}"
+                                                                    FontSize="15"
+                                                                    TextColor="{StaticResource CitoLight}"
+                                                                    VerticalOptions="CenterAndExpand"
+                                                                    VerticalTextAlignment="Center"
+                                                                    HorizontalOptions="StartAndExpand"
+                                                                    HorizontalTextAlignment="Start" />
+                                                <components:Rating RatingStars="{Binding WasherRating}"
+                                                                   HeightRequest="20"
+                                                                   HorizontalOptions="StartAndExpand"
+                                                                   VerticalOptions="CenterAndExpand" />
+                                              </StackLayout>
+
+                                              <controls:CitoButton Grid.Column="2"
+                                                                   Text="{Binding Price}"
+                                                                   HeightRequest="35"
+                                                                   FontSize="12"
+                                                                   VerticalOptions="CenterAndExpand"
+                                                                   HorizontalOptions="FillAndExpand" />
+
+                                            </Grid>
+                                          </ViewCell>
+                                        </DataTemplate>
+                                      </ListView.ItemTemplate>
+                                    </ListView>
+                                  </StackLayout>                                   
+                                </components:DropdownContent>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+                 
+        </StackLayout>
+  
+</ContentPage>

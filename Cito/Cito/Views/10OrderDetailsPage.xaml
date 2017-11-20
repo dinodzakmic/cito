@@ -5,7 +5,9 @@
              xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
              xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
              x:Class="Cito.Views.OrderDetailsPage"
-             BindingContext="{Binding Source={StaticResource Locator}, Path=OrderDetails}">
+             BindingContext="{Binding Source={StaticResource Locator}, Path=OrderDetails}"
+             Title="Order Details">
+  
     <StackLayout Style="{StaticResource RootStackLayoutStyle}">
         
         <abstractions:CircleImage HorizontalOptions="CenterAndExpand" 
@@ -43,8 +45,14 @@
         <controls:CitoButton HorizontalOptions="CenterAndExpand" Text="{Binding SelectedPackCost, StringFormat='$ {0}'}"/>
         
         <StackLayout Orientation="Horizontal">
-            <controls:CitoButton HorizontalOptions="CenterAndExpand" Text="Cancel" WidthRequest="80" />
-            <controls:CitoButton HorizontalOptions="CenterAndExpand" Text="Accept" WidthRequest="80" />
+            <controls:CitoButton HorizontalOptions="CenterAndExpand" 
+                                 Text="Cancel" 
+                                 Command="{Binding CancelOrderCommand}"
+                                 WidthRequest="80" />
+            <controls:CitoButton HorizontalOptions="CenterAndExpand" 
+                                 Text="Accept" 
+                                 Command="{Binding GoToRateWasherCommand}"
+                                 WidthRequest="80" />
         </StackLayout>
     </StackLayout>
 </ContentPage>

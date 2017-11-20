@@ -1,24 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.Graphics;
 using Android.Graphics.Drawables;
-using Android.InputMethodServices;
-using Android.OS;
-using Android.Runtime;
-using Android.Support.V4.Content;
 using Android.Text;
 using Android.Views;
-using Android.Widget;
 using Cito.Droid.Renderers;
 using Cito.Framework.Controls;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
-using Color = Android.Graphics.Color;
 
 [assembly: ExportRenderer(typeof(CitoEntry), typeof(CitoEntryRenderer))]
 

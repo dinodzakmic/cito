@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows.Input;
 using Cito.Views;
 using Xamarin.Forms;
@@ -40,16 +36,14 @@ namespace Cito.ViewModels
         private async Task OwnerType()
         {
             UserType = UserTypeOf.Owner;
-            await GoToMasterRootPage(new MapPage(), UserType);
-            App.Locator.Prelogin.Settings.IsUserLoggedIn = true;
             App.Locator.Prelogin.Settings.UserType = UserType.ToString();
+            await GoToMasterRootPage(new MapPage(), UserType);           
         }
         private async Task WasherType()
         {
             UserType = UserTypeOf.Washer;
-            await GoToMasterRootPage(new AvailabiltyPage(), UserType);
-            App.Locator.Prelogin.Settings.IsUserLoggedIn = true;
             App.Locator.Prelogin.Settings.UserType = UserType.ToString();
+            await GoToMasterRootPage(new AvailabiltyPage(), UserType);            
         }
 
         #endregion

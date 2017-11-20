@@ -1,26 +1,15 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Android.App;
 using Android.Content;
-using Android.Gms.Common;
-using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Cito.Droid.Renderers;
 using Cito.Framework.Components;
-using Java.Interop;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps.Android;
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
-using Android.Graphics;
 using Android.Graphics.Drawables;
-using Android.Support.V7.Widget;
-using Java.Net;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Platform.Android;
 using View = Android.Views.View;
@@ -30,7 +19,9 @@ namespace Cito.Droid.Renderers
 {
     internal class CitoMapRenderer : MapRenderer, GoogleMap.IInfoWindowAdapter, IOnMapReadyCallback
     {
-        internal GoogleMap GoogleMap;
+        internal static GoogleMap GoogleMap;
+        internal static BitmapDescriptor UserPin;
+        internal static BitmapDescriptor WasherPin;
         internal CitoMap FormsMap;
         internal IList<Pin> Pins;
         internal Distance MapDistance;
@@ -65,6 +56,7 @@ namespace Cito.Droid.Renderers
             {
                 base.NativeMap = googleMap;
                 GoogleMap = googleMap;
+                //GoogleMap.MyLocationEnabled = true;
                 GoogleMap.CameraChange += (sender, args) =>
                 {
                     MapDistance = Distance.FromKilometers((GoogleMap.MaxZoomLevel - GoogleMap.CameraPosition.Zoom) / 10);
@@ -112,13 +104,21 @@ namespace Cito.Droid.Renderers
         {
             if (type == PinType.Generic)
             {
+                if (UserPin != null)
+                    return UserPin;
+
                 var drawableResource = Context.Resources.GetDrawable("UserLocation.png");
-                return BitmapDescriptorFactory.FromBitmap(((BitmapDrawable)drawableResource).Bitmap);
+                UserPin = BitmapDescriptorFactory.FromBitmap(((BitmapDrawable)drawableResource).Bitmap);
+                return UserPin;
             }
             else
             {
-                var drawableResource = Context.Resources.GetDrawable(FormsMap.MapPin);
-                return BitmapDescriptorFactory.FromBitmap(((BitmapDrawable)drawableResource).Bitmap);
+                if (WasherPin != null)
+                    return WasherPin;
+
+                var drawableResource = Context.Resources.GetDrawable("CitoPin.png");
+                WasherPin = BitmapDescriptorFactory.FromBitmap(((BitmapDrawable)drawableResource).Bitmap);
+                return WasherPin;
             }          
         }
 
@@ -157,7 +157,7 @@ namespace Cito.Droid.Renderers
 
         private void OnInfoWindowClick(object sender, GoogleMap.InfoWindowClickEventArgs e)
         {
-
+            App.Locator.Map.GoToOrderDetailsCommand.Execute(null);
         }
         public View GetInfoContents(Marker marker)
         {

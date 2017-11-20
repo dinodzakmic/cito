@@ -17,7 +17,22 @@
         <Image Grid.Row="0" Grid.RowSpan="2"
                Source="{StaticResource MenuBackground}"
                Aspect="AspectFill"/>
-        
+          <StackLayout Grid.Row="0" Spacing="0" Margin="15,20" BackgroundColor="Transparent">
+            
+              <components:MenuItem MenuItemImage="{StaticResource LocationIcon}"
+                                   MenuItemText="Map"
+                                   BorderTopVisibility="False"
+                                   Command="{Binding GoToHomeCommand}"/>
+
+              <components:MenuItem MenuItemImage="{StaticResource CoinIcon}"
+                                   MenuItemText="Earnings"
+                                   Command="{Binding GoToEarningsCommand}"/>
+            
+              <components:MenuItem MenuItemImage="{StaticResource ContactIcon}"
+                                   MenuItemText="Support"
+                                   Command="{Binding GoToSupportCommand}"/>
+            
+          </StackLayout>
 
       </Grid>
     </ContentPage>

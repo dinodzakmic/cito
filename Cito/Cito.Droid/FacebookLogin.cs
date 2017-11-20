@@ -1,19 +1,9 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Android.App;
 using Android.Content;
-using Android.OS;
 using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Cito;
-using Cito.Droid;
 using Xamarin.Facebook;
 using Xamarin.Facebook.Login;
-using Xamarin.Forms;
 
 namespace Cito.Droid
 {

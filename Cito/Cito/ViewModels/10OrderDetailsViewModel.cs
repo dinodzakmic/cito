@@ -1,4 +1,9 @@
-﻿namespace Cito.ViewModels
+﻿using System.Threading.Tasks;
+using System.Windows.Input;
+using Cito.Views;
+using Xamarin.Forms;
+
+namespace Cito.ViewModels
 {
     using System.Diagnostics.CodeAnalysis;
 
@@ -24,5 +29,20 @@
         public string CarPicture => "Car.jpg";
 
         public string WasherPicture => "washer.jpg";
+
+        public ICommand GoToRateWasherCommand => new Command(async () => await GoToRateWasher());
+        public ICommand CancelOrderCommand => new Command(async () => await CancelOrder());
+
+     
+        private async Task GoToRateWasher()
+        {
+            await GoToPage(new RateWasherPage());
+        }
+
+        private async Task CancelOrder()
+        {
+            await GoToPreviousPage();
+        }
+
     }
 }

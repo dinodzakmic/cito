@@ -2,15 +2,12 @@
 using System.Linq;
 using Acr.UserDialogs;
 using Android.App;
-using Android.Appwidget;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Android.Views;
 using ImageCircle.Forms.Plugin.Droid;
 using Xamarin.Facebook;
-using Xamarin.Forms;
-using Context = System.Runtime.Remoting.Contexts.Context;
 
 
 namespace Cito.Droid
@@ -61,7 +58,6 @@ namespace Cito.Droid
                 var themeColor = (Xamarin.Forms.Color)Xamarin.Forms.Application.Current.Resources.FirstOrDefault(res => res.Key.Equals("CitoMain")).Value;
 
                 Window.SetStatusBarColor(new Android.Graphics.Color(Convert.ToInt32(themeColor.R * 255), Convert.ToInt32(themeColor.G * 255), Convert.ToInt32(themeColor.B * 255)));
-                Window.SetNavigationBarColor(new Android.Graphics.Color(Convert.ToInt32(themeColor.R * 255), Convert.ToInt32(themeColor.G * 255), Convert.ToInt32(themeColor.B * 255)));
             }
             
         }

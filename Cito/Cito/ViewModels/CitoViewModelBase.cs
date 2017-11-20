@@ -5,9 +5,6 @@ using Cito.Framework.Utilities;
 using Cito.Helpers;
 using Cito.Views;
 using GalaSoft.MvvmLight;
-using Plugin.Connectivity;
-using Plugin.Settings;
-using Plugin.Settings.Abstractions;
 using Xamarin.Forms;
 
 namespace Cito.ViewModels
@@ -32,6 +29,9 @@ namespace Cito.ViewModels
         {
             try
             {
+                if (!Connectivity.CheckConnectionAndDisplayToast())
+                    return;
+
                 App.InstantiatingPageType = page.GetType();
                 App.UpdateLoading(true);
                 await Task.Delay(500);
@@ -80,6 +80,9 @@ namespace Cito.ViewModels
         {
             try
             {
+                if (!Connectivity.CheckConnectionAndDisplayToast())
+                    return;
+
                 App.UpdateLoading(true);
                 await Task.Delay(500);
                 await App.NavPage.Navigation.PopToRootAsync();
@@ -106,6 +109,9 @@ namespace Cito.ViewModels
         {
             try
             {
+                if (!Connectivity.CheckConnectionAndDisplayToast())
+                    return;
+
                 App.InstantiatingPageType = page.GetType();
                 App.UpdateLoading(true);
                 await Task.Delay(500);
@@ -125,6 +131,7 @@ namespace Cito.ViewModels
             }
 
         }
+        
         #endregion
     }
 }
