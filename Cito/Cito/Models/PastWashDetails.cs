@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Cito.Models
 {
-    public class PastWasherDetails
+    public class PastWashDetails
     {
         public string WasherImage { get; set; }
         public string WasherName { get; set; }
         public int WasherRating { get; set; }
         public string Price { get; set; }
 
-        public PastWasherDetails(string washerImage, string washerName, int washerRating, string price)
+        public PastWashDetails(string washerImage, string washerName, int washerRating, string price)
         {
             WasherImage = washerImage;
             WasherName = washerName;

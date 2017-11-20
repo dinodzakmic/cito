@@ -9,159 +9,114 @@
              BackgroundImage="{StaticResource BackgroundGradient}"
              Title="Future Washes">
 
-    <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
-        <StackLayout HorizontalOptions="FillAndExpand"
-                     VerticalOptions="StartAndExpand">
 
-            <components:DropdownItem Title="September"
-                                     ItemHeightRequest="60"
-                                     ArrowPosition="Right"
-                                     BottomSeparatorVisible="True"
-                                     ColorBackground="Transparent"
-                                     TextColor="{StaticResource CitoLight}"/>
-            <components:DropdownItem Title="October"
-                                     ExpandableView="{x:Reference FirstLayout}"
-                                     ItemHeightRequest="60"
-                                     ArrowPosition="Right"
-                                     BottomSeparatorVisible="True"
-                                     ColorBackground="Transparent"
-                                     TextColor="{StaticResource CitoLight}"/>
+    <StackLayout HorizontalOptions="FillAndExpand"
+                 VerticalOptions="FillAndExpand"
+                 BackgroundColor="Transparent">
 
-            <components:DropdownContent x:Name="FirstLayout"
-                                        HorizontalOptions="FillAndExpand"
-                                        VerticalOptions="Start">
-            <StackLayout HorizontalOptions="FillAndExpand" 
-                         VerticalOptions="StartAndExpand"
-                         Padding="10" >
+      <ListView x:Name="FutureWashesList"
+                      ItemSelected="FutureWashesList_OnItemSelected"
+                      BackgroundColor="Transparent"
+                      ItemsSource="{Binding FutureWashesList}"
+                      HasUnevenRows="True"
+                      HorizontalOptions="FillAndExpand"
+                      VerticalOptions="FillAndExpand"
+                      RowHeight="250">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <StackLayout>
+                <components:DropdownItem TextColor="{StaticResource CitoLight}"
+                                         BottomSeparatorVisible="True"
+                                         ArrowPosition="Right"
+                                         ColorBackground="Transparent"
+                                         ItemHeightRequest="60"
+                                         Title="{Binding Month}"
+                                         ExpandableView="{x:Reference ContentLayout}" />
 
-              <Grid HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="80">
-                <Grid.ColumnDefinitions>
-                  <ColumnDefinition Width="*" />
-                  <ColumnDefinition Width="2.5*" />
-                  <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+                <components:DropdownContent x:Name="ContentLayout"
+                                            BackgroundColor="{Binding BackgroundColor}"
+                                            Padding="20,10"
+                                            TranslationY="-5"
+                                            HorizontalOptions="FillAndExpand"
+                                            VerticalOptions="Start">
+                    <ListView x:Name="WashesDetails"
+                              ItemSelected="WashesDetails_OnItemSelected"
+                              ItemsSource="{Binding Washes}"
+                              RowHeight="100"
+                              SeparatorVisibility="Default"
+                              SeparatorColor="{StaticResource CitoLightContrast}"
+                              VerticalOptions="Start">
+                      <ListView.ItemTemplate>
+                        <DataTemplate>
+                          <ViewCell>
+                            <Grid HorizontalOptions="FillAndExpand"
+                                  VerticalOptions="CenterAndExpand" >
+                              <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="2.5*" />
+                                <ColumnDefinition Width="*" />
+                              </Grid.ColumnDefinitions>
 
-                <abstractions:CircleImage Grid.Column="0"
-                                          Source="{StaticResource WasherProfileImage}"
-                                          BorderColor="{StaticResource CitoMain}"
-                                          BorderThickness="1"
-                                          HorizontalOptions="FillAndExpand"
-                                          VerticalOptions="FillAndExpand" />
+                              <abstractions:CircleImage Grid.Column="0"
+                                                        Source="{Binding CarImage}"
+                                                        BorderColor="{StaticResource CitoMain}"
+                                                        BorderThickness="1"
+                                                        HorizontalOptions="FillAndExpand"
+                                                        VerticalOptions="FillAndExpand" />
 
-                  <StackLayout Grid.Column="1"
-                               HorizontalOptions="FillAndExpand"
-                               VerticalOptions="CenterAndExpand">
-                      <controls:CitoLabel Text="11/10/2018"
-                                          FontSize="15"
-                                          TextColor="{StaticResource CitoLight}"
-                                          VerticalOptions="CenterAndExpand"
-                                          VerticalTextAlignment="Center"
-                                          HorizontalOptions="StartAndExpand"
-                                          HorizontalTextAlignment="Start" />
-                      <controls:CitoLabel Text="Bentley Continental GT"
-                                          FontSize="15"
-                                          TextColor="{StaticResource CitoLight}"
-                                          VerticalOptions="CenterAndExpand"
-                                          VerticalTextAlignment="Center"
-                                          HorizontalOptions="StartAndExpand"
-                                          HorizontalTextAlignment="Start" />
-                      <controls:CitoLabel Text="Elite Pack"
-                                          FontSize="15"
-                                          TextColor="{StaticResource CitoLight}"
-                                          VerticalOptions="CenterAndExpand"
-                                          VerticalTextAlignment="Center"
-                                          HorizontalOptions="StartAndExpand"
-                                          HorizontalTextAlignment="Start" />
-                      <controls:CitoLabel Text="**** **** **** 1528"
-                                          FontSize="15"
-                                          TextColor="{StaticResource CitoLight}"
-                                          VerticalOptions="CenterAndExpand"
-                                          VerticalTextAlignment="Center"
-                                          HorizontalOptions="StartAndExpand"
-                                          HorizontalTextAlignment="Start" />
-                  </StackLayout>
+                              <StackLayout Grid.Column="1"
+                                           HorizontalOptions="FillAndExpand"
+                                           VerticalOptions="CenterAndExpand">
+                                <controls:CitoLabel Text="{Binding Date}"
+                                                    FontSize="12"
+                                                    TextColor="{StaticResource CitoLight}"
+                                                    VerticalOptions="CenterAndExpand"
+                                                    VerticalTextAlignment="Center"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    HorizontalTextAlignment="Start" />
+                                <controls:CitoLabel Text="{Binding Car}"
+                                                    FontSize="12"
+                                                    TextColor="{StaticResource CitoLight}"
+                                                    VerticalOptions="CenterAndExpand"
+                                                    VerticalTextAlignment="Center"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    HorizontalTextAlignment="Start" />
+                                <controls:CitoLabel Text="{Binding WashingPackage}"
+                                                    FontSize="12"
+                                                    TextColor="{StaticResource CitoLight}"
+                                                    VerticalOptions="CenterAndExpand"
+                                                    VerticalTextAlignment="Center"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    HorizontalTextAlignment="Start" />
+                                <controls:CitoLabel Text="{Binding CardNumber}"
+                                                    FontSize="12"
+                                                    TextColor="{StaticResource CitoLight}"
+                                                    VerticalOptions="CenterAndExpand"
+                                                    VerticalTextAlignment="Center"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    HorizontalTextAlignment="Start" />
+                              </StackLayout>
 
-                <controls:CitoButton Grid.Column="2"
-                                     Text="Edit"
-                                     HeightRequest="35"
-                                     VerticalOptions="CenterAndExpand"
-                                     HorizontalOptions="FillAndExpand" />
+                              <controls:CitoButton Grid.Column="2"
+                                                   Text="Edit"
+                                                   FontSize="12"
+                                                   HeightRequest="35"
+                                                   VerticalOptions="CenterAndExpand"
+                                                   HorizontalOptions="FillAndExpand" />
 
-              </Grid>
+                            </Grid>
+                          </ViewCell>
+                        </DataTemplate>
+                      </ListView.ItemTemplate>
+                    </ListView>
+                </components:DropdownContent>
+              </StackLayout>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
 
-              <Grid HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="80">
-                <Grid.ColumnDefinitions>
-                  <ColumnDefinition Width="*" />
-                  <ColumnDefinition Width="2.5*" />
-                  <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-
-                <abstractions:CircleImage Grid.Column="0"
-                                          Source="{StaticResource WasherProfileImage}"
-                                          BorderColor="{StaticResource CitoMain}"
-                                          BorderThickness="1"
-                                          HorizontalOptions="FillAndExpand"
-                                          VerticalOptions="FillAndExpand" />
-
-                <StackLayout Grid.Column="1"
-                               HorizontalOptions="FillAndExpand"
-                               VerticalOptions="CenterAndExpand">
-                  <controls:CitoLabel Text="20/10/2018"
-                                      FontSize="15"
-                                      TextColor="{StaticResource CitoLight}"
-                                      VerticalOptions="CenterAndExpand"
-                                      VerticalTextAlignment="Center"
-                                      HorizontalOptions="StartAndExpand"
-                                      HorizontalTextAlignment="Start" />
-                  <controls:CitoLabel Text="Porsche Cayenne S"
-                                      FontSize="15"
-                                      TextColor="{StaticResource CitoLight}"
-                                      VerticalOptions="CenterAndExpand"
-                                      VerticalTextAlignment="Center"
-                                      HorizontalOptions="StartAndExpand"
-                                      HorizontalTextAlignment="Start" />
-                  <controls:CitoLabel Text="Elite Pack"
-                                      FontSize="15"
-                                      TextColor="{StaticResource CitoLight}"
-                                      VerticalOptions="CenterAndExpand"
-                                      VerticalTextAlignment="Center"
-                                      HorizontalOptions="StartAndExpand"
-                                      HorizontalTextAlignment="Start" />
-                  <controls:CitoLabel Text="**** **** **** 1528"
-                                      FontSize="15"
-                                      TextColor="{StaticResource CitoLight}"
-                                      VerticalOptions="CenterAndExpand"
-                                      VerticalTextAlignment="Center"
-                                      HorizontalOptions="StartAndExpand"
-                                      HorizontalTextAlignment="Start" />
-                </StackLayout>
-
-                <controls:CitoButton Grid.Column="2"
-                                     Text="Edit"
-                                     HeightRequest="35"
-                                     VerticalOptions="CenterAndExpand"
-                                     HorizontalOptions="FillAndExpand" />
-
-              </Grid>
-
-            </StackLayout>
-          </components:DropdownContent>
-          
-            <components:DropdownItem Title="November"
-                                     ItemHeightRequest="60"
-                                     ArrowPosition="Right"
-                                     BottomSeparatorVisible="True"
-                                     ColorBackground="Transparent"
-                                     TextColor="{StaticResource CitoLight}"/>
-            <components:DropdownItem Title="December"
-                                     ItemHeightRequest="60"
-                                     ArrowPosition="Right"
-                                     BottomSeparatorVisible="True"
-                                     ColorBackground="Transparent"
-                                     TextColor="{StaticResource CitoLight}"/>
-          
-        </StackLayout>
-    </ScrollView>
-  
+    </StackLayout>
   
 </ContentPage>

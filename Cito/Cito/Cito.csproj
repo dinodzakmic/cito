@@ -57,8 +57,10 @@
     <Compile Include="Helpers\CitoSettings.cs" />
     <Compile Include="Framework\Utilities\Location.cs" />
     <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="Models\FutureWashDetails.cs" />
+    <Compile Include="Models\FutureWashes.cs" />
     <Compile Include="Models\PastWashes.cs" />
-    <Compile Include="Models\PastWasherDetails.cs" />
+    <Compile Include="Models\PastWashDetails.cs" />
     <Compile Include="ViewModels\19AvailabilityViewModel.cs" />
     <Compile Include="ViewModels\AcceptWashViewModel.cs" />
     <Compile Include="ViewModels\CitoViewModelBase.cs" />

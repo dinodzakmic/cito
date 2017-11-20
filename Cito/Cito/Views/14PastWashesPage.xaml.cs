@@ -10,7 +10,7 @@ namespace Cito.Views
         }
 
 
-        private void WashersDetails_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private void WashesDetails_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             ((ListView) sender).SelectedItem = null;
         }

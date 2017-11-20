@@ -26,10 +26,10 @@ namespace Cito.ViewModels
         {
             PastWashesList = new List<PastWashes>()
             {
-                new PastWashes("June", new List<PastWasherDetails>()
+                new PastWashes("June", new List<PastWashDetails>()
                 {
-                    new PastWasherDetails("WasherProfileImage.jpg", "Washer Name", 5, "12.99$"),
-                    new PastWasherDetails("WasherProfileImage.jpg", "Washer Name", 3, "12.99$")
+                    new PastWashDetails("WasherProfileImage.jpg", "Washer Name", 5, "12.99$"),
+                    new PastWashDetails("WasherProfileImage.jpg", "Washer Name", 3, "12.99$")
                 }),
                 new PastWashes("May"),
                 new PastWashes("April"),

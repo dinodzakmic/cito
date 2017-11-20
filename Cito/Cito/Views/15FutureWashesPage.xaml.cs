@@ -8,5 +8,15 @@ namespace Cito.Views
         {
             InitializeComponent();
         }
+
+        private void FutureWashesList_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            ((ListView)sender).SelectedItem = null;
+        }
+
+        private void WashesDetails_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            ((ListView)sender).SelectedItem = null;
+        }
     }
 }

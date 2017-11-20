@@ -8,9 +8,12 @@
              Title="FAQ"
              BindingContext="{Binding Source={StaticResource Locator}, Path=Faq}">
     
-        <StackLayout>
-            <ListView x:Name="FaqList" ItemsSource="{Binding FaqList}" ItemSelected="ListView_OnItemSelected"
-                      HasUnevenRows="True" RowHeight="250">
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <ListView x:Name="FaqList"
+                      ItemsSource="{Binding FaqList}"
+                      ItemSelected="ListView_OnItemSelected"
+                      HasUnevenRows="True" 
+                      RowHeight="250">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -23,9 +26,14 @@
                                                          Title="{Binding Question}"
                                                          ExpandableView="{x:Reference FirstLayout}" />
                                 
-                                <components:DropdownContent x:Name="FirstLayout" Padding="20,10"
-                                                            HorizontalOptions="StartAndExpand" VerticalOptions="Start">
-                                    <StackLayout>
+                                <components:DropdownContent x:Name="FirstLayout" 
+                                                            Padding="20,10"
+                                                            TranslationY="-5"
+                                                            BackgroundColor="{StaticResource CitoDarkBackground}"
+                                                            HorizontalOptions="FillAndExpand" 
+                                                            VerticalOptions="Start">
+                                    <StackLayout HorizontalOptions="FillAndExpand" 
+                                                 VerticalOptions="StartAndExpand">
                                         <controls:CitoLabel Style="{StaticResource FaqLabelStyle}"
                                                             Text="{Binding Answer}" />
                                     </StackLayout>

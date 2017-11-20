@@ -34,13 +34,14 @@
                                                          ExpandableView="{x:Reference ContentLayout}" />
 
                                 <components:DropdownContent x:Name="ContentLayout"
+                                                            BackgroundColor="{Binding BackgroundColor}"
                                                             Padding="20,10"
+                                                            TranslationY="-5"
                                                             HorizontalOptions="FillAndExpand"
                                                             VerticalOptions="Start">
-                                  <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
-                                    <ListView x:Name="WashersDetails"
-                                              ItemSelected="WashersDetails_OnItemSelected"
-                                              ItemsSource="{Binding Washers}" 
+                                    <ListView x:Name="WashesDetails"
+                                              ItemSelected="WashesDetails_OnItemSelected"
+                                              ItemsSource="{Binding Washes}" 
                                               RowHeight="80" 
                                               SeparatorVisibility="Default"
                                               SeparatorColor="{StaticResource CitoLightContrast}"
@@ -67,7 +68,7 @@
                                                            HorizontalOptions="FillAndExpand"
                                                            VerticalOptions="CenterAndExpand">
                                                 <controls:CitoLabel Text="{Binding WasherName}"
-                                                                    FontSize="15"
+                                                                    FontSize="12"
                                                                     TextColor="{StaticResource CitoLight}"
                                                                     VerticalOptions="CenterAndExpand"
                                                                     VerticalTextAlignment="Center"
@@ -91,7 +92,6 @@
                                         </DataTemplate>
                                       </ListView.ItemTemplate>
                                     </ListView>
-                                  </StackLayout>                                   
                                 </components:DropdownContent>
                             </StackLayout>
                         </ViewCell>
