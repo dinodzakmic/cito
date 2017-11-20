@@ -45,8 +45,14 @@
         <controls:CitoButton HorizontalOptions="CenterAndExpand" Text="{Binding SelectedPackCost, StringFormat='$ {0}'}"/>
         
         <StackLayout Orientation="Horizontal">
-            <controls:CitoButton HorizontalOptions="CenterAndExpand" Text="Cancel" WidthRequest="80" />
-            <controls:CitoButton HorizontalOptions="CenterAndExpand" Text="Accept" WidthRequest="80" />
+            <controls:CitoButton HorizontalOptions="CenterAndExpand" 
+                                 Text="Cancel" 
+                                 Command="{Binding CancelOrderCommand}"
+                                 WidthRequest="80" />
+            <controls:CitoButton HorizontalOptions="CenterAndExpand" 
+                                 Text="Accept" 
+                                 Command="{Binding GoToRateWasherCommand}"
+                                 WidthRequest="80" />
         </StackLayout>
     </StackLayout>
 </ContentPage>

@@ -27,7 +27,8 @@
                                      TextColor="{StaticResource CitoLight}"
                                      HeightRequest="45"
                                      TitleHorizontalTextAlignment="Center"
-                                     ExpandableView="{x:Reference FirstLayout}" />
+                                     ExpandableView="{x:Reference FirstLayout}"
+                                     TitleColorAnimationEnabled="False"/>
             <components:DropdownContent x:Name="FirstLayout"
                                         HorizontalOptions="StartAndExpand" 
                                         VerticalOptions="Start">
@@ -60,13 +61,15 @@
                                      Title="Recent Services"
                                      TextColor="{StaticResource CitoLight}"
                                      TitleHorizontalTextAlignment="Center"
-                                     ItemHeightRequest="45" />
+                                     ItemHeightRequest="45"
+                                     TitleColorAnimationEnabled="False"/>
 
             <components:DropdownItem Margin="20,0,20,20"
                                      Title="Recent Washers"
                                      TextColor="{StaticResource CitoLight}"
                                      ItemHeightRequest="45"
-                                     TitleHorizontalTextAlignment="Center" />
+                                     TitleHorizontalTextAlignment="Center"
+                                     TitleColorAnimationEnabled="False"/>
 
         </StackLayout>
     </ScrollView>

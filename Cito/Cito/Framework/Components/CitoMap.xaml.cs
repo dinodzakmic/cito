@@ -77,7 +77,7 @@ namespace Cito.Framework.Components
         }
 
 
-        public Distance CurrentDistance { get; set; } = Distance.FromKilometers(1);
+        public Distance CurrentDistance { get; set; } = Distance.FromKilometers(2);
         #endregion
         #endregion
         public CitoMap()

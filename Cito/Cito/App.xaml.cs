@@ -143,7 +143,8 @@ namespace Cito
 
         protected override void OnSleep()
         {
-            // Handle when your app sleeps
+            if (App.Locator.Prelogin.Settings.IsUserLoggedIn)
+                Location.StopGps();
         }
 
         protected override void OnResume()

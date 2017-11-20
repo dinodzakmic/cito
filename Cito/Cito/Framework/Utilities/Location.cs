@@ -11,30 +11,33 @@ namespace Cito.Framework.Utilities
     {
         public static Position CurrentPosition { get; set; }
 
-        public static void GetUserLocation()
+        public static async void GetUserLocation()
         {
-            Device.BeginInvokeOnMainThread(async () =>
+            if (!CrossGeolocator.Current.IsGeolocationEnabled && CitoSettings.Current.IsUserLoggedIn)
             {
-                if (!CrossGeolocator.Current.IsGeolocationEnabled && CitoSettings.Current.IsUserLoggedIn)
+                UserDialogs.Instance.Toast("Please enable your GPS for better experience", TimeSpan.FromSeconds(4));
+                return;
+            }
+
+            await CrossGeolocator.Current.GetPositionAsync().ContinueWith(t =>
+            {
+                if (t.IsCompleted)
                 {
-                    UserDialogs.Instance.Toast("Please enable your GPS for better experience", TimeSpan.FromSeconds(4));
-                    return;
+                    CurrentPosition = t.Result;
+                    App.Locator.Map.CurrentUserPosition =
+                        new Xamarin.Forms.Maps.Position(Location.CurrentPosition.Latitude,
+                            Location.CurrentPosition.Longitude);
+
+                    CitoSettings.Current.LastLatitude = Location.CurrentPosition.Latitude;
+                    CitoSettings.Current.LastLongitude = Location.CurrentPosition.Longitude;
+                    
                 }
-
-                await CrossGeolocator.Current.GetPositionAsync().ContinueWith(t =>
-                {
-                    if (t.IsCompleted)
-                    {
-                        CurrentPosition = t.Result;
-                        App.Locator.Map.CurrentUserPosition = new Xamarin.Forms.Maps.Position(Location.CurrentPosition.Latitude, Location.CurrentPosition.Longitude);
-
-                        CitoSettings.Current.LastLatitude = Location.CurrentPosition.Latitude;
-                        CitoSettings.Current.LastLongitude = Location.CurrentPosition.Longitude;
-                    }
-                });
             });
-            
+        }
 
+        public static void StopGps()
+        {
+            //handle this
         }
     }
 }
