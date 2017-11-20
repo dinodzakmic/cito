@@ -26,8 +26,8 @@ namespace Cito.ViewModels
         public AvailabilityViewModel Availability => ViewModel<AvailabilityViewModel>.Get();
         public WasherProfileViewModel WasherProfile => ViewModel<WasherProfileViewModel>.Get();
         public WasherMenuViewModel WasherMenu => ViewModel<WasherMenuViewModel>.Get();
-        
-
+        public TakePictureWashingDoneViewModel TakePictureWashingDone => ViewModel<TakePictureWashingDoneViewModel>.Get();
+        public AcceptWashViewModel AcceptWash => ViewModel<AcceptWashViewModel>.Get();
 
 
         public static void Cleanup()

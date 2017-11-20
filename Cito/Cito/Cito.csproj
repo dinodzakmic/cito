@@ -60,6 +60,7 @@
     <Compile Include="Models\PastWashes.cs" />
     <Compile Include="Models\PastWasherDetails.cs" />
     <Compile Include="ViewModels\19AvailabilityViewModel.cs" />
+    <Compile Include="ViewModels\AcceptWashViewModel.cs" />
     <Compile Include="ViewModels\CitoViewModelBase.cs" />
     <Compile Include="ViewModels\03CreateAccountViewModel.cs" />
     <Compile Include="ViewModels\01PreloginViewModel.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="ViewModels\10OrderDetailsViewModel.cs" />
     <Compile Include="ViewModels\11RateWasherViewModel.cs" />
     <Compile Include="ViewModels\15FutureWashesViewModel.cs" />
+    <Compile Include="ViewModels\21TakePictureWashingDoneViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="ViewModels\20WasherProfileViewModel.cs" />
     <Compile Include="ViewModels\22WasherMenuViewModel.cs" />
@@ -171,6 +173,12 @@
     </Compile>
     <Compile Include="Views\15FutureWashesPage.xaml.cs">
       <DependentUpon>15FutureWashesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AcceptWashPage.xaml.cs">
+      <DependentUpon>AcceptWashPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\21TakePictureWashingDonePage.xaml.cs">
+      <DependentUpon>21TakePictureWashingDonePage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -392,7 +400,12 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Views\21TakePictureWashingDonePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Framework\Components\CitoMap.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -457,6 +470,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\15FutureWashesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\AcceptWashPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

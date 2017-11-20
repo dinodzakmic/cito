@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
+             x:Class="Cito.Views.AcceptWashPage"
+             BindingContext="{Binding Source={StaticResource Locator}, Path=AcceptWash}"
+             BackgroundImage="{StaticResource BackgroundGradient}">
+    <ContentPage.Content>
+        <StackLayout>
+            <controls:CitoButton Text="Accept wash" 
+                    Command="{Binding AcceptCommand}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

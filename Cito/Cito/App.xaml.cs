@@ -40,10 +40,10 @@ namespace Cito
             if (App.Locator.Prelogin.Settings.IsUserLoggedIn)
             {
                 if (App.Locator.Prelogin.Settings.UserType.Equals(UserTypeViewModel.UserTypeOf.Owner.ToString()))
-                {                   
+                {
                     var rootPage = new MapPage();
                     App.NavPage = new NavigationPage(rootPage);
-                    App.MenuPage = (MasterDetailPage) new OwnerMenu() {Detail = App.NavPage};
+                    App.MenuPage = (MasterDetailPage)new OwnerMenu() { Detail = App.NavPage };
                     App.Current.MainPage = App.MenuPage;
                 }
                 else
