@@ -20,11 +20,68 @@
                                      ColorBackground="Transparent"
                                      TextColor="{StaticResource CitoLight}"/>
             <components:DropdownItem Title="October"
+                                     ExpandableView="{x:Reference FirstLayout}"
                                      ItemHeightRequest="60"
                                      ArrowPosition="Right"
                                      BottomSeparatorVisible="True"
                                      ColorBackground="Transparent"
                                      TextColor="{StaticResource CitoLight}"/>
+          
+          <components:DropdownContent x:Name="FirstLayout" Padding="40,10"
+                            HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+
+                <Frame Padding="0.25"
+                       HeightRequest="150"
+                       HorizontalOptions="FillAndExpand"
+                       VerticalOptions="FillAndExpand"
+                       OutlineColor="{StaticResource CitoLightContrast}"
+                       IsClippedToBounds="True"
+                       CornerRadius="0">
+                    <Grid BackgroundColor="#2d929c">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <controls:CitoLabel Text="WASHER NO.1"
+                                            FontSize="15"
+                                            TextColor="{StaticResource CitoLight}"
+                                            VerticalOptions="CenterAndExpand"
+                                            VerticalTextAlignment="Center"
+                                            HorizontalOptions="CenterAndExpand"
+                                            HorizontalTextAlignment="Center" />
+
+                    </Grid>
+                </Frame>
+
+                <Frame Padding="0.5"
+                       HeightRequest="150"
+                       HorizontalOptions="FillAndExpand"
+                       VerticalOptions="FillAndExpand"
+                       OutlineColor="{StaticResource CitoLightContrast}"
+                       IsClippedToBounds="True"
+                       CornerRadius="0">
+                  <Grid BackgroundColor="#2d929c">
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="3*" />
+                      <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <controls:CitoLabel Text="WASHER NO.1"
+                                        FontSize="15"
+                                        TextColor="{StaticResource CitoLight}"
+                                        VerticalOptions="CenterAndExpand"
+                                        VerticalTextAlignment="Center"
+                                        HorizontalOptions="CenterAndExpand"
+                                        HorizontalTextAlignment="Center" />
+
+                  </Grid>
+              </Frame>
+
+            </StackLayout>
+          </components:DropdownContent>
+          
             <components:DropdownItem Title="November"
                                      ItemHeightRequest="60"
                                      ArrowPosition="Right"
