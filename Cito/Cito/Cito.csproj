@@ -57,6 +57,8 @@
     <Compile Include="Helpers\CitoSettings.cs" />
     <Compile Include="Framework\Utilities\Location.cs" />
     <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="Models\PastWashes.cs" />
+    <Compile Include="Models\PastWasherDetails.cs" />
     <Compile Include="ViewModels\19AvailabilityViewModel.cs" />
     <Compile Include="ViewModels\CitoViewModelBase.cs" />
     <Compile Include="ViewModels\03CreateAccountViewModel.cs" />
@@ -384,9 +386,7 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Framework\Components\CitoMap.xaml">
       <Generator>MSBuild:Compile</Generator>

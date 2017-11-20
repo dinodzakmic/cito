@@ -9,6 +9,15 @@ namespace Cito.Views
             InitializeComponent();
         }
 
-       
+
+        private void WashersDetails_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            ((ListView) sender).SelectedItem = null;
+        }
+
+        private void PastWashesList_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            ((ListView)sender).SelectedItem = null;
+        }
     }
 }
