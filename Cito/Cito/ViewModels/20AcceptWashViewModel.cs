@@ -11,6 +11,8 @@
 
         public ICommand AcceptCommand => new Command(async ()=>
             await GoToPage(new TakePictureWashingDonePage()));
+
+        public ICommand CancelCommand => new Command(async () => await GoToPreviousPage());
         
     }
 }

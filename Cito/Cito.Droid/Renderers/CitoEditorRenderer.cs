@@ -24,7 +24,7 @@ namespace Cito.Droid.Renderers
             var height = Control.MeasuredHeight;
             var width = Control.MeasuredWidth;
             Control.Background = new FixedDrawable(height, width);
-
+            Control.SetHintTextColor(new Android.Graphics.Color() { A = 255, R = 109, G = 197, B = 237 });
 
             if (e.NewElement != null)
             {
@@ -40,7 +40,7 @@ namespace Cito.Droid.Renderers
             SetShape(ShapeType.Rectangle);
             IntrinsicHeight = height;
             SetColors(new int[] { Android.Graphics.Color.Transparent, Android.Graphics.Color.Transparent });
-            SetStroke(2, new Android.Graphics.Color() { A = 255, R = 109, G = 197, B = 237 });
+            SetStroke(2, new Android.Graphics.Color() { A = 255, R = 168, G = 168, B = 168 });
             SetCornerRadius(0);
             SetBounds(0, 0, width, height);
 

@@ -15,6 +15,8 @@ namespace Cito.Framework.Controls
         #region Public properties
         public View ScrollParent { get; set; }
         public double KeyboardHeight { get; set; } = 200;
+        public bool HasFocusable { get; set; } = true;
+        public Color BorderColor { get; set; } = (Color)Application.Current.Resources["CitoLightContrast"];
 
         #region NextView
         public static readonly BindableProperty NextViewProperty =

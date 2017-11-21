@@ -48,6 +48,7 @@
         <x:String x:Key="ProfessionalMedal">ProfessionalMedal.png</x:String>
         <x:String x:Key="EliteMedal">EliteMedal.png</x:String>
         <x:String x:Key="CoinIcon">coin.png</x:String>
+        <x:String x:Key="ConnectionIcon">ConnectionIcon.png</x:String>
 
         <x:Double x:Key="ControlsHeight">45</x:Double>
 

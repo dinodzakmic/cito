@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
+             xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
+             x:Class="Cito.Views.AcceptWashPage"
+             BindingContext="{Binding Source={StaticResource Locator}, Path=AcceptWash}"
+             BackgroundImage="{StaticResource BackgroundGradient}"
+             Title="Washing Requests">
+
+  <StackLayout Padding="20, 60, 20, 20" Spacing="10">
+      <Image Source="{StaticResource LogoImage}" Aspect="AspectFit" HeightRequest="100" />
+      <StackLayout HeightRequest="50" />
+
+
+      <components:ImageButton Margin="20,0"
+                              HeightRequest="{StaticResource ControlsHeight}"
+                              ButtonImage="{StaticResource CarSmallIcon}"
+                              ButtonText="WASHING REQUESTS"
+                              ButtonTextHorizontalTextAlignment="Start" />
+    
+    <controls:CitoEntry x:Name="AddressEntry" 
+                        Placeholder="ADDRESS"
+                        HorizontalOptions="FillAndExpand"
+                        Margin="20,0" 
+                        HasFocusable="False"/>
+
+    <controls:CitoEntry x:Name="ServiceTypeEntry"
+                        Placeholder="TYPE OF SERVICE"
+                        HorizontalOptions="FillAndExpand"
+                        Margin="20,0"
+                        HasFocusable="False"/>
+
+      <StackLayout Orientation="Horizontal"
+                   Padding="20"
+                   HorizontalOptions="FillAndExpand">
+          <controls:CitoButton Text="Accept"
+                               HorizontalOptions="FillAndExpand"
+                               Command="{Binding AcceptCommand}" />
+
+          <controls:CitoFrame Padding="0" HorizontalOptions="FillAndExpand">
+              <controls:CitoButton Text="Cancel"
+                                   BorderWidth="5"
+                                   BorderColor="{StaticResource CitoLightContrast}"
+                                   HorizontalOptions="FillAndExpand"
+                                   BackgroundColor="Transparent"
+                                   Command="{Binding CancelCommand}"/>
+          </controls:CitoFrame>
+          
+      </StackLayout>
+
+      
+  </StackLayout>
+    
+</ContentPage>

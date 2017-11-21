@@ -22,7 +22,31 @@
       
 
         <components:PackageSelector Grid.Row="1"
+                                    IsVisible="{Binding IsOwner}"
                                     SelectedPackage="{Binding WasherPackage}"/>
+
+        <StackLayout Grid.Row="1"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand"
+                     Opacity="0.85"
+                     Padding="20"
+                     IsVisible="{Binding IsWasherAvailable}"
+                     BackgroundColor="{StaticResource CitoMainDark}">
+            <controls:CitoLabel HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                FontSize="24"
+                                TextColor="{StaticResource CitoLight}"
+                                Text="2 active washing requests" />
+            <controls:CitoButton Text="Explore" 
+                                 Command="{Binding GoToWashingRequestsCommand}"
+                                 VerticalOptions="CenterAndExpand"
+                                 HorizontalOptions="FillAndExpand"
+                                 Margin="20,0"/>
+        </StackLayout>
+      
+      
     </Grid>
 
 </ContentPage>

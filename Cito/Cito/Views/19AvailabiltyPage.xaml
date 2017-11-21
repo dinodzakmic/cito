@@ -26,7 +26,7 @@
                    Orientation="Horizontal" Spacing="15"
                    TranslationY="-10">
 
-          <controls:CitoLabel Text="ONLINE"
+          <controls:CitoLabel Text="OFFLINE"
                               FontSize="14"
                               FontAttributes="Bold"
                               TextColor="{StaticResource CitoAccent}"
@@ -36,11 +36,11 @@
                               HorizontalTextAlignment="Center"/>
 
 
-          <components:CitoSwitch IsToggled="False"
+          <components:CitoSwitch IsToggled="{Binding UserOnline}"
                                  VerticalOptions="CenterAndExpand"
                                  HorizontalOptions="CenterAndExpand" />
 
-          <controls:CitoLabel Text="OFFLINE"
+          <controls:CitoLabel Text="ONLINE"
                               FontSize="14"
                               FontAttributes="Bold"
                               TextColor="{StaticResource CitoAccent}"

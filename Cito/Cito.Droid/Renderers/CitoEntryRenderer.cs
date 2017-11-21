@@ -33,8 +33,12 @@ namespace Cito.Droid.Renderers
             Control.SetPadding(Control.PaddingLeft + 20, padding, Control.PaddingRight, padding);
             Control.Background = new FixedDrawable(height, width);
             Control.Gravity = GravityFlags.CenterVertical | GravityFlags.CenterHorizontal;
+            
 
             var newElement = (CitoEntry) e.NewElement;
+            
+            if(newElement != null)
+                Control.Focusable = newElement.HasFocusable;
 
             if (newElement != null && newElement.IsFirstLetterUpperCase)
                 Control.InputType = InputTypes.ClassText | InputTypes.TextFlagCapSentences |
@@ -63,7 +67,7 @@ namespace Cito.Droid.Renderers
                 SetShape(ShapeType.Rectangle);
                 IntrinsicHeight = height;
                 SetColors(new int[] {Android.Graphics.Color.Transparent, Android.Graphics.Color.Transparent});
-                SetStroke(2, new Android.Graphics.Color() {A = 255, R = 109, G = 197, B = 237});
+                SetStroke(2, new Android.Graphics.Color() {A = 255, R = 168, G = 168, B = 168});
                 SetCornerRadius(0);
                 SetBounds(0, 0, width, height);
 

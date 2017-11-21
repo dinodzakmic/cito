@@ -1,4 +1,5 @@
 ﻿using System;
+using Cito.Framework.Utilities;
 using Xamarin.Forms;
 
 namespace Cito.Views
@@ -7,7 +8,7 @@ namespace Cito.Views
     {
         public MapPage()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }       
     }
 }

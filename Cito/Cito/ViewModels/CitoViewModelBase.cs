@@ -33,7 +33,10 @@ namespace Cito.ViewModels
                     return;
 
                 if (App.NavPage.CurrentPage.GetType() == page.GetType())
+                {
+                    App.MenuPage.IsPresented = false;
                     return;
+                }
 
                 App.InstantiatingPageType = page.GetType();
                 App.UpdateLoading(true);
@@ -86,8 +89,12 @@ namespace Cito.ViewModels
                 if (!Connectivity.CheckConnectionAndDisplayToast())
                     return;
 
-                if (App.NavPage.CurrentPage.GetType() == App.NavPage.Navigation.NavigationStack.FirstOrDefault()?.GetType())
+                if (App.NavPage.CurrentPage.GetType() ==
+                    App.NavPage.Navigation.NavigationStack.FirstOrDefault()?.GetType())
+                {
+                    App.MenuPage.IsPresented = false;
                     return;
+                }
 
                 App.UpdateLoading(true);
                 await Task.Delay(500);

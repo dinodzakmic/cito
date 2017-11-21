@@ -289,6 +289,7 @@
     <Compile Include="Renderers\CitoEntryRenderer.cs" />
     <Compile Include="Renderers\CitoLabelRenderer.cs" />
     <Compile Include="Renderers\CitoMapRenderer.cs" />
+    <Compile Include="Renderers\FrameRenderer.cs" />
     <Compile Include="Renderers\ImageButtonRenderer.cs" />
     <Compile Include="Renderers\CustomNavigationRenderer.cs" />
     <Compile Include="Renderers\RoundedBoxViewRenderer.cs" />
@@ -448,6 +449,9 @@
     <AndroidResource Include="Resources\xml\file_paths.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ConnectionIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

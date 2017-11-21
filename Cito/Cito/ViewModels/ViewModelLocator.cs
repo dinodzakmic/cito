@@ -27,6 +27,7 @@ namespace Cito.ViewModels
         public WasherProfileViewModel WasherProfile => ViewModel<WasherProfileViewModel>.Get();
         public WasherMenuViewModel WasherMenu => ViewModel<WasherMenuViewModel>.Get();
         public TakePictureWashingDoneViewModel TakePictureWashingDone => ViewModel<TakePictureWashingDoneViewModel>.Get();
+        public EarningsViewModel Earnings => ViewModel<EarningsViewModel>.Get();
         public AcceptWashViewModel AcceptWash => ViewModel<AcceptWashViewModel>.Get();
 
 

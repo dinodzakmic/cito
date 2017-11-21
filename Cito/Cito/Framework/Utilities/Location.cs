@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Acr.UserDialogs;
 using Cito.Helpers;
 using Plugin.Geolocator;
@@ -10,8 +11,9 @@ namespace Cito.Framework.Utilities
     public static class Location
     {
         public static Position CurrentPosition { get; set; }
+        internal static bool GpsStarted { get; set; } = false;
 
-        public static async void GetUserLocation()
+        public static async Task GetUserLocation()
         {
             if (!CrossGeolocator.Current.IsGeolocationEnabled && CitoSettings.Current.IsUserLoggedIn)
             {
@@ -19,25 +21,27 @@ namespace Cito.Framework.Utilities
                 return;
             }
 
-            await CrossGeolocator.Current.GetPositionAsync().ContinueWith(t =>
+
+            await CrossGeolocator.Current.GetPositionAsync(timeout: TimeSpan.FromSeconds(5)).ContinueWith(t =>
             {
                 if (t.IsCompleted)
                 {
                     CurrentPosition = t.Result;
-                    App.Locator.Map.CurrentUserPosition =
-                        new Xamarin.Forms.Maps.Position(Location.CurrentPosition.Latitude,
-                            Location.CurrentPosition.Longitude);
-
-                    CitoSettings.Current.LastLatitude = Location.CurrentPosition.Latitude;
-                    CitoSettings.Current.LastLongitude = Location.CurrentPosition.Longitude;
-                    
+                    HandleCurrentPosition();
                 }
             });
+
         }
 
         public static void StopGps()
         {
             //handle this
+        }
+
+        private static void HandleCurrentPosition()
+        {
+            CitoSettings.Current.LastLatitude = CurrentPosition.Latitude;
+            CitoSettings.Current.LastLongitude = CurrentPosition.Longitude;
         }
     }
 }
