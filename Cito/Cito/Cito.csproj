@@ -44,6 +44,9 @@
     <Compile Include="Framework\Components\MenuItem.xaml.cs">
       <DependentUpon>MenuItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Framework\Components\PackageSelector.xaml.cs">
+      <DependentUpon>PackageSelector.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Framework\Components\Rating.xaml.cs">
       <DependentUpon>Rating.xaml</DependentUpon>
     </Compile>
@@ -59,6 +62,7 @@
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Models\FutureWashDetails.cs" />
     <Compile Include="Models\FutureWashes.cs" />
+    <Compile Include="Models\Package.cs" />
     <Compile Include="Models\PastWashes.cs" />
     <Compile Include="Models\PastWashDetails.cs" />
     <Compile Include="ViewModels\19AvailabilityViewModel.cs" />
@@ -478,6 +482,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\AcceptWashPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Framework\Components\PackageSelector.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

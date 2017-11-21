@@ -18,9 +18,9 @@ namespace Cito.ViewModels
 
         public string CodedCardNumber => "**** **** **** 5542";
 
-        public string SelectedPack => "Standard Pack";
+        public string SelectedPack => App.Locator.Map.WasherPackage.PackageName;
 
-        public string SelectedPackCost => "12.99";
+        public string SelectedPackCost => App.Locator.Map.WasherPackage.PackagePrice;
 
         public string CarModel => "Audi A8";
 
@@ -29,6 +29,7 @@ namespace Cito.ViewModels
         public string CarPicture => "Car.jpg";
 
         public string WasherPicture => "washer.jpg";
+      
 
         public ICommand GoToRateWasherCommand => new Command(async () => await GoToRateWasher());
         public ICommand CancelOrderCommand => new Command(async () => await CancelOrder());

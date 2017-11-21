@@ -15,11 +15,11 @@
 
         public ImageSource Photo
         {
-            get => this.photo;
-            set => this.Set(ref this.photo, value);
+            get { return photo; }
+            set { Set(ref photo, value); }
         }
 
-        public ICommand TakePhotoCommand => new Command(this.TakePhoto);
+        public ICommand TakePhotoCommand => new Command(TakePhoto);
 
         public async void TakePhoto()// takePhoto.Clicked += async(sender, args) =>
 
@@ -51,7 +51,7 @@
 
             if (src != null)
             {
-                this.Photo = src;
+                Photo = src;
             }
 
             //or:

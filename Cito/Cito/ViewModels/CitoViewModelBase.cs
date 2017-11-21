@@ -32,6 +32,9 @@ namespace Cito.ViewModels
                 if (!Connectivity.CheckConnectionAndDisplayToast())
                     return;
 
+                if (App.NavPage.CurrentPage.GetType() == page.GetType())
+                    return;
+
                 App.InstantiatingPageType = page.GetType();
                 App.UpdateLoading(true);
                 await Task.Delay(500);
@@ -81,6 +84,9 @@ namespace Cito.ViewModels
             try
             {
                 if (!Connectivity.CheckConnectionAndDisplayToast())
+                    return;
+
+                if (App.NavPage.CurrentPage.GetType() == App.NavPage.Navigation.NavigationStack.FirstOrDefault()?.GetType())
                     return;
 
                 App.UpdateLoading(true);

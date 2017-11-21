@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Cito.Framework.Utilities;
 using Cito.Helpers;
+using Cito.Models;
 using Cito.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
@@ -26,10 +27,19 @@ namespace Cito.ViewModels
         private Position _currentUserPosition =
             new Position(CitoSettings.Current.LastLatitude, CitoSettings.Current.LastLongitude);
 
+        
         public Position CurrentUserPosition
         {
             get { return _currentUserPosition; }
             set { Set(ref _currentUserPosition, value); }
+        }
+
+        private Package _washerPackage;
+
+        public Package WasherPackage
+        {
+            get { return _washerPackage; }
+            set { Set(ref _washerPackage, value); }
         }
 
         #endregion
