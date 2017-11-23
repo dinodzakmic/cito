@@ -4,10 +4,12 @@
                   xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
                   x:Class="Cito.Views.WasherMenu"
                   MasterBehavior="Popover"
+                  Icon="MenuIcon.png"
                   Title="WasherMenu">
 
   <MasterDetailPage.Master>
-    <ContentPage Title="OwnerMenu"
+    <ContentPage Title="Menu"
+                 Icon="MenuIcon.png"
                  BindingContext="{Binding Source={StaticResource Locator}, Path=WasherMenu}" >
       <Grid BackgroundColor="Transparent">
         <Grid.RowDefinitions>

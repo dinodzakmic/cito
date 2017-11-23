@@ -4,10 +4,12 @@
                   xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
                   x:Class="Cito.Views.OwnerMenu"
                   MasterBehavior="Popover"
+                  Icon="MenuIcon.png"
                   Title="OwnerMenu" >
   
   <MasterDetailPage.Master>
-    <ContentPage Title="OwnerMenu" 
+    <ContentPage Title="Menu"
+                 Icon="MenuIcon.png"
                  BindingContext="{Binding Source={StaticResource Locator}, Path=OwnerMenu}" >
       <Grid BackgroundColor="Transparent">
         <Grid.RowDefinitions>
@@ -17,6 +19,7 @@
         <Image Grid.Row="0" Grid.RowSpan="2" 
                Source="{StaticResource MenuBackground}"
                Aspect="AspectFill"/>
+        
           <StackLayout Grid.Row="0" Spacing="0" Margin="15,20" BackgroundColor="Transparent">
               <components:MenuItem MenuItemImage="{StaticResource LocationIcon}"
                                    MenuItemText="Home"
@@ -40,6 +43,7 @@
               <components:MenuItem MenuItemImage="{StaticResource ContactIcon}"
                                    MenuItemText="Support"
                                    Command="{Binding GoToSupportCommand}" />
+            
           </StackLayout>
       </Grid>
     </ContentPage>

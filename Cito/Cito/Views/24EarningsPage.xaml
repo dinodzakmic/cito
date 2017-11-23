@@ -39,7 +39,9 @@
 
       <controls:CitoFrame Padding="20,0"
                           Margin="0,20,0,0"
-                          HeightRequest="70">
+                          HeightRequest="70"
+                          BackgroundColor="Transparent"
+                          OutlineColor="{StaticResource CitoLightContrast}">
           <Grid Padding="5">
               <Grid.ColumnDefinitions>
                   <ColumnDefinition Width="3*" />
@@ -78,7 +80,9 @@
       </controls:CitoFrame>
 
     <controls:CitoFrame Padding="20,0"
-                         HeightRequest="70">
+                        HeightRequest="70"
+                        BackgroundColor="Transparent"
+                        OutlineColor="{StaticResource CitoLightContrast}">
       <Grid Padding="5">
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width="3*" />
@@ -117,7 +121,9 @@
     </controls:CitoFrame>
 
     <controls:CitoFrame Padding="20,0"
-                            HeightRequest="70">
+                        HeightRequest="70"
+                        BackgroundColor="Transparent"
+                        OutlineColor="{StaticResource CitoLightContrast}">
       <Grid Padding="5">
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width="3*" />

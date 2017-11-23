@@ -38,9 +38,15 @@
                                HorizontalOptions="FillAndExpand"
                                Command="{Binding AcceptCommand}" />
 
-          <controls:CitoFrame Padding="0" HorizontalOptions="FillAndExpand">
+          <controls:CitoFrame Padding="0" 
+                              HorizontalOptions="FillAndExpand" 
+                              BackgroundColor="Transparent"
+                              IsClippedToBounds="True"
+                              HasShadow="False"
+                              OutlineColor="{StaticResource CitoLightContrast}">
               <controls:CitoButton Text="Cancel"
-                                   BorderWidth="5"
+                                   BorderWidth="1"
+                                   BorderRadius="0"
                                    BorderColor="{StaticResource CitoLightContrast}"
                                    HorizontalOptions="FillAndExpand"
                                    BackgroundColor="Transparent"

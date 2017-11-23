@@ -4,16 +4,15 @@
        x:Class="Cito.Framework.Controls.CitoEntry"
        TextColor="{StaticResource CitoLight}"
        PlaceholderColor="{StaticResource CitoLightContrast}"
-       HeightRequest="{StaticResource ControlsHeight}"
        FontSize="14"
        BackgroundColor="Transparent"
        TextChanged="NEntry_OnTextChanged"
        Focused="CitoEntryFocused"
        Unfocused="CitoEntryUnfocused">
-    <!--<Entry.BackgroundColor>
-        <OnPlatform x:TypeArguments="Color" >
-            <On Platform="Android" Value="Transparent"/>
-            <On Platform="iOS" Value="Transparent"/>
+    <Entry.HeightRequest>
+        <OnPlatform x:TypeArguments="x:Double">
+            <On Platform="Android" Value="45" />
+            <On Platform="iOS" Value="50" />
         </OnPlatform>
-    </Entry.BackgroundColor>-->
+    </Entry.HeightRequest>
 </Entry>

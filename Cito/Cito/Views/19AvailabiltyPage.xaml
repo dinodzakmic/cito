@@ -6,6 +6,7 @@
              x:Class="Cito.Views.AvailabiltyPage"
              BindingContext="{Binding Source={StaticResource Locator}, Path=Availability}"
              BackgroundImage="{StaticResource BackgroundGradient}"
+             Icon="MenuIcon.png"
              Title="Availability">
 
 

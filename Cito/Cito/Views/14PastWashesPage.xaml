@@ -29,6 +29,7 @@
                                                          BottomSeparatorVisible="True"
                                                          ArrowPosition="Right"
                                                          ColorBackground="Transparent"
+                                                         BackgroundColor="Transparent"
                                                          ItemHeightRequest="60"
                                                          Title="{Binding Month}"
                                                          ExpandableView="{x:Reference ContentLayout}" />

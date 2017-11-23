@@ -31,9 +31,11 @@
                                      ColorAnimationEnabled="False"/>
             <components:DropdownContent x:Name="FirstLayout"
                                         HorizontalOptions="StartAndExpand" 
+                                        BackgroundColor="Transparent"
                                         VerticalOptions="Start">
 
-                <ListView ItemsSource="{Binding CarsList}" 
+                <ListView ItemsSource="{Binding CarsList}"
+                          BackgroundColor="Transparent"
                           VerticalOptions="Start"
                           HorizontalOptions="FillAndExpand"
                           SeparatorVisibility="Default" 

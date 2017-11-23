@@ -85,8 +85,8 @@ namespace Cito.iOS.Renderers
                     RightCalloutAccessoryView = UIButton.FromType(UIButtonType.DetailDisclosure)
                 };
 
-                annotationView.LeftCalloutAccessoryView = new UIImageView(UIImage.FromFile(FormsMap.MapPin));
-                annotationView.Image = UIImage.FromFile(FormsMap.MapPin);
+                annotationView.LeftCalloutAccessoryView = new UIImageView(UIImage.FromFile("CitoPin.png"));
+                annotationView.Image = UIImage.FromFile("CitoPin.png");
               
             }
             annotationView.CanShowCallout = true;

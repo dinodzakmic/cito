@@ -10,8 +10,8 @@
         BorderRadius="0">
   <Button.HeightRequest>
       <OnPlatform x:TypeArguments="x:Double" >
-              <On Platform="Android" Value="{StaticResource ControlsHeight}"/>
-              <On Platform="iOS" Value="{StaticResource ControlsHeight}"/>
+              <On Platform="Android" Value="45"/>
+              <On Platform="iOS" Value="50"/>
         </OnPlatform>
   </Button.HeightRequest>
 </Button>

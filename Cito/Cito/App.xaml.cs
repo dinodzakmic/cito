@@ -10,6 +10,7 @@ using Cito.ViewModels;
 using Cito.Views;
 using Plugin.Geolocator.Abstractions;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.Xaml;
 
 namespace Cito
@@ -63,6 +64,7 @@ namespace Cito
                 NavPage = new NavigationPage(new PreloginPage());
                 MainPage = NavPage;
             }
+            
         }
 
 
