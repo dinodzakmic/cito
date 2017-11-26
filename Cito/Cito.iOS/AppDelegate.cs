@@ -1,4 +1,5 @@
 ﻿using Foundation;
+using Google.SignIn;
 using UIKit;
 
 namespace Cito.iOS
@@ -20,6 +21,8 @@ namespace Cito.iOS
         {
             Facebook.CoreKit.Settings.AppID = "1454486721332127";
             Facebook.CoreKit.Settings.DisplayName = "Cito";
+
+            SignIn.SharedInstance.ClientID = "867076694592-sgqvmuqgqtbqpedrscasbq3mhong5n97.apps.googleusercontent.com";       
 
             global::Xamarin.Forms.Forms.Init();
             System.Net.ServicePointManager.DnsRefreshTimeout = 0;

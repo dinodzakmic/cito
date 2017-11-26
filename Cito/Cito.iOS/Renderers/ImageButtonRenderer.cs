@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Cito.Framework.Components;
-using Cito.Framework.Utilities;
+﻿using Cito.Framework.Components;
 using Cito.iOS.Renderers;
-using Facebook.CoreKit;
-using Facebook.LoginKit;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
@@ -34,7 +28,11 @@ namespace Cito.iOS.Renderers
             }
             else if (externalLogin == ImageButton.Social.Google)
             {
-               
+
+                citoButton.Clicked += delegate
+                {
+                    GoogleLogin.HandleGoogleLoginClicked();
+                };
             }
             else
             {

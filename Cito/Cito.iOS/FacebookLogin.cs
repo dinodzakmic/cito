@@ -13,7 +13,7 @@ namespace Cito.iOS
         {
             if (AccessToken.CurrentAccessToken != null)
             {
-
+                App.Locator.Prelogin.ExternalLoginCommand.Execute(null);
             }
             else
             {
@@ -31,7 +31,7 @@ namespace Cito.iOS
                     {
                         if (error == null && !result.IsCancelled)
                         {
-
+                            App.Locator.Prelogin.ExternalLoginCommand.Execute(null);
                         }
                     });
             }
