@@ -37,8 +37,8 @@ namespace Cito.ViewModels
         });
         public ICommand GoToPhotoPageCommand => new Command(async () => await GoToPage(new DoneWashingPhotoPage()));
 
-        public ICommand TakePhotoCommand => new Command(TakePhoto);
-        public async void TakePhoto()// takePhoto.Clicked += async(sender, args) =>
+        public ICommand TakePhotoCommand => new Command(async () => await TakePhoto());
+        public async Task TakePhoto()// takePhoto.Clicked += async(sender, args) =>
 
         {
 
