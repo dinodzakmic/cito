@@ -22,7 +22,7 @@ namespace Cito.ViewModels
             set { Set(ref photo, value); }
         }
 
-        private bool _photoTaken = false;
+        private bool _photoTaken;
 
         public bool PhotoTaken
         {

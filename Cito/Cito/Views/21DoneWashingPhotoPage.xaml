@@ -20,20 +20,22 @@
                             IsClippedToBounds="True"
                             HasShadow="False"                           
                             OutlineColor="{StaticResource CitoLightContrast}">
-            <controls:CitoButton Text="TAKE A PHOTO"
-                                 BorderWidth="1"
-                                 BorderRadius="0"
-                                 BorderColor="{StaticResource CitoLightContrast}"
-                                 TextColor="{StaticResource CitoLight}"
-                                 HorizontalOptions="FillAndExpand"
-                                 VerticalOptions="FillAndExpand"
-                                 BackgroundColor="Transparent"
-                                 Command="{Binding TakePhotoCommand}" />
+            <Grid HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand">
+                <controls:CitoButton Text="TAKE A PHOTO"
+                                     IsVisible="{Binding PhotoTaken, Converter={StaticResource NegateBoolean}}"
+                                     BorderWidth="1"
+                                     BorderRadius="0"
+                                     BorderColor="{StaticResource CitoLightContrast}"
+                                     TextColor="{StaticResource CitoLight}"
+                                     BackgroundColor="Transparent"
+                                     Command="{Binding TakePhotoCommand}" />
 
-            <!--<Image Source="{Binding Photo}"
-                   HorizontalOptions="FillAndExpand" 
-                   VerticalOptions="FillAndExpand"
-                   Aspect="AspectFill" />-->
+                <Image Source="{Binding Photo}"
+                       IsVisible="{Binding PhotoTaken}"
+                       Aspect="AspectFill" />
+            </Grid>
+          
             
         </controls:CitoFrame>
 
