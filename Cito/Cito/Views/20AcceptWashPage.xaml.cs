@@ -9,7 +9,6 @@ using Xamarin.Forms.Xaml;
 
 namespace Cito.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AcceptWashPage : ContentPage
     {
         public AcceptWashPage()

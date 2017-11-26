@@ -18,12 +18,26 @@ namespace Cito.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            Facebook.CoreKit.Settings.AppID = "1454486721332127";
+            Facebook.CoreKit.Settings.DisplayName = "Cito";
+
             global::Xamarin.Forms.Forms.Init();
             System.Net.ServicePointManager.DnsRefreshTimeout = 0;
             Xamarin.FormsMaps.Init();
             LoadApplication(new App());
             
             return base.FinishedLaunching(app, options);
+        }
+
+        public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
+        {
+            return Facebook.CoreKit.ApplicationDelegate.SharedInstance.OpenUrl(application, url, sourceApplication, annotation);
+        }
+
+        public override void OnActivated(UIApplication uiApplication)
+        {
+            base.OnActivated(uiApplication);
+            Facebook.CoreKit.AppEvents.ActivateApp();
         }
     }
 }
