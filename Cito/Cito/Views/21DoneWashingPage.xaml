@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
+             x:Class="Cito.Views.DoneWashingPage"
+             BindingContext="{Binding Source={StaticResource Locator}, Path=DoneWashing}"
+             BackgroundImage="{StaticResource BackgroundGradient}"
+             Title="Washing Done">
+
+    <StackLayout HorizontalOptions="FillAndExpand"
+                 VerticalOptions="CenterAndExpand"
+                 Padding="20"
+                 Spacing="30">
+
+        <controls:CitoButton Text="DONE"
+                             Margin="20,0"
+                             Command="{Binding DoneCommand}"/>
+
+        <controls:CitoFrame Padding="0"
+                            Margin="20,0"
+                            HorizontalOptions="FillAndExpand" 
+                            BackgroundColor="Transparent"
+                            IsClippedToBounds="True"
+                            HasShadow="False"                           
+                            OutlineColor="{StaticResource CitoLightContrast}">
+            <controls:CitoButton Text="TAKE PHOTO"
+                                 BorderWidth="1"
+                                 BorderRadius="0"
+                                 BorderColor="{StaticResource CitoLightContrast}"
+                                 TextColor="{StaticResource CitoMainLight}"
+                                 HorizontalOptions="FillAndExpand"
+                                 BackgroundColor="Transparent"
+                                 Command="{Binding GoToPhotoPageCommand}" />
+        </controls:CitoFrame>
+
+    </StackLayout>
+
+</ContentPage>

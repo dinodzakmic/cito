@@ -69,7 +69,7 @@
     <Compile Include="Models\PastWashes.cs" />
     <Compile Include="Models\PastWashDetails.cs" />
     <Compile Include="ViewModels\19AvailabilityViewModel.cs" />
-    <Compile Include="ViewModels\20AcceptWashViewModel.cs" />
+    <Compile Include="ViewModels\20WashingRequestsViewModel.cs" />
     <Compile Include="ViewModels\CitoViewModelBase.cs" />
     <Compile Include="ViewModels\03CreateAccountViewModel.cs" />
     <Compile Include="ViewModels\01PreloginViewModel.cs" />
@@ -84,7 +84,7 @@
     <Compile Include="ViewModels\10OrderDetailsViewModel.cs" />
     <Compile Include="ViewModels\11RateWasherViewModel.cs" />
     <Compile Include="ViewModels\15FutureWashesViewModel.cs" />
-    <Compile Include="ViewModels\21TakePictureWashingDoneViewModel.cs" />
+    <Compile Include="ViewModels\21DoneWashingViewModel.cs" />
     <Compile Include="ViewModels\24EarningsViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="ViewModels\20WasherProfileViewModel.cs" />
@@ -184,14 +184,17 @@
     <Compile Include="Views\15FutureWashesPage.xaml.cs">
       <DependentUpon>15FutureWashesPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\20AcceptWashPage.xaml.cs">
-      <DependentUpon>20AcceptWashPage.xaml</DependentUpon>
+    <Compile Include="Views\20WashingRequestsPage.xaml.cs">
+      <DependentUpon>20WashingRequestsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\21TakePictureWashingDonePage.xaml.cs">
-      <DependentUpon>21TakePictureWashingDonePage.xaml</DependentUpon>
+    <Compile Include="Views\21DoneWashingPhotoPage.xaml.cs">
+      <DependentUpon>21DoneWashingPhotoPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\24EarningsPage.xaml.cs">
       <DependentUpon>24EarningsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\21DoneWashingPage.xaml.cs">
+      <DependentUpon>21DoneWashingPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -414,7 +417,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\21TakePictureWashingDonePage.xaml">
+    <EmbeddedResource Include="Views\21DoneWashingPhotoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -488,7 +491,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\20AcceptWashPage.xaml">
+    <EmbeddedResource Include="Views\20WashingRequestsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -507,6 +510,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Framework\Controls\CitoFrame.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\21DoneWashingPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

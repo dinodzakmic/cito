@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
              xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
-             x:Class="Cito.Views.AcceptWashPage"
-             BindingContext="{Binding Source={StaticResource Locator}, Path=AcceptWash}"
+             x:Class="Cito.Views.WashingRequestsPage"
+             BindingContext="{Binding Source={StaticResource Locator}, Path=WashingRequests}"
              BackgroundImage="{StaticResource BackgroundGradient}"
              Title="Washing Requests">
 

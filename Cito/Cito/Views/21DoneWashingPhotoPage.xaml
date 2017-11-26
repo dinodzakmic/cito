@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
+             x:Class="Cito.Views.DoneWashingPhotoPage"
+             BindingContext="{Binding Source={StaticResource Locator}, Path=DoneWashing}"
+             BackgroundImage="{StaticResource BackgroundGradient}"
+             Title="Take A Photo">
+
+
+    <StackLayout HorizontalOptions="FillAndExpand"
+                 VerticalOptions="CenterAndExpand"
+                 Padding="20"
+                 Spacing="30">
+
+        <controls:CitoFrame HeightRequest="300"
+                            Padding="5"
+                            HorizontalOptions="FillAndExpand" 
+                            BackgroundColor="Transparent"
+                            IsClippedToBounds="True"
+                            HasShadow="False"                           
+                            OutlineColor="{StaticResource CitoLightContrast}">
+            <controls:CitoButton Text="TAKE A PHOTO"
+                                 BorderWidth="1"
+                                 BorderRadius="0"
+                                 BorderColor="{StaticResource CitoLightContrast}"
+                                 TextColor="{StaticResource CitoLight}"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand"
+                                 BackgroundColor="Transparent"
+                                 Command="{Binding TakePhotoCommand}" />
+
+            <!--<Image Source="{Binding Photo}"
+                   HorizontalOptions="FillAndExpand" 
+                   VerticalOptions="FillAndExpand"
+                   Aspect="AspectFill" />-->
+            
+        </controls:CitoFrame>
+
+        <controls:CitoButton Text="DONE" 
+                             Command="{Binding DoneCommand}"/>
+    </StackLayout>
+    
+  
+</ContentPage>

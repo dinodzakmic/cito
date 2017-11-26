@@ -65,7 +65,7 @@ namespace Cito.ViewModels
         }
         private async Task GoToWashingRequests()
         {
-            await GoToPage(new AcceptWashPage());
+            await GoToPage(new WashingRequestsPage());
         }
         #endregion
     }
