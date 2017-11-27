@@ -21,22 +21,19 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>MinimumOSVersion</key>
-	<string>6.0</string>
-   
-  <key>NSLocationWhenInUseUsageDescription</key>
-  <string>This app needs access to the location.</string>
-  <key>NSLocationAlwaysUsageDescription</key>
-  <string>This app needs access to the location.</string>
-  <key>NSCameraUsageDescription</key>
+	<string>9.3</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app needs access to the location.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>This app needs access to the location.</string>
+	<key>NSCameraUsageDescription</key>
 	<string>This app needs access to the camera to take photos.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app needs access to photos.</string>
 	<key>CFBundleDisplayName</key>
 	<string>Cito</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.cito</string>
-	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>com.crowdedroomstudio.cito</string>
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>Icon-60@2x.png</string>
@@ -55,6 +52,10 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleShortVersionString</key>
-	<string></string>
+	<string>0.0.1</string>
+	<key>CFBundleName</key>
+	<string>Cito</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
 </dict>
 </plist>
