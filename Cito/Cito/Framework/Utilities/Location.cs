@@ -21,16 +21,21 @@ namespace Cito.Framework.Utilities
                 return;
             }
 
-
-            await CrossGeolocator.Current.GetPositionAsync(timeoutMilliseconds: 5000).ContinueWith(t =>
+            try
             {
-                if (t.IsCompleted)
+                await CrossGeolocator.Current.GetPositionAsync(timeoutMilliseconds: 5000).ContinueWith(t =>
                 {
-                    CurrentPosition = t.Result;
-                    HandleCurrentPosition();
-                }
-            });
-
+                    if (t.IsCompleted)
+                    {
+                        CurrentPosition = t.Result;
+                        HandleCurrentPosition();
+                    }
+                });
+            }
+            catch (Exception e)
+            {
+                // ignored
+            }
         }
 
         public static void StopGps()
@@ -42,6 +47,7 @@ namespace Cito.Framework.Utilities
         {
             CitoSettings.Current.LastLatitude = CurrentPosition.Latitude;
             CitoSettings.Current.LastLongitude = CurrentPosition.Longitude;
+            App.Locator.Map.CurrentUserPosition = new Xamarin.Forms.Maps.Position(CitoSettings.Current.LastLatitude, CitoSettings.Current.LastLongitude);
         }
     }
 }

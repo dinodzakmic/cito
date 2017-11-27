@@ -23,7 +23,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout>
+                            <StackLayout BackgroundColor="Transparent" HeightRequest="150">
                                 <components:DropdownItem TextColor="{StaticResource CitoLight}"
                                                          BottomSeparatorVisible="True"
                                                          ArrowPosition="Right"
@@ -43,6 +43,7 @@
                                               ItemSelected="WashesDetails_OnItemSelected"
                                               ItemsSource="{Binding Washes}" 
                                               RowHeight="80" 
+                                              BackgroundColor="Transparent"
                                               SeparatorVisibility="Default"
                                               SeparatorColor="{StaticResource CitoLightContrast}"
                                               VerticalOptions="Start">
@@ -50,7 +51,8 @@
                                         <DataTemplate>
                                           <ViewCell>
                                             <Grid HorizontalOptions="FillAndExpand"
-                                                  VerticalOptions="CenterAndExpand">
+                                                  VerticalOptions="CenterAndExpand"
+                                                  BackgroundColor="Transparent">
                                               <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="*" />
                                                 <ColumnDefinition Width="2.5*" />

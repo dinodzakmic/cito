@@ -19,10 +19,15 @@ namespace Cito.ViewModels
             get { return _pinList; }
             set { Set(ref _pinList, value); }
         }
-        public Position CurrentUserPosition => new Position(CitoSettings.Current.LastLatitude, CitoSettings.Current.LastLongitude);
+
+        private Position _currentUserPosition = new Position(CitoSettings.Current.LastLatitude, CitoSettings.Current.LastLongitude);
+        public Position CurrentUserPosition
+        {
+            get { return _currentUserPosition; }
+            set { Set(ref _currentUserPosition, value); }
+        }
 
         private Package _washerPackage;
-        
         public Package WasherPackage
         {
             get { return _washerPackage; }
@@ -35,6 +40,7 @@ namespace Cito.ViewModels
         public bool IsWasherAvailable => IsWasher && App.Locator.Availability.UserOnline;
         #endregion
         #region Commands
+        public ICommand GoToCardDetailsCommand => new Command(async () => await GoToPage(new CardDetailsPage()));
         public ICommand GoToOrderDetailsCommand => new Command(async () => await GoToOrderDetails());
         public ICommand GoToWashingRequestsCommand => new Command(async () => await GoToWashingRequests());
 

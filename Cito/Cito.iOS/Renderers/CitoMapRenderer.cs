@@ -37,6 +37,8 @@ namespace Cito.iOS.Renderers
             {
                 FormsMap = (CitoMap)e.NewElement;
                 NativeMap = (MKMapView)Control;
+                FormsMap.PinsChanged += UpdatePins;
+                NativeMap.ZoomEnabled = true;
 
                 NativeMap.GetViewForAnnotation = GetViewForAnnotation;
                 NativeMap.CalloutAccessoryControlTapped += OnCalloutAccessoryControlTapped;
@@ -46,19 +48,12 @@ namespace Cito.iOS.Renderers
             }
         }
 
-        protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            base.OnElementPropertyChanged(sender, e);
-            if (e.PropertyName == "Pins")
-            {
-                UpdatePins();
-            }
-        }
 
         private void UpdatePins()
         {
-            Pins = FormsMap.Pins;
+            Pins = FormsMap.BindablePins;
             NativeMap.RemoveAnnotations(NativeMap.Annotations);
+
             int i = 0;
             foreach (var pin in Pins)
             {
@@ -89,25 +84,25 @@ namespace Cito.iOS.Renderers
                 annotationView.Image = UIImage.FromFile("CitoPin.png");
               
             }
-            annotationView.CanShowCallout = true;
+            annotationView.CanShowCallout = false;
 
             return annotationView;
         }
 
         void OnDidSelectAnnotationView(object sender, MKAnnotationViewEventArgs e)
         {
-            //var customView = e.View as CustomMKAnnotationView;
-            //if (customView == null) return;
+            var customView = e.View as CustomMKAnnotationView;
+            if (customView == null) return;
 
-            //_customPinView = new UIView();
+            var _customPinView = new UIView();
 
-            //if (customView.Id != "Xamarin") return;
-            //_customPinView.Frame = new CGRect(0, 0, 200, 84);
-            //var image = new UIImageView(new CGRect(0, 0, 200, 84));
-            //image.Image = UIImage.FromFile("xamarin.png");
-            //_customPinView.AddSubview(image);
-            //_customPinView.Center = new CGPoint(0, -(e.View.Frame.Height + 75));
-            //e.View.AddSubview(_customPinView);
+            if (customView.Id != "Xamarin") return;
+            _customPinView.Frame = new CGRect(0, 0, 200, 84);
+            var image = new UIImageView(new CGRect(0, 0, 200, 84));
+            image.Image = UIImage.FromFile("OwnerProfileImage.png");
+            _customPinView.AddSubview(image);
+            _customPinView.Center = new CGPoint(0, -(e.View.Frame.Height + 75));
+            e.View.AddSubview(_customPinView);
         }
 
         void OnCalloutAccessoryControlTapped(object sender, MKMapViewAccessoryTappedEventArgs e)

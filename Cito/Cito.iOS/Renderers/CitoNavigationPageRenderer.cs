@@ -23,26 +23,7 @@ namespace Cito.iOS.Renderers
             //    View.AddGestureRecognizer(uiTapGestureRecognizer);
             //}
 
-            NavigationBar.SetBackgroundImage(UIImage.FromFile("NavigationBarGradient"), UIBarPosition.Top,
-                UIBarMetrics.Default);
-            NavigationBar.BarStyle = UIBarStyle.BlackOpaque;
-
-            foreach (var item in NavigationBar.Items)
-            {             
-                Debug.WriteLine(item.Title);
-            }
-
-
-
-            //NavigationController.Toolbar.SetBackgroundImage();
-
-
-
+            NavigationBar.BarStyle = UIBarStyle.BlackTranslucent;
         }
-
-        //private bool OnShouldReceiveTouch(UIGestureRecognizer recognizer, UITouch touch)
-        //{
-        //    return true;
-        //}
     }
 }

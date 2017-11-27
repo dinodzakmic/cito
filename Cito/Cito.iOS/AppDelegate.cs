@@ -1,5 +1,6 @@
 ﻿using Foundation;
 using Google.SignIn;
+using ImageCircle.Forms.Plugin.iOS;
 using UIKit;
 
 namespace Cito.iOS
@@ -25,8 +26,15 @@ namespace Cito.iOS
             SignIn.SharedInstance.ClientID = "867076694592-sgqvmuqgqtbqpedrscasbq3mhong5n97.apps.googleusercontent.com";       
 
             global::Xamarin.Forms.Forms.Init();
+
+            UINavigationBar.Appearance.SetBackgroundImage(UIImage.FromFile("NavigationBarGradient.jpg"), UIBarPosition.Top,
+                UIBarMetrics.Default);
+            UINavigationBar.Appearance.BarTintColor = UIColor.White;
+            UINavigationBar.Appearance.TintColor = UIColor.White;
+
             System.Net.ServicePointManager.DnsRefreshTimeout = 0;
             Xamarin.FormsMaps.Init();
+            ImageCircleRenderer.Init();
             LoadApplication(new App());
             
             return base.FinishedLaunching(app, options);

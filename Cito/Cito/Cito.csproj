@@ -70,6 +70,7 @@
     <Compile Include="Models\PastWashDetails.cs" />
     <Compile Include="ViewModels\19AvailabilityViewModel.cs" />
     <Compile Include="ViewModels\20WashingRequestsViewModel.cs" />
+    <Compile Include="ViewModels\CardDetailsViewModel.cs" />
     <Compile Include="ViewModels\CitoViewModelBase.cs" />
     <Compile Include="ViewModels\03CreateAccountViewModel.cs" />
     <Compile Include="ViewModels\01PreloginViewModel.cs" />
@@ -195,6 +196,9 @@
     </Compile>
     <Compile Include="Views\21DoneWashingPage.xaml.cs">
       <DependentUpon>21DoneWashingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CardDetailsPage.xaml.cs">
+      <DependentUpon>CardDetailsPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -516,6 +520,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\21DoneWashingPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\CardDetailsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

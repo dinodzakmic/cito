@@ -29,6 +29,7 @@ namespace Cito.ViewModels
         public DoneWashingViewModel DoneWashing => ViewModel<DoneWashingViewModel>.Get();
         public EarningsViewModel Earnings => ViewModel<EarningsViewModel>.Get();
         public WashingRequestsViewModel WashingRequests => ViewModel<WashingRequestsViewModel>.Get();
+        public CardDetailsViewModel CardDetails => ViewModel<CardDetailsViewModel>.Get();
 
 
         public static void Cleanup()

@@ -44,7 +44,7 @@
                               IsClippedToBounds="True"
                               HasShadow="False"
                               OutlineColor="{StaticResource CitoLightContrast}">
-              <controls:CitoButton Text="Cancel"
+              <controls:CitoButton Text="Decline"
                                    BorderWidth="1"
                                    BorderRadius="0"
                                    BorderColor="{StaticResource CitoLightContrast}"
