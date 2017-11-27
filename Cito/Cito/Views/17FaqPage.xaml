@@ -13,11 +13,11 @@
                       BackgroundColor="Transparent"
                       ItemsSource="{Binding FaqList}"
                       ItemSelected="ListView_OnItemSelected"
-                      HasUnevenRows="True" >
+                      HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout>
+                            <StackLayout BackgroundColor="Transparent">
                                 <components:DropdownItem TextColor="{StaticResource CitoLight}"
                                                          BottomSeparatorVisible="True" 
                                                          ArrowPosition="Right"
