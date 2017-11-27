@@ -19,8 +19,7 @@
                       ItemsSource="{Binding PastWashesList}"
                       HasUnevenRows="True" 
                       HorizontalOptions="FillAndExpand"
-                      VerticalOptions="FillAndExpand"
-                      RowHeight="250">
+                      VerticalOptions="FillAndExpand">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

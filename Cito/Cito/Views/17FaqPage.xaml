@@ -17,7 +17,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout >
+                            <StackLayout>
                                 <components:DropdownItem TextColor="{StaticResource CitoLight}"
                                                          BottomSeparatorVisible="True" 
                                                          ArrowPosition="Right"

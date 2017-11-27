@@ -135,6 +135,7 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Renderers\CitoEntryRenderer.cs" />
     <Compile Include="Renderers\CitoMapRenderer.cs" />
+    <Compile Include="Renderers\CustomListViewRenderer.cs" />
     <Compile Include="Renderers\ImageButtonRenderer.cs" />
     <Compile Include="Renderers\RoundedBoxViewRenderer.cs" />
     <None Include="app.config" />
