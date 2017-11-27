@@ -6,11 +6,11 @@
 
     using Xamarin.Forms;
 
-    public class AcceptWashViewModel : CitoViewModelBase
+    public class WashingRequestsViewModel : CitoViewModelBase
     {
 
         public ICommand AcceptCommand => new Command(async ()=>
-            await GoToPage(new TakePictureWashingDonePage()));
+            await GoToPage(new DoneWashingPage()));
 
         public ICommand CancelCommand => new Command(async () => await GoToPreviousPage());
         

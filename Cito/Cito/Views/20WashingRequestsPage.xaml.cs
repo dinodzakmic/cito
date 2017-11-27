@@ -9,10 +9,9 @@ using Xamarin.Forms.Xaml;
 
 namespace Cito.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TakePictureWashingDonePage : ContentPage
+    public partial class WashingRequestsPage : ContentPage
     {
-        public TakePictureWashingDonePage()
+        public WashingRequestsPage()
         {
             InitializeComponent();
         }

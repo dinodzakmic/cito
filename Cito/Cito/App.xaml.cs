@@ -15,7 +15,6 @@ using Xamarin.Forms.Xaml;
 
 namespace Cito
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class App : Application
     {
         #region Private properties

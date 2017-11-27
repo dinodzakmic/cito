@@ -22,7 +22,7 @@ namespace Cito.Framework.Utilities
             }
 
 
-            await CrossGeolocator.Current.GetPositionAsync().ContinueWith(t =>
+            await CrossGeolocator.Current.GetPositionAsync(timeoutMilliseconds: 5000).ContinueWith(t =>
             {
                 if (t.IsCompleted)
                 {

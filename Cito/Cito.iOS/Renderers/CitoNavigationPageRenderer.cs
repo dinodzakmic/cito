@@ -1,7 +1,9 @@
-﻿using Cito.iOS.Renderers;
+﻿using System.Diagnostics;
+using Cito.iOS.Renderers;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
+using UIBarStyle = UIKit.UIBarStyle;
 
 [assembly: ExportRenderer(typeof(NavigationPage), typeof(CitoNavigationPageRenderer))]
 namespace Cito.iOS.Renderers
@@ -22,9 +24,18 @@ namespace Cito.iOS.Renderers
             //}
 
             NavigationBar.SetBackgroundImage(UIImage.FromFile("NavigationBarGradient"), UIBarPosition.Top,
-                UIBarMetrics.Compact);
+                UIBarMetrics.Default);
+            NavigationBar.BarStyle = UIBarStyle.BlackOpaque;
+
+            foreach (var item in NavigationBar.Items)
+            {             
+                Debug.WriteLine(item.Title);
+            }
+
+
+
             //NavigationController.Toolbar.SetBackgroundImage();
-            
+
 
 
         }

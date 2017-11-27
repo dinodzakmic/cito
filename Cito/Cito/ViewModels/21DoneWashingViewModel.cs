@@ -1,4 +1,7 @@
-﻿namespace Cito.ViewModels
+﻿using System.Threading.Tasks;
+using Cito.Views;
+
+namespace Cito.ViewModels
 {
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Input;
@@ -8,7 +11,7 @@
     using Xamarin.Forms;
 
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1600:ElementsMustBeDocumented", Justification = "Reviewed. Suppression is OK here.")]
-    public class TakePictureWashingDoneViewModel : CitoViewModelBase
+    public class DoneWashingViewModel : CitoViewModelBase
     {
 
         private ImageSource photo;
@@ -19,9 +22,23 @@
             set { Set(ref photo, value); }
         }
 
-        public ICommand TakePhotoCommand => new Command(TakePhoto);
+        private bool _photoTaken;
 
-        public async void TakePhoto()// takePhoto.Clicked += async(sender, args) =>
+        public bool PhotoTaken
+        {
+            get { return _photoTaken; }
+            set { Set(ref _photoTaken, value); }
+        }
+        
+        public ICommand DoneCommand => new Command(async () =>
+        {
+            await GoToRootPage();
+            PhotoTaken = false;
+        });
+        public ICommand GoToPhotoPageCommand => new Command(async () => await GoToPage(new DoneWashingPhotoPage()));
+
+        public ICommand TakePhotoCommand => new Command(async () => await TakePhoto());
+        public async Task TakePhoto()// takePhoto.Clicked += async(sender, args) =>
 
         {
 
@@ -52,6 +69,7 @@
             if (src != null)
             {
                 Photo = src;
+                PhotoTaken = true;
             }
 
             //or:
