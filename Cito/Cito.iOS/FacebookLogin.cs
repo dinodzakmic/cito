@@ -9,6 +9,7 @@ namespace Cito.iOS
 {
     public static class FacebookLogin
     {
+        internal static bool IsFacebookLogin;
         public static void HandleFacebookLoginClicked()
         {
             if (AccessToken.CurrentAccessToken != null)

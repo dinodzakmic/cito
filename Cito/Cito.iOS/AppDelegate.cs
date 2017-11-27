@@ -42,7 +42,24 @@ namespace Cito.iOS
 
         public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
         {
-            return Facebook.CoreKit.ApplicationDelegate.SharedInstance.OpenUrl(application, url, sourceApplication, annotation);
+            if (FacebookLogin.IsFacebookLogin)
+            {
+                return Facebook.CoreKit.ApplicationDelegate.SharedInstance.OpenUrl(application, url, sourceApplication,
+                    annotation);
+            }
+
+            return false;
+        }
+
+        public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
+        {
+            if (GoogleLogin.IsGoogleLogin)
+            {
+                var openUrlOptions = new UIApplicationOpenUrlOptions(options);
+                return SignIn.SharedInstance.HandleUrl(url, openUrlOptions.SourceApplication, openUrlOptions.Annotation);
+            }
+
+            return false;
         }
 
         public override void OnActivated(UIApplication uiApplication)

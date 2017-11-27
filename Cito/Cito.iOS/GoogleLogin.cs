@@ -9,6 +9,7 @@ namespace Cito.iOS
 {
     public class GoogleLogin : UIViewController, ISignInDelegate, ISignInUIDelegate
     {
+        internal static bool IsGoogleLogin;
         public static void HandleGoogleLoginClicked()
         {
             SignIn.SharedInstance.SignInUserSilently();

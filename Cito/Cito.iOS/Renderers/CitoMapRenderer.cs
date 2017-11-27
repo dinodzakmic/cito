@@ -57,7 +57,7 @@ namespace Cito.iOS.Renderers
             int i = 0;
             foreach (var pin in Pins)
             {
-                var ca = new CustomAnnotation(pin, (++i).ToString());
+                var ca = new CustomAnnotation(pin, (++i).ToString(), pin.Type);
                 NativeMap.AddAnnotation(ca);
             }
         }
@@ -80,9 +80,16 @@ namespace Cito.iOS.Renderers
                     RightCalloutAccessoryView = UIButton.FromType(UIButtonType.DetailDisclosure)
                 };
 
-                annotationView.LeftCalloutAccessoryView = new UIImageView(UIImage.FromFile("CitoPin.png"));
-                annotationView.Image = UIImage.FromFile("CitoPin.png");
-              
+                if (pin.Type == PinType.Generic)
+                {
+                    annotationView.LeftCalloutAccessoryView = new UIImageView(UIImage.FromFile("UserLocation.png"));
+                    annotationView.Image = UIImage.FromFile("UserLocation.png");
+                }
+                else
+                {
+                    annotationView.LeftCalloutAccessoryView = new UIImageView(UIImage.FromFile("CitoPin.png"));
+                    annotationView.Image = UIImage.FromFile("CitoPin.png");
+                }
             }
             annotationView.CanShowCallout = false;
 
@@ -124,14 +131,15 @@ namespace Cito.iOS.Renderers
 
     public class CustomAnnotation : MKAnnotation
     {
-        public CustomAnnotation(Pin pin, string id)
+        public CustomAnnotation(Pin pin, string id, PinType type)
         {
-
             Pin = pin;
             Id = "Pin " + id;
+            Type = type;
             Coordinate = new CLLocationCoordinate2D(pin.Position.Latitude, pin.Position.Longitude);
         }
 
+        public PinType Type { get; set; }
         public Pin Pin { get; }
         public string Id { get; }
         public override string Title => Pin?.Label;

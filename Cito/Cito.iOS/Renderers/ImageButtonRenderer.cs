@@ -22,6 +22,7 @@ namespace Cito.iOS.Renderers
             {
                 citoButton.Clicked += delegate
                 {
+                    FacebookLogin.IsFacebookLogin = true;
                     FacebookLogin.HandleFacebookLoginClicked();
                 };
                                                        
@@ -31,6 +32,7 @@ namespace Cito.iOS.Renderers
 
                 citoButton.Clicked += delegate
                 {
+                    GoogleLogin.IsGoogleLogin = true;
                     GoogleLogin.HandleGoogleLoginClicked();
                 };
             }

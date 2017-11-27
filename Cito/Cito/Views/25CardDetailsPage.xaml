@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
+             x:Class="Cito.Views.CardDetailsPage"
+             BackgroundImage="{StaticResource BackgroundGradient}"
+             BindingContext="{Binding Source={StaticResource Locator}, Path=CardDetails}"
+             Title="Payment">
+
+    <StackLayout Padding="20">
+        <controls:CitoLabel Text="Credit Card"
+                            TextColor="{StaticResource CitoLight}"
+                            HorizontalTextAlignment="Start"/>
+        <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="Start"
+                     HeightRequest="50"
+                     Spacing="5">
+            <controls:CitoEntry HorizontalOptions="FillAndExpand"
+                                Keyboard="Numeric"/>
+            <controls:CitoEntry HorizontalOptions="FillAndExpand"
+                                Keyboard="Numeric"/>
+            <controls:CitoEntry HorizontalOptions="FillAndExpand"
+                                Keyboard="Numeric"/>
+            <controls:CitoEntry HorizontalOptions="FillAndExpand"
+                                Keyboard="Numeric"/>
+        </StackLayout>
+
+        <controls:CitoLabel Text="Cardholder Name"
+                            TextColor="{StaticResource CitoLight}"
+                            HorizontalTextAlignment="Start"/>
+        <controls:CitoEntry HorizontalOptions="FillAndExpand"
+                            VerticalOptions="Start"
+                            HeightRequest="50"/>
+
+        <controls:CitoLabel Text="Expire"
+                            TextColor="{StaticResource CitoLight}"
+                            HorizontalTextAlignment="Start"/>
+        <controls:CitoButton Text="Select date"
+                             Clicked="Button_OnClicked"/>
+        <DatePicker x:Name="FakeDatePicker"
+                    IsVisible="False"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Start"
+                    HeightRequest="50" />
+
+        <controls:CitoLabel Text="CVV"
+                            TextColor="{StaticResource CitoLight}"
+                            HorizontalTextAlignment="Start"/>
+        <controls:CitoEntry HorizontalOptions="StartAndExpand"
+                            VerticalOptions="Start"
+                            HeightRequest="50"
+                            WidthRequest="100"
+                            Keyboard="Numeric"/>
+
+        <controls:CitoButton Text="Submit"
+                             Command="{Binding SubmitDetailsCommand}"/>
+    </StackLayout>
+        
+</ContentPage>
