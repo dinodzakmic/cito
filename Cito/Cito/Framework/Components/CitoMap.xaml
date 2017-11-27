@@ -4,8 +4,7 @@
           xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
           x:Class="Cito.Framework.Components.CitoMap"
           HorizontalOptions="FillAndExpand"
-          VerticalOptions="FillAndExpand" 
-          IsShowingUser="True">
+          VerticalOptions="FillAndExpand" >
 
 
 </maps:Map>

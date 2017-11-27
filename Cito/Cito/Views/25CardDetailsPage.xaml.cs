@@ -17,9 +17,5 @@ namespace Cito.Views
             InitializeComponent();
         }
 
-        private void Button_OnClicked(object sender, EventArgs e)
-        {
-            FakeDatePicker.Focus();
-        }
     }
 }

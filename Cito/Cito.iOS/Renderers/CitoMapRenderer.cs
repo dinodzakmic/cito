@@ -19,6 +19,7 @@ namespace Cito.iOS.Renderers
         internal CitoMap FormsMap;
         internal MKMapView NativeMap;
         internal IList<Pin> Pins;
+        internal UIView CustomPinView;
 
         protected override void OnElementChanged(ElementChangedEventArgs<View> e)
         {
@@ -74,9 +75,9 @@ namespace Cito.iOS.Renderers
             annotationView = mapView.DequeueReusableAnnotation(anno.Id);
             if (annotationView == null)
             {
-                annotationView = new CustomMKAnnotationView(anno.Id, anno.Title, pin.Position)
+                annotationView = new CustomMKAnnotationView(anno.Id, anno.Title, anno.Subtitle, pin.Position, anno.Type)
                 {
-                    CalloutOffset = new CGPoint(0, 0),
+                    CalloutOffset = new CGPoint(10, 10),
                     RightCalloutAccessoryView = UIButton.FromType(UIButtonType.DetailDisclosure)
                 };
 
@@ -92,6 +93,7 @@ namespace Cito.iOS.Renderers
                 }
             }
             annotationView.CanShowCallout = false;
+            
 
             return annotationView;
         }
@@ -100,31 +102,58 @@ namespace Cito.iOS.Renderers
         {
             var customView = e.View as CustomMKAnnotationView;
             if (customView == null) return;
+            if (customView.Type == PinType.Generic) return;
 
-            var _customPinView = new UIView();
+            CustomPinView = new UIView();
 
-            if (customView.Id != "Xamarin") return;
-            _customPinView.Frame = new CGRect(0, 0, 200, 84);
-            var image = new UIImageView(new CGRect(0, 0, 200, 84));
-            image.Image = UIImage.FromFile("OwnerProfileImage.png");
-            _customPinView.AddSubview(image);
-            _customPinView.Center = new CGPoint(0, -(e.View.Frame.Height + 75));
-            e.View.AddSubview(_customPinView);
+            CustomPinView.Frame = new CGRect(0, 0, 300, 65);
+            CustomPinView.BackgroundColor = UIColor.FromRGB(38, 162, 171); 
+
+            //var image = new UIImageView(new CGRect(0, 0, 200, 84));
+            //image.Image = UIImage.FromFile("map_pin_atm.png");
+            var btn = new UIImageView()
+            {
+                Frame = new CGRect(240, 5, 60, 60),
+                Image = UIImage.FromFile("OwnerProfileImage.png")
+            };
+     
+            var title = new UILabel
+            {
+                Frame = new CGRect(5, 5, 235, 35),
+                Text = customView.Title,
+                TextColor = UIColor.White
+            };
+            var subtitle = new UILabel
+            {
+                Frame = new CGRect(5, 35, 235, 20),
+                Text = customView.Subtitle,
+                TextColor = UIColor.White
+            };
+
+            CustomPinView.AddSubviews(btn, title, subtitle);
+            CustomPinView.Center = new CGPoint(0, -(e.View.Frame.Height) + 20);
+            e.View.AddSubview(CustomPinView);
         }
 
         void OnCalloutAccessoryControlTapped(object sender, MKMapViewAccessoryTappedEventArgs e)
         {
-          
+            var customView = (CustomMKAnnotationView)e.View;
+            App.Locator.Map.GoToCardDetailsCommand.Execute(null);
         }
 
-
+        void ExecuteCommand()
+        {
+            App.Locator.Map.GoToCardDetailsCommand.Execute(null);
+        }
         void OnDidDeselectAnnotationView(object sender, MKAnnotationViewEventArgs e)
         {
+            
             if (!e.View.Selected)
             {
-                //_customPinView.RemoveFromSuperview();
-                //_customPinView.Dispose();
-                //_customPinView = null;
+                if (CustomPinView == null) return;              
+                CustomPinView.RemoveFromSuperview();
+                CustomPinView.Dispose();
+                CustomPinView = null;               
             }
         }
     }
@@ -143,20 +172,25 @@ namespace Cito.iOS.Renderers
         public Pin Pin { get; }
         public string Id { get; }
         public override string Title => Pin?.Label;
+        public override string Subtitle => Pin?.Address;
         public override CLLocationCoordinate2D Coordinate { get; }
     }
 
     public class CustomMKAnnotationView : MKAnnotationView
     {
-        public CustomMKAnnotationView(string id, string title, Position position)
+        public CustomMKAnnotationView(string id, string title, string subtitle, Position position, PinType type)
         {
             Id = id;
             Title = title;
+            Subtitle = subtitle;
             Position = position;
+            Type = type;
         }
 
         public string Id { get; }
         public string Title { get; }
+        public string Subtitle { get; }
         public Position Position { get; }
+        public PinType Type { get; }
     }
 }

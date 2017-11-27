@@ -36,13 +36,19 @@
         <controls:CitoLabel Text="Expire"
                             TextColor="{StaticResource CitoLight}"
                             HorizontalTextAlignment="Start"/>
-        <controls:CitoButton Text="Select date"
-                             Clicked="Button_OnClicked"/>
-        <DatePicker x:Name="FakeDatePicker"
-                    IsVisible="False"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="Start"
-                    HeightRequest="50" />
+        <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="Start"
+                     HeightRequest="50"
+                     Spacing="5">
+            <controls:CitoEntry HorizontalOptions="FillAndExpand"
+                                Placeholder="Month"
+                                Keyboard="Numeric"/>
+            <controls:CitoEntry HorizontalOptions="FillAndExpand"
+                                Placeholder="Year"
+                                Keyboard="Numeric"/>
+        </StackLayout>
+
 
         <controls:CitoLabel Text="CVV"
                             TextColor="{StaticResource CitoLight}"
