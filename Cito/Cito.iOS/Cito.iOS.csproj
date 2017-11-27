@@ -33,8 +33,6 @@
     <MtouchUseLlvm>False</MtouchUseLlvm>
     <MtouchUseThumb>False</MtouchUseThumb>
     <MtouchEnableBitcode>False</MtouchEnableBitcode>
-    <MtouchUseSGen>False</MtouchUseSGen>
-    <MtouchUseRefCounting>False</MtouchUseRefCounting>
     <OptimizePNGs>True</OptimizePNGs>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
@@ -77,9 +75,9 @@
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Distribution: Crowded Room Studio doo (HZGPPRPY9T)</CodesignKey>
+    <CodesignKey>iPhone Distribution</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignProvision>ef9d449d-b786-41a1-b609-1ca9e7fd4d7a</CodesignProvision>
+    <CodesignProvision>Automatic:AdHoc</CodesignProvision>
     <MtouchSdkVersion>11.1</MtouchSdkVersion>
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchDebug>False</MtouchDebug>
@@ -88,8 +86,6 @@
     <MtouchUseLlvm>False</MtouchUseLlvm>
     <MtouchUseThumb>False</MtouchUseThumb>
     <MtouchEnableBitcode>False</MtouchEnableBitcode>
-    <MtouchUseSGen>False</MtouchUseSGen>
-    <MtouchUseRefCounting>False</MtouchUseRefCounting>
     <OptimizePNGs>True</OptimizePNGs>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
@@ -159,15 +155,8 @@
     <BundleResource Include="Resources\Default-Portrait%402x.png" />
     <BundleResource Include="Resources\Default.png" />
     <BundleResource Include="Resources\Default%402x.png" />
-    <BundleResource Include="Resources\Icon-60%402x.png" />
     <BundleResource Include="Resources\Icon-60%403x.png" />
-    <BundleResource Include="Resources\Icon-76.png" />
-    <BundleResource Include="Resources\Icon-76%402x.png" />
-    <BundleResource Include="Resources\Icon-Small-40.png" />
-    <BundleResource Include="Resources\Icon-Small-40%402x.png" />
     <BundleResource Include="Resources\Icon-Small-40%403x.png" />
-    <BundleResource Include="Resources\Icon-Small.png" />
-    <BundleResource Include="Resources\Icon-Small%402x.png" />
     <BundleResource Include="Resources\Icon-Small%403x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
   </ItemGroup>
@@ -188,18 +177,6 @@
       <HintPath>..\..\packages\Xamarin.Facebook.iOS.4.26.0\lib\Xamarin.iOS10\Facebook.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Firebase.Analytics, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Firebase.iOS.Analytics.4.0.4\lib\Xamarin.iOS10\Firebase.Analytics.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Firebase.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Firebase.iOS.Core.4.0.8\lib\Xamarin.iOS10\Firebase.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Firebase.InstanceID, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Firebase.iOS.InstanceID.2.0.4\lib\Xamarin.iOS10\Firebase.InstanceID.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="GalaSoft.MvvmLight, Version=5.3.0.19026, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
       <HintPath>..\..\packages\MvvmLightLibs.5.3.0.0\lib\xamarin.ios10\GalaSoft.MvvmLight.dll</HintPath>
       <Private>True</Private>
@@ -210,14 +187,6 @@
     </Reference>
     <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.3.0.19043, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\MvvmLightLibs.5.3.0.0\lib\xamarin.ios10\GalaSoft.MvvmLight.Platform.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Google.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Google.iOS.Core.3.1.0\lib\Xamarin.iOS10\Google.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Google.SignIn, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Google.iOS.SignIn.4.1.0\lib\Xamarin.iOS10\Google.SignIn.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ImageCircle.Forms.Plugin.Abstractions, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -302,10 +271,25 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="Firebase.Core">
+      <HintPath>..\..\packages\Xamarin.Firebase.iOS.Core.4.0.8\lib\Xamarin.iOS10\Firebase.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.InstanceID">
+      <HintPath>..\..\packages\Xamarin.Firebase.iOS.InstanceID.2.0.4\lib\Xamarin.iOS10\Firebase.InstanceID.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.Analytics">
+      <HintPath>..\..\packages\Xamarin.Firebase.iOS.Analytics.4.0.4\lib\Xamarin.iOS10\Firebase.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Core">
+      <HintPath>..\..\packages\Xamarin.Google.iOS.Core.3.1.0\lib\Xamarin.iOS10\Google.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.SignIn">
+      <HintPath>..\..\packages\Xamarin.Google.iOS.SignIn.4.1.0\lib\Xamarin.iOS10\Google.SignIn.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cito\Cito.csproj">
-      <Project>{587a062d-f80a-43b0-887a-959d51d43339}</Project>
+      <Project>{6415AAB8-714F-4675-A650-70027AB99584}</Project>
       <Name>Cito</Name>
     </ProjectReference>
   </ItemGroup>
@@ -458,6 +442,22 @@
     <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\SplashScreen4.png">
       <InProject>false</InProject>
     </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon_40x40.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon_60x60.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon_58x58.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon_87x87.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon_80x80.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon_120x120.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon_180x180.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon_20x20.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon_29x29.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon_76x76.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon_152x152.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon_167x167.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon_1024x1024.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.4.270\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.4.270\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
