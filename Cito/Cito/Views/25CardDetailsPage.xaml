@@ -7,7 +7,7 @@
              BindingContext="{Binding Source={StaticResource Locator}, Path=CardDetails}"
              Title="Payment">
 
-    <StackLayout Padding="20">
+    <StackLayout Padding="20" Spacing="10">
         <controls:CitoLabel Text="Credit Card"
                             TextColor="{StaticResource CitoLight}"
                             HorizontalTextAlignment="Start"/>
