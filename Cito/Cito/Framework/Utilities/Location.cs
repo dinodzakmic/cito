@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
-using Cito.Helpers;
+using Cito.Framework.Helpers;
 using Plugin.Geolocator;
 using Plugin.Geolocator.Abstractions;
 using Xamarin.Forms;

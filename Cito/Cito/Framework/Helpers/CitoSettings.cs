@@ -2,7 +2,7 @@
 using Plugin.Settings;
 using Plugin.Settings.Abstractions;
 
-namespace Cito.Helpers
+namespace Cito.Framework.Helpers
 {
     public class CitoSettings : ObservableObject
     {
