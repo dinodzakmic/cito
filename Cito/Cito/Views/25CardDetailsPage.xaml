@@ -16,13 +16,24 @@
                      VerticalOptions="Start"
                      HeightRequest="50"
                      Spacing="5">
-            <controls:CitoEntry HorizontalOptions="FillAndExpand"
-                                Keyboard="Numeric"/>
-            <controls:CitoEntry HorizontalOptions="FillAndExpand"
-                                Keyboard="Numeric"/>
-            <controls:CitoEntry HorizontalOptions="FillAndExpand"
-                                Keyboard="Numeric"/>
-            <controls:CitoEntry HorizontalOptions="FillAndExpand"
+            <controls:CitoEntry x:Name="CardNumber1" 
+                                Text="{Binding CardNumberFirst}"
+                                HorizontalOptions="FillAndExpand"
+                                Keyboard="Numeric"
+                                NextView="{x:Reference CardNumber2}"/>
+            <controls:CitoEntry x:Name="CardNumber2" 
+                                Text="{Binding CardNumberSecond}"
+                                HorizontalOptions="FillAndExpand"
+                                Keyboard="Numeric"
+                                NextView="{x:Reference CardNumber3}"/>
+            <controls:CitoEntry x:Name="CardNumber3" 
+                                Text="{Binding CardNumberThird}"
+                                HorizontalOptions="FillAndExpand"
+                                Keyboard="Numeric"
+                                NextView="{x:Reference CardNumber4}"/>
+            <controls:CitoEntry x:Name="CardNumber4" 
+                                Text="{Binding CardNumberFourth}"
+                                HorizontalOptions="FillAndExpand"
                                 Keyboard="Numeric"/>
         </StackLayout>
 
@@ -41,10 +52,13 @@
                      VerticalOptions="Start"
                      HeightRequest="50"
                      Spacing="5">
-            <controls:CitoEntry HorizontalOptions="FillAndExpand"
+            <controls:CitoEntry x:Name="MonthEntry"
+                                HorizontalOptions="FillAndExpand"
                                 Placeholder="Month"
-                                Keyboard="Numeric"/>
-            <controls:CitoEntry HorizontalOptions="FillAndExpand"
+                                Keyboard="Numeric"
+                                NextView="{x:Reference YearEntry}"/>
+            <controls:CitoEntry x:Name="YearEntry" 
+                                HorizontalOptions="FillAndExpand"
                                 Placeholder="Year"
                                 Keyboard="Numeric"/>
         </StackLayout>

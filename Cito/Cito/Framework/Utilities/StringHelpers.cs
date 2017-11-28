@@ -25,5 +25,11 @@ namespace Cito.Framework.Utilities
             else
                 return true;
         }
+
+        public static string MaskCardNumber(string number)
+        {
+            var maskedCardNumber = "**** **** **** " + number.Substring(number.Length - 4);
+            return maskedCardNumber;
+        }
     }
 }

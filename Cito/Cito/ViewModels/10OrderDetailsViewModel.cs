@@ -16,7 +16,7 @@ namespace Cito.ViewModels
 
         public string Address => "221 Second Street";
 
-        public string CodedCardNumber => "**** **** **** 5542";
+        public string CodedCardNumber => App.Locator.CardDetails.MaskedCardNumber;
 
         public string SelectedPack => App.Locator.Map.WasherPackage.PackageName;
 
