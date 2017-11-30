@@ -1,4 +1,5 @@
-﻿using Foundation;
+﻿using System.Xml.Schema;
+using Foundation;
 using Google.SignIn;
 using ImageCircle.Forms.Plugin.iOS;
 using UIKit;
@@ -18,6 +19,7 @@ namespace Cito.iOS
         //
         // You have 17 seconds to return from this method, or iOS will terminate your application.
         //
+
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             Facebook.CoreKit.Settings.AppID = "1454486721332127";
@@ -44,19 +46,14 @@ namespace Cito.iOS
         {
             if (FacebookLogin.IsFacebookLogin)
             {
+                FacebookLogin.IsFacebookLogin = false;
                 return Facebook.CoreKit.ApplicationDelegate.SharedInstance.OpenUrl(application, url, sourceApplication,
                     annotation);
             }
-
-            return false;
-        }
-
-        public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
-        {
             if (GoogleLogin.IsGoogleLogin)
             {
-                var openUrlOptions = new UIApplicationOpenUrlOptions(options);
-                return SignIn.SharedInstance.HandleUrl(url, openUrlOptions.SourceApplication, openUrlOptions.Annotation);
+                GoogleLogin.IsGoogleLogin = false;
+                return SignIn.SharedInstance.HandleUrl(url, sourceApplication, annotation);
             }
 
             return false;

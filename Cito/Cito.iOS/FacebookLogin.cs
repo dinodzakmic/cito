@@ -27,14 +27,13 @@ namespace Cito.iOS
 
                 var manager = new LoginManager();
                 manager.LogInWithReadPermissions(new string[] { "public_profile", "email" },
-                    vc,
-                    (result, error) =>
-                    {
-                        if (error == null && !result.IsCancelled)
+                    vc, (result, error) =>
                         {
-                            App.Locator.Prelogin.ExternalLoginCommand.Execute(null);
-                        }
-                    });
+                            if (error == null && !result.IsCancelled)
+                            {
+                                App.Locator.Prelogin.ExternalLoginCommand.Execute(null);
+                            }
+                        });
             }
 
         }

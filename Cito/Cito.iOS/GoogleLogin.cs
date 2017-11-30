@@ -21,6 +21,8 @@ namespace Cito.iOS
             App.Locator.Prelogin.ExternalLoginCommand.Execute(null);
         }
 
+        
+
         [Export("signInWillDispatch:error:")]
         public void WillDispatch(SignIn signIn, NSError error)
         {
