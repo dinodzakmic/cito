@@ -13,7 +13,7 @@ namespace Cito.iOS.Renderers
         {
             base.OnElementChanged(e);
 
-            var citoButton = e.NewElement.CitoButton;
+            var citoButton = e.NewElement?.CitoButton;
             if (citoButton == null) return;
 
             var externalLogin = e.NewElement.ExternalLogin;

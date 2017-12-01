@@ -117,6 +117,9 @@ namespace Cito.ViewModels
         /// <param name="page">
         /// Page should be initialized e.g. new CustomPage() and this page represents Detail.
         /// </param>
+        /// <param name="userType">
+        /// Type of user (Owner or Washer)
+        /// </param>
         /// <returns></returns>
         public async Task GoToMasterRootPage(Page page, UserTypeViewModel.UserTypeOf userType)
         {
@@ -128,11 +131,12 @@ namespace Cito.ViewModels
                 App.InstantiatingPageType = page.GetType();
                 App.UpdateLoading(true);
                 await Task.Delay(500);
+
                 App.NavPage = new NavigationPage(page);
                 App.MenuPage = userType == UserTypeViewModel.UserTypeOf.Owner
                     ? (MasterDetailPage)new OwnerMenu() { Detail = App.NavPage }
                     : (MasterDetailPage)new WasherMenu() { Detail = App.NavPage }; // TODO: add WasherMenu 
-                App.Current.MainPage = App.MenuPage;
+                Application.Current.MainPage = App.MenuPage;
             }
             catch (Exception e)
             {
