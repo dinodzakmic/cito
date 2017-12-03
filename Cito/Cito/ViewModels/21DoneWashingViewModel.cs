@@ -3,6 +3,7 @@ using Cito.Views;
 
 namespace Cito.ViewModels
 {
+    using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Windows.Input;
 
@@ -14,11 +15,26 @@ namespace Cito.ViewModels
     public class DoneWashingViewModel : CitoViewModelBase
     {
 
+        public DoneWashingViewModel()
+        {
+            this.DoneWashingIndicatorColor = Color.Transparent;
+        }
+
         private ImageSource photo;
 
         public ImageSource Photo
         {
-            get { return photo; }
+            get
+            {
+                try
+                {
+                    return photo;
+                }
+                catch (Exception e)
+                {
+                    return null;
+                }
+            }
             set { Set(ref photo, value); }
         }
 
@@ -29,18 +45,52 @@ namespace Cito.ViewModels
             get { return _photoTaken; }
             set { Set(ref _photoTaken, value); }
         }
-        
+
+        private bool doneWashing;
+
+        public bool DoneWashing
+        {
+            get => this.doneWashing;
+            set => Set(ref this.doneWashing, value);
+        }
+
+        private Color doneWashingIndicatorColor;
+
+        public Color DoneWashingIndicatorColor
+        {
+            get => this.doneWashingIndicatorColor;
+            set => Set(ref this.doneWashingIndicatorColor, value);
+        }
+
+        public ICommand DoneWashingCommand => new Command(
+            async () =>
+                {
+                    this.DoneWashing = true;
+                    this.DoneWashingIndicatorColor = Color.FromHex("26a4ad");
+                });
+
+
         public ICommand DoneCommand => new Command(async () =>
         {
             await GoToRootPage();
             PhotoTaken = false;
+            DoneWashing = false;
         });
-        public ICommand GoToPhotoPageCommand => new Command(async () => await GoToPage(new DoneWashingPhotoPage()));
+
+        public ICommand GoToPhotoPageCommand => new Command(async () =>
+            {
+                await this.GoToPage(new DoneWashingPhotoPage());
+                this.TakePhoto();
+            });
 
         public ICommand TakePhotoCommand => new Command(async () => await TakePhoto());
-        public async Task TakePhoto()// takePhoto.Clicked += async(sender, args) =>
+        public async Task TakePhoto() // takePhoto.Clicked += async(sender, args) =>
 
         {
+            if (!DoneWashing)
+            {
+                return;
+            }
 
             await CrossMedia.Current.Initialize();
     
@@ -59,12 +109,16 @@ namespace Cito.ViewModels
 
             //await DisplayAlert("File Location", file.Path, "OK");
 
-            var src = ImageSource.FromStream(() =>
-                {
-                    var stream = file.GetStream();
-                    file.Dispose();
-                    return stream;
-                });
+            //var src = ImageSource.FromStream(() =>
+            //    {
+            //        var stream = file.GetStream();
+            //        file.Dispose();
+            //        return stream;
+            //    });
+
+            //or:
+            var src = ImageSource.FromFile(file.Path);
+            //image.Dispose();
 
             if (src != null)
             {
@@ -72,9 +126,7 @@ namespace Cito.ViewModels
                 PhotoTaken = true;
             }
 
-            //or:
-            //image.Source = ImageSource.FromFile(file.Path);
-            //image.Dispose();
+          
             
         }
     }

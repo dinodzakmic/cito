@@ -23,17 +23,19 @@
             <Grid HorizontalOptions="FillAndExpand"
                   VerticalOptions="FillAndExpand">
                 <controls:CitoButton Text="TAKE A PHOTO"
-                                     IsVisible="{Binding PhotoTaken, Converter={StaticResource NegateBoolean}}"
                                      BorderWidth="1"
                                      BorderRadius="0"
+                                     Image="{Binding Photo}"
                                      BorderColor="{StaticResource CitoLightContrast}"
                                      TextColor="{StaticResource CitoLight}"
                                      BackgroundColor="Transparent"
                                      Command="{Binding TakePhotoCommand}" />
+                <!--IsVisible="{Binding PhotoTaken, Converter={StaticResource NegateBoolean}}"-->
+                
 
                 <Image Source="{Binding Photo}"
-                       IsVisible="{Binding PhotoTaken}"
                        Aspect="AspectFill" />
+                <!--IsVisible="{Binding PhotoTaken}"-->
             </Grid>
           
             

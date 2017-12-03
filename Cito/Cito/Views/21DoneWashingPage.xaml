@@ -14,7 +14,7 @@
 
         <controls:CitoButton Text="DONE"
                              Margin="20,0"
-                             Command="{Binding DoneCommand}"/>
+                             Command="{Binding DoneWashingCommand}"/>
 
         <controls:CitoFrame Padding="0"
                             Margin="20,0"
@@ -22,16 +22,32 @@
                             BackgroundColor="Transparent"
                             IsClippedToBounds="True"
                             HasShadow="False"                           
-                            OutlineColor="{StaticResource CitoLightContrast}">
+                            OutlineColor="{StaticResource CitoLightContrast}" IsVisible="{Binding DoneWashing, Converter={StaticResource NegateBoolean}}">
             <controls:CitoButton Text="TAKE PHOTO"
                                  BorderWidth="1"
                                  BorderRadius="0"
                                  BorderColor="{StaticResource CitoLightContrast}"
                                  TextColor="{StaticResource CitoMainLight}"
                                  HorizontalOptions="FillAndExpand"
-                                 BackgroundColor="Transparent"
-                                 Command="{Binding GoToPhotoPageCommand}" />
+                                 BackgroundColor="Transparent" />
         </controls:CitoFrame>
+
+        <!--<controls:CitoFrame Padding="0"
+                            Margin="20,0"
+                            HorizontalOptions="FillAndExpand" 
+                            BackgroundColor="{StaticResource CitoMain}"
+                            IsClippedToBounds="True"
+                            HasShadow="False"                           
+                            OutlineColor="{StaticResource CitoLightContrast}">-->
+            <controls:CitoButton Text="TAKE PHOTO"
+                                 BorderWidth="1"
+                                 BorderRadius="0"
+                                 Margin="20,0"
+                                 BorderColor="{StaticResource CitoLightContrast}"
+                                 HorizontalOptions="FillAndExpand"
+                                 Command="{Binding GoToPhotoPageCommand}" 
+                                 IsVisible="{Binding DoneWashing}"/>
+        <!--</controls:CitoFrame>-->
 
     </StackLayout>
 
