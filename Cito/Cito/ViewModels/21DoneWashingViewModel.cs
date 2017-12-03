@@ -75,12 +75,13 @@ namespace Cito.ViewModels
             await GoToRootPage();
             PhotoTaken = false;
             DoneWashing = false;
+            Photo = null;
         });
 
         public ICommand GoToPhotoPageCommand => new Command(async () =>
             {
-                await this.GoToPage(new DoneWashingPhotoPage());
                 this.TakePhoto();
+                await this.GoToPage(new DoneWashingPhotoPage());
             });
 
         public ICommand TakePhotoCommand => new Command(async () => await TakePhoto());
