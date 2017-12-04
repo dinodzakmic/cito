@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Input;
+using Cito.Framework.Helpers;
 using Cito.Views;
 using Xamarin.Forms;
 
@@ -36,13 +37,15 @@ namespace Cito.ViewModels
         private async Task OwnerType()
         {
             UserType = UserTypeOf.Owner;
-            App.Locator.Prelogin.Settings.UserType = UserType.ToString();
+            CitoSettings.Current.IsUserLoggedIn = true;
+            CitoSettings.Current.UserType = UserType.ToString();
             await GoToMasterRootPage(new MapPage(), UserType);           
         }
         private async Task WasherType()
         {
             UserType = UserTypeOf.Washer;
-            App.Locator.Prelogin.Settings.UserType = UserType.ToString();
+            CitoSettings.Current.IsUserLoggedIn = true;
+            CitoSettings.Current.UserType = UserType.ToString();
             await GoToMasterRootPage(new AvailabiltyPage(), UserType);            
         }
 

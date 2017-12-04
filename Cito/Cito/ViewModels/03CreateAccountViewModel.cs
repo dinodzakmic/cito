@@ -94,7 +94,6 @@ namespace Cito.ViewModels
                 return;
             }
 
-            App.Locator.Prelogin.Settings.IsUserLoggedIn = true;
             await GoToPage(new UserTypePage());
         }
         #endregion

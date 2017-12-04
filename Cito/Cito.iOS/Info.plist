@@ -25,9 +25,27 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleURLName</key>
+			<string>FacebookLogin</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>fb1454486721332127</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>GoogleLoginKey</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.867076694592-sgqvmuqgqtbqpedrscasbq3mhong5n97</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>GoogleLoginBundle</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.crowdedroomstudio.cito</string>
 			</array>
 		</dict>
 	</array>

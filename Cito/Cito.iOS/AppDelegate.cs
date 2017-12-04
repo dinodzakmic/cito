@@ -25,7 +25,8 @@ namespace Cito.iOS
             Facebook.CoreKit.Settings.AppID = "1454486721332127";
             Facebook.CoreKit.Settings.DisplayName = "Cito";
 
-            SignIn.SharedInstance.ClientID = "867076694592-sgqvmuqgqtbqpedrscasbq3mhong5n97.apps.googleusercontent.com";       
+            var googleServiceDictionary = NSDictionary.FromFile("GoogleService-Info.plist");
+            SignIn.SharedInstance.ClientID = googleServiceDictionary["CLIENT_ID"].ToString();
 
             global::Xamarin.Forms.Forms.Init();
 
@@ -42,22 +43,58 @@ namespace Cito.iOS
             return base.FinishedLaunching(app, options);
         }
 
-        public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
+
+        //// For iOS 9 or newer
+        //public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
+        //{
+        //    var openUrlOptions = new UIApplicationOpenUrlOptions(options);
+        //    return SignIn.SharedInstance.HandleUrl(url, openUrlOptions.SourceApplication, openUrlOptions.Annotation);
+        //}
+
+        //// For iOS 8 and older
+        //public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
+        //{
+        //    return SignIn.SharedInstance.HandleUrl(url, sourceApplication, annotation);
+        //}
+
+
+
+        //For iOS 9 or newer
+        public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
         {
             if (FacebookLogin.IsFacebookLogin)
             {
                 FacebookLogin.IsFacebookLogin = false;
-                return Facebook.CoreKit.ApplicationDelegate.SharedInstance.OpenUrl(application, url, sourceApplication,
-                    annotation);
+                var openUrlOptions = new UIApplicationOpenUrlOptions(options);
+                return Facebook.CoreKit.ApplicationDelegate.SharedInstance.OpenUrl(app, url, openUrlOptions.SourceApplication, openUrlOptions.Annotation);
             }
             if (GoogleLogin.IsGoogleLogin)
             {
                 GoogleLogin.IsGoogleLogin = false;
-                return SignIn.SharedInstance.HandleUrl(url, sourceApplication, annotation);
+                var openUrlOptions = new UIApplicationOpenUrlOptions(options);
+                return SignIn.SharedInstance.HandleUrl(url, openUrlOptions.SourceApplication, openUrlOptions.Annotation);
             }
 
             return false;
         }
+
+
+        //public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
+        //{
+        //    if (FacebookLogin.IsFacebookLogin)
+        //    {
+        //        FacebookLogin.IsFacebookLogin = false;
+        //        return Facebook.CoreKit.ApplicationDelegate.SharedInstance.OpenUrl(application, url, sourceApplication,
+        //            annotation);
+        //    }
+        //    if (GoogleLogin.IsGoogleLogin)
+        //    {
+        //        GoogleLogin.IsGoogleLogin = false;
+        //        return SignIn.SharedInstance.HandleUrl(url, sourceApplication, annotation);
+        //    }
+
+        //    return false;
+        //}
 
         public override void OnActivated(UIApplication uiApplication)
         {

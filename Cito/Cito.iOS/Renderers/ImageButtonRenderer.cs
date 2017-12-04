@@ -33,7 +33,7 @@ namespace Cito.iOS.Renderers
                 citoButton.Clicked += delegate
                 {
                     GoogleLogin.IsGoogleLogin = true;
-                    GoogleLogin.HandleGoogleLoginClicked();
+                    new GoogleLogin().HandleGoogleLoginClicked();
                 };
             }
             else

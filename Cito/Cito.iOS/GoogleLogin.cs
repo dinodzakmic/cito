@@ -10,7 +10,13 @@ namespace Cito.iOS
     public class GoogleLogin : UIViewController, ISignInDelegate, ISignInUIDelegate
     {
         internal static bool IsGoogleLogin;
-        public static void HandleGoogleLoginClicked()
+
+        public GoogleLogin()
+        {
+            SignIn.SharedInstance.UIDelegate = this;
+            SignIn.SharedInstance.Delegate = this;
+        }
+        public void HandleGoogleLoginClicked()
         {
             SignIn.SharedInstance.SignInUserSilently();
         }
@@ -18,10 +24,15 @@ namespace Cito.iOS
 
         public void DidSignIn(SignIn signIn, GoogleUser user, NSError error)
         {
-            App.Locator.Prelogin.ExternalLoginCommand.Execute(null);
+                  
+            if (user != null && error == null)
+            {
+                                
+            }
+            
+            //App.Locator.Prelogin.ExternalLoginCommand.Execute(null);
         }
 
-        
 
         [Export("signInWillDispatch:error:")]
         public void WillDispatch(SignIn signIn, NSError error)
