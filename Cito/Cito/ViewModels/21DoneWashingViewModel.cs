@@ -50,85 +50,126 @@ namespace Cito.ViewModels
 
         public bool DoneWashing
         {
-            get => this.doneWashing;
-            set => Set(ref this.doneWashing, value);
+            get { return this.doneWashing; }
+            set { Set(ref this.doneWashing, value); }
         }
 
         private Color doneWashingIndicatorColor;
 
         public Color DoneWashingIndicatorColor
         {
-            get => this.doneWashingIndicatorColor;
-            set => Set(ref this.doneWashingIndicatorColor, value);
+            get { return this.doneWashingIndicatorColor; }
+            set { Set(ref this.doneWashingIndicatorColor, value); }
         }
 
-        public ICommand DoneWashingCommand => new Command(
-            async () =>
+        public ICommand DoneWashingCommand
+        {
+            get
+            {
+                return new Command(
+                    async () =>
+                    {
+                        this.DoneWashing = true;
+                        this.DoneWashingIndicatorColor = Color.FromHex("26a4ad");
+                    });
+            }
+        }
+
+
+        public ICommand DoneCommand
+        {
+            get
+            {
+                return new Command(async () =>
                 {
-                    this.DoneWashing = true;
-                    this.DoneWashingIndicatorColor = Color.FromHex("26a4ad");
+                    try
+                    {
+                        await GoToRootPage();
+                        PhotoTaken = false;
+                        DoneWashing = false;
+                        Photo = null;
+                    }
+                    catch (Exception e)
+                    {
+                        await App.NavPage.CurrentPage.DisplayAlert("Error", e.Message, "OK");
+                    }
+                    
                 });
+            }
+        }
 
-
-        public ICommand DoneCommand => new Command(async () =>
+        public ICommand GoToPhotoPageCommand
         {
-            await GoToRootPage();
-            PhotoTaken = false;
-            DoneWashing = false;
-            Photo = null;
-        });
-
-        public ICommand GoToPhotoPageCommand => new Command(async () =>
+            get
             {
-                this.TakePhoto();
-                await this.GoToPage(new DoneWashingPhotoPage());
-            });
+                return new Command(async () =>
+                {
+                    this.TakePhoto();
+                    await this.GoToPage(new DoneWashingPhotoPage());
+                });
+            }
+        }
 
-        public ICommand TakePhotoCommand => new Command(async () => await TakePhoto());
-        public async Task TakePhoto() // takePhoto.Clicked += async(sender, args) =>
-
+        public ICommand TakePhotoCommand
         {
-            if (!DoneWashing)
+            get { return new Command(TakePhoto); }
+        }
+
+        public async void TakePhoto() // takePhoto.Clicked += async(sender, args) =>
+        {
+            try
             {
-                return;
-            }
+                if (!DoneWashing)
+                {
+                    return;
+                }
 
-            await CrossMedia.Current.Initialize();
-    
-            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+                if (!CrossMedia.IsSupported)
+                {
+                    await App.NavPage.CurrentPage.DisplayAlert("Warning", "Camera is not available", "OK");
+                    return;
+                }
+
+                await CrossMedia.Current.Initialize();
+
+                if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+                {
+                    //DisplayAlert("No Camera", ":( No camera available.", "OK");
+                    return;
+                }
+
+                var x = new Plugin.Media.Abstractions.StoreCameraMediaOptions();
+
+                var file = await CrossMedia.Current.TakePhotoAsync(x);
+
+                if (file == null)
+                    return;
+
+                //await DisplayAlert("File Location", file.Path, "OK");
+
+                //var src = ImageSource.FromStream(() =>
+                //    {
+                //        var stream = file.GetStream();
+                //        file.Dispose();
+                //        return stream;
+                //    });
+
+                //or:
+                var src = ImageSource.FromFile(file.Path);
+                //image.Dispose();
+
+                if (src != null)
+                {
+                    Photo = src;
+                    PhotoTaken = true;
+                    file.Dispose();
+                }
+
+            }
+            catch (Exception e)
             {
-                //DisplayAlert("No Camera", ":( No camera available.", "OK");
-                return;
-            }
-
-            var x = new Plugin.Media.Abstractions.StoreCameraMediaOptions();
-
-            var file = await CrossMedia.Current.TakePhotoAsync(x);
-
-            if (file == null)
-                return;
-
-            //await DisplayAlert("File Location", file.Path, "OK");
-
-            //var src = ImageSource.FromStream(() =>
-            //    {
-            //        var stream = file.GetStream();
-            //        file.Dispose();
-            //        return stream;
-            //    });
-
-            //or:
-            var src = ImageSource.FromFile(file.Path);
-            //image.Dispose();
-
-            if (src != null)
-            {
-                Photo = src;
-                PhotoTaken = true;
-            }
-
-          
-            
+                await App.NavPage.CurrentPage.DisplayAlert("Error", e.Message, "OK");
+            }         
         }
     }
 }
