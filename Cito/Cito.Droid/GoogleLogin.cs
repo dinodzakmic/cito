@@ -1,8 +1,10 @@
 using Android.App;
 using Android.Content;
+using Android.Gms.Auth.Api.SignIn;
 using Android.Gms.Common;
 using Android.Gms.Common.Apis;
 using Android.Gms.Plus;
+using Android.Gms.Plus.Model.People;
 using Android.OS;
 using Xamarin.Facebook;
 using Xamarin.Forms;
@@ -14,6 +16,7 @@ namespace Cito.Droid
         internal static ICallbackManager CallbackManager;
         internal static GoogleApiClient MyGoogleApiClient;
         internal static GoogleApiClient.Builder Builder;
+        internal static IPerson UserProfile;
         internal static bool IsGoogleLogin;
         internal static bool IsIntentStarted;
         internal static bool IntentHandled;
@@ -62,10 +65,19 @@ namespace Cito.Droid
 
         public void OnConnected(Bundle connectionHint)
         {
+            GoogleLogin.UserProfile = PlusClass.PeopleApi.GetCurrentPerson(GoogleLogin.MyGoogleApiClient); // wtf!
+            LoadProfile();
+
+            App.Locator.CreateAccount.FullName = GoogleLogin.UserProfile.DisplayName;      
             GoogleLogin.IntentHandled = false;
             GoogleLogin.IsIntentStarted = false;
             GoogleLogin.IsGoogleLogin = false;
             App.Locator.Prelogin.ExternalLoginCommand.Execute(null);
+        }
+
+        public async void LoadProfile()
+        {
+            var tmp = await PlusClass.PeopleApi.LoadConnected(GoogleLogin.MyGoogleApiClient);
         }
 
         public void OnConnectionSuspended(int cause)

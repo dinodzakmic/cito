@@ -161,8 +161,8 @@ namespace Cito.Droid
         protected override void OnCurrentProfileChanged(Profile oldProfile, Profile currentProfile)
         {
             FacebookLogin.FacebookProfile = currentProfile;
+            App.Locator.CreateAccount.FullName = FacebookLogin.FacebookProfile.Name;
             if (oldProfile == null) { }
-            //App.PostSuccessFacebookAction.Invoke(FacebookSdk.ClientToken, FacebookProfile?.Name);
         }
     }
 }
