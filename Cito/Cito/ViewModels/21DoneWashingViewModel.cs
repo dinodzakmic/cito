@@ -124,17 +124,11 @@ namespace Cito.ViewModels
                     return;
                 }
 
-                if (!CrossMedia.IsSupported)
-                {
-                    await App.NavPage.CurrentPage.DisplayAlert("Warning", "Camera is not available", "OK");
-                    return;
-                }
-
                 await CrossMedia.Current.Initialize();
 
-                if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+                if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported || !CrossMedia.IsSupported)
                 {
-                    //DisplayAlert("No Camera", ":( No camera available.", "OK");
+                    await App.NavPage.CurrentPage.DisplayAlert("Warning", "Camera is not available", "OK");
                     return;
                 }
 
