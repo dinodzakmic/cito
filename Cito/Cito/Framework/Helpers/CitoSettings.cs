@@ -12,6 +12,12 @@ namespace Cito.Framework.Helpers
         public static CitoSettings Current => _settings ?? (_settings = new CitoSettings());
 
         #region Settings Constants
+        const string FullNameKey = "8bbl8d25256d18odhyhseb338db3a";
+        static readonly string FullNameDefault = "";
+
+        const string CarModelKey = "8bbl8d25256d18odhyhseb442db3a";
+        static readonly string CarModelDefault = "";
+
         const string IsUserLoggedInKey = "7aaf7d31316d18odhyhseb338db3a";
         static readonly bool IsUserLoggedInDefault = false;
 
@@ -25,6 +31,31 @@ namespace Cito.Framework.Helpers
         static readonly double LastLongitudeDefault = 0;
         #endregion
 
+        public string FullName
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(FullNameKey, FullNameDefault);
+            }
+            set
+            {
+                if (AppSettings.AddOrUpdateValue(FullNameKey, value))
+                    RaisePropertyChanged(() => FullName);
+            }
+        }
+
+        public string CarModel
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(CarModelKey, CarModelDefault);
+            }
+            set
+            {
+                if (AppSettings.AddOrUpdateValue(CarModelKey, value))
+                    RaisePropertyChanged(() => CarModel);
+            }
+        }
 
         public bool IsUserLoggedIn
         {

@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Input;
+using Cito.Framework.Helpers;
 using Cito.Views;
 using Xamarin.Forms;
 
@@ -12,8 +13,7 @@ namespace Cito.ViewModels
     {
         public string CardImage => "visa_logo.png";
 
-        public string Name => "John Johnson";
-
+        public string Name => CitoSettings.Current.FullName;
         public string Address => "221 Second Street";
 
         public string CodedCardNumber => App.Locator.CardDetails.MaskedCardNumber;
@@ -22,7 +22,7 @@ namespace Cito.ViewModels
 
         public string SelectedPackCost => App.Locator.Map.WasherPackage.PackagePrice;
 
-        public string CarModel => "Audi A8";
+        public string CarModel => CitoSettings.Current.CarModel;
 
         public string CarPlate => "TR6 1971";
 

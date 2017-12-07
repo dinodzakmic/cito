@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Input;
+using Cito.Framework.Helpers;
 using Cito.Framework.Utilities;
 using Cito.Views;
 using Xamarin.Forms;
@@ -94,6 +95,8 @@ namespace Cito.ViewModels
                 return;
             }
 
+            CitoSettings.Current.FullName = FullName;
+            CitoSettings.Current.CarModel = CarModel;
             await GoToPage(new UserTypePage());
         }
         #endregion

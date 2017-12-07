@@ -13,7 +13,7 @@ namespace Cito.ViewModels
     public class CardDetailsViewModel : CitoViewModelBase
     {
         #region Bindable properties
-
+        #region CardNumber
         private string _cardNumberFirst;
 
         public string CardNumberFirst
@@ -51,6 +51,7 @@ namespace Cito.ViewModels
         }
 
         private string _cardNumberFourth;
+        
 
         public string CardNumberFourth
         {
@@ -66,17 +67,98 @@ namespace Cito.ViewModels
         public string CardNumberFull => CardNumberFirst + CardNumberSecond + CardNumberThird + CardNumberFourth;
 
         public string MaskedCardNumber => StringHelpers.MaskCardNumber(CardNumberFull);
+        #endregion
+        #region CardExpiry
+        private string _expiryMonth;
+        public string ExpiryMonth
+        {
+            get { return _expiryMonth; }
+            set { Set(ref _expiryMonth, value); }
+        }
 
+        private string _expiryYear;
+        public string ExpiryYear
+        {
+            get { return _expiryYear; }
+            set { Set(ref _expiryYear, value); }
+        }
+
+        #endregion
+        #region CardHolder
+        private string _cardHolder;
+        public string CardHolder
+        {
+            get { return _cardHolder; }
+            set { Set(ref _cardHolder, value); }
+        }
+
+        #endregion
+        #region CvvNumber
+        private string _cvvNumber;
+        public string CvvNumber
+        {
+            get { return _cvvNumber; }
+            set { Set(ref _cvvNumber, value); }
+        }
+        #endregion
         #endregion
 
         #region Commands
 
-        public ICommand SubmitDetailsCommand => new Command(async () => await GoToPage(new OrderDetailsPage()));
+        public ICommand SubmitDetailsCommand => new Command(async () => await SubmitDetails());
 
         #endregion
 
         #region Methods
 
+        private async Task SubmitDetails()
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(CardNumberFirst) || string.IsNullOrEmpty(CardNumberSecond) || string.IsNullOrEmpty(CardNumberThird) || string.IsNullOrEmpty(CardNumberFourth))
+                {
+                    await App.NavPage.CurrentPage.DisplayAlert("Error", "Please enter valid card number", "OK");
+                    return;
+                }
+                if (string.IsNullOrEmpty(CardHolder))
+                {
+                    await App.NavPage.CurrentPage.DisplayAlert("Error", "Please enter cardholder name", "OK");
+                    return;
+                }
+                if (string.IsNullOrEmpty(ExpiryMonth) || string.IsNullOrEmpty(ExpiryYear))
+                {
+                    await App.NavPage.CurrentPage.DisplayAlert("Error", "Please enter valid card expiry", "OK");
+                    return;
+                }
+                if (string.IsNullOrEmpty(CvvNumber))
+                {
+                    await App.NavPage.CurrentPage.DisplayAlert("Error", "Please enter CVV number", "OK");
+                    return;
+                }
+
+                var expiryMonth = int.Parse(ExpiryMonth);
+                var expiryYear = int.Parse(ExpiryYear);
+
+                if (expiryMonth < 1 || expiryMonth > 12)
+                {
+                    await App.NavPage.CurrentPage.DisplayAlert("Error", "Please enter valid month", "OK");
+                    return;
+                }
+
+                if (expiryYear < 17)
+                {
+                    await App.NavPage.CurrentPage.DisplayAlert("Error", "Please enter valid year", "OK");
+                    return;
+                }
+
+
+                await GoToPage(new OrderDetailsPage());
+            }
+            catch (Exception e)
+            {
+                // ignored
+            }
+        }
         #endregion
     }
 }

@@ -44,7 +44,8 @@
         <controls:CitoLabel Text="Cardholder Name"
                             TextColor="{StaticResource CitoLight}"
                             HorizontalTextAlignment="Start"/>
-        <controls:CitoEntry HorizontalOptions="FillAndExpand"
+        <controls:CitoEntry Text="{Binding CardHolder}" 
+                            HorizontalOptions="FillAndExpand"
                             VerticalOptions="Start"
                             HeightRequest="50"/>
 
@@ -57,12 +58,14 @@
                      HeightRequest="50"
                      Spacing="5">
             <controls:CitoEntry x:Name="MonthEntry"
+                                Text="{Binding ExpiryMonth}"
                                 HorizontalOptions="FillAndExpand"
                                 Placeholder="Month"
                                 Keyboard="Numeric"
                                 MaximumLength="2"
                                 NextView="{x:Reference YearEntry}"/>
             <controls:CitoEntry x:Name="YearEntry" 
+                                Text="{Binding ExpiryYear}"
                                 HorizontalOptions="FillAndExpand"
                                 Placeholder="Year"
                                 MaximumLength="2"
@@ -73,7 +76,8 @@
         <controls:CitoLabel Text="CVV"
                             TextColor="{StaticResource CitoLight}"
                             HorizontalTextAlignment="Start"/>
-        <controls:CitoEntry HorizontalOptions="StartAndExpand"
+        <controls:CitoEntry Text="{Binding CvvNumber}" 
+                            HorizontalOptions="StartAndExpand"
                             VerticalOptions="Start"
                             HeightRequest="50"
                             WidthRequest="100"

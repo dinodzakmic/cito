@@ -1,4 +1,7 @@
-﻿namespace Cito.ViewModels
+﻿using System.Windows.Input;
+using Xamarin.Forms;
+
+namespace Cito.ViewModels
 {
     public class RateWasherViewModel : CitoViewModelBase
     {
@@ -12,5 +15,7 @@
         }
 
         public string CarPicture => "Car.jpg";
+
+        public ICommand RateWasherCommand => new Command(async () => await GoToRootPage());
     }
 }
