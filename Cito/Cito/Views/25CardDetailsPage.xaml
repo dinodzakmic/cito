@@ -20,21 +20,25 @@
                                 Text="{Binding CardNumberFirst}"
                                 HorizontalOptions="FillAndExpand"
                                 Keyboard="Numeric"
+                                MaximumLength="4"
                                 NextView="{x:Reference CardNumber2}"/>
             <controls:CitoEntry x:Name="CardNumber2" 
                                 Text="{Binding CardNumberSecond}"
                                 HorizontalOptions="FillAndExpand"
                                 Keyboard="Numeric"
+                                MaximumLength="4"
                                 NextView="{x:Reference CardNumber3}"/>
             <controls:CitoEntry x:Name="CardNumber3" 
                                 Text="{Binding CardNumberThird}"
                                 HorizontalOptions="FillAndExpand"
                                 Keyboard="Numeric"
+                                MaximumLength="4"
                                 NextView="{x:Reference CardNumber4}"/>
             <controls:CitoEntry x:Name="CardNumber4" 
                                 Text="{Binding CardNumberFourth}"
                                 HorizontalOptions="FillAndExpand"
-                                Keyboard="Numeric"/>
+                                Keyboard="Numeric"
+                                MaximumLength="4"/>
         </StackLayout>
 
         <controls:CitoLabel Text="Cardholder Name"
@@ -56,10 +60,12 @@
                                 HorizontalOptions="FillAndExpand"
                                 Placeholder="Month"
                                 Keyboard="Numeric"
+                                MaximumLength="2"
                                 NextView="{x:Reference YearEntry}"/>
             <controls:CitoEntry x:Name="YearEntry" 
                                 HorizontalOptions="FillAndExpand"
                                 Placeholder="Year"
+                                MaximumLength="2"
                                 Keyboard="Numeric"/>
         </StackLayout>
 
@@ -71,7 +77,8 @@
                             VerticalOptions="Start"
                             HeightRequest="50"
                             WidthRequest="100"
-                            Keyboard="Numeric"/>
+                            Keyboard="Numeric"
+                            MaximumLength="3"/>
 
         <controls:CitoButton Text="Submit"
                              Command="{Binding SubmitDetailsCommand}"/>
