@@ -126,44 +126,39 @@ namespace Cito.ViewModels
 
                 await CrossMedia.Current.Initialize();
 
-                if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported || !CrossMedia.IsSupported)
+                if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported ||
+                    !CrossMedia.IsSupported)
                 {
                     await App.NavPage.CurrentPage.DisplayAlert("Warning", "Camera is not available", "OK");
                     return;
                 }
 
+                App.IsCameraUsed = true;
                 var x = new Plugin.Media.Abstractions.StoreCameraMediaOptions();
-
                 var file = await CrossMedia.Current.TakePhotoAsync(x);
 
                 if (file == null)
+                {
                     return;
+                }
 
-                //await DisplayAlert("File Location", file.Path, "OK");
-
-                //var src = ImageSource.FromStream(() =>
-                //    {
-                //        var stream = file.GetStream();
-                //        file.Dispose();
-                //        return stream;
-                //    });
-
-                //or:
                 var src = ImageSource.FromFile(file.Path);
-                //image.Dispose();
-
                 if (src != null)
                 {
                     Photo = src;
                     PhotoTaken = true;
                     file.Dispose();
                 }
-
             }
             catch (Exception e)
             {
                 await App.NavPage.CurrentPage.DisplayAlert("Error", e.Message, "OK");
-            }         
+            }
+            finally
+            {
+                App.IsCameraUsed = false;
+                App.UpdateLoading(false);
+            }
         }
     }
 }

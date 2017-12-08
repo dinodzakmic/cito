@@ -20,6 +20,7 @@ namespace Cito
         private static ViewModelLocator _locator;
         internal static StackLayout ScrollParent;
         internal static CitoEntry FocusedEntry;
+        internal static bool IsCameraUsed;
         #endregion
         #region Public properties
         public static ViewModelLocator Locator => _locator ?? (_locator = new ViewModelLocator());
@@ -151,7 +152,11 @@ namespace Cito
 
         protected override void OnResume()
         {
+            if(IsCameraUsed)
+                UpdateLoading(true);
+
             FocusedEntry?.Unfocus();
+
             if (App.Locator.Prelogin.Settings.IsUserLoggedIn)
                 Device.BeginInvokeOnMainThread(async () => await Location.GetUserLocation());
         }
