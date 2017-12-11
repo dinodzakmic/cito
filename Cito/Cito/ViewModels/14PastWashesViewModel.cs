@@ -22,19 +22,24 @@ namespace Cito.ViewModels
 
         #endregion
 
+        public List<PastWashDetails> WashDetailsList => new List<PastWashDetails>()
+        {
+            new PastWashDetails("WasherProfileImage.jpg", "Washer Name", 5, "12.99$"),
+            new PastWashDetails("WasherProfileImage.jpg", "Washer Name", 3, "12.99$")
+        };
         public PastWashesViewModel()
         {
-            PastWashesList = new List<PastWashes>()
-            {
-                new PastWashes("June", new List<PastWashDetails>()
-                {
-                    new PastWashDetails("WasherProfileImage.jpg", "Washer Name", 5, "12.99$"),
-                    new PastWashDetails("WasherProfileImage.jpg", "Washer Name", 3, "12.99$")
-                }),
-                new PastWashes("May"),
-                new PastWashes("April"),
-                new PastWashes("March")
-            };
+            //PastWashesList = new List<PastWashes>()
+            //{
+            //    new PastWashes("June", new List<PastWashDetails>()
+            //    {
+            //        new PastWashDetails("WasherProfileImage.jpg", "Washer Name", 5, "12.99$"),
+            //        new PastWashDetails("WasherProfileImage.jpg", "Washer Name", 3, "12.99$")
+            //    }),
+            //    new PastWashes("May"),
+            //    new PastWashes("April"),
+            //    new PastWashes("March")
+            //};
         }
 
         #region Methods

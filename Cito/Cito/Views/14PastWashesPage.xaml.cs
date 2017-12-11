@@ -12,12 +12,12 @@ namespace Cito.Views
 
         private void WashesDetails_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            ((ListView) sender).SelectedItem = null;
-        }
-
-        private void PastWashesList_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
             ((ListView)sender).SelectedItem = null;
         }
+
+        //private void PastWashesList_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        //{
+        //    ((ListView)sender).SelectedItem = null;
+        //}
     }
 }

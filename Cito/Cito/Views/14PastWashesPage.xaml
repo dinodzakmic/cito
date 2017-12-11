@@ -13,7 +13,7 @@
                      VerticalOptions="FillAndExpand"
                      BackgroundColor="Transparent">
 
-            <ListView x:Name="PastWashesList"
+            <!--<ListView x:Name="PastWashesList"
                       ItemSelected="PastWashesList_OnItemSelected"
                       BackgroundColor="Transparent"
                       ItemsSource="{Binding PastWashesList}"
@@ -99,8 +99,110 @@
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>
-                 
-        </StackLayout>
+            </ListView>-->
+
+
+            <components:DropdownItem TextColor="{StaticResource CitoLight}"
+                                     BottomSeparatorVisible="True"
+                                     ArrowPosition="Right"
+                                     ColorBackground="Transparent"
+                                     BackgroundColor="Transparent"
+                                     ItemHeightRequest="60"
+                                     Title="June"                                     
+                                     ExpandableView="{x:Reference ContentLayout}"/>
+
+            <components:DropdownContent x:Name="ContentLayout"
+                                        BackgroundColor="{StaticResource CitoDarkBackground}"
+                                        Padding="20,10"
+                                        TranslationY="-5"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="Start">
+                <ListView x:Name="WashesDetails"
+                          ItemSelected="WashesDetails_OnItemSelected"
+                          ItemsSource="{Binding WashDetailsList}"
+                          RowHeight="90"
+                          BackgroundColor="Transparent"
+                          SeparatorVisibility="Default"
+                          SeparatorColor="{StaticResource CitoLightContrast}"
+                          VerticalOptions="Start">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid HorizontalOptions="FillAndExpand"
+                                      VerticalOptions="CenterAndExpand"
+                                      BackgroundColor="Transparent">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="2.5*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <abstractions:CircleImage Grid.Column="0"
+                                                              Source="{Binding WasherImage}"
+                                                              BorderColor="{StaticResource CitoMain}"
+                                                              BorderThickness="1"
+                                                              HorizontalOptions="FillAndExpand"
+                                                              VerticalOptions="FillAndExpand"
+                                                              HeightRequest="60"
+                                                              WidthRequest="60"/>
+
+                                    <StackLayout Grid.Column="1"
+                                                 HorizontalOptions="FillAndExpand"
+                                                 VerticalOptions="CenterAndExpand">
+                                        <controls:CitoLabel Text="{Binding WasherName}"
+                                                            FontSize="12"
+                                                            TextColor="{StaticResource CitoLight}"
+                                                            VerticalOptions="CenterAndExpand"
+                                                            VerticalTextAlignment="Center"
+                                                            HorizontalOptions="StartAndExpand"
+                                                            HorizontalTextAlignment="Start" />
+                                        <components:Rating RatingStars="{Binding WasherRating}"
+                                                           HeightRequest="20"
+                                                           HorizontalOptions="StartAndExpand"
+                                                           VerticalOptions="CenterAndExpand" />
+                                    </StackLayout>
+
+                                    <controls:CitoButton Grid.Column="2"
+                                                         Text="{Binding Price}"
+                                                         HeightRequest="35"
+                                                         FontSize="12"
+                                                         VerticalOptions="CenterAndExpand"
+                                                         HorizontalOptions="FillAndExpand" />
+
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </components:DropdownContent>
+            
+
+            <components:DropdownItem TextColor="{StaticResource CitoLight}"
+                                     BottomSeparatorVisible="True"
+                                     ArrowPosition="Right"
+                                     ColorBackground="Transparent"
+                                     BackgroundColor="Transparent"
+                                     ItemHeightRequest="60"
+                                     Title="May" />
+
+            <components:DropdownItem TextColor="{StaticResource CitoLight}"
+                                     BottomSeparatorVisible="True"
+                                     ArrowPosition="Right"
+                                     ColorBackground="Transparent"
+                                     BackgroundColor="Transparent"
+                                     ItemHeightRequest="60"
+                                     Title="April" />
+
+            <components:DropdownItem TextColor="{StaticResource CitoLight}"
+                                     BottomSeparatorVisible="True"
+                                     ArrowPosition="Right"
+                                     ColorBackground="Transparent"
+                                     BackgroundColor="Transparent"
+                                     ItemHeightRequest="60"
+                                     Title="March" />
+
+
+
+    </StackLayout>
   
 </ContentPage>

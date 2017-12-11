@@ -7,43 +7,169 @@
              BackgroundImage="{StaticResource BackgroundGradient}"
              Title="FAQ"
              BindingContext="{Binding Source={StaticResource Locator}, Path=Faq}">
-    
-        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent">
-            <ListView x:Name="FaqList"
+
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent">
+        <!--<ListView x:Name="FaqList"
                       BackgroundColor="Transparent"
                       ItemsSource="{Binding FaqList}"
                       ItemSelected="ListView_OnItemSelected"
                       HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
-                            <StackLayout BackgroundColor="Transparent">
-                                <components:DropdownItem TextColor="{StaticResource CitoLight}"
-                                                         BottomSeparatorVisible="True" 
-                                                         ArrowPosition="Right"
-                                                         ColorBackground="Transparent"
-                                                         ItemHeightRequest="60"
-                                                         Title="{Binding Question}"
-                                                         ExpandableView="{x:Reference FirstLayout}" />
-                                
+                        <ViewCell>-->
+        <!--<StackLayout BackgroundColor="Transparent">
+            <components:DropdownItem TextColor="{StaticResource CitoLight}"
+                                     BottomSeparatorVisible="True" 
+                                     ArrowPosition="Right"
+                                     ColorBackground="Transparent"
+                                     ItemHeightRequest="60"
+                                     Title="{Binding Question}"
+                                     ExpandableView="{x:Reference FirstLayout}" />
+
                                 <components:DropdownContent x:Name="FirstLayout" 
                                                             Padding="20,10"
                                                             TranslationY="-5" 
                                                             BackgroundColor="{StaticResource CitoDarkBackground}"
                                                             HorizontalOptions="FillAndExpand" 
                                                             VerticalOptions="Start">
-                                    <StackLayout HorizontalOptions="FillAndExpand" 
-                                                 VerticalOptions="StartAndExpand">
-                                        <controls:CitoLabel Style="{StaticResource FaqLabelStyle}"
-                                                            Text="{Binding Answer}" />
-                                    </StackLayout>
+                                    <controls:CitoLabel HorizontalOptions="FillAndExpand" 
+                                                        VerticalOptions="StartAndExpand"
+                                                        Style="{StaticResource FaqLabelStyle}"
+                                                        Text="{Binding Answer}" />
                                 </components:DropdownContent>
-                        </StackLayout>
-                    </ViewCell>
+        </StackLayout>-->
+        <!--</ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>
-            
+            </ListView>-->
 
-        </StackLayout>
+        <components:DropdownItem TextColor="{StaticResource CitoLight}"
+                                     BottomSeparatorVisible="True" 
+                                     ArrowPosition="Right"
+                                     ColorBackground="Transparent"
+                                     ItemHeightRequest="60"
+                                     Title="{Binding Question1}"
+                                     ExpandableView="{x:Reference Layout1}" />
+
+
+        <components:DropdownContent x:Name="Layout1" 
+                                        Padding="20,10"
+                                        TranslationY="-5" 
+                                        BackgroundColor="{StaticResource CitoDarkBackground}"
+                                        HorizontalOptions="FillAndExpand" 
+                                        VerticalOptions="Start">
+            <controls:CitoLabel HorizontalOptions="FillAndExpand" 
+                                    VerticalOptions="StartAndExpand"
+                                    Style="{StaticResource FaqLabelStyle}"
+                                    Text="{Binding Answer1}" />
+        </components:DropdownContent>
+
+        <components:DropdownItem TextColor="{StaticResource CitoLight}"
+                                 BottomSeparatorVisible="True" 
+                                 ArrowPosition="Right"
+                                 ColorBackground="Transparent"
+                                 ItemHeightRequest="60"
+                                 Title="{Binding Question2}"
+                                 ExpandableView="{x:Reference Layout2}" />
+
+
+        <components:DropdownContent x:Name="Layout2" 
+                                        Padding="20,10"
+                                        TranslationY="-5" 
+                                        BackgroundColor="{StaticResource CitoDarkBackground}"
+                                        HorizontalOptions="FillAndExpand" 
+                                        VerticalOptions="Start">
+            <controls:CitoLabel HorizontalOptions="FillAndExpand" 
+                                    VerticalOptions="StartAndExpand"
+                                    Style="{StaticResource FaqLabelStyle}"
+                                    Text="{Binding Answer2}" />
+        </components:DropdownContent>
+
+        <components:DropdownItem TextColor="{StaticResource CitoLight}"
+                                 BottomSeparatorVisible="True" 
+                                 ArrowPosition="Right"
+                                 ColorBackground="Transparent"
+                                 ItemHeightRequest="60"
+                                 Title="{Binding Question3}"
+                                 ExpandableView="{x:Reference Layout3}" />
+
+
+        <components:DropdownContent x:Name="Layout3" 
+                                        Padding="20,10"
+                                        TranslationY="-5" 
+                                        BackgroundColor="{StaticResource CitoDarkBackground}"
+                                        HorizontalOptions="FillAndExpand" 
+                                        VerticalOptions="Start">
+            <controls:CitoLabel HorizontalOptions="FillAndExpand" 
+                                    VerticalOptions="StartAndExpand"
+                                    Style="{StaticResource FaqLabelStyle}"
+                                    Text="{Binding Answer3}" />
+        </components:DropdownContent>
+
+        <components:DropdownItem TextColor="{StaticResource CitoLight}"
+                                 BottomSeparatorVisible="True" 
+                                 ArrowPosition="Right"
+                                 ColorBackground="Transparent"
+                                 ItemHeightRequest="60"
+                                 Title="{Binding Question4}"
+                                 ExpandableView="{x:Reference Layout4}" />
+
+
+        <components:DropdownContent x:Name="Layout4" 
+                                        Padding="20,10"
+                                        TranslationY="-5" 
+                                        BackgroundColor="{StaticResource CitoDarkBackground}"
+                                        HorizontalOptions="FillAndExpand" 
+                                        VerticalOptions="Start">
+            <controls:CitoLabel HorizontalOptions="FillAndExpand" 
+                                    VerticalOptions="StartAndExpand"
+                                    Style="{StaticResource FaqLabelStyle}"
+                                    Text="{Binding Answer4}" />
+        </components:DropdownContent>
+
+        <components:DropdownItem TextColor="{StaticResource CitoLight}"
+                                 BottomSeparatorVisible="True" 
+                                 ArrowPosition="Right"
+                                 ColorBackground="Transparent"
+                                 ItemHeightRequest="60"
+                                 Title="{Binding Question5}"
+                                 ExpandableView="{x:Reference Layout5}" />
+
+
+        <components:DropdownContent x:Name="Layout5" 
+                                        Padding="20,10"
+                                        TranslationY="-5" 
+                                        BackgroundColor="{StaticResource CitoDarkBackground}"
+                                        HorizontalOptions="FillAndExpand" 
+                                        VerticalOptions="Start">
+            <controls:CitoLabel HorizontalOptions="FillAndExpand" 
+                                    VerticalOptions="StartAndExpand"
+                                    Style="{StaticResource FaqLabelStyle}"
+                                    Text="{Binding Answer5}" />
+        </components:DropdownContent>
+
+        <components:DropdownItem TextColor="{StaticResource CitoLight}"
+                                 BottomSeparatorVisible="True" 
+                                 ArrowPosition="Right"
+                                 ColorBackground="Transparent"
+                                 ItemHeightRequest="60"
+                                 Title="{Binding Question6}"
+                                 ExpandableView="{x:Reference Layout6}" />
+
+
+        <components:DropdownContent x:Name="Layout6" 
+                                        Padding="20,10"
+                                        TranslationY="-5" 
+                                        BackgroundColor="{StaticResource CitoDarkBackground}"
+                                        HorizontalOptions="FillAndExpand" 
+                                        VerticalOptions="Start">
+            <controls:CitoLabel HorizontalOptions="FillAndExpand" 
+                                    VerticalOptions="StartAndExpand"
+                                    Style="{StaticResource FaqLabelStyle}"
+                                    Text="{Binding Answer6}" />
+        </components:DropdownContent>
+
+
+
+    </StackLayout>
 </ContentPage>

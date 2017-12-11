@@ -10,9 +10,9 @@
             InitializeComponent();
         }
 
-        private void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            this.FaqList.SelectedItem = null;
-        }
+        //private void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        //{
+        //    this.FaqList.SelectedItem = null;
+        //}
     }
 }

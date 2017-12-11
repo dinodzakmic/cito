@@ -20,19 +20,32 @@ namespace Cito.ViewModels
 
         #endregion
 
+        public List<FutureWashDetails> WashDetailsList => new List<FutureWashDetails>()
+        {
+            new FutureWashDetails("Car.jpg", "11/10/2018", "Bentley Continental GT",
+                "Elite Pack", "**** **** **** 1528"),
+            new FutureWashDetails("Car.jpg", "20/10/2018", "Porsche Cayenne S",
+                "Elite Pack", "**** **** **** 1528")
+        };
+        //public FutureWashDetails WashDetails1 => new FutureWashDetails("Car", "11/10/2018", "Bentley Continental GT",
+        //    "Elite Pack", "**** **** **** 1528");
+
+        //public FutureWashDetails WashDetails2 => new FutureWashDetails("Car", "20/10/2018", "Porsche Cayenne S",
+        //    "Elite Pack", "**** **** **** 1528");
+
         public FutureWashesViewModel()
         {
-            FutureWashesList = new List<FutureWashes>()
-            {
-                new FutureWashes("September"),
-                new FutureWashes("October", new List<FutureWashDetails>()
-                {
-                    new FutureWashDetails("Car", "11/10/2018", "Bentley Continental GT", "Elite Pack", "**** **** **** 1528"),
-                    new FutureWashDetails("Car", "20/10/2018", "Porsche Cayenne S", "Elite Pack", "**** **** **** 1528")
-                }),
-                new FutureWashes("November"),
-                new FutureWashes("December")
-            };
+            //FutureWashesList = new List<FutureWashes>()
+            //{
+            //    new FutureWashes("September"),
+            //    new FutureWashes("October", new List<FutureWashDetails>()
+            //    {
+            //        new FutureWashDetails("Car", "11/10/2018", "Bentley Continental GT", "Elite Pack", "**** **** **** 1528"),
+            //        new FutureWashDetails("Car", "20/10/2018", "Porsche Cayenne S", "Elite Pack", "**** **** **** 1528")
+            //    }),
+            //    new FutureWashes("November"),
+            //    new FutureWashes("December")
+            //};
         }
 
         #region Methods
