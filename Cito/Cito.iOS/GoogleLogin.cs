@@ -27,7 +27,14 @@ namespace Cito.iOS
                   
             if (user != null && error == null)
             {
-                                
+                var window = UIApplication.SharedApplication.KeyWindow;
+                var vc = window.RootViewController;
+                while (vc.PresentedViewController != null)
+                {
+                    vc = vc.ModalViewController;
+                }
+
+             
             }
             
             //App.Locator.Prelogin.ExternalLoginCommand.Execute(null);

@@ -1,4 +1,5 @@
-﻿using System.Xml.Schema;
+﻿using System.Diagnostics;
+using System.Xml.Schema;
 using Foundation;
 using Google.SignIn;
 using ImageCircle.Forms.Plugin.iOS;
@@ -25,8 +26,18 @@ namespace Cito.iOS
             Facebook.CoreKit.Settings.AppID = "1454486721332127";
             Facebook.CoreKit.Settings.DisplayName = "Cito";
 
-            var googleServiceDictionary = NSDictionary.FromFile("GoogleService-Info.plist");
-            SignIn.SharedInstance.ClientID = googleServiceDictionary["CLIENT_ID"].ToString();
+
+            Google.Core.Context.SharedInstance.Configure(out var configureError);
+            if (configureError != null)
+            {
+                // If something went wrong, assign the clientID manually
+                Debug.WriteLine("Error configuring the Google context: {0}", configureError);
+
+                var googleServiceDictionary = NSDictionary.FromFile("GoogleService-Info.plist");
+                SignIn.SharedInstance.ClientID = googleServiceDictionary["CLIENT_ID"].ToString();
+                //
+            }
+
 
             global::Xamarin.Forms.Forms.Init();
 

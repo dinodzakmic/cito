@@ -83,6 +83,8 @@ namespace Cito.ViewModels
                 {
                     try
                     {
+                        await App.NavPage.CurrentPage.DisplayAlert("Success",
+                            "Great job. Thank you for using Cito. Keep going", "OK");
                         await GoToRootPage();
                         PhotoTaken = false;
                         DoneWashing = false;
@@ -103,10 +105,8 @@ namespace Cito.ViewModels
             {
                 return new Command(async () =>
                 {
-                    App.UpdateLoading(false);
-                    this.TakePhoto();
-                    App.UpdateLoading(false);
                     await this.GoToPage(new DoneWashingPhotoPage());
+                    this.TakePhoto();
                 });
             }
         }

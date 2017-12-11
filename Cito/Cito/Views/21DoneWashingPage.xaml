@@ -12,7 +12,7 @@
                  Padding="20"
                  Spacing="30">
 
-        <controls:CitoButton Text="DONE"
+        <controls:CitoButton Text="DONE WASHING"
                              Margin="20,0"
                              Command="{Binding DoneWashingCommand}"/>
 
