@@ -31,10 +31,15 @@ namespace Cito.iOS
                         {
                             if (error == null && !result.IsCancelled)
                             {
+                                App.Locator.CreateAccount.FullName = Facebook.CoreKit.Profile.CurrentProfile.Name;
                                 App.Locator.Prelogin.ExternalLoginCommand.Execute(null);
                             }
                         });
+                
+               
             }
+
+            
 
         }
     }

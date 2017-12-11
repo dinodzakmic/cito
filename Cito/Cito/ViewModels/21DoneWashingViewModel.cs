@@ -66,8 +66,7 @@ namespace Cito.ViewModels
         {
             get
             {
-                return new Command(
-                    async () =>
+                return new Command(() =>
                     {
                         this.DoneWashing = true;
                         this.DoneWashingIndicatorColor = Color.FromHex("26a4ad");
@@ -104,7 +103,9 @@ namespace Cito.ViewModels
             {
                 return new Command(async () =>
                 {
+                    App.UpdateLoading(false);
                     this.TakePhoto();
+                    App.UpdateLoading(false);
                     await this.GoToPage(new DoneWashingPhotoPage());
                 });
             }
@@ -135,6 +136,7 @@ namespace Cito.ViewModels
 
                 App.IsCameraUsed = true;
                 var x = new Plugin.Media.Abstractions.StoreCameraMediaOptions();
+                App.UpdateLoading(false);
                 var file = await CrossMedia.Current.TakePhotoAsync(x);
 
                 if (file == null)
