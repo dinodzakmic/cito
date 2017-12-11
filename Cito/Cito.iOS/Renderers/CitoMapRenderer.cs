@@ -150,9 +150,10 @@ namespace Cito.iOS.Renderers
             
             if (!e.View.Selected)
             {
-                if (CustomPinView == null) return;              
+                if (CustomPinView == null) return;     
                 CustomPinView.RemoveFromSuperview();
                 CustomPinView.Dispose();
+                ExecuteCommand();
                 CustomPinView = null;               
             }
         }
