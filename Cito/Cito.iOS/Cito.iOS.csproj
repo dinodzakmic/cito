@@ -408,6 +408,7 @@
     <BundleResource Include="Resources\AppIconSpotl2x.png" />
     <BundleResource Include="Resources\SplashScreen2.png" />
     <BundleResource Include="Resources\SplashScreen4.png" />
+    <BundleResource Include="Resources\Splash.png" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\AppIconApp2x.png">
