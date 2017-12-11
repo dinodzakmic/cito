@@ -78,10 +78,12 @@ namespace Cito
 
                 if (LoadingInProgress)
                 {
+
                     Device.BeginInvokeOnMainThread(() =>
                     {
                         UserDialogs.Instance.ShowLoading(text, MaskType.Gradient);
                         //DependencyService.Get<IStayAwake>().Set(true);
+
                     });                 
                 }
                 else
@@ -152,8 +154,12 @@ namespace Cito
 
         protected override void OnResume()
         {
-            if(IsCameraUsed)
-                UpdateLoading(true);
+            if (Device.RuntimePlatform == "Android")
+            {
+                if (IsCameraUsed)
+                    UpdateLoading(true);
+            }
+
 
             FocusedEntry?.Unfocus();
 

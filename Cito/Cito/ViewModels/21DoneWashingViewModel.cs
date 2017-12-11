@@ -127,8 +127,7 @@ namespace Cito.ViewModels
 
                 await CrossMedia.Current.Initialize();
 
-                if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported ||
-                    !CrossMedia.IsSupported)
+                if (!CrossMedia.IsSupported || !CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
                 {
                     await App.NavPage.CurrentPage.DisplayAlert("Warning", "Camera is not available", "OK");
                     return;
@@ -137,6 +136,7 @@ namespace Cito.ViewModels
                 App.IsCameraUsed = true;
                 var x = new Plugin.Media.Abstractions.StoreCameraMediaOptions();
                 App.UpdateLoading(false);
+                await Task.Delay(200);
                 var file = await CrossMedia.Current.TakePhotoAsync(x);
 
                 if (file == null)
