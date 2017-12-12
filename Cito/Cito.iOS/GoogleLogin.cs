@@ -27,25 +27,17 @@ namespace Cito.iOS
 
 
         public void DidSignIn(SignIn signIn, GoogleUser user, NSError error)
-        {
-                  
+        {                 
             if (user != null && error == null)
             {
-                var window = UIApplication.SharedApplication.KeyWindow;
-                var vc = window.RootViewController;
-                while (vc.PresentedViewController != null)
-                {
-					vc = vc.PresentedViewController;
-                }
+                App.Locator.CreateAccount.FullName = user.Profile.Name;
+                App.Locator.Prelogin.ExternalLoginCommand.Execute(null);
             }
-            
-            //App.Locator.Prelogin.ExternalLoginCommand.Execute(null);
         }
 
         [Export("signIn:didDisconnectWithUser:withError:")]
-		public virtual void DidDisconnect(SignIn signIn, GoogleUser user, NSError error) {
-
-			Console.WriteLine("disconnected");
+		public virtual void DidDisconnect(SignIn signIn, GoogleUser user, NSError error)
+        {
 		}
 
 

@@ -26,8 +26,8 @@ namespace Cito.iOS
             Facebook.CoreKit.Settings.AppID = "1454486721332127";
             Facebook.CoreKit.Settings.DisplayName = "Cito";
 
-
-            Google.Core.Context.SharedInstance.Configure(out var configureError);
+            NSError configureError;
+            Google.Core.Context.SharedInstance.Configure(out configureError);
             if (configureError != null)
             {
                 // If something went wrong, assign the clientID manually
