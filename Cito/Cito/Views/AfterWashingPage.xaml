@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
+             x:Class="Cito.Views.AfterWashingPage"
+             BackgroundImage="{StaticResource BackgroundGradient}"
+             Title="Done Washing"
+             NavigationPage.HasNavigationBar="False">
+
+    <StackLayout Spacing="0" VerticalOptions="Center">
+        <controls:CitoLabel Text="Great job!"
+               FontSize="30"
+               TextColor="{StaticResource CitoMainLight}"
+               LineBreakMode="WordWrap"
+               VerticalOptions="Center"
+               VerticalTextAlignment="Center"
+               HorizontalOptions="CenterAndExpand" 
+               HorizontalTextAlignment="Center"/>
+
+        <controls:CitoLabel Text="Thank you for using Cito.
+                            Keep up the great work!"
+                            FontSize="20"
+                            TextColor="{StaticResource CitoMainLight}"
+                            LineBreakMode="WordWrap"
+                            VerticalOptions="Center"
+                            VerticalTextAlignment="Center"
+                            HorizontalOptions="CenterAndExpand" 
+                            HorizontalTextAlignment="Center"/>
+    </StackLayout>
+    
+</ContentPage>

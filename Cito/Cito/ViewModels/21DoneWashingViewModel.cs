@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Diagnostics;
+using System.Threading.Tasks;
 using Cito.Views;
 
 namespace Cito.ViewModels
@@ -83,12 +84,20 @@ namespace Cito.ViewModels
                 {
                     try
                     {
-                        await App.NavPage.CurrentPage.DisplayAlert("Success",
-                            "Great job. Thank you for using Cito. Keep going", "OK");
-                        await GoToRootPage();
-                        PhotoTaken = false;
-                        DoneWashing = false;
-                        Photo = null;
+                        //await App.NavPage.CurrentPage.DisplayAlert("Success",
+                        //    "Great job. Thank you for using Cito. Keep going", "OK");
+
+                        await GoToPage(new AfterWashingPage());
+                        
+                        Device.StartTimer(TimeSpan.FromSeconds(3), () =>
+                        {
+                            Device.BeginInvokeOnMainThread(async () => await GoToRootPage());
+                            PhotoTaken = false;
+                            DoneWashing = false;
+                            Photo = null;
+                            return false;
+                        });
+                        
                     }
                     catch (Exception e)
                     {
