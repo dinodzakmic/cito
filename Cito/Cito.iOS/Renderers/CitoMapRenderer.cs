@@ -102,6 +102,9 @@ namespace Cito.iOS.Renderers
         {
             var customView = e.View as CustomMKAnnotationView;
             if (customView == null) return;
+
+            FormsMap.MoveToRegion(MapSpan.FromCenterAndRadius(customView.Position, Distance.FromKilometers(1)));
+
             if (customView.Type == PinType.Generic) return;
 
             CustomPinView = new UIView();
