@@ -48,6 +48,22 @@
 				<string>com.crowdedroomstudio.cito</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.crowdedroomstudio.cito</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.867076694592-sgqvmuqgqtbqpedrscasbq3mhong5n97</string>
+			</array>
+		</dict>
 	</array>
 	<key>FacebookAppID</key>
 	<string>1454486721332127</string>
@@ -75,12 +91,12 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.0.2</string>
+	<string>0.0.13</string>
 	<key>CFBundleName</key>
 	<string>Cito</string>
-	<key>CFBundleVersion</key>
-	<string>2</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>CFBundleVersion</key>
+	<string>13</string>
 </dict>
 </plist>

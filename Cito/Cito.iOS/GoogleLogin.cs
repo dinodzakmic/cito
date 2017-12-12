@@ -18,7 +18,11 @@ namespace Cito.iOS
         }
         public void HandleGoogleLoginClicked()
         {
-            SignIn.SharedInstance.SignInUserSilently();
+			if (SignIn.SharedInstance.HasAuthInKeychain) {
+				SignIn.SharedInstance.SignInUserSilently();
+			} else {
+				SignIn.SharedInstance.SignInUser();
+			}
         }
 
 
@@ -31,14 +35,18 @@ namespace Cito.iOS
                 var vc = window.RootViewController;
                 while (vc.PresentedViewController != null)
                 {
-                    vc = vc.ModalViewController;
+					vc = vc.PresentedViewController;
                 }
-
-             
             }
             
             //App.Locator.Prelogin.ExternalLoginCommand.Execute(null);
         }
+
+        [Export("signIn:didDisconnectWithUser:withError:")]
+		public virtual void DidDisconnect(SignIn signIn, GoogleUser user, NSError error) {
+
+			Console.WriteLine("disconnected");
+		}
 
 
         [Export("signInWillDispatch:error:")]
