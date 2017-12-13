@@ -91,7 +91,10 @@ namespace Cito.ViewModels
                         
                         Device.StartTimer(TimeSpan.FromSeconds(3), () =>
                         {
-                            Device.BeginInvokeOnMainThread(async () => await GoToRootPage());
+                            App.Locator.Availability.UserOnline = false;
+                            Device.BeginInvokeOnMainThread(async () => await App.Locator.Availability.HandleMenu(false));
+
+                            //Device.BeginInvokeOnMainThread(async () => await GoToRootPage());
                             PhotoTaken = false;
                             DoneWashing = false;
                             Photo = null;
