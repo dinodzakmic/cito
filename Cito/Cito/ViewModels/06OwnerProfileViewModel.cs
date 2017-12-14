@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Cito.Framework.Helpers;
 
 namespace Cito.ViewModels
 {
@@ -6,13 +7,8 @@ namespace Cito.ViewModels
     {
         #region Bindable properties
         #region FullName
-        private string _fullName;
 
-        public string FullName
-        {
-            get { return _fullName; }
-            set { Set(ref _fullName, value); }
-        }
+        public string FullName => CitoSettings.Current.FullName;
         #endregion
         #region CarsList
         private List<string> _carsList;
@@ -31,10 +27,10 @@ namespace Cito.ViewModels
 
         public OwnerProfileViewModel()
         {
-            FullName = "Firstname Lastname";
+            var realCar = CitoSettings.Current.CarModel;
             CarsList = new List<string>()
             {
-                "Car1",
+                realCar,
                 "Car2"
             };
         }
