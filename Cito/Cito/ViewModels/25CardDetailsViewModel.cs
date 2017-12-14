@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Cito.Framework.Helpers;
 using Cito.Framework.Utilities;
 using Cito.Views;
 using Xamarin.Forms;
@@ -85,7 +86,7 @@ namespace Cito.ViewModels
 
         #endregion
         #region CardHolder
-        private string _cardHolder;
+        private string _cardHolder = CitoSettings.Current.FullName;
         public string CardHolder
         {
             get { return _cardHolder; }

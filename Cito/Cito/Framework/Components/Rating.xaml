@@ -18,31 +18,31 @@
                  HorizontalOptions="FillAndExpand" 
                  VerticalOptions="CenterAndExpand">
       
-        <Image ClassId="1" Source="CitoStarEmpty">
+        <Image ClassId="1" Source="CitoStarEmpty" WidthRequest="30">
           <Image.GestureRecognizers>
             <TapGestureRecognizer Tapped="StarTapped" />
           </Image.GestureRecognizers>
         </Image>
-      
-        <Image ClassId="2" Source="CitoStarEmpty" >
+
+        <Image ClassId="2" Source="CitoStarEmpty" WidthRequest="30" >
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Tapped="StarTapped" />
             </Image.GestureRecognizers>
         </Image>
-      
-        <Image ClassId="3" Source="CitoStarEmpty" >
+
+        <Image ClassId="3" Source="CitoStarEmpty" WidthRequest="30" >
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Tapped="StarTapped" />
             </Image.GestureRecognizers>
         </Image>
-      
-        <Image ClassId="4" Source="CitoStarEmpty" >
+
+        <Image ClassId="4" Source="CitoStarEmpty" WidthRequest="30" >
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Tapped="StarTapped" />
             </Image.GestureRecognizers>
         </Image>
-      
-        <Image ClassId="5" Source="CitoStarEmpty" >
+
+        <Image ClassId="5" Source="CitoStarEmpty" WidthRequest="30" >
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Tapped="StarTapped" />
             </Image.GestureRecognizers>
