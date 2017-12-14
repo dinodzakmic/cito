@@ -103,8 +103,8 @@
     <ConsolePause>False</ConsolePause>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <BuildIpa>True</BuildIpa>
-    <CodesignProvision>VS: com.crowdedroomstudio.cito Development</CodesignProvision>
-    <CodesignKey>iPhone Developer: Bojan Trobok (FKT3HWDL3N)</CodesignKey>
+    <CodesignProvision>Automatic:AdHoc</CodesignProvision>
+    <CodesignKey>iPhone Distribution: Crowded Room Studio doo (HZGPPRPY9T)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
@@ -115,8 +115,8 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>False</ConsolePause>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
-    <CodesignProvision>VS: com.crowdedroomstudio.cito Development</CodesignProvision>
-    <CodesignKey>iPhone Developer: Bojan Trobok (FKT3HWDL3N)</CodesignKey>
+    <CodesignProvision>Automatic:AppStore</CodesignProvision>
+    <CodesignKey>iPhone Distribution: Crowded Room Studio doo (HZGPPRPY9T)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
@@ -444,6 +444,7 @@
     <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\SplashScreen4.png">
       <InProject>false</InProject>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon_1024x1024.png" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -483,9 +484,6 @@
       <InProject>false</InProject>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon_167x167.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon_1024x1024.png">
       <InProject>false</InProject>
     </ImageAsset>
   </ItemGroup>
