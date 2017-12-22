@@ -141,12 +141,12 @@ namespace Cito.iOS.Renderers
         void OnCalloutAccessoryControlTapped(object sender, MKMapViewAccessoryTappedEventArgs e)
         {
             var customView = (CustomMKAnnotationView)e.View;
-            App.Locator.Map.GoToCardDetailsCommand.Execute(null);
+            App.Locator.Map.GoToScheduleOrderCommand.Execute(null);
         }
 
         void ExecuteCommand()
         {
-            App.Locator.Map.GoToCardDetailsCommand.Execute(null);
+            App.Locator.Map.GoToScheduleOrderCommand.Execute(null);
         }
         void OnDidDeselectAnnotationView(object sender, MKAnnotationViewEventArgs e)
         {

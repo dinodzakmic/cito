@@ -157,7 +157,7 @@ namespace Cito.Droid.Renderers
 
         private void OnInfoWindowClick(object sender, GoogleMap.InfoWindowClickEventArgs e)
         {
-            App.Locator.Map.GoToCardDetailsCommand.Execute(null);
+            App.Locator.Map.GoToScheduleOrderCommand.Execute(null);
         }
         public View GetInfoContents(Marker marker)
         {

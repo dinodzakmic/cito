@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Cito.Framework.Helpers;
@@ -28,11 +29,49 @@ namespace Cito.ViewModels
         }
 
         private Package _washerPackage;
+        
+
         public Package WasherPackage
         {
             get { return _washerPackage; }
             set { Set(ref _washerPackage, value); }
         }
+         
+        private bool _scheduleWashingEnabled = false;
+        public bool ScheduleWashingEnabled
+        {
+            get { return _scheduleWashingEnabled; }
+            set { Set(ref _scheduleWashingEnabled, value); }
+        }
+
+        private DateTime _selectedDate = DateTime.Now;
+
+        public DateTime SelectedDate
+        {
+            get { return _selectedDate; }
+            set
+            {
+                Set(ref _selectedDate, value);
+                RaisePropertyChanged(() => SelectedDateString);
+            }
+        }
+
+        public string SelectedDateString => SelectedDate.ToString("d");
+
+        private TimeSpan _selectedTime = DateTime.Now.TimeOfDay;
+        
+
+        public TimeSpan SelectedTime
+        {
+            get { return _selectedTime; }
+            set
+            {
+                Set(ref _selectedTime, value);
+                RaisePropertyChanged(() => SelectedTimeString);
+            }
+        }
+
+        public string SelectedTimeString => SelectedTime.ToString("hh\\:mm");
 
 
         public bool IsOwner => CitoSettings.Current.UserType.Equals(UserTypeViewModel.UserTypeOf.Owner.ToString());
@@ -40,6 +79,7 @@ namespace Cito.ViewModels
         public bool IsWasherAvailable => IsWasher && App.Locator.Availability.UserOnline;
         #endregion
         #region Commands
+        public ICommand GoToScheduleOrderCommand => new Command(async () => await GoToPage(new ScheduleOrderPage()));
         public ICommand GoToCardDetailsCommand => new Command(async () => await GoToPage(new CardDetailsPage()));
         public ICommand GoToOrderDetailsCommand => new Command(async () => await GoToOrderDetails());
         public ICommand GoToWashingRequestsCommand => new Command(async () => await GoToWashingRequests());

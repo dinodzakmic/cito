@@ -8,5 +8,10 @@ namespace Cito.Views
         {
             InitializeComponent();
         }
+
+        private void ListView_OnItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            ((ListView)sender).SelectedItem = null;
+        }
     }
 }
