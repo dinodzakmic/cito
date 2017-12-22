@@ -37,15 +37,16 @@ namespace Cito.ViewModels
         private async Task OwnerType()
         {
             UserType = UserTypeOf.Owner;
-            CitoSettings.Current.IsUserLoggedIn = true;
             CitoSettings.Current.UserType = UserType.ToString();
-            await GoToMasterRootPage(new MapPage(), UserType);           
+            await GoToPage(new PreloginPage());
+            //CitoSettings.Current.IsUserLoggedIn = true;
+            //await GoToMasterRootPage(new MapPage(), UserType);           
         }
         private async Task WasherType()
         {
             UserType = UserTypeOf.Washer;
-            CitoSettings.Current.IsUserLoggedIn = true;
             CitoSettings.Current.UserType = UserType.ToString();
+            CitoSettings.Current.IsUserLoggedIn = true;
             await GoToMasterRootPage(new AvailabiltyPage(), UserType);            
         }
 

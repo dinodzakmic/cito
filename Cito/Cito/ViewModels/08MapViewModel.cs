@@ -58,7 +58,7 @@ namespace Cito.ViewModels
 
         public string SelectedDateString => SelectedDate.ToString("d");
 
-        private TimeSpan _selectedTime = DateTime.Now.TimeOfDay;
+        private TimeSpan _selectedTime = DateTime.Now.TimeOfDay.Add(TimeSpan.FromMinutes(30));
         
 
         public TimeSpan SelectedTime

@@ -87,7 +87,7 @@
     <Compile Include="ViewModels\15FutureWashesViewModel.cs" />
     <Compile Include="ViewModels\21DoneWashingViewModel.cs" />
     <Compile Include="ViewModels\24EarningsViewModel.cs" />
-    <Compile Include="ViewModels\ScheduleOrderViewModel.cs" />
+    <Compile Include="ViewModels\27ScheduleOrderViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="ViewModels\20WasherProfileViewModel.cs" />
     <Compile Include="ViewModels\22WasherMenuViewModel.cs" />
@@ -204,8 +204,8 @@
     <Compile Include="Views\26AfterWashingPage.xaml.cs">
       <DependentUpon>26AfterWashingPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ScheduleOrderPage.xaml.cs">
-      <DependentUpon>ScheduleOrderPage.xaml</DependentUpon>
+    <Compile Include="Views\27ScheduleOrderPage.xaml.cs">
+      <DependentUpon>27ScheduleOrderPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -550,7 +550,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\ScheduleOrderPage.xaml">
+    <EmbeddedResource Include="Views\27ScheduleOrderPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

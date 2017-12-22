@@ -95,9 +95,13 @@ namespace Cito.ViewModels
                 return;
             }
 
+
             CitoSettings.Current.FullName = FullName;
             CitoSettings.Current.CarModel = CarModel;
-            await GoToPage(new UserTypePage());
+            CitoSettings.Current.IsUserLoggedIn = true;
+            await GoToMasterRootPage(new MapPage(), App.Locator.UserType.UserType);    
+
+            //await GoToPage(new UserTypePage());
         }
         #endregion
 

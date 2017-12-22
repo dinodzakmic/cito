@@ -59,8 +59,8 @@ namespace Cito
             }
             else
             {
-                InstantiatingPageType = typeof(PreloginPage);
-                NavPage = new NavigationPage(new PreloginPage());
+                InstantiatingPageType = typeof(UserTypePage);
+                NavPage = new NavigationPage(new UserTypePage());
                 MainPage = NavPage;
             }
             
