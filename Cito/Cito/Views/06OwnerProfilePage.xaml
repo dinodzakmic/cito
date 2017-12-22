@@ -39,7 +39,8 @@
                           VerticalOptions="Start"
                           HorizontalOptions="FillAndExpand"
                           SeparatorVisibility="Default" 
-                          RowHeight="65" >
+                          RowHeight="65"
+                          ItemTapped="ListView_OnItemTapped">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>                            
