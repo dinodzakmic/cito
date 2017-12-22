@@ -2,55 +2,76 @@
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                   xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
+                  xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
                   x:Class="Cito.Views.WasherMenu"
                   MasterBehavior="Popover"
                   Icon="MenuIcon.png"
                   Title="WasherMenu">
 
   <MasterDetailPage.Master>
-    <ContentPage Title="Menu"
-                 Icon="MenuIcon.png"
-                 BindingContext="{Binding Source={StaticResource Locator}, Path=WasherMenu}" >
-      <Grid BackgroundColor="Transparent">
-        <Grid.RowDefinitions>
-          <RowDefinition Height="3*" />
-          <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <Image Grid.Row="0" Grid.RowSpan="2"
-               Source="{StaticResource MenuBackground}"
-               Aspect="AspectFill"/>
-          <StackLayout Grid.Row="0" 
-                       x:Name="ItemsLayout"
-                       Spacing="0" 
-                       Margin="15,20" 
-                       BackgroundColor="Transparent">
+      <ContentPage Title="Menu"
+                   Icon="MenuIcon.png"
+                   BindingContext="{Binding Source={StaticResource Locator}, Path=WasherMenu}">
+          <Grid BackgroundColor="Transparent">
+              <Grid.RowDefinitions>
+                  <RowDefinition Height="3*" />
+                  <RowDefinition Height="*" />
+              </Grid.RowDefinitions>
+              <Image Grid.Row="0" Grid.RowSpan="2"
+                     Source="{StaticResource MenuBackground}"
+                     Aspect="AspectFill" />
+              <StackLayout Grid.Row="0"
+                           x:Name="ItemsLayout"
+                           Spacing="0"
+                           Margin="15,20"
+                           BackgroundColor="Transparent">
 
 
-              <components:MenuItem MenuItemImage="{StaticResource ConnectionIcon}"
-                                   MenuItemText="Availability"
-                                   BorderTopVisibility="False"
-                                   Command="{Binding GoToAvailabiltyCommand}"/>
-            
-              <components:MenuItem MenuItemImage="{StaticResource LocationIcon}"
-                                   MenuItemText="Map"
-                                   Command="{Binding GoToMapCommand}"/>
+                  <components:MenuItem MenuItemImage="{StaticResource ConnectionIcon}"
+                                       MenuItemText="Availability"
+                                       BorderTopVisibility="False"
+                                       Command="{Binding GoToAvailabiltyCommand}" />
 
-              <components:MenuItem MenuItemImage="{StaticResource CoinIcon}"
-                                   MenuItemText="Earnings"
-                                   Command="{Binding GoToEarningsCommand}"/>
+                  <components:MenuItem MenuItemImage="{StaticResource LocationIcon}"
+                                       MenuItemText="Map"
+                                       Command="{Binding GoToMapCommand}" />
 
-              <components:MenuItem MenuItemImage="{StaticResource QuestionIcon}"
-                                   MenuItemText="FAQ"
-                                   Command="{Binding GoToFaqCommand}" />
-            
-              <components:MenuItem MenuItemImage="{StaticResource ContactIcon}"
-                                   MenuItemText="Support"
-                                   Command="{Binding GoToSupportCommand}"/>
-            
-          </StackLayout>
+                  <components:MenuItem MenuItemImage="{StaticResource CoinIcon}"
+                                       MenuItemText="Earnings"
+                                       Command="{Binding GoToEarningsCommand}" />
 
-      </Grid>
-    </ContentPage>
+                  <components:MenuItem MenuItemImage="{StaticResource QuestionIcon}"
+                                       MenuItemText="FAQ"
+                                       Command="{Binding GoToFaqCommand}" />
+
+                  <components:MenuItem MenuItemImage="{StaticResource ContactIcon}"
+                                       MenuItemText="Support"
+                                       Command="{Binding GoToSupportCommand}" />
+
+              </StackLayout>
+
+              <StackLayout Grid.Row="1" Orientation="Horizontal"
+                           BackgroundColor="Transparent"
+                           VerticalOptions="EndAndExpand" HorizontalOptions="StartAndExpand"
+                           Margin="25,15">
+                  <StackLayout.GestureRecognizers>
+                      <TapGestureRecognizer Command="{Binding SignOutCommand}" />
+                  </StackLayout.GestureRecognizers>
+
+                  <Image Source="{StaticResource StandBy}"
+                         HeightRequest="30"
+                         VerticalOptions="CenterAndExpand"
+                         HorizontalOptions="StartAndExpand" />
+
+                  <controls:CitoLabel Text="Sign Out"
+                                      TextColor="#d60024"
+                                      FontSize="18"
+                                      VerticalOptions="CenterAndExpand"
+                                      HorizontalOptions="StartAndExpand" />
+              </StackLayout>
+
+          </Grid>
+      </ContentPage>
   </MasterDetailPage.Master>
   
 </MasterDetailPage>
