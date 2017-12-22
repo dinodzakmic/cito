@@ -24,7 +24,7 @@ namespace Cito.ViewModels
 
         public string CarModel => CitoSettings.Current.CarModel;
 
-        public string CarPlate => "TR6 1971";
+		public string CarPlate => CitoSettings.Current.LicensePlate;
 
         public string CarPicture => "Car.jpg";
 
