@@ -83,7 +83,8 @@ namespace Cito.ViewModels
                 return;
             }
 
-            if (!StringHelpers.IsNumber(Number))
+            //if (!StringHelpers.IsNumber(Number))
+			if (string.IsNullOrEmpty(Number))
             {
                 await App.NavPage.CurrentPage.DisplayAlert("Error", "Please enter valid phone number", "OK");
                 return;
@@ -98,10 +99,12 @@ namespace Cito.ViewModels
 
             CitoSettings.Current.FullName = FullName;
             CitoSettings.Current.CarModel = CarModel;
+            CitoSettings.Current.LicensePlate = Number;
             CitoSettings.Current.IsUserLoggedIn = true;
             await GoToMasterRootPage(new MapPage(), App.Locator.UserType.UserType);    
 
             //await GoToPage(new UserTypePage());
+			
         }
         #endregion
 

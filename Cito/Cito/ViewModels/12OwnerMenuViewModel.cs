@@ -70,6 +70,7 @@ namespace Cito.ViewModels
 
                 CitoSettings.Current.FullName = String.Empty;
                 CitoSettings.Current.CarModel = String.Empty;
+                CitoSettings.Current.LicensePlate = String.Empty;
                 CitoSettings.Current.IsUserLoggedIn = false;
 
                 App.NavPage = new NavigationPage(new UserTypePage());

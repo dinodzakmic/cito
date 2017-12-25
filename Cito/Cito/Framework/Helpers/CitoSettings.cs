@@ -16,7 +16,10 @@ namespace Cito.Framework.Helpers
         static readonly string FullNameDefault = "";
 
         const string CarModelKey = "8bbl8d25256d18odhyhseb442db3a";
-        static readonly string CarModelDefault = "";
+		static readonly string CarModelDefault = "";
+
+		const string LicensePlateKey = "license_key";
+		static readonly string LicensePlateDefault = "";
 
         const string IsUserLoggedInKey = "7aaf7d31316d18odhyhseb338db3a";
         static readonly bool IsUserLoggedInDefault = false;
@@ -55,7 +58,17 @@ namespace Cito.Framework.Helpers
                 if (AppSettings.AddOrUpdateValue(CarModelKey, value))
                     RaisePropertyChanged(() => CarModel);
             }
-        }
+		}
+
+		public string LicensePlate {
+			get {
+				return AppSettings.GetValueOrDefault(LicensePlateKey, LicensePlateDefault);
+			}
+			set {
+				if (AppSettings.AddOrUpdateValue(LicensePlateKey, value))
+					RaisePropertyChanged(() => LicensePlate);
+			}
+		}
 
         public bool IsUserLoggedIn
         {

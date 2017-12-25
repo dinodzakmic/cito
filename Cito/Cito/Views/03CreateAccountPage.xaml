@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
@@ -43,9 +43,9 @@
                             NextView="{x:Reference NumberEntry}"
                             Mandatory="True" ErrorText="This is a required field" />
         <controls:CitoEntry x:Name="NumberEntry" Text="{Binding Number}"
-                            Placeholder="Phone" HorizontalOptions="FillAndExpand" Margin="15,0"
+                            Placeholder="License plate" HorizontalOptions="FillAndExpand" Margin="15,0"
                             ScrollParent="{x:Reference Scroll}" 
-                            Keyboard="Telephone" NextView="{x:Reference PasswordEntry}" 
+                            Keyboard="Default" NextView="{x:Reference PasswordEntry}" 
                             Mandatory="True" ErrorText="This is a required field" />
         <controls:CitoEntry x:Name="PasswordEntry" Text="{Binding Password}"
                             Placeholder="Password" HorizontalOptions="FillAndExpand" 
