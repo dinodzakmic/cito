@@ -9,8 +9,8 @@
              Title="Washing Requests">
 
   <StackLayout Padding="20, 60, 20, 20" Spacing="10">
-      <Image Source="{StaticResource LogoImage}" Aspect="AspectFit" HeightRequest="100" />
-      <StackLayout HeightRequest="50" />
+      <Image Source="Car.jpg" Aspect="AspectFit" HeightRequest="200" WidthRequest="200"/>
+      <!--<StackLayout HeightRequest="50" />-->
 
 
       <components:ImageButton Margin="20,0"

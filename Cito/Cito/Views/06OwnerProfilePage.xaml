@@ -34,25 +34,53 @@
                                         BackgroundColor="Transparent"
                                         VerticalOptions="Start">
 
-                <ListView ItemsSource="{Binding CarsList}"
+                <ListView x:Name="MyCarsList" ItemsSource="{Binding CarsList}"
+                          SelectedItem="{Binding SelectedCar}"
                           BackgroundColor="Transparent"
                           VerticalOptions="Start"
                           HorizontalOptions="FillAndExpand"
                           SeparatorVisibility="Default" 
                           RowHeight="65"
-                          ItemTapped="ListView_OnItemTapped">
+                          ItemSelected="MyCarsList_OnItemSelected">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <ViewCell>                            
-                                <StackLayout Margin="20,0,20,20"
-                                             HorizontalOptions="FillAndExpand">
-                                  <components:ImageButton HorizontalOptions="FillAndExpand"
-                                                          VerticalOptions="CenterAndExpand"
-                                                          ButtonImage="{StaticResource CarSmallIcon}"
-                                                          ButtonText="{Binding .}"
-                                                          ButtonTextSize="20"
-                                                          ButtonTextHorizontalTextAlignment="Center"/>
-                                </StackLayout>
+                            <ViewCell>
+                                <Grid Margin="20,0,20,20"
+                                      HorizontalOptions="FillAndExpand">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="3*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <!--<controls:CitoButton x:Name="Button" Grid.Column="0" Grid.ColumnSpan="3"
+                                                         HorizontalOptions="FillAndExpand"
+                                                         VerticalOptions="FillAndExpand"/>-->
+
+                                    <Image Grid.Column="0" 
+                                           x:Name="Image"
+                                           Aspect="AspectFit"
+                                           HeightRequest="25"
+                                           VerticalOptions="CenterAndExpand"
+                                           HorizontalOptions="StartAndExpand"
+                                           Margin="15,0,0,0"
+                                           Source="{StaticResource CarSmallIcon}"/>
+
+                                    <controls:CitoLabel Grid.Column="1"
+                                                        x:Name="LabelText"
+                                                        TextColor="{StaticResource CitoLight}"
+                                                        FontSize="14"
+                                                        InputTransparent="true"
+                                                        HorizontalOptions="FillAndExpand"
+                                                        HorizontalTextAlignment="Start"
+                                                        VerticalOptions="CenterAndExpand"
+                                                        VerticalTextAlignment="Center"
+                                                        Text="{Binding Model}"/>
+                                    <Image Source="{Binding Picture}"
+                                           Grid.Column="2"
+                                           HeightRequest="25"
+                                           WidthRequest="25"/>
+
+                                </Grid>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
