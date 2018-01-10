@@ -44,11 +44,11 @@ namespace Cito.Droid.Renderers
             {
                 var currentChild = toolbar.GetChildAt(i);
 
-                var titleText = currentChild as TextView;
-                titleText?.SetTypeface(Typefaces.FontRegular, TypefaceStyle.Normal);
-                titleText?.SetElegantTextHeight(true);
-                titleText?.SetTextSize(ComplexUnitType.Dip, 15);
-                titleText?.SetX(150);
+                //var titleText = currentChild as TextView;
+                //titleText?.SetTypeface(Typefaces.FontRegular, TypefaceStyle.Normal);
+                //titleText?.SetElegantTextHeight(true);
+                //titleText?.SetTextSize(ComplexUnitType.Dip, 15);
+                //titleText?.SetX(150);
 
                 var imageButton = currentChild as ImageButton;
                 var drawerArrow = imageButton?.Drawable as DrawerArrowDrawable;

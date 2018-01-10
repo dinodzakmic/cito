@@ -207,6 +207,9 @@
     <Compile Include="Views\27ScheduleOrderPage.xaml.cs">
       <DependentUpon>27ScheduleOrderPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\06CarDetailsPage.xaml.cs">
+      <DependentUpon>06CarDetailsPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Localization\TextResources.resx">
@@ -551,6 +554,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\27ScheduleOrderPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\06CarDetailsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

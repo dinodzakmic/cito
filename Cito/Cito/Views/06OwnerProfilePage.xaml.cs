@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using Cito.ViewModels;
+using Xamarin.Forms;
 
 namespace Cito.Views
 {
@@ -9,9 +10,19 @@ namespace Cito.Views
             InitializeComponent();
         }
 
-        private void ListView_OnItemTapped(object sender, ItemTappedEventArgs e)
+        //protected override void OnAppearing()
+        //{
+        //    base.OnAppearing();
+        //    MyCarsList.SelectedItem = null;
+        //}
+
+        private void MyCarsList_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            ((ListView)sender).SelectedItem = null;
+            var bc = (OwnerProfileViewModel)MyCarsList.BindingContext;
+            if (bc.SelectedCar == null) return;
+            bc.EditingCar = new OwnerProfileViewModel.Car(bc.SelectedCar);
+            bc.GoToPage(new CarDetailsPage() { BindingContext = bc });
+            this.MyCarsList.SelectedItem = null;
         }
     }
 }
