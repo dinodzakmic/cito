@@ -29,7 +29,10 @@
                   <components:MenuItem MenuItemImage="{StaticResource UserIcon}"
                                        MenuItemText="Profile"
                                        Command="{Binding GoToOwnerProfileCommand}" />
-                  <components:MenuItem MenuItemImage="{StaticResource KeyIcon}"
+                    <components:MenuItem MenuItemImage="generic_card.png"
+                                       MenuItemText="Card"
+                                       Command="{Binding GoToOwnerCardCommand}" />
+                    <components:MenuItem MenuItemImage="{StaticResource KeyIcon}"
                                        MenuItemText="Past Washes"
                                        Command="{Binding GoToPastWashesCommand}" />
                   <components:MenuItem MenuItemImage="{StaticResource KeyIcon}"

@@ -15,6 +15,11 @@ namespace Cito.ViewModels
         #region Commands
         public ICommand GoToHomeCommand => new Command(async () => await GoToHome());
         public ICommand GoToOwnerProfileCommand => new Command(async () => await GoToOwnerProfile());
+
+        public ICommand GoToOwnerCardCommand => new Command(async () => await GoToOwnerCard());
+
+     
+
         public ICommand GoToPastWashesCommand => new Command(async () => await GoToPastWashes());
         public ICommand GoToFutureWashesCommand => new Command(async () => await GoToFutureWashes());
         public ICommand GoToPromoCodeCommand => new Command(async () => await GoToPromoCode());
@@ -34,6 +39,10 @@ namespace Cito.ViewModels
         private async Task GoToOwnerProfile()
         {
             await GoToPage(new OwnerProfilePage());
+        }
+        private async Task GoToOwnerCard()
+        {
+            await GoToPage(new CardDetailsPage());
         }
 
         private async Task GoToPastWashes()

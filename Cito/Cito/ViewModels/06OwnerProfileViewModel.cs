@@ -73,7 +73,7 @@ namespace Cito.ViewModels
             var realCar = CitoSettings.Current.CarModel;
             CarsList = new ObservableCollection<Car>()
             {
-                new Car(realCar,"AB 123456"),
+                new Car(realCar,CitoSettings.Current.LicensePlate),
                // new Car("Toyota Corolla","DF 333444"),
             };
         }

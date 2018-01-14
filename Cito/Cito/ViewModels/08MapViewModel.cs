@@ -97,28 +97,28 @@ namespace Cito.ViewModels
                     {
                         Label = "Washer Name 1",
                         Address = "Washer Address 1",
-                        Position = new Position(25.997987, -80.152303),
+                        Position = new Position(this.CurrentUserPosition.Latitude + 0.25, this.CurrentUserPosition.Longitude),
                         Type = PinType.Place
                     },
                     new Pin()
                     {
                         Label = "Washer Name 2",
                         Address = "Washer Address 2",
-                        Position = new Position(25.743502, -80.232080),
+                        Position = new Position(this.CurrentUserPosition.Latitude, this.CurrentUserPosition.Longitude -0.1234),
                         Type = PinType.Place
                     },
                     new Pin()
                     {
                         Label = "Washer Name 3",
                         Address = "Washer Address 3",
-                        Position = new Position(25.759817, -80.194273),
+                        Position = new Position(this.CurrentUserPosition.Latitude + 0.21, this.CurrentUserPosition.Longitude+0.3),
                         Type = PinType.Place
                     },
                     new Pin()
                     {
                         Label = "Washer Name 4",
                         Address = "Washer Address 4",
-                        Position = new Position(25.717710, -80.276134),
+                        Position = new Position(this.CurrentUserPosition.Latitude + 1, this.CurrentUserPosition.Longitude-1),
                         Type = PinType.Place
                     }
                 };
