@@ -453,7 +453,7 @@
     <AndroidResource Include="Resources\drawable-hdpi\ConnectionIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\generic_card.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\GenericCard.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

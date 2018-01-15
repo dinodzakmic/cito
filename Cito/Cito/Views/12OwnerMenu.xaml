@@ -29,7 +29,7 @@
                   <components:MenuItem MenuItemImage="{StaticResource UserIcon}"
                                        MenuItemText="Profile"
                                        Command="{Binding GoToOwnerProfileCommand}" />
-                    <components:MenuItem MenuItemImage="generic_card.png"
+                    <components:MenuItem MenuItemImage="GenericCard.png"
                                        MenuItemText="Card"
                                        Command="{Binding GoToOwnerCardCommand}" />
                     <components:MenuItem MenuItemImage="{StaticResource KeyIcon}"
