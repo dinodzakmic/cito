@@ -3,12 +3,26 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>867076694592-sgqvmuqgqtbqpedrscasbq3mhong5n97.apps.googleusercontent.com</string>
+	<string>1095594532632-fq4an1klcstrspagau5rv76ethm09hno.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.867076694592-sgqvmuqgqtbqpedrscasbq3mhong5n97</string>
+	<string>com.googleusercontent.apps.1095594532632-fq4an1klcstrspagau5rv76ethm09hno</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.crowdedroomstudio.cito</string>
+	<key>PROJECT_ID</key>
+	<string>citoapp-191915</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<false></false>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1095594532632:ios:fe2eb594b0bf7231</string>
 </dict>
 </plist>

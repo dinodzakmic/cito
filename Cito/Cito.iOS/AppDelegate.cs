@@ -23,8 +23,8 @@ namespace Cito.iOS
 
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            Facebook.CoreKit.Settings.AppID = "1454486721332127";
-            Facebook.CoreKit.Settings.DisplayName = "Cito";
+			Facebook.CoreKit.Settings.AppID = "1970002946654512";
+            Facebook.CoreKit.Settings.DisplayName = "CITO App";
 
             NSError configureError;
             Google.Core.Context.SharedInstance.Configure(out configureError);

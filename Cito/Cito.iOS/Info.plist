@@ -29,7 +29,7 @@
 			<string>FacebookLogin</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb1454486721332127</string>
+				<string>fb1970002946654512</string>
 			</array>
 		</dict>
 		<dict>
@@ -37,7 +37,7 @@
 			<string>GoogleLoginKey</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.867076694592-sgqvmuqgqtbqpedrscasbq3mhong5n97</string>
+				<string>com.googleusercontent.apps.1095594532632-fq4an1klcstrspagau5rv76ethm09hno</string>
 			</array>
 		</dict>
 		<dict>
@@ -61,12 +61,12 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.867076694592-sgqvmuqgqtbqpedrscasbq3mhong5n97</string>
+				<string>com.googleusercontent.apps.1095594532632-fq4an1klcstrspagau5rv76ethm09hno</string>
 			</array>
 		</dict>
 	</array>
 	<key>FacebookAppID</key>
-	<string>1454486721332127</string>
+	<string>1970002946654512</string>
 	<key>FacebookDisplayName</key>
 	<string>Cito</string>
 	<key>LSApplicationQueriesSchemes</key>

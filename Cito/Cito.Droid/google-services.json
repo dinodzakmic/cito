@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1095594532632",
+    "project_id": "citoapp-191915"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1095594532632:android:fe2eb594b0bf7231",
+        "android_client_info": {
+          "package_name": "com.crowdedroomstudio.cito"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1095594532632-36h1ppqqtgdpm1oeogbij6da8pc367ps.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.crowdedroomstudio.cito",
+            "certificate_hash": "103f8f6af447f6fe2ee84e21b5403ec4453e997a"
+          }
+        },
+        {
+          "client_id": "1095594532632-efahec48358ec71b13n6r361b7etafva.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHXoOpItEyCWpOBu_GEAWMKwSiRgWflTE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

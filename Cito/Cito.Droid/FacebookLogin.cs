@@ -50,7 +50,7 @@ namespace Cito.Droid
 
                 HandleError = loginError =>
                 {
-
+					Console.WriteLine("fb login error");
                 },
 
                 HandleLogout = () =>

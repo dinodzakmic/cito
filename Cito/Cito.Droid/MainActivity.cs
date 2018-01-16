@@ -49,20 +49,15 @@ namespace Cito.Droid
             PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 
-        private void SetColors()
-        {
-            if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
-            {
-                Window.ClearFlags(WindowManagerFlags.TranslucentStatus);
-                Window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
-                var themeColor = (Xamarin.Forms.Color)Xamarin.Forms.Application.Current.Resources.FirstOrDefault(res => res.Key.Equals("CitoMain")).Value;
+		private void SetColors() {
+			if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop) {
+				Window.ClearFlags(WindowManagerFlags.TranslucentStatus);
+				Window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
+				var themeColor = (Xamarin.Forms.Color)Xamarin.Forms.Application.Current.Resources.FirstOrDefault(res => res.Key.Equals("CitoMain")).Value;
 
-                Window.SetStatusBarColor(new Android.Graphics.Color(Convert.ToInt32(themeColor.R * 255), Convert.ToInt32(themeColor.G * 255), Convert.ToInt32(themeColor.B * 255)));
-            }
-            
-        }
-
-        
+				Window.SetStatusBarColor(new Android.Graphics.Color(Convert.ToInt32(themeColor.R * 255), Convert.ToInt32(themeColor.G * 255), Convert.ToInt32(themeColor.B * 255)));
+			}
+		}
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
