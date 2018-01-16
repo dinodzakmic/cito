@@ -28,7 +28,14 @@ namespace Cito.ViewModels
 
         public string CarPicture => "Car.jpg";
 
-        public string WasherPicture => "washer.jpg";
+        //public string WasherPicture => "washer.jpg";
+
+		private ImageSource _washerPicture;
+
+		public ImageSource WasherPicture {
+			get => _washerPicture;
+			set => this.Set(ref _washerPicture, value);
+		}
       
 
         public ICommand GoToRateWasherCommand => new Command(async () => await GoToRateWasher());
