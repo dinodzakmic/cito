@@ -91,13 +91,13 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.1.15</string>
+	<string>0.1.16</string>
 	<key>CFBundleName</key>
 	<string>Cito</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>CFBundleVersion</key>
-	<string>1015</string>
+	<string>1016</string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>This app needs access to your calendar</string>
 </dict>
