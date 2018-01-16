@@ -12,11 +12,21 @@ namespace Cito.ViewModels
     public class OwnerProfileViewModel : CitoViewModelBase
     {
         #region Bindable properties
-        #region FullName
+        #region Profile
+
+        private ImageSource profilePicture;
+
+        public ImageSource ProfilePicture
+        {
+            get => profilePicture;
+            set => this.Set(ref this.profilePicture, value);
+        }
 
         public string FullName => CitoSettings.Current.FullName;
         #endregion
         #region CarsList
+
+
 
         private Car selectedCar;
 
@@ -76,6 +86,7 @@ namespace Cito.ViewModels
                 new Car(realCar,CitoSettings.Current.LicensePlate),
                // new Car("Toyota Corolla","DF 333444"),
             };
+            this.ProfilePicture = ProfileData.ProfilePicture;
         }
 
         #region Methods

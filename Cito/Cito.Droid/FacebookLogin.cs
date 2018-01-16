@@ -2,8 +2,10 @@ using System;
 using Android.App;
 using Android.Content;
 using Android.Runtime;
+using Cito.ViewModels;
 using Xamarin.Facebook;
 using Xamarin.Facebook.Login;
+using Xamarin.Forms;
 
 namespace Cito.Droid
 {
@@ -161,6 +163,11 @@ namespace Cito.Droid
         protected override void OnCurrentProfileChanged(Profile oldProfile, Profile currentProfile)
         {
             FacebookLogin.FacebookProfile = currentProfile;
+            var pic = FacebookLogin.FacebookProfile.GetProfilePictureUri(300, 300).ToString();
+
+            var profilePicture = ImageSource.FromUri(new Uri(pic));
+            ProfileData.ProfilePicture = profilePicture;
+
             App.Locator.CreateAccount.FullName = FacebookLogin.FacebookProfile.Name;
             if (oldProfile == null) { }
         }

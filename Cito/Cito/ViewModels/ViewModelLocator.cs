@@ -1,5 +1,6 @@
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using Xamarin.Forms;
 
 namespace Cito.ViewModels
 {
@@ -9,7 +10,8 @@ namespace Cito.ViewModels
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
         }
-        
+
+
         public PreloginViewModel Prelogin => ViewModel<PreloginViewModel>.Get();
         public UserTypeViewModel UserType => ViewModel<UserTypeViewModel>.Get();
         public CreateAccountViewModel CreateAccount => ViewModel<CreateAccountViewModel>.Get();

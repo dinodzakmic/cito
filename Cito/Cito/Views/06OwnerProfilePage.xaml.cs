@@ -8,9 +8,33 @@ namespace Cito.Views
         public OwnerProfilePage()
         {
             InitializeComponent();
+            var bc = (OwnerProfileViewModel)this.BindingContext;
+
+            if (bc.ProfilePicture != null)
+            {
+                ProfilePicture.Source = bc.ProfilePicture; //hacky as hell
+            }
+            else
+            {
+                ProfilePicture.Source = "OwnerProfileImage.png";
+            }
         }
 
-        //protected override void OnAppearing()
+        //private void OwnerProfilePage_BindingContextChanged(object sender, System.EventArgs e)
+        //{
+        //    var bc = (OwnerProfileViewModel) this.BindingContext;
+
+        //    if (bc.ProfilePicture != null)
+        //    {
+        //        ProfilePicture.Source = bc.ProfilePicture; //hacky as hell
+        //    }
+        //    else
+        //    {
+        //        ProfilePicture.Source = "OwnerProfileImage.png";
+        //    }
+        //}
+
+        ////protected override void OnAppearing()
         //{
         //    base.OnAppearing();
         //    MyCarsList.SelectedItem = null;

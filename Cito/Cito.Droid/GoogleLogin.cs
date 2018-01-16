@@ -1,3 +1,4 @@
+using System;
 using Android.App;
 using Android.Content;
 using Android.Gms.Auth.Api.SignIn;
@@ -6,6 +7,7 @@ using Android.Gms.Common.Apis;
 using Android.Gms.Plus;
 using Android.Gms.Plus.Model.People;
 using Android.OS;
+using Cito.ViewModels;
 using Xamarin.Facebook;
 using Xamarin.Forms;
 
@@ -68,11 +70,16 @@ namespace Cito.Droid
             GoogleLogin.UserProfile = PlusClass.PeopleApi.GetCurrentPerson(GoogleLogin.MyGoogleApiClient); // wtf!
             LoadProfile();
 
-            App.Locator.CreateAccount.FullName = GoogleLogin.UserProfile.DisplayName;      
+            App.Locator.CreateAccount.FullName = GoogleLogin.UserProfile.DisplayName;
+            var pic = GoogleLogin.UserProfile.Image.Url;
+            var profilePicture = ImageSource.FromUri(new Uri(pic));
+            ProfileData.ProfilePicture = profilePicture;
+            //App.Locator.OwnerProfile.ProfilePicture = profilePicture;
             GoogleLogin.IntentHandled = false;
             GoogleLogin.IsIntentStarted = false;
             GoogleLogin.IsGoogleLogin = false;
             App.Locator.Prelogin.ExternalLoginCommand.Execute(null);
+
         }
 
         public async void LoadProfile()
