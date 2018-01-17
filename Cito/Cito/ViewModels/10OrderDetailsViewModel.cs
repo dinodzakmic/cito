@@ -28,7 +28,7 @@ namespace Cito.ViewModels
 
         public string CarPicture => "Car.jpg";
 
-        public string WasherPicture => "washer.jpg";
+        public ImageSource WasherPicture => ProfileData.ProfilePicture ?? "washer.jpg";
       
 
         public ICommand GoToRateWasherCommand => new Command(async () => await GoToRateWasher());
