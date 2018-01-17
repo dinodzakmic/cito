@@ -4,6 +4,7 @@ using System.Text;
 using Foundation;
 using Google.SignIn;
 using UIKit;
+using Xamarin.Forms;
 
 namespace Cito.iOS
 {
@@ -31,6 +32,11 @@ namespace Cito.iOS
             if (user != null && error == null)
             {
                 App.Locator.CreateAccount.FullName = user.Profile.Name;
+				if (user.Profile.HasImage) {
+					var uri = user.Profile.GetImageUrl(300);
+					var profilePicture = ImageSource.FromUri(new Uri(uri.AbsoluteString));
+					Cito.ViewModels.ProfileData.ProfilePicture = profilePicture;
+				}
                 App.Locator.Prelogin.ExternalLoginCommand.Execute(null);
             }
         }
