@@ -4,7 +4,9 @@
              xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
              x:Class="Cito.Views.CarDetailsPage"
              BackgroundImage="{StaticResource BackgroundGradient}"
-             Title="Car Details">
+             Title="Car Details"
+             BindingContext="{Binding Source={StaticResource Locator}, Path=OwnerProfile}"
+             >
     <ContentPage.Content>
         <StackLayout>
 
