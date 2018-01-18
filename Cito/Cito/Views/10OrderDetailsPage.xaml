@@ -1,13 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:components="clr-namespace:Cito.Framework.Components;assembly=Cito"
              xmlns:controls="clr-namespace:Cito.Framework.Controls;assembly=Cito"
              xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
              x:Class="Cito.Views.OrderDetailsPage"
-             BindingContext="{Binding Source={StaticResource Locator}, Path=OrderDetails}"
              BackgroundImage="{StaticResource BackgroundGradient}"
-             Title="Order Details">
+             Title="Order Details"
+             BindingContext="{Binding Source={StaticResource Locator}, Path=OrderDetails}">
   
     <StackLayout Style="{StaticResource RootStackLayoutStyle}">
         
@@ -54,8 +54,27 @@
 
         <BoxView Style="{StaticResource SeparatorBoxStyle}"/>
 
-        <Label Style="{StaticResource CentralLabelStyle}" Text="{Binding SelectedPack}"/>
-        <controls:CitoButton HorizontalOptions="CenterAndExpand" Text="{Binding SelectedPackCost, StringFormat='$ {0}'}"/>
+        <StackLayout Orientation="Horizontal">
+            <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" WidthRequest="130">
+                <Label Style="{StaticResource CentralLabelStyle}" Text="{Binding SelectedPack}"/>
+                <controls:CitoButton HorizontalOptions="CenterAndExpand" Text="{Binding SelectedPackCost, StringFormat='$ {0}'}"/>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" WidthRequest="130">
+                <Label 
+                    TextColor="{StaticResource CitoAccent}"
+                    LineBreakMode="NoWrap"
+                    HorizontalTextAlignment="Center"
+                    Text="Promo code"
+                    FontSize="Large"
+                />
+                <controls:CitoEntry 
+                    WidthRequest="80"
+                    HorizontalOptions="CenterAndExpand" 
+                    Text="{Binding SelectedPackCost, StringFormat='$ {0}'}"
+                />
+            </StackLayout>
+            
+        </StackLayout>
         
         <StackLayout Orientation="Horizontal">
             <controls:CitoButton HorizontalOptions="CenterAndExpand" 
