@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Cito.Framework.Helpers;
@@ -76,7 +77,7 @@ namespace Cito.ViewModels
             //this.SelectedCar = null;
         });
 
-        public ICommand TakePhotoCommand => new Command(TakePhoto);
+        public Command TakePhotoCommand => new Command(TakePhoto);
         #endregion
 
         public OwnerProfileViewModel()
