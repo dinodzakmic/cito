@@ -11,6 +11,8 @@ namespace Cito.ViewModels
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1600:ElementsMustBeDocumented", Justification = "Reviewed. Suppression is OK here.")]
     public class OrderDetailsViewModel : CitoViewModelBase
     {
+        private string promoCode;
+
         public string CardImage => "visa_logo.png";
 
         public string Name => CitoSettings.Current.FullName;
@@ -28,6 +30,11 @@ namespace Cito.ViewModels
 
         public string CarPicture => "Car.jpg";
 
+        public string PromoCode
+        {
+            get => this.promoCode;
+            set => this.Set(ref this.promoCode, value);
+        }
         public ImageSource WasherPicture => ProfileData.ProfilePicture ?? "washer.jpg";
       
 

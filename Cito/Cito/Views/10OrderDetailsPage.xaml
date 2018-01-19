@@ -54,37 +54,62 @@
 
         <BoxView Style="{StaticResource SeparatorBoxStyle}"/>
 
-        <StackLayout Orientation="Horizontal">
-            <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" WidthRequest="130">
-                <Label Style="{StaticResource CentralLabelStyle}" Text="{Binding SelectedPack}"/>
-                <controls:CitoButton HorizontalOptions="CenterAndExpand" Text="{Binding SelectedPackCost, StringFormat='$ {0}'}"/>
-            </StackLayout>
-            <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" WidthRequest="130">
-                <Label 
-                    TextColor="{StaticResource CitoAccent}"
-                    LineBreakMode="NoWrap"
-                    HorizontalTextAlignment="Center"
-                    Text="Promo code"
-                    FontSize="Large"
-                />
-                <controls:CitoEntry 
-                    WidthRequest="80"
-                    HorizontalOptions="CenterAndExpand" 
-                    Text="{Binding SelectedPackCost, StringFormat='$ {0}'}"
-                />
-            </StackLayout>
-            
-        </StackLayout>
+       
         
-        <StackLayout Orientation="Horizontal">
-            <controls:CitoButton HorizontalOptions="CenterAndExpand" 
-                                 Text="Cancel" 
-                                 Command="{Binding CancelOrderCommand}"
-                                 WidthRequest="80" />
-            <controls:CitoButton HorizontalOptions="CenterAndExpand" 
-                                 Text="Accept" 
-                                 Command="{Binding GoToRateWasherCommand}"
-                                 WidthRequest="80" />
-        </StackLayout>
+        <Grid VerticalOptions="FillAndExpand" Margin="0,0,0,15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Label Grid.Column="0" Grid.Row="0"
+                   Style="{StaticResource CentralLabelStyle}" 
+                   HorizontalTextAlignment="Center"
+                   LineBreakMode="WordWrap"
+                   Text="{Binding SelectedPack}"
+                   />
+
+    
+
+
+            <Label Grid.Column="1" Grid.Row="0"
+                TextColor="{StaticResource CitoAccent}"
+                LineBreakMode="NoWrap"
+                HorizontalTextAlignment="Center"
+                Text="Promo code"
+                FontSize="Large"
+            />
+
+            <controls:CitoButton Grid.Column="0" Grid.Row="1"
+                                 HorizontalOptions="CenterAndExpand" 
+                                 VerticalOptions="StartAndExpand"
+                                 Margin="0,10" 
+                                 Text="{Binding SelectedPackCost, StringFormat='$ {0}'}"/>
+
+            <controls:CitoEntry Grid.Column="1" Grid.Row="1"
+                                Margin="0,10"
+                WidthRequest="80"
+                HorizontalOptions="CenterAndExpand" 
+                                VerticalOptions="StartAndExpand"
+                Text="{Binding PromoCode}"
+            />
+
+            <controls:CitoButton  Grid.Column="0" Grid.Row="2"
+                                  HorizontalOptions="FillAndExpand" 
+                                  Text="Cancel" 
+                                  Command="{Binding CancelOrderCommand}"
+                                 />
+            <controls:CitoButton  Grid.Column="1" Grid.Row="2"
+                                  HorizontalOptions="FillAndExpand" 
+                                  Text="Accept" 
+                                  Command="{Binding GoToRateWasherCommand}"
+                                 />
+        </Grid>
+    
     </StackLayout>
 </ContentPage>
