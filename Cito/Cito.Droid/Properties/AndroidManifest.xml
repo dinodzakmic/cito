@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.crowdedroomstudio.cito" android:versionCode="1017" android:versionName="0.1.17">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.crowdedroomstudio.cito" android:versionCode="1021" android:versionName="0.1.21">
 	<uses-sdk android:minSdkVersion="15" />
 	<application android:label="@string/app_name" android:icon="@drawable/AppIcon" android:largeHeap="true">
 		<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyAiv5gT332uGWN5puMNj2AUa6R84DeVwmI" />
